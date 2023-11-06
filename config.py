@@ -37,7 +37,7 @@ DB_URI = os.environ.get("DATABASE_URL", "")
 
 #Database MONGO
 MONGO_URI = os.environ.get("MONGO_URL", "")
-MONGO_NAME = os.environ.get("MONGO_NAME", "filesharexbot")
+MONGO_NAME = os.environ.get("MONGO_NAME", "")
 
 # ID dari Channel Atau Group Untuk Wajib Subscribenya
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
