@@ -10,6 +10,9 @@ from logging.handlers import RotatingFileHandler
 
 load_dotenv("config.env")
 
+SHORTNER_API = os.environ.get("SHORTNER_API", "")
+SHORTNER_SITE = os.environ.get("SHORTNER_SITE", "")
+
 # Bot token dari @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 
