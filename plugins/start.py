@@ -16,7 +16,7 @@ from config import (
     START_MSG,
 )
 #from database.sql import add_user, delete_user, full_userbase, query_msg
-from database.mongo import collection, adds_user, del_user, fulls_userbase, present,user
+from database.mongo import collection, adds_user, del_user, fulls_userbase, present_user
 from pyrogram import filters
 from pyrogram.enums import ParseMode
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
