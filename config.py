@@ -36,7 +36,7 @@ UPSTREAM_BRANCH = os.environ.get("UPSTREAM_BRANCH", "master")
 DB_URI = os.environ.get("DATABASE_URL", "")
 
 #Database MONGO
-MONGO_URI = os.environ.get("MONGO_URL", "")
+MONGO_URI = os.environ.get("MONGO_URI", "")
 MONGO_NAME = os.environ.get("MONGO_NAME", "")
 
 # ID dari Channel Atau Group Untuk Wajib Subscribenya
