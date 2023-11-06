@@ -238,23 +238,29 @@ async def start_command(client: Bot, message: Message):
     return
 
 
+
 @Bot.on_message(filters.command("start") & filters.private)
-async def not_joined(client: Bot, message: Message):
-    buttons = fsub_button(client, message)
-    await message.reply(
-        text=FORCE_MSG.format(
-            first=message.from_user.first_name,
-            last=message.from_user.last_name,
-            username=f"@{message.from_user.username}"
-            if message.from_user.username
-            else None,
-            mention=message.from_user.mention,
-            id=message.from_user.id,
-        ),
-        reply_markup=InlineKeyboardMarkup(buttons),
-        quote=True,
-        disable_web_page_preview=True,
-    )
+async def not_joined(client: Client, message: Message):
+    # Check if the user is an admin
+    user = await client.get_chat_member(message.chat.id, message.from_user.id)
+    if user.status == 'administrator' or user.status == 'creator':
+        # User is an admin, do something specific for admins
+        await message.reply("You are an admin. You can bypass the channel join requirement.")
+    else:
+        # User is not an admin, send the join channel message
+        buttons = fsub_button(client, message)
+        await message.reply(
+            text=FORCE_MSG.format(
+                first=message.from_user.first_name,
+                last=message.from_user.last_name,
+                username=f"@{message.from_user.username}" if message.from_user.username else None,
+                mention=message.from_user.mention,
+                id=message.from_user.id,
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            quote=True,
+            disable_web_page_preview=True,
+        )
 
 
 @Bot.on_message(filters.command(["users", "stats"]) & filters.user(ADMINS))
