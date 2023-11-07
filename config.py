@@ -13,6 +13,9 @@ load_dotenv("config.env")
 # Bot token dari @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 
+SHORTNER_API = os.environ.get("SHORTNER_API", "")
+SHORTNER_SITE = os.environ.get("SHORTNER_SITE", "")
+
 # API ID Anda dari my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", ""))
 
