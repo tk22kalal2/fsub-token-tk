@@ -7,7 +7,7 @@ import os
 from distutils.util import strtobool
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
-from database.mongo import fulls_userbase
+
 load_dotenv("config.env")
 
 # Bot token dari @Botfather
@@ -48,12 +48,11 @@ FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
-total_users = fulls_userbase()
 
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
-    "Hello {first}\n\nI AM OFFICIAL BOT OF PAVOLADDER.ADD YOUR FRIENDS TO GET MORE FREE STUFF. Total Users: {total_users}",
+    "Hello {first}\n\nI AM OFFICIAL BOT OF PAVOLADDER.ADD YOUR FRIENDS TO GET MORE FREE STUFF.",
 )
 try:
     ADMINS = [int(x) for x in (os.environ.get("ADMINS", "").split())]
