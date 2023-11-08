@@ -48,10 +48,11 @@ FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
+total_users = await full_userbase()
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
-    "Hello {first}\n\nI AM OFFICIAL BOT OF PAVOLADDER.ADD YOUR FRIENDS TO GET MORE FREE STUFF.",
+    "Hello {first}\n\nI AM OFFICIAL BOT OF PAVOLADDER.ADD YOUR FRIENDS TO GET MORE FREE STUFF. Total Users: {total_users}",
 )
 try:
     ADMINS = [int(x) for x in (os.environ.get("ADMINS", "").split())]
