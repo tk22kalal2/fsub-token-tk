@@ -48,7 +48,8 @@ FORCE_SUB_GROUP = int(os.environ.get("FORCE_SUB_GROUP", "0"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
-total_users = await fulls_userbase()
+total_users = fulls_userbase()
+
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
