@@ -218,14 +218,15 @@ async def start_command(client: Bot, message: Message):
                     protect_content=PROTECT_CONTENT
                 )
                 snt_msgs.append(snt_msg)
-            except BaseException:
+            except:
                 pass
-            await asyncio.sleep(SECONDS)
-            for snt_msg in snt_msgs:
-                try:
-                    await snt_msg.delete()
-                except:
-                    pass
+            
+        await asyncio.sleep(SECONDS)
+        for snt_msg in snt_msgs:
+            try:
+                await snt_msg.delete()
+            except:
+                pass
             else:
                 out = start_button(client)
                 await message.reply_text(
