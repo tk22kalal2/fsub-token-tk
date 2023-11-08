@@ -188,55 +188,54 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
+        snt_msgs = []
         for msg in messages:
-
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
                     filename=msg.document.file_name,
                 )
-
             else:
                 caption = msg.caption.html if msg.caption else ""
-
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                await msg.copy(
+                snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
+                    protect_content=PROTECT_CONTENT
                 )
                 await asyncio.sleep(0.5)
+                snt_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(
+                snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
+                    protect_content=PROTECT_CONTENT
                 )
+                snt_msgs.append(snt_msg)
             except BaseException:
                 pass
-    else:
-        out = start_button(client)
-        await message.reply_text(
-            text=START_MSG.format(
-                first=message.from_user.first_name,
-                last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
-                mention=message.from_user.mention,
-                id=message.from_user.id,
-            ),
-            reply_markup=InlineKeyboardMarkup(out),
-            disable_web_page_preview=True,
-            quote=True,
-        )
-
+            else:
+                out = start_button(client)
+                await message.reply_text(
+                    text=START_MSG.format(
+                        first=message.from_user.first_name,
+                        last=message.from_user.last_name,
+                        username=f"@{message.from_user.username}"
+                        if message.from_user.username
+                        else None,
+                        mention=message.from_user.mention,
+                        id=message.from_user.id,
+                    ),
+                    reply_markup=InlineKeyboardMarkup(out),
+                    disable_web_page_preview=True,
+                    quote=True,
+                )
 
     return
 
