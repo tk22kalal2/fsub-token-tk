@@ -113,7 +113,7 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 💕 <b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token and try again. \n\n<b>Token Timeout:</b> 24 hour \n\n<b>What is token?</b> \nThis is an ads token. If you pass 1 ad, you can use the bot for 24 hour after passing the ad. \n\nwatch video tutorial if you're facing issue <a href='https://telegram.me/howtodownloadin/19'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                f"Hey 👨‍⚕️ <b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 24 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2121021005/4'>Click Here</a> \nHow to Verify - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Telegraph</a> or <a href='https://t.me/c/2121021005/5'>Watch Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
