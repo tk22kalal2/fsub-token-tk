@@ -7,7 +7,7 @@ import os
 from distutils.util import strtobool
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
-
+from database.mongo import fulls_userbase
 load_dotenv("config.env")
 
 # Bot token dari @Botfather
