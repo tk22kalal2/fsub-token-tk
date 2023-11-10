@@ -2,7 +2,6 @@
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-import os
 import asyncio
 from datetime import datetime
 from time import time
@@ -27,8 +26,6 @@ from helper_func import decode, get_messages, subsall, subsch, subsgc
 from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
 
 from .button import fsub_button, start_button
-
-SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
@@ -113,7 +110,7 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 👨‍⚕️ Dr. <b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 24 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2121021005/4'>Click Here</a> \nDisable your Ads blocker. \nHow to Verify - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Telegraph</a> or <a href='https://t.me/c/2121021005/5'>Watch Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                f"Hey 💕 <b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token and try again. \n\n<b>Token Timeout:</b> 24 hour \n\n<b>What is token?</b> \nThis is an ads token. If you pass 1 ad, you can use the bot for 24 hour after passing the ad. \n\nwatch video tutorial if you're facing issue <a href='https://telegram.me/howtodownloadin/19'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -188,61 +185,55 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        snt_msgs = []
         for msg in messages:
+
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
                     filename=msg.document.file_name,
                 )
+
             else:
                 caption = msg.caption.html if msg.caption else ""
+
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                snt_msg = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
-                    protect_content=PROTECT_CONTENT
                 )
                 await asyncio.sleep(0.5)
-                snt_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                snt_msg = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
-                    protect_content=PROTECT_CONTENT
                 )
-                snt_msgs.append(snt_msg)
-            except:
+            except BaseException:
                 pass
-            
-        await asyncio.sleep(SECONDS)
-        for snt_msg in snt_msgs:
-            try:
-                await snt_msg.delete()
-            except:
-                pass
-            else:
-                out = start_button(client)
-                await message.reply_text(
-                    text=START_MSG.format(
-                        first=message.from_user.first_name,
-                        last=message.from_user.last_name,
-                        username=f"@{message.from_user.username}"
-                        if message.from_user.username
-                        else None,
-                        mention=message.from_user.mention,
-                        id=message.from_user.id,
-                    ),
-                    reply_markup=InlineKeyboardMarkup(out),
-                    disable_web_page_preview=True,
-                    quote=True,
-                )
+    else:
+        out = start_button(client)
+        await message.reply_text(
+            text=START_MSG.format(
+                first=message.from_user.first_name,
+                last=message.from_user.last_name,
+                username=f"@{message.from_user.username}"
+                if message.from_user.username
+                else None,
+                mention=message.from_user.mention,
+                id=message.from_user.id,
+            ),
+            reply_markup=InlineKeyboardMarkup(out),
+            disable_web_page_preview=True,
+            quote=True,
+        )
+
 
     return
 
