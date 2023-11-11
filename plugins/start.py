@@ -89,7 +89,7 @@ async def start_command(client: Bot, message: Message):
             )
             await client.send_message(
                 message.chat.id,
-                "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 10 min, So clink on that videos which you want to watch today./nGo to @Pavoladder2_bot",
+                "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 10 min, So click on that videos which you want to watch today. \nGo to @Pavoladder2_bot",
                 reply_to_message_id=message.id,
             )
             return
