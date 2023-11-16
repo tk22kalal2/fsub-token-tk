@@ -227,8 +227,6 @@ async def start_command(client: Bot, message: Message):
         for snt_msg in snt_msgs:
             try:
                 await snt_msg.delete()
-            except:
-                pass
             except BaseException:
                 pass
     else:
