@@ -29,7 +29,7 @@ from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
 from .button import fsub_button, start_button
 
 SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
-VERIFY = bool(environ.get('VERIFY', Truv))
+
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
