@@ -11,7 +11,7 @@ from logging.handlers import RotatingFileHandler
 
 load_dotenv("config.env")
 
-VERIFY = bool(environ.get('VERIFY', Truv))
+VERIFY = bool(environ.get('VERIFY', True))
 
 # Bot token dari @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
