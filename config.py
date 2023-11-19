@@ -4,6 +4,7 @@
 
 import logging
 import os
+from os import environ
 from distutils.util import strtobool
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
