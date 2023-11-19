@@ -14,7 +14,6 @@ from config import (
     DISABLE_CHANNEL_BUTTON,
     FORCE_MSG,
     PROTECT_CONTENT,
-    VERIFY,
     START_MSG,
 )
 #from database.sql import add_user, delete_user, full_userbase, query_msg
@@ -30,6 +29,7 @@ from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
 from .button import fsub_button, start_button
 
 SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
+VERIFY = bool(os.environ.get('VERIFY', False))
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
@@ -62,7 +62,7 @@ async def start_command(client: Bot, message: Message):
         except:
             pass
 
-    if message.text.startswith("/start token_"):
+    if message.text.startswith("/start token_") and VERIFY:
         user_id = message.from_user.id
         try:
             ad_msg = b64_to_str(message.text.split("/start token_")[1])
