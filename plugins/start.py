@@ -62,7 +62,7 @@ async def start_command(client: Bot, message: Message):
         except:
             pass
 
-    if message.text.startswith("/start token_") and VERIFY == True:
+    if message.text.startswith("/start token_"):
         user_id = message.from_user.id
         try:
             ad_msg = b64_to_str(message.text.split("/start token_")[1])
