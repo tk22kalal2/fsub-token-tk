@@ -91,10 +91,14 @@ async def start_command(client: Bot, message: Message):
             collection.update_one(
                 query, {"$set": {"time_out": int(ad_msg.split(":")[1])}}, upsert=True
             )
+            keyboard = InlineKeyboardMarkup(
+                [[InlineKeyboardButton("MEDICAL LECTURES", url="https://sites.google.com/view/pavoladder")]]
+            )
             await client.send_message(
                 message.chat.id,
                 "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 10 hours. \nGo to @Pavoladder3_bot",
                 reply_to_message_id=message.id,
+                reply_markup=keyboard
             )
             return
         except BaseException:
