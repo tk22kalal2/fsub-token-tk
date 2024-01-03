@@ -92,7 +92,7 @@ async def start_command(client: Bot, message: Message):
                 query, {"$set": {"time_out": int(ad_msg.split(":")[1])}}, upsert=True
             )
             keyboard = InlineKeyboardMarkup(
-                [[InlineKeyboardButton("MEDICAL LECTURES", url="https://sites.google.com/view/pavoladder")]]
+                [[InlineKeyboardButton("MEDICAL LECTURES", url="https://sites.google.com/view/pavoladdder")]]
             )
             await client.send_message(
                 message.chat.id,
