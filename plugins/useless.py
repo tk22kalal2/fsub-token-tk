@@ -21,6 +21,21 @@ from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
 
+LOG_FILE_NAME = "logs.txt"
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(levelname)s] - %(name)s - %(message)s",
+    datefmt="%d-%b-%y %H:%M:%S",
+    handlers=[
+        RotatingFileHandler(LOG_FILE_NAME, maxBytes=50000000, backupCount=10),
+        logging.StreamHandler(),
+    ],
+)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
+
+def LOGGER(name: str) -> logging.Logger:
+    return logging.getLogger(name)
 
 @Bot.on_message(filters.private & filters.incoming)
 async def forward_to_admin(client: Bot, m: Message):
