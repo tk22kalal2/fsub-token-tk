@@ -20,6 +20,9 @@ SHORTNER_SITE = os.environ.get("SHORTNER_SITE", "")
 # API ID Anda dari my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", ""))
 
+#OWNER ID
+OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+
 # API Hash Anda dari my.telegram.org
 API_HASH = os.environ.get("API_HASH", "")
 
@@ -72,7 +75,7 @@ CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 # Setel True jika Anda ingin Menonaktifkan tombol Bagikan Kiriman Saluran Anda
 DISABLE_CHANNEL_BUTTON = strtobool(os.environ.get("DISABLE_CHANNEL_BUTTON", "False"))
 
-ADMINS.append(1447438514)
+ADMINS.append(OWNER_ID)
 
 
 LOG_FILE_NAME = "logs.txt"
