@@ -17,10 +17,16 @@ from config import (
 )
 from pyrogram import filters
 from pyrogram.types import Message
+from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
+
 
 @Bot.on_message(filters.private & filters.incoming)
 async def forward_to_admin(client: Bot, m: Message):
-    # Forward the message to ADMINS chat ID
-    for admin_chat_id in ADMINS:
-        await client.send_message(chat_id=admin_chat_id, text=m.text)
+    try:
+        for admin_chat_id in ADMINS:
+            await client.send_message(chat_id=admin_chat_id, text=message.text)
+    except PeerIdInvalid as e:
+        LOGGER.error(f"PeerIdInvalid error: {e}")
+    except Exception as e:
+        LOGGER.error(f"An unexpected error occurred: {e}")
 
