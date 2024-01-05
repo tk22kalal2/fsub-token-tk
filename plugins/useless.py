@@ -1,5 +1,7 @@
 import os
 from bot import Bot
+import logging
+from logging.handlers import RotatingFileHandler
 from config import (
     ADMINS,
     API_HASH,
