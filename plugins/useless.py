@@ -1,12 +1,11 @@
 import os
-
 from bot import Bot
 from config import (
     ADMINS,
     API_HASH,
     APP_ID,
     CHANNEL_ID,
-    #DB_URI, sql database
+    # DB_URI, sql database
     MONGO_URI,
     FORCE_MSG,
     FORCE_SUB_CHANNEL,
@@ -19,12 +18,9 @@ from config import (
 from pyrogram import filters
 from pyrogram.types import Message
 
-
-
 @Bot.on_message(filters.private & filters.incoming)
-async def forward_to_admin(event):
+async def forward_to_admin(client: Bot, m: Message):
     # Check if the message is from a private chat
-    if event.is_private:
+    if m.chat.type == "private":
         # Forward the user's message to the admin
-        await client.send_message(ADMIN_ID, f"User ID: {event.sender_id}\nMessage: {event.raw_text}")
-
+        await client.send_message(ADMINS, f"User ID: {m.from_user.id}\nMessage: {m.text}")
