@@ -46,8 +46,12 @@ from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.errors import PeerIdInvalid
 
-# Assuming ADMINS is a list of admin chat IDs
-ADMINS = [123456789, 987654321]  # Replace with your actual admin chat IDs
+
+
+from pyrogram import filters
+from pyrogram.types import Message
+from pyrogram.errors import PeerIdInvalid
+
 
 @Bot.on_message(filters.private & filters.incoming)
 async def forward_to_admin_and_reply(client: Bot, m: Message):
@@ -74,4 +78,3 @@ async def forward_to_admin_and_reply(client: Bot, m: Message):
 
     except Exception as e:
         LOGGER.error(f"An unexpected error occurred: {e}")
-
