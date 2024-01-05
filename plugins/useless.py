@@ -46,9 +46,13 @@ LOGGER = logging.getLogger(__name__)
 async def forward_to_admin(client: Bot, m: Message):
     try:
         for admin_chat_id in ADMINS:
-            await m.forward(chat_id=admin_chat_id)
-    except PeerIdInvalid as e:
-        LOGGER.error(f"PeerIdInvalid error: {e}")
+            try:
+                await m.forward(chat_id=admin_chat_id)
+            except PeerIdInvalid as e:
+                LOGGER.error(f"Error forwarding to admin_chat_id {admin_chat_id}: {e}")
+            except Exception as e:
+                LOGGER.error(f"An unexpected error occurred while forwarding to admin_chat_id {admin_chat_id}: {e}")
     except Exception as e:
         LOGGER.error(f"An unexpected error occurred: {e}")
+
 
