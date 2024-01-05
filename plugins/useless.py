@@ -20,7 +20,7 @@ from pyrogram.types import Message
 
 @Bot.on_message(filters.private & filters.incoming)
 async def forward_to_admin(client: Bot, m: Message):
-    # Check if the message is from a private chat
-    if m.chat.type == "private":
-        # Forward the user's message to the admin
-        await client.send_message(ADMINS, f"User ID: {m.from_user.id}\nMessage: {m.text}")
+    # Forward the message to ADMINS chat ID
+    for admin_chat_id in ADMINS:
+        await client.send_message(chat_id=admin_chat_id, text=m.text)
+
