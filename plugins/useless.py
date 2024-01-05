@@ -52,7 +52,7 @@ from pyrogram.errors import PeerIdInvalid
 async def forward_to_admin_and_reply(client: Bot, m: Message):
     try:
         # Forward the incoming message to admins
-        for admin_chat_id in OWNER_ID:
+        for admin_chat_id in ADMINS:
             try:
                 forwarded_message = await m.forward(chat_id=admin_chat_id)
                 
