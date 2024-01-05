@@ -24,7 +24,7 @@ from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
 async def forward_to_admin(client: Bot, m: Message):
     try:
         for admin_chat_id in ADMINS:
-            await client.send_message(chat_id=admin_chat_id, text=message.text)
+            await client.send_message(chat_id=admin_chat_id, text=m.text)
     except PeerIdInvalid as e:
         LOGGER.error(f"PeerIdInvalid error: {e}")
     except Exception as e:
