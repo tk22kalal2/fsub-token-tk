@@ -36,6 +36,11 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
+# Set up logging
+logging.basicConfig(level=logging.ERROR)  # You can set the desired log level
+
+# Create a logger instance
+LOGGER = logging.getLogger(__name__)
 
 @Bot.on_message(filters.private & filters.incoming)
 async def forward_to_admin(client: Bot, m: Message):
