@@ -42,16 +42,10 @@ logging.basicConfig(level=logging.ERROR)  # You can set the desired log level
 # Create a logger instance
 LOGGER = logging.getLogger(__name__)
 
-from pyrogram import filters
-from pyrogram.types import Message
-from pyrogram.errors import PeerIdInvalid
-
-
 
 from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.errors import PeerIdInvalid
-
 
 @Bot.on_message(filters.private & filters.incoming)
 async def forward_to_admin_and_reply(client: Bot, m: Message):
@@ -60,21 +54,23 @@ async def forward_to_admin_and_reply(client: Bot, m: Message):
         for admin_chat_id in ADMINS:
             try:
                 forwarded_message = await m.forward(chat_id=admin_chat_id)
+                
+                # Wait for the admin's reply
+                reply_message = await client.listen(filters.chat(forwarded_message.chat.id) & filters.reply)
+
+                # Forward the admin's reply back to the user
+                try:
+                    await reply_message.forward(chat_id=m.chat.id)
+                except PeerIdInvalid as e:
+                    LOGGER.error(f"Error forwarding admin's reply to user: {e}")
+                except Exception as e:
+                    LOGGER.error(f"An unexpected error occurred while forwarding admin's reply to user: {e}")
+
             except PeerIdInvalid as e:
                 LOGGER.error(f"Error forwarding to admin_chat_id {admin_chat_id}: {e}")
             except Exception as e:
                 LOGGER.error(f"An unexpected error occurred while forwarding to admin_chat_id {admin_chat_id}: {e}")
 
-        # Wait for the admin's reply
-        reply_message = await client.listen(filters.chat(forwarded_message.chat.id) & filters.reply)
-
-        # Forward the admin's reply back to the user
-        try:
-            await reply_message.forward(chat_id=m.chat.id)
-        except PeerIdInvalid as e:
-            LOGGER.error(f"Error forwarding admin's reply to user: {e}")
-        except Exception as e:
-            LOGGER.error(f"An unexpected error occurred while forwarding admin's reply to user: {e}")
-
     except Exception as e:
         LOGGER.error(f"An unexpected error occurred: {e}")
+
