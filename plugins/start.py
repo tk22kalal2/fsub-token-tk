@@ -209,25 +209,26 @@ async def start_command(client: Bot, message: Message):
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                snt_msg = await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
+                snt_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup,
+                                          protect_content=PROTECT_CONTENT)
+                await snt_msg.reply_text(
+                    f"Files will be deleted in 10 seconds to avoid copyright issues. Please click on the lecture link you want to watch.",
+                    disable_web_page_preview=True,
+                    quote=True
                 )
-                await asyncio.sleep(0.5)                
                 snt_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                snt_msg = await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
-                )
+                snt_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup,
+                                          protect_content=PROTECT_CONTENT)
                 snt_msgs.append(snt_msg)
+                await snt_msg.reply_text(
+                    f"Files will be deleted in 10 seconds to avoid copyright issues. Please click on the link you want to watch.",
+                    disable_web_page_preview=True,
+                    quote=True
+                )
+            except:
+                pass
                 
         await asyncio.sleep(SECONDS)
 
