@@ -52,7 +52,7 @@ from pyrogram.errors import PeerIdInvalid
 
 buttonz = ReplyKeyboardMarkup(
     [
-        ["start⚡️"],
+        ["/start"],
     ],
     resize_keyboard=True
 )
