@@ -48,6 +48,13 @@ from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.errors import PeerIdInvalid
 
+buttonz = ReplyKeyboardMarkup(
+    [
+        ["start⚡️"],
+    ],
+    resize_keyboard=True
+)
+
 USER_REPLY_TEXT = "/start the bot"
 
 @Bot.on_message(filters.private & filters.incoming)
