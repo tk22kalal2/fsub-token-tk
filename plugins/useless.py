@@ -63,5 +63,5 @@ USER_REPLY_TEXT = "Any Problem talk to admin @talktomembbs_bot"
 @Bot.on_message(filters.private & filters.incoming)
 async def useless(client: Bot, m: Message):
     if m.text == USER_REPLY_TEXT:
-        await m.reply(USER_REPLY_TEXT, parse_mode=ParseMode.HTML, reply_markup=buttonz)
+        await m.reply(USER_REPLY_TEXT)
 
