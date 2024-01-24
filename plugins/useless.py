@@ -61,5 +61,5 @@ USER_REPLY_TEXT = "/start the bot"
 @Bot.on_message(filters.private & filters.incoming)
 async def useless(client: Bot, m: Message):
     if USER_REPLY_TEXT:
-        await m.reply(USER_REPLY_TEXT)
+        await m.reply(USER_REPLY_TEXT, parse_mode=ParseMode.HTML, reply_markup=buttonz)
 
