@@ -28,6 +28,13 @@ from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
 
 from .button import fsub_button, start_button
 
+buttonz = ReplyKeyboardMarkup(
+    [
+        ["start⚡️"],
+    ],
+    resize_keyboard=True
+)
+
 SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
 VERIFY = bool(os.environ.get('VERIFY', False))
 
