@@ -34,7 +34,7 @@ def start_button(client):
                 InlineKeyboardButton(text="Channel", url=client.invitelink),
             ],
             [
-                InlineKeyboardButton(text="Close", callback_data="close"),
+                InlineKeyboardButton(text="Close", url="https://sites.google.com/view/pavoladdder"),
             ],
         ]
         return buttons
