@@ -59,7 +59,7 @@ buttonz = ReplyKeyboardMarkup(
 
 WEBSITE = ReplyKeyboardMarkup(
     [
-        ["http://google.com"],
+        [{"text": "GOOGLE", "url": "http://google.com"}],
     ],
     resize_keyboard=True
 )
