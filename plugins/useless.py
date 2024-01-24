@@ -50,6 +50,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.errors import PeerIdInvalid
 
+
 buttonz = ReplyKeyboardMarkup(
     [
         ["/start"],
@@ -68,7 +69,7 @@ USER_REPLY_TEXT = "/start the bot"
 
 @Bot.on_message(filters.private & filters.incoming)
 async def useless(client: Bot, m: Message):
-    if USER_REPLY_TEXT:
+    if m.text == USER_REPLY_TEXT:
         combined_markup = buttonz.keyboard + WEBSITE.keyboard
-        await m.reply(USER_REPLY_TEXT, parse_mode=ParseMode.HTML, reply_markup=ReplyKeyboardMarkup(combined_markup, resize_keyboard=True))
+        await m.reply(USER_REPLY_TEXT, parse_mode=ParseMode.HTML, reply_markup=ReplyKeyboardMarkup(combined_markup))
 
