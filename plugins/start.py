@@ -254,7 +254,7 @@ async def start_command(client: Bot, message: Message):
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
-            reply_markup=InlineKeyboardMarkup(out),
+            reply_markup=buttonz,
             disable_web_page_preview=True,
             quote=True,
         )
