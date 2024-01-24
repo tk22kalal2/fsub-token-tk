@@ -22,6 +22,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, ReplyKeyboardMarkup
+from pyrogram.enums import ParseMode
 
 LOG_FILE_NAME = "logs.txt"
 logging.basicConfig(
