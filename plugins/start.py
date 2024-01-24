@@ -211,11 +211,13 @@ async def start_command(client: Bot, message: Message):
             try:
                 snt_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup,
                                           protect_content=PROTECT_CONTENT)
-                await snt_msg.reply_text(
+                x = await snt_msg.reply_text(
                     f"Files will be deleted in 10 seconds to avoid copyright issues. Please click on the lecture link you want to watch.",
                     disable_web_page_preview=True,
                     quote=True
                 )
+                await asyncio.sleep(SECONDS)
+                await x.delete()
                 snt_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -227,6 +229,8 @@ async def start_command(client: Bot, message: Message):
                     disable_web_page_preview=True,
                     quote=True
                 )
+                await asyncio.sleep(SECONDS)
+                await x.delete()
             except:
                 pass
                 
