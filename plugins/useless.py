@@ -58,7 +58,7 @@ buttonz = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-USER_REPLY_TEXT = "/start the bot"
+USER_REPLY_TEXT = "Any Problem talk to admin @talktomembbs_bot"
 
 @Bot.on_message(filters.private & filters.incoming)
 async def useless(client: Bot, m: Message):
