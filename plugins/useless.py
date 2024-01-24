@@ -48,30 +48,10 @@ from pyrogram import filters
 from pyrogram.types import Message
 from pyrogram.errors import PeerIdInvalid
 
+USER_REPLY_TEXT = "/start the bot"
+
 @Bot.on_message(filters.private & filters.incoming)
-async def forward_to_admin_and_reply(client: Bot, m: Message):
-    try:
-        # Forward the incoming message to admins
-        for admin_chat_id in ADMINS:
-            try:
-                forwarded_message = await m.forward(chat_id=admin_chat_id)
-                
-                # Wait for the admin's reply
-                reply_message = await client.listen(filters.chat(forwarded_message.chat.id) & filters.reply)
-
-                # Forward the admin's reply back to the user
-                try:
-                    await reply_message.forward(chat_id=m.chat.id)
-                except PeerIdInvalid as e:
-                    LOGGER.error(f"Error forwarding admin's reply to user: {e}")
-                except Exception as e:
-                    LOGGER.error(f"An unexpected error occurred while forwarding admin's reply to user: {e}")
-
-            except PeerIdInvalid as e:
-                LOGGER.error(f"Error forwarding to admin_chat_id {admin_chat_id}: {e}")
-            except Exception as e:
-                LOGGER.error(f"An unexpected error occurred while forwarding to admin_chat_id {admin_chat_id}: {e}")
-
-    except Exception as e:
-        LOGGER.error(f"An unexpected error occurred: {e}")
+async def useless(client: Bot, m: Message):
+    if USER_REPLY_TEXT:
+        await message.reply(USER_REPLY_TEXT)
 
