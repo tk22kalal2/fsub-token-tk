@@ -63,7 +63,7 @@ async def batch(client: Client, message: Message):
         link = f"https://t.me/{client.username}?start={base64_string}"
         message_links.append(link)
 
-    if bool(CUSTOM_CAPTION) and bool(msg.document):
+    if bool(CUSTOM_CAPTION) and bool(message.document):
         caption = CUSTOM_CAPTION.format(
             previouscaption=message.caption.html if message.caption else "",
             filename=message.document.file_name,
