@@ -69,6 +69,7 @@ async def batch(client: Client, msg: Message):
         string = f"get-{msg_id * abs(client.db_channel.id)}"
         base64_string = await encode(string)
         link = f"https://t.me/{client.username}?start={base64_string}"
+        caption = msg.caption.html if msg.caption else ""
         message_links.append(link)
     
 
