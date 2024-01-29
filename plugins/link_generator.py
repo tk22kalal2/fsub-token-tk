@@ -73,7 +73,7 @@ async def batch(client: Client, msg: Message):
 
     # Send the generated links to the user
     for link in message_links:
-        await msg.reply_text(text=f"{caption}\n{link}")
+        await msg.reply(f"{caption}\n{link}")
 
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command("genlink"))
