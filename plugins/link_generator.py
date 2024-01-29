@@ -65,11 +65,11 @@ async def batch(client: Client, message: Message):
 
     if bool(CUSTOM_CAPTION) and bool(msg.document):
         caption = CUSTOM_CAPTION.format(
-            previouscaption=msg.caption.html if msg.caption else "",
-            filename=msg.document.file_name,
+            previouscaption=message.caption.html if message.caption else "",
+            filename=message.document.file_name,
         )
     else:
-        caption = msg.caption.html if msg.caption else ""
+        caption = message.caption.html if message.caption else ""
 
     # Send the generated links to the user
     for link in message_links:
