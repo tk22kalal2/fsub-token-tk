@@ -67,7 +67,7 @@ async def batch(client: Client, msg: Message):
 
     # Send the generated links with captions to the user
     for link, caption in message_links:
-        f_caption=f"⏯: {caption}
+        f_caption = f"⏯: {caption}
         await msg.reply(f"{f_caption} \n{link}, parse_mode=ParseMode.HTML)        
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command("genlink"))
