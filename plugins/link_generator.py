@@ -68,8 +68,8 @@ async def batch(client: Client, message: Message):
 
     # Send the generated links to the user
     for link in message_links:
-        f_caption = f"{caption}"
-        await message.reply(f"{f_caption}\n{link}", parse_mode=ParseMode.HTML)
+        f_caption = f"⏯: {caption}"
+        await message.reply_text(text=f"{f_caption} \n{link}", parse_mode=ParseMode.HTML, disable_web_page_preview=True, quote=True)
 
 
 
