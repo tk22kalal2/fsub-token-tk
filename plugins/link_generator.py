@@ -4,7 +4,7 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-
+from pyrogram.enums import ParseMode
 from bot import Bot
 from config import ADMINS, CUSTOM_CAPTION
 from helper_func import encode, get_message_id
