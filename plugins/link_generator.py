@@ -64,11 +64,13 @@ async def batch(client: Client, msg: Message):
         message = await client.get_messages(client.db_channel.id, msg_id)
         caption = message.text
         message_links.append((link, caption))
-    
 
-    # Send the generated links to the user
-    for link in message_links:
-        await msg.reply(f"here is your link \n{link}", caption=caption)
+    # Send the generated links with captions to the user
+    for link, caption in message_links:
+        # Format the caption using Markdown
+        formatted_caption = f"*Caption:* {caption}"
+        await msg.reply(f"here is your link \n{link}\n\n{formatted_caption}", parse_mode="Markdown")
+        
 
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command("genlink"))
