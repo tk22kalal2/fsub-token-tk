@@ -70,6 +70,7 @@ async def batch(client: Client, msg: Message):
         base64_string = await encode(string)
         link = f"https://t.me/{client.username}?start={base64_string}"
         caption = msg.caption.html if msg.caption else ""
+        message_links.append(caption)
         message_links.append(link)
     
 
