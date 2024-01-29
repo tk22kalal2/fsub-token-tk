@@ -62,13 +62,13 @@ async def batch(client: Client, message: Message):
         string = f"get-{msg_id * abs(client.db_channel.id)}"
         base64_string = await encode(string)
         link = f"https://t.me/{client.username}?start={base64_string}"        
-        msg = await client.get_messages(client.db_channel.id, msg_id)
-        caption = msg.caption.html if msg.caption else ""
+        m = await client.get_messages(client.db_channel.id, msg_id)
+        caption = m.caption.html if m.caption else ""
         message_links.append((link, caption))
 
     # Send the generated links to the user
     for link in message_links:
-        f_caption = f"<b>⏯: {caption}</b>"
+        f_caption = f"{caption}"
         await message.reply(f"{f_caption}\n{link}", parse_mode=ParseMode.HTML)
 
 
