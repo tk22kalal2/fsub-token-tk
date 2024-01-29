@@ -55,14 +55,6 @@ async def batch(client: Client, msg: Message):
             await second_message.reply("❌ Error\n\nthis Forwarded Post is not from my DB Channel or this Link is taken from DB Channel", quote=True)
             continue
 
-    # Generate a list of links for each message between the first and second message
-    message_links = []
-    for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
-        string = f"get-{msg_id * abs(client.db_channel.id)}"
-        base64_string = await encode(string)
-        link = f"https://t.me/{client.username}?start={base64_string}"
-        message_links.append(link)
-
     if bool(CUSTOM_CAPTION) and bool(msg.caption):
         caption = CUSTOM_CAPTION.format(
             previouscaption=msg.caption.html if msg.caption else "",
@@ -70,6 +62,15 @@ async def batch(client: Client, msg: Message):
         )
     else:
         caption = msg.caption.html if msg.caption else ""
+
+    # Generate a list of links for each message between the first and second message
+    message_links = []
+    for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
+        string = f"get-{msg_id * abs(client.db_channel.id)}"
+        base64_string = await encode(string)
+        link = f"https://t.me/{client.username}?start={base64_string}"
+        message_links.append(link)
+    
 
     # Send the generated links to the user
     for link in message_links:
