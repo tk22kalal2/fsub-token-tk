@@ -6,7 +6,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from bot import Bot
-from config import ADMINS
+from config import ADMINS, CUSTOM_CAPTION
 from helper_func import encode, get_message_id
 
 
@@ -64,9 +64,18 @@ async def batch(client: Client, message: Message):
         link = f"https://t.me/{client.username}?start={base64_string}"
         message_links.append(link)
 
+    if bool(CUSTOM_CAPTION) & bool(msg.document):
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption=msg.caption.html if msg.caption else "",
+                    filename=msg.document.file_name,
+                )
+
+            else:
+                caption = msg.caption.html if msg.caption else ""
+
     # Send the generated links to the user
     for link in message_links:
-        await message.reply(f"Here is a link for one of the messages:\n{link}")
+        await message.reply_text(text=f"{caption}\n{link}")
 
 
 
