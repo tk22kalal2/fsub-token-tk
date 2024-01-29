@@ -69,7 +69,7 @@ async def batch(client: Client, msg: Message):
     for link, caption in message_links:
         # Format the caption using Markdown
         formatted_caption = f"*Caption:* {caption}"
-        await msg.reply(f"here is your link \n{link}\n\n{formatted_caption}", parse_mode="Markdown")
+        await msg.reply(f"here is your link \n{link}\n\n{formatted_caption}", parse_mode=ParseMode.HTML)
         
 
 
