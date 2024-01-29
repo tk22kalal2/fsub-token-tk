@@ -4,7 +4,7 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-
+from pyrogram.enums import ParseMode
 from bot import Bot
 from config import ADMINS
 from helper_func import encode, get_message_id
@@ -69,7 +69,7 @@ async def batch(client: Client, message: Message):
     # Send the generated links to the user
     for link in message_links:
         f_caption = f"<b>⏯: {caption}</b>"
-        await message.reply(f"{f_caption}\n{link}")
+        await message.reply(f"{f_caption}\n{link}, parse_mode=ParseMode.HTML")
 
 
 
