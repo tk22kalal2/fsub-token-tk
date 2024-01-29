@@ -9,7 +9,6 @@ from bot import Bot
 from config import ADMINS, CUSTOM_CAPTION
 from helper_func import encode, get_message_id
 
-
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('batch'))
 async def batch(client: Client, message: Message):
     while True:
@@ -64,19 +63,17 @@ async def batch(client: Client, message: Message):
         link = f"https://t.me/{client.username}?start={base64_string}"
         message_links.append(link)
 
-    if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(
-                    previouscaption=msg.caption.html if msg.caption else "",
-                    filename=msg.document.file_name,
-                )
-
-            else:
-                caption = msg.caption.html if msg.caption else ""
+    if bool(CUSTOM_CAPTION) and bool(msg.document):
+        caption = CUSTOM_CAPTION.format(
+            previouscaption=msg.caption.html if msg.caption else "",
+            filename=msg.document.file_name,
+        )
+    else:
+        caption = msg.caption.html if msg.caption else ""
 
     # Send the generated links to the user
     for link in message_links:
         await message.reply_text(text=f"{caption}\n{link}")
-
 
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command("genlink"))
