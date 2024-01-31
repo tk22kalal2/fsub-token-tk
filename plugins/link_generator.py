@@ -66,7 +66,7 @@ async def batch(client: Client, message: Message):
 
     # Send the generated links to the user
     for link in message_links:
-        await message.reply(f"Here is a link for one of the messages:\n{link}")
+        await message.reply(f"{link}")
 
 
 
