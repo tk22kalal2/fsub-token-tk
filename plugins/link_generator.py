@@ -61,7 +61,7 @@ async def batch(client: Client, message: Message):
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         string = f"get-{msg_id * abs(client.db_channel.id)}"
         base64_string = await encode(string)
-        link = f"https://t.me/{client.username}?start={base64_string}"
+        link = f"https://telegram.me/{client.username}?start={base64_string}"
         message_links.append(link)
 
     # Send the generated links to the user
