@@ -37,6 +37,7 @@ TIME_DURATION_UNITS = (
     ("sec", 1),
 )
 
+SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
 
 async def _human_time_duration(seconds):
     if seconds == 0:
