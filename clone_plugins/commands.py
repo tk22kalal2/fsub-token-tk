@@ -5,7 +5,7 @@
 import os
 import logging
 import random
-import asyncio.coroutine
+import asyncio
 from Script import script
 from validators import domain
 from clone_plugins.dbusers import db
