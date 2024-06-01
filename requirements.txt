@@ -17,3 +17,4 @@ TgCrypto
 wget
 aiohttp
 umongo
+motor
