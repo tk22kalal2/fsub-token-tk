@@ -7,7 +7,7 @@ import os
 from distutils.util import strtobool
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
-
+from Script import script
 load_dotenv("config.env")
 
 CLONE_DB_URI = os.environ.get("CLONE_DB_URI", "")
