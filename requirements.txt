@@ -1,6 +1,6 @@
 dnspython
 feedparser
-Flask==2.2.5
+
 gitpython
 gunicorn
 heroku3
@@ -16,7 +16,7 @@ sqlalchemy==1.3.23
 TgCrypto
 wget
 aiohttp
-
+Flask==1.1.2
 Pyrogram
 Tgcrypto
 asyncio
