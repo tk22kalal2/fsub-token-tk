@@ -218,7 +218,7 @@ async def start_command(client: Bot, message: Message):
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
                 await msg.copy(
-                    chat_id=cloned_bot_token,
+                    chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
@@ -228,7 +228,7 @@ async def start_command(client: Bot, message: Message):
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(
-                    chat_id=cloned_bot_token,
+                    chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
