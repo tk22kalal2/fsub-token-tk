@@ -203,7 +203,7 @@ async def start_command(client: Bot, message: Message):
         bot_token = bot_token[0] if bot_token else None
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         mongo_collection = mongo_db.bots
-        cloned_bot = mongo_collection.find_one({"user_id": user_id})
+        cloned_bot = mongo_collection.find_one({"user_id": message.from_user.id})
 
         if cloned_bot:
             clone_bot_token = cloned_bot['token']
