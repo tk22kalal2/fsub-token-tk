@@ -16,6 +16,8 @@ from config import (
     PROTECT_CONTENT,
     DB_NAME,
     START_MSG,
+    API_ID,
+    API_HASH,
 )
 #from database.sql import add_user, delete_user, full_userbase, query_msg
 from database.mongo import collection, adds_user, del_user, fulls_userbase, present_user
