@@ -36,16 +36,7 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db[DB_NAME]
 
-# Add this import statement if not already present
-from bson.objectid import ObjectId
 
-# Function to get cloned bot token based on user ID
-def get_cloned_bot_token(user_id):
-    cloned_bot = mongo_collection.find_one({"user_id": user_id})
-    if cloned_bot:
-        return cloned_bot["token"]
-    else:
-        return None
         
 async def get_messages(client, ids):
     return [await client.get_messages(client.db_channel.id, message_ids=ids)]
@@ -208,6 +199,9 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
         
+        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
+        bot_token = bot_token[0] if bot_token else None
+        bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         mongo_collection = mongo_db.bots
         cloned_bot = mongo_collection.find_one({"user_id": user_id})
 
