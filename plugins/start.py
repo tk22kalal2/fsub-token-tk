@@ -207,8 +207,10 @@ async def start_command(client: Bot, message: Message):
             await message.reply_text("Something went wrong..!")
             return
         await temp_msg.delete()
+        
+        mongo_collection = mongo_db.bots
+        cloned_bot = mongo_collection.find_one({"user_id": user_id})
 
-        cloned_bot = mongo_db.bots.find_one({"user_id": user_id})
         if cloned_bot:
             clone_bot_token = cloned_bot['token']
             clone_bot = Client(f"clone_{clone_bot_token}", API_ID, API_HASH, bot_token=clone_bot_token)
