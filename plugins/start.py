@@ -27,6 +27,10 @@ from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
 
 from .button import fsub_button, start_button
 
+mongo_client = MongoClient(MONGO_URL)
+mongo_db = mongo_client["cloned_vjbotz"]
+mongo_collection = mongo_db[DB_NAME]
+
 # Add this import statement if not already present
 from bson.objectid import ObjectId
 
