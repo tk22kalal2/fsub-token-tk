@@ -46,6 +46,9 @@ def get_cloned_bot_token(user_id):
         return cloned_bot["token"]
     else:
         return None
+        
+async def get_messages(client, ids):
+    return [await client.get_messages(client.db_channel.id, message_ids=ids)]
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
