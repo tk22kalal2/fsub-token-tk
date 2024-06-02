@@ -27,6 +27,17 @@ from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
 
 from .button import fsub_button, start_button
 
+# Add this import statement if not already present
+from bson.objectid import ObjectId
+
+# Function to get cloned bot token based on user ID
+def get_cloned_bot_token(user_id):
+    cloned_bot = mongo_collection.find_one({"user_id": user_id})
+    if cloned_bot:
+        return cloned_bot["token"]
+    else:
+        return None
+
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
 TIME_DURATION_UNITS = (
@@ -185,6 +196,8 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
+        cloned_bot_token = get_cloned_bot_token(message.from_user.id)
+
         for msg in messages:
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
@@ -199,7 +212,7 @@ async def start_command(client: Bot, message: Message):
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
                 await msg.copy(
-                    chat_id=message.from_user.id,
+                    chat_id=cloned_bot_token,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
@@ -209,7 +222,7 @@ async def start_command(client: Bot, message: Message):
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 await msg.copy(
-                    chat_id=message.from_user.id,
+                    chat_id=cloned_bot_token,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
