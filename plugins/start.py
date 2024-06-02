@@ -6,6 +6,7 @@ import asyncio
 from datetime import datetime
 from time import time
 from pymongo import MongoClient
+from pyrogram import Client, filters
 from bot import Bot
 from config import DB_URI as MONGO_URL
 from config import (
@@ -207,7 +208,7 @@ async def start_command(client: Bot, message: Message):
         cloned_bot = mongo_db.bots.find_one({"user_id": message.from_user.id})
         if cloned_bot:
             clone_bot_token = cloned_bot['token']
-            clone_bot = Bot(f"clone_{clone_bot_token}", API_ID, API_HASH, bot_token=clone_bot_token)
+            clone_bot = Client(f"clone_{clone_bot_token}", API_ID, API_HASH, bot_token=clone_bot_token)
             await clone_bot.start()
 
             for msg in messages:
