@@ -202,49 +202,73 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        cloned_bot_token = get_cloned_bot_token(message.from_user.id)
+        cloned_bot = mongo_db.bots.find_one({"user_id": message.from_user.id})
+        if cloned_bot:
+            clone_bot_token = cloned_bot['token']
+            clone_bot = Client(f"clone_{clone_bot_token}", API_ID, API_HASH, bot_token=clone_bot_token)
+            await clone_bot.start()
 
-        for msg in messages:
+            for msg in messages:
+                if bool(CUSTOM_CAPTION) & bool(msg.document):
+                    caption = CUSTOM_CAPTION.format(
+                        previouscaption=msg.caption.html if msg.caption else "",
+                        filename=msg.document.file_name,
+                    )
+                else:
+                    caption = msg.caption.html if msg.caption else ""
 
-            if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(
-                    previouscaption=msg.caption.html if msg.caption else "",
-                    filename=msg.document.file_name,
-                )
+                reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
 
-            else:
-                caption = msg.caption.html if msg.caption else ""
+                try:
+                    await msg.copy(
+                        chat_id=message.from_user.id,
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        protect_content=PROTECT_CONTENT,
+                        reply_markup=reply_markup,
+                    )
+                    await asyncio.sleep(0.5)
 
-            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-            try:
-                await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
-                )
-                await asyncio.sleep(0.5)
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-                await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
-                )
-            except BaseException:
-                pass
+                    # Forward the copied message to the clone bot
+                    await msg.copy(
+                        chat_id=cloned_bot['bot_id'],
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        protect_content=PROTECT_CONTENT,
+                        reply_markup=reply_markup,
+                    )
+                except FloodWait as e:
+                    await asyncio.sleep(e.x)
+                    await msg.copy(
+                        chat_id=message.from_user.id,
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        protect_content=PROTECT_CONTENT,
+                        reply_markup=reply_markup,
+                    )
+                    await asyncio.sleep(0.5)
+
+                    # Forward the copied message to the clone bot
+                    await msg.copy(
+                        chat_id=cloned_bot['bot_id'],
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        protect_content=PROTECT_CONTENT,
+                        reply_markup=reply_markup,
+                    )
+                except BaseException:
+                    pass
+
+            await clone_bot.stop()
+        else:
+            await message.reply_text("No cloned bot found for this user.")
     else:
         out = start_button(client)
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
+                username=f"@{message.from_user.username}" if message.from_user.username else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
@@ -253,9 +277,9 @@ async def start_command(client: Bot, message: Message):
             quote=True,
         )
 
-
     return
 
+        
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
