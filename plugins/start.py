@@ -68,6 +68,9 @@ async def _human_time_duration(seconds):
             parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
+async def get_messages(client, ids):
+    return [await client.get_messages(client.db_channel.id, message_ids=ids)]
+
 
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
