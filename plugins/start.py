@@ -204,13 +204,13 @@ async def start_command(client: Bot, message: Message):
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         mongo_collection = mongo_db.bots
         cloned_bot = mongo_collection.find_one({"token": bot_token})
-
+        
         if cloned_bot:
             clone_bot_id = cloned_bot['bot_id']
             
             for msg_list in messages:
                 for msg in msg_list:
-
+        
                     if bool(CUSTOM_CAPTION) & bool(msg.document):
                         caption = CUSTOM_CAPTION.format(
                             previouscaption=msg.caption.html if msg.caption else "",
@@ -218,9 +218,9 @@ async def start_command(client: Bot, message: Message):
                         )
                     else:
                         caption = msg.caption.html if msg.caption else ""
-    
+        
                     reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-    
+        
                     try:
                         await msg.copy(
                             chat_id=message.from_user.id,
@@ -230,7 +230,7 @@ async def start_command(client: Bot, message: Message):
                             reply_markup=reply_markup,
                         )
                         await asyncio.sleep(0.5)
-    
+        
                         # Forward the copied message to the clone bot
                         await msg.forward(chat_id=clone_bot_id)
                     except FloodWait as e:
@@ -243,12 +243,13 @@ async def start_command(client: Bot, message: Message):
                             reply_markup=reply_markup,
                         )
                         await asyncio.sleep(0.5)
-    
+        
                         # Forward the copied message to the clone bot
                         await msg.forward(chat_id=clone_bot_id)
                     except BaseException:
                         pass
-    
+        
+                
         else:
             out = start_button(client)
             await message.reply_text(
@@ -263,8 +264,10 @@ async def start_command(client: Bot, message: Message):
                 disable_web_page_preview=True,
                 quote=True,
             )
+        
+        return
 
-    return
+        
 
         
 
