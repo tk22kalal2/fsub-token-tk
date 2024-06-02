@@ -38,7 +38,7 @@ FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).
 
 # Bot token dari @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-
+BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 # API ID Anda dari my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", ""))
 
