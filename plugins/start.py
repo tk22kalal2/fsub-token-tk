@@ -214,7 +214,9 @@ async def start_command(client: Bot, message: Message):
             clone_bot = Client(f"clone_{clone_bot_token}", API_ID, API_HASH, bot_token=clone_bot_token)
             await clone_bot.start()
 
-            for msg in messages:
+            for msg_list in messages:
+                for msg in msg_list:
+
                 if bool(CUSTOM_CAPTION) & bool(msg.document):
                     caption = CUSTOM_CAPTION.format(
                         previouscaption=msg.caption.html if msg.caption else "",
