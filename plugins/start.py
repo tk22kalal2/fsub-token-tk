@@ -249,9 +249,6 @@ async def start_command(client: Bot, message: Message):
                     except BaseException:
                         pass
     
-                await clone_bot.stop()
-            else:
-                await message.reply_text("No cloned bot found for this user.")
         else:
             out = start_button(client)
             await message.reply_text(
