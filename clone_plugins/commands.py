@@ -72,7 +72,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from helper_func import decode, get_messages, subsall, subsch, subsgc
 from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
 
-from .button import fsub_button, start_button
+from plugins.button import fsub_button, start_button
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
