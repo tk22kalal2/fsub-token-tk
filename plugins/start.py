@@ -7,6 +7,7 @@ from datetime import datetime
 from time import time
 from pymongo import MongoClient
 from bot import Bot
+from config import DB_URI as MONGO_URL
 from config import (
     ADMINS,
     CUSTOM_CAPTION,
