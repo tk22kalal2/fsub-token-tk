@@ -203,13 +203,11 @@ async def start_command(client: Bot, message: Message):
         bot_token = bot_token[0] if bot_token else None
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         mongo_collection = mongo_db.bots
-        cloned_bot = mongo_collection.find_one({"user_id": message.from_user.id})
+        cloned_bot = mongo_collection.find_one({"token": bot_token})
 
         if cloned_bot:
-            clone_bot_token = cloned_bot['token']
-            clone_bot = Client(f"clone_{clone_bot_token}", API_ID, API_HASH, bot_token=clone_bot_token)
-            await clone_bot.start()
-
+            clone_bot_id = cloned_bot['bot_id']
+            
             for msg_list in messages:
                 for msg in msg_list:
 
@@ -234,7 +232,7 @@ async def start_command(client: Bot, message: Message):
                         await asyncio.sleep(0.5)
     
                         # Forward the copied message to the clone bot
-                        await msg.forward(chat_id=cloned_bot['bot_id'])
+                        await msg.forward(chat_id=clone_bot_id)
                     except FloodWait as e:
                         await asyncio.sleep(e.x)
                         await msg.copy(
@@ -247,7 +245,7 @@ async def start_command(client: Bot, message: Message):
                         await asyncio.sleep(0.5)
     
                         # Forward the copied message to the clone bot
-                        await msg.forward(chat_id=cloned_bot['bot_id'])
+                        await msg.forward(chat_id=clone_bot_id)
                     except BaseException:
                         pass
     
