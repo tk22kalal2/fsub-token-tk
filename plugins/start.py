@@ -68,9 +68,6 @@ async def _human_time_duration(seconds):
             parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
-async def get_messages(client, ids):
-    return [await client.get_messages(client.db_channel.id, message_ids=ids)]
-
 
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
@@ -236,13 +233,7 @@ async def start_command(client: Bot, message: Message):
                     await asyncio.sleep(0.5)
 
                     # Forward the copied message to the clone bot
-                    await msg.copy(
-                        chat_id=cloned_bot['bot_id'],
-                        caption=caption,
-                        parse_mode=ParseMode.HTML,
-                        protect_content=PROTECT_CONTENT,
-                        reply_markup=reply_markup,
-                    )
+                    await msg.forward(chat_id=cloned_bot['bot_id'])
                 except FloodWait as e:
                     await asyncio.sleep(e.x)
                     await msg.copy(
@@ -255,13 +246,7 @@ async def start_command(client: Bot, message: Message):
                     await asyncio.sleep(0.5)
 
                     # Forward the copied message to the clone bot
-                    await msg.copy(
-                        chat_id=cloned_bot['bot_id'],
-                        caption=caption,
-                        parse_mode=ParseMode.HTML,
-                        protect_content=PROTECT_CONTENT,
-                        reply_markup=reply_markup,
-                    )
+                    await msg.forward(chat_id=cloned_bot['bot_id'])
                 except BaseException:
                     pass
 
