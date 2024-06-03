@@ -24,7 +24,7 @@ from config import (
 from database.mongo import collection, adds_user, del_user, fulls_userbase, present_user
 from pyrogram import filters
 from pyrogram.enums import ParseMode
-from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
+from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, ChannelInvalid
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
 from helper_func import decode, get_messages, subsall, subsch, subsgc
