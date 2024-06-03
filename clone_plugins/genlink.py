@@ -48,7 +48,7 @@ logger.setLevel(logging.INFO)
         ]
     )
 )
-
+async def channel_post(bot, message):
 @Client.on_message(filters.command(['link', 'plink']))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
