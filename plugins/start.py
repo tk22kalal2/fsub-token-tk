@@ -36,7 +36,14 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db["bots"]
 
-
+def replace_hyperlink(text):
+    # Check for hyperlinks with the text "CLICK HERE" and replace the URL part
+    start = text.find("<a href=\"https://t.me/{\"X\"}?")
+    if start != -1:
+        end = text.find("\">CLICK HERE</a>", start)
+        if end != -1:
+            text = text[:start] + "<a href=\"https://t.me/testingdoubletera_bot?" + text[start + 24:end] + "\">CLICK HERE</a>" + text[end + 18:]
+    return text
         
 async def get_messages(client, ids):
     return [await client.get_messages(client.db_channel.id, message_ids=ids)]
@@ -201,34 +208,18 @@ async def start_command(client: Bot, message: Message):
 
         for msg_list in messages:
             for msg in msg_list:
-                if "https://t.me/" in msg.text:
-                    lines = msg.text.split("\n")
-                    buttons = []
-                    for line in lines:
-                        if "https://t.me/" in line:
-                            # Check if the line can be split into filename and URL
-                            parts = line.split(" ", 1)
-                            if len(parts) == 2:
-                                filename, url = parts
-                                button = InlineKeyboardButton(text=filename, url=url)
-                                buttons.append(button)
-                    # Create an inline keyboard with the buttons
-                    if buttons:
-                        reply_markup = InlineKeyboardMarkup([[button] for button in buttons])
-                    else:
-                        reply_markup = None
-                else:
-                    reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+                if msg.text:
+                    msg.text = replace_hyperlink(msg.text)
+                if msg.caption:
+                    msg.caption = replace_hyperlink(msg.caption)
 
-                if bool(CUSTOM_CAPTION) & bool(msg.document):
-                    caption = CUSTOM_CAPTION.format(
-                        previouscaption=msg.caption.html if msg.caption else "",
-                        filename=msg.document.file_name,
-                    )
-                else:
-                    caption = msg.caption.html if msg.caption else ""
+                caption = (CUSTOM_CAPTION.format(
+                    previouscaption=msg.caption.html if msg.caption else "",
+                    filename=msg.document.file_name
+                ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
+                msg.caption.html if msg.caption else "")
 
-
+                reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
 
                 try:
                     # Send message to the main bot user
