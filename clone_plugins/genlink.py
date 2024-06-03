@@ -89,7 +89,9 @@ async def channel_post(bot, message):
             await post_message.edit_reply_markup(reply_markup)
         except Exception:
             pass
-            
+
+@Clint.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
+async def new_post(bot, message):
 @Client.on_message(filters.command(['link', 'plink']))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
