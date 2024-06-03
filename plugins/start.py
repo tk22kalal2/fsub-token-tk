@@ -201,17 +201,22 @@ async def start_command(client: Bot, message: Message):
 
         for msg_list in messages:
             for msg in msg_list:
-                if "https://t.me/" in msg.text:
+                //t.me/" in msg.text:
                     lines = msg.text.split("\n")
                     buttons = []
                     for line in lines:
                         if "https://t.me/" in line:
-                            # Extract the filename and URL from the line
-                            filename, url = line.split(" ", 1)
-                            button = InlineKeyboardButton(text=filename, url=url)
-                            buttons.append(button)
+                            # Check if the line can be split into filename and URL
+                            parts = line.split(" ", 1)
+                            if len(parts) == 2:
+                                filename, url = parts
+                                button = InlineKeyboardButton(text=filename, url=url)
+                                buttons.append(button)
                     # Create an inline keyboard with the buttons
-                    reply_markup = InlineKeyboardMarkup([[button] for button in buttons])
+                    if buttons:
+                        reply_markup = InlineKeyboardMarkup([[button] for button in buttons])
+                    else:
+                        reply_markup = None
                 else:
                     reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
 
@@ -222,6 +227,7 @@ async def start_command(client: Bot, message: Message):
                     )
                 else:
                     caption = msg.caption.html if msg.caption else ""
+
 
                 try:
                     # Send message to the main bot user
