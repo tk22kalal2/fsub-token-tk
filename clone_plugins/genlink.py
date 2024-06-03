@@ -58,7 +58,12 @@ async def gen_link_s(client: Client, message: Message):
     converted_id = post_message.id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
-    link = f"https://t.me/{client.username}?start={base64_string}"
+    user_id = message.from_user.id
+    user = await get_user(user_id)
+    # Get the bot's username
+    bot_username = (await client.get_me()).username
+    
+    link = f"https://t.me/{bot_username}?start={base64_string}"
 
     reply_markup = InlineKeyboardMarkup(
         [
