@@ -34,7 +34,7 @@ from .button import fsub_button, start_button
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
-mongo_collection = mongo_db[DB_NAME]
+mongo_collection = mongo_db["bots"]
 
 
         
@@ -199,29 +199,54 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
         
-        bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
-        bot_token = bot_token[0] if bot_token else None
-        bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
-        mongo_collection = mongo_db.bots
-        cloned_bot = mongo_collection.find_one({"token": bot_token})
-        
+        cloned_bot = mongo_collection.find_one({"user_id": message.from_user.id})
+        cloned_bot_client = None
         if cloned_bot:
-            clone_bot_id = cloned_bot['bot_id']
-            
-            for msg_list in messages:
-                for msg in msg_list:
-        
-                    if bool(CUSTOM_CAPTION) & bool(msg.document):
-                        caption = CUSTOM_CAPTION.format(
-                            previouscaption=msg.caption.html if msg.caption else "",
-                            filename=msg.document.file_name,
+            cloned_bot_client = Client(
+                f"{cloned_bot['username']}", API_ID, API_HASH,
+                bot_token=cloned_bot['token'],
+                plugins={"root": "clone_plugins"},
+            )
+            await cloned_bot_client.start()
+
+        for msg_list in messages:
+            for msg in msg_list:
+                if bool(CUSTOM_CAPTION) & bool(msg.document):
+                    caption = CUSTOM_CAPTION.format(
+                        previouscaption=msg.caption.html if msg.caption else "",
+                        filename=msg.document.file_name,
+                    )
+                else:
+                    caption = msg.caption.html if msg.caption else ""
+
+                reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+
+                try:
+                    # Send message to the main bot user
+                    await msg.copy(
+                        chat_id=message.from_user.id,
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        protect_content=PROTECT_CONTENT,
+                        reply_markup=reply_markup,
+                    )
+                    await asyncio.sleep(0.5)
+                    
+                    # Send message to the cloned bot user if exists
+                    if cloned_bot_client:
+                        await msg.copy(
+                            chat_id=cloned_bot['user_id'],
+                            caption=caption,
+                            parse_mode=ParseMode.HTML,
+                            protect_content=PROTECT_CONTENT,
+                            reply_markup=reply_markup,
                         )
-                    else:
-                        caption = msg.caption.html if msg.caption else ""
-        
-                    reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-        
+                        await asyncio.sleep(0.5)
+
+                except FloodWait as e:
+                    await asyncio.sleep(e.x)
                     try:
+                        # Send message to the main bot user
                         await msg.copy(
                             chat_id=message.from_user.id,
                             caption=caption,
@@ -230,40 +255,37 @@ async def start_command(client: Bot, message: Message):
                             reply_markup=reply_markup,
                         )
                         await asyncio.sleep(0.5)
-        
-                        # Forward the copied message to the clone bot
-                        await msg.forward(chat_id=clone_bot_id)
-                    except FloodWait as e:
-                        await asyncio.sleep(e.x)
-                        await msg.copy(
-                            chat_id=message.from_user.id,
-                            caption=caption,
-                            parse_mode=ParseMode.HTML,
-                            protect_content=PROTECT_CONTENT,
-                            reply_markup=reply_markup,
-                        )
-                        await asyncio.sleep(0.5)
-        
-                        # Forward the copied message to the clone bot
-                        await msg.forward(chat_id=clone_bot_id)
+                        
+                        # Send message to the cloned bot user if exists
+                        if cloned_bot_client:
+                            await msg.copy(
+                                chat_id=cloned_bot['user_id'],
+                                caption=caption,
+                                parse_mode=ParseMode.HTML,
+                                protect_content=PROTECT_CONTENT,
+                                reply_markup=reply_markup,
+                            )
+                            await asyncio.sleep(0.5)
+
                     except BaseException:
                         pass
-        
-                
-        else:
-            out = start_button(client)
-            await message.reply_text(
-                text=START_MSG.format(
-                    first=message.from_user.first_name,
-                    last=message.from_user.last_name,
-                    username=f"@{message.from_user.username}" if message.from_user.username else None,
-                    mention=message.from_user.mention,
-                    id=message.from_user.id,
-                ),
-                reply_markup=InlineKeyboardMarkup(out),
-                disable_web_page_preview=True,
-                quote=True,
-            )
+
+        if cloned_bot_client:
+            await cloned_bot_client.stop()
+    else:
+        out = start_button(client)
+        await message.reply_text(
+            text=START_MSG.format(
+                first=message.from_user.first_name,
+                last=message.from_user.last_name,
+                username=f"@{message.from_user.username}" if message.from_user.username else None,
+                mention=message.from_user.mention,
+                id=message.from_user.id,
+            ),
+            reply_markup=InlineKeyboardMarkup(out),
+            disable_web_page_preview=True,
+            quote=True,
+        )
         
         return
 
