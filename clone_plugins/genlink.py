@@ -31,7 +31,7 @@ logger.setLevel(logging.INFO)
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-@Client.on_message(filters.command(['link']))
+@Bot.on_message(filters.command(['link']))
 async def gen_link_s(client: Client, message: Message):
     replied = message.reply_to_message
     if not replied:
