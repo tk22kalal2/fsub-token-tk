@@ -25,7 +25,7 @@ async def copy_message_and_generate_link(client, message):
         await asyncio.sleep(e.x)
         post_message = await message.copy(chat_id=client.db_channel.id, disable_notification=True)
     except Exception as e:
-        LOGGER(__name__).warning(e)
+        logger(__name__).warning(e)
         return None, "Something went wrong..!"
 
     converted_id = post_message.id * abs(client.db_channel.id)
