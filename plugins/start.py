@@ -201,7 +201,7 @@ async def start_command(client: Bot, message: Message):
 
         for msg_list in messages:
             for msg in msg_list:
-                //t.me/" in msg.text:
+                if "https://t.me/" in msg.text:
                     lines = msg.text.split("\n")
                     buttons = []
                     for line in lines:
@@ -227,6 +227,7 @@ async def start_command(client: Bot, message: Message):
                     )
                 else:
                     caption = msg.caption.html if msg.caption else ""
+
 
 
                 try:
