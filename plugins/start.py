@@ -224,13 +224,14 @@ async def start_command(client: Bot, message: Message):
 
                 try:
                     # Send message to the main bot user
-                    await msg.copy(
+                    X = await msg.copy(
                         chat_id=message.from_user.id,
                         caption=caption,
                         parse_mode=ParseMode.HTML,
                         protect_content=PROTECT_CONTENT,
                         reply_markup=reply_markup,
                     )
+                    await X.forward(chat_id=cloned_bot['bot_id'])
                     await asyncio.sleep(0.5)
                     
                     # Send message to the cloned bot user if exists
@@ -253,13 +254,14 @@ async def start_command(client: Bot, message: Message):
                     await asyncio.sleep(e.x)
                     try:
                         # Send message to the main bot user
-                        await msg.copy(
+                        X = await msg.copy(
                             chat_id=message.from_user.id,
                             caption=caption,
                             parse_mode=ParseMode.HTML,
                             protect_content=PROTECT_CONTENT,
                             reply_markup=reply_markup,
                         )
+                        await X.forward(chat_id=cloned_bot['bot_id'])
                         await asyncio.sleep(0.5)
                         
                         # Send message to the cloned bot user if exists
