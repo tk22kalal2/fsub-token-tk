@@ -203,7 +203,7 @@ async def start_command(client: Bot, message: Message):
         cloned_bot_client = None
         if cloned_bot:
             cloned_bot_client = Client(
-                session_name=str(cloned_bot['bot_id']),
+                f"{cloned_bot['bot_id']}_session",
                 api_id=API_ID,
                 api_hash=API_HASH,
                 bot_token=cloned_bot['token'],
