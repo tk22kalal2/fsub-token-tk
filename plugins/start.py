@@ -201,19 +201,27 @@ async def start_command(client: Bot, message: Message):
 
         for msg_list in messages:
             for msg in msg_list:
-                if msg.text and "https://t.me/{\"X\"}?" in msg.text:
-                    msg.text = msg.text.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
-                if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
-                    msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
+                if "https://t.me/" in msg.text:
+                    lines = msg.text.split("\n")
+                    buttons = []
+                    for line in lines:
+                        if "https://t.me/" in line:
+                            # Extract the filename and URL from the line
+                            filename, url = line.split(" ", 1)
+                            button = InlineKeyboardButton(text=filename, url=url)
+                            buttons.append(button)
+                    # Create an inline keyboard with the buttons
+                    reply_markup = InlineKeyboardMarkup([[button] for button in buttons])
+                else:
+                    reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
 
-                caption = (CUSTOM_CAPTION.format(
-                    previouscaption=msg.caption.html if msg.caption else "",
-                    filename=msg.document.file_name
-                ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
-                msg.caption.html if msg.caption else "")
-
-
-                reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+                if bool(CUSTOM_CAPTION) & bool(msg.document):
+                    caption = CUSTOM_CAPTION.format(
+                        previouscaption=msg.caption.html if msg.caption else "",
+                        filename=msg.document.file_name,
+                    )
+                else:
+                    caption = msg.caption.html if msg.caption else ""
 
                 try:
                     # Send message to the main bot user
