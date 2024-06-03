@@ -203,9 +203,10 @@ async def start_command(client: Bot, message: Message):
         cloned_bot_client = None
         if cloned_bot:
             cloned_bot_client = Client(
-                f"{cloned_bot['username']}", API_ID, API_HASH,
+                session_name=str(cloned_bot['bot_id']),
+                api_id=API_ID,
+                api_hash=API_HASH,
                 bot_token=cloned_bot['token'],
-                plugins={"root": "clone_plugins"},
             )
             await cloned_bot_client.start()
 
@@ -234,8 +235,10 @@ async def start_command(client: Bot, message: Message):
                     
                     # Send message to the cloned bot user if exists
                     if cloned_bot_client:
-                        await msg.copy(
-                            chat_id=cloned_bot['user_id'],
+                        await cloned_bot_client.copy_message(
+                            chat_id=message.from_user.id,
+                            from_chat_id=client.db_channel.id,
+                            message_id=msg.message_id,
                             caption=caption,
                             parse_mode=ParseMode.HTML,
                             protect_content=PROTECT_CONTENT,
@@ -258,8 +261,10 @@ async def start_command(client: Bot, message: Message):
                         
                         # Send message to the cloned bot user if exists
                         if cloned_bot_client:
-                            await msg.copy(
-                                chat_id=cloned_bot['user_id'],
+                            await cloned_bot_client.copy_message(
+                                chat_id=message.from_user.id,
+                                from_chat_id=client.db_channel.id,
+                                message_id=msg.message_id,
                                 caption=caption,
                                 parse_mode=ParseMode.HTML,
                                 protect_content=PROTECT_CONTENT,
