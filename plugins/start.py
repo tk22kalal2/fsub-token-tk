@@ -238,7 +238,7 @@ async def start_command(client: Bot, message: Message):
                         await cloned_bot_client.copy_message(
                             chat_id=message.from_user.id,
                             from_chat_id=client.db_channel.id,
-                            message_id=msg.message_id,
+                            message_id=msg.id,
                             caption=caption,
                             parse_mode=ParseMode.HTML,
                             protect_content=PROTECT_CONTENT,
@@ -264,7 +264,7 @@ async def start_command(client: Bot, message: Message):
                             await cloned_bot_client.copy_message(
                                 chat_id=message.from_user.id,
                                 from_chat_id=client.db_channel.id,
-                                message_id=msg.message_id,
+                                message_id=msg.id,
                                 caption=caption,
                                 parse_mode=ParseMode.HTML,
                                 protect_content=PROTECT_CONTENT,
