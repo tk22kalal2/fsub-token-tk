@@ -235,16 +235,19 @@ async def start_command(client: Bot, message: Message):
                     
                     # Send message to the cloned bot user if exists
                     if cloned_bot_client:
-                        await cloned_bot_client.copy_message(
-                            chat_id=message.from_user.id,
-                            from_chat_id=client.db_channel.id,
-                            message_id=msg.id,
-                            caption=caption,
-                            parse_mode=ParseMode.HTML,
-                            protect_content=PROTECT_CONTENT,
-                            reply_markup=reply_markup,
-                        )
-                        await asyncio.sleep(0.5)
+                        try:
+                            await cloned_bot_client.copy_message(
+                                chat_id=message.from_user.id,
+                                from_chat_id=client.db_channel.id,
+                                message_id=msg.id,
+                                caption=caption,
+                                parse_mode=ParseMode.HTML,
+                                protect_content=PROTECT_CONTENT,
+                                reply_markup=reply_markup,
+                            )
+                            await asyncio.sleep(0.5)
+                        except ChannelInvalid:
+                            await message.reply_text("Cloned bot does not have access to the specified channel.")
 
                 except FloodWait as e:
                     await asyncio.sleep(e.x)
@@ -261,16 +264,19 @@ async def start_command(client: Bot, message: Message):
                         
                         # Send message to the cloned bot user if exists
                         if cloned_bot_client:
-                            await cloned_bot_client.copy_message(
-                                chat_id=message.from_user.id,
-                                from_chat_id=client.db_channel.id,
-                                message_id=msg.id,
-                                caption=caption,
-                                parse_mode=ParseMode.HTML,
-                                protect_content=PROTECT_CONTENT,
-                                reply_markup=reply_markup,
-                            )
-                            await asyncio.sleep(0.5)
+                            try:
+                                await cloned_bot_client.copy_message(
+                                    chat_id=message.from_user.id,
+                                    from_chat_id=client.db_channel.id,
+                                    message_id=msg.id,
+                                    caption=caption,
+                                    parse_mode=ParseMode.HTML,
+                                    protect_content=PROTECT_CONTENT,
+                                    reply_markup=reply_markup,
+                                )
+                                await asyncio.sleep(0.5)
+                            except ChannelInvalid:
+                                await message.reply_text("Cloned bot does not have access to the specified channel.")
 
                     except BaseException:
                         pass
