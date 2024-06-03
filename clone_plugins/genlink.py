@@ -7,7 +7,7 @@ import asyncio
 from pyrogram import filters, Client, enums
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from config import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, BOT_USERNAME, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, , LOGGER
+from config import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL, BOT_USERNAME, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, LOGGER
 from plugins.database import unpack_new_file_id
 from plugins.users_api import get_user, get_short_link
 from helper_func import encode
