@@ -120,6 +120,7 @@ async def new_post(client: Client, message: Message):
         await message.edit_reply_markup(reply_markup)
     except Exception:
         pass
+        
 @Client.on_message(filters.command(['link', 'plink']))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
