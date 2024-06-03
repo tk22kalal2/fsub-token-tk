@@ -48,7 +48,7 @@ logger.setLevel(logging.INFO)
         ]
     )
 )
-async def channel_post(bot, message):
+async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("Please Wait...!", quote=True)
     try:
         post_message = await message.copy(
