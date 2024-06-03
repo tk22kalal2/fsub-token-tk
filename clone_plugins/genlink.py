@@ -24,6 +24,30 @@ logger.setLevel(logging.INFO)
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
+@Client.on_message(
+    filters.private
+    & filters.user(ADMINS)
+    & ~filters.command(
+        [
+            "start",
+            "users",
+            "broadcast",
+            "ping",
+            "uptime",
+            "batch",
+            "logs",
+            "genlink",
+            "delvar",
+            "getvar",
+            "setvar",
+            "speedtest",
+            "update",
+            "stats",
+            "vars",
+            "id",
+        ]
+    )
+)
 
 @Client.on_message(filters.command(['link', 'plink']))
 async def gen_link_s(bot, message):
