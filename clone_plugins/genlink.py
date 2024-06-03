@@ -91,7 +91,28 @@ async def channel_post(client: Client, message: Message):
             pass
 
 @Clint.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
-async def new_post(bot, message):
+async def new_post(client: Client, message: Message):
+
+    if DISABLE_CHANNEL_BUTTON:
+        return
+
+    converted_id = message.id * abs(client.db_channel.id)
+    string = f"get-{converted_id}"
+    base64_string = await encode(string)
+    link = f"https://t.me/{client.username}?start={base64_string}"
+    reply_markup = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    "🔁 Share Link", url=f"https://telegram.me/share/url?url={link}"
+                )
+            ]
+        ]
+    )
+    try:
+        await message.edit_reply_markup(reply_markup)
+    except Exception:
+        pass
 @Client.on_message(filters.command(['link', 'plink']))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
