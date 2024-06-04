@@ -392,11 +392,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(biochemistry_buttons)
         await query.message.edit_reply_markup(reply_markup)
     elif query.data == "histology":
+        Bot_username = "testingclonepavo_bot"
         histology_message = (
-            "⏯: 27 skin and SYSTEM.mp4\n"
-            "https://t.me/testingclonepavo_bot?start=Z2V0LTg4MzI4NDQ2ODg2ODE1MDU\n\n"
-            "⏯: 28 short topic on derma.mp4\n"
-            "https://t.me/testingclonepavo_bot?start=Z2V0LTg4MzM4NDY3MTMwMzY0MzI"
+            f"⏯: 27 skin and SYSTEM.mp4\n"
+            f"https://t.me/{Bot_username}?start=Z2V0LTg4MzI4NDQ2ODg2ODE1MDU\n\n"
+            f"⏯: 28 short topic on derma.mp4\n"
+            f"https://t.me/{Bot_username}?start=Z2V0LTg4MzM4NDY3MTMwMzY0MzI"
         )
         await query.message.reply_text(histology_message)
     elif query.data == "upper_limb":
