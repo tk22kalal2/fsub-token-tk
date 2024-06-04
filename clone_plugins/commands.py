@@ -368,35 +368,46 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
 
     elif query.data == "marrow":
-        # Handle "MARROW" button press
         marrow_buttons = [
             [InlineKeyboardButton("ANATOMY", callback_data="anatomy")],
             [InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistry")],
             [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
-        # Update the keyboard with "MARROW" sub-buttons
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
     elif query.data == "anatomy":
-        # Handle "ANATOMY" button press
         anatomy_buttons = [
             [InlineKeyboardButton("HISTOLOGY", callback_data="histology")],
             [InlineKeyboardButton("UPPER LIMB", callback_data="upper_limb")],
             [InlineKeyboardButton("BACK TO MARROW MENU", callback_data="marrow")]
         ]
-        # Update the keyboard with "ANATOMY" sub-buttons
         reply_markup = InlineKeyboardMarkup(anatomy_buttons)
         await query.message.edit_reply_markup(reply_markup)
     elif query.data == "biochemistry":
-        # Handle "BIOCHEMISTRY" button press
         biochemistry_buttons = [
             [InlineKeyboardButton("AMINO ACIDS", callback_data="amino_acids")],
             [InlineKeyboardButton("PROTEINS", callback_data="proteins")],
             [InlineKeyboardButton("BACK TO MARROW MENU", callback_data="marrow")]
         ]
-        # Update the keyboard with "BIOCHEMISTRY" sub-buttons
         reply_markup = InlineKeyboardMarkup(biochemistry_buttons)
         await query.message.edit_reply_markup(reply_markup)
+    elif query.data == "histology":
+        histology_message = (
+            "⏯: 27 skin and SYSTEM.mp4\n"
+            "https://t.me/testingclonepavo_bot?start=Z2V0LTg4MzI4NDQ2ODg2ODE1MDU\n\n"
+            "⏯: 28 short topic on derma.mp4\n"
+            "https://t.me/testingclonepavo_bot?start=Z2V0LTg4MzM4NDY3MTMwMzY0MzI"
+        )
+        await query.message.reply_text(histology_message)
+    elif query.data == "upper_limb":
+        # Handle upper limb button press if needed
+        pass
+    elif query.data == "amino_acids":
+        # Handle amino acids button press if needed
+        pass
+    elif query.data == "proteins":
+        # Handle proteins button press if needed
+        pass
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
