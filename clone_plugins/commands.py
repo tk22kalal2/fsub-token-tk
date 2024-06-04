@@ -97,8 +97,11 @@ async def start(client, message):
             ],[
             InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
             ],[
+            InlineKeyboardButton('MARROW', callback_data='marrow')
+            ],[
             InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
+            
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         me2 = (await client.get_me()).mention
@@ -362,7 +365,38 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.CLONE_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-        )          
+        )
+
+    elif query.data == "marrow":
+        # Handle "MARROW" button press
+        marrow_buttons = [
+            [InlineKeyboardButton("ANATOMY", callback_data="anatomy")],
+            [InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistry")],
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+        ]
+        # Update the keyboard with "MARROW" sub-buttons
+        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+    elif query.data == "anatomy":
+        # Handle "ANATOMY" button press
+        anatomy_buttons = [
+            [InlineKeyboardButton("HISTOLOGY", callback_data="histology")],
+            [InlineKeyboardButton("UPPER LIMB", callback_data="upper_limb")],
+            [InlineKeyboardButton("BACK TO MARROW MENU", callback_data="marrow")]
+        ]
+        # Update the keyboard with "ANATOMY" sub-buttons
+        reply_markup = InlineKeyboardMarkup(anatomy_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+    elif query.data == "biochemistry":
+        # Handle "BIOCHEMISTRY" button press
+        biochemistry_buttons = [
+            [InlineKeyboardButton("AMINO ACIDS", callback_data="amino_acids")],
+            [InlineKeyboardButton("PROTEINS", callback_data="proteins")],
+            [InlineKeyboardButton("BACK TO MARROW MENU", callback_data="marrow")]
+        ]
+        # Update the keyboard with "BIOCHEMISTRY" sub-buttons
+        reply_markup = InlineKeyboardMarkup(biochemistry_buttons)
+        await query.message.edit_reply_markup(reply_markup)
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
