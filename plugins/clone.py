@@ -9,7 +9,7 @@ from Script import script
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from config import API_ID, API_HASH, ADMINS, DB_NAME, CHANNEL_ID, TG_BOT_TOKEN
+from config import API_ID, API_HASH, ADMINS, DB_NAME, CHANNEL_ID, TG_BOT_TOKEN, LOGGER
 from config import DB_URI as MONGO_URL
 
 # Initialize MongoDB client
@@ -17,46 +17,6 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db[DB_NAME]
 
-class Bot(Client):
-    def __init__(self):
-        super().__init__(
-            name="Bot",
-            api_hash=API_HASH,
-            api_id=API_ID,
-            plugins={"root": "clone_plugins"},
-            bot_token=TG_BOT_TOKEN,
-        )
-        self.LOGGER = logging.getLogger(__name__)
-        self.db_channel = None
-
-    async def start(self):
-        await super().start()
-        
-        # Initialize db_channel
-        try:
-            db_channel = await self.get_chat(CHANNEL_ID)
-            self.db_channel = db_channel
-            test = await self.send_message(chat_id=db_channel.id, text="Test Message", disable_notification=True)
-            await test.delete()
-            self.LOGGER.info(
-                f"CHANNEL_ID Database detected!\n┌ Title: {db_channel.title}\n└ Chat ID: {db_channel.id}\n——"
-            )
-        except Exception as e:
-            self.LOGGER.warning(e)
-            self.LOGGER.warning(
-                f"Make Sure @{self.username} is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}"
-            )
-            sys.exit()
-
-        self.LOGGER.info(
-            f"[🔥 SUCCESSFULLY ACTIVATED! 🔥]"
-        )
-
-    async def stop(self, *args):
-        await super().stop()
-        self.LOGGER.info("Bot stopped.")
-
-bot = Bot()
 
 @bot.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
@@ -102,6 +62,20 @@ async def on_clone(client, message):
                 }
                 mongo_db.bots.insert_one(details)
                 await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
+           try:
+                db_channel = await ai.get_chat(CHANNEL_ID)
+                ai.db_channel = db_channel
+                test = await ai.send_message(chat_id=db_channel.id, text="Test Message", disable_notification=True)
+                await test.delete()
+                self.LOGGER.info(
+                    f"CHANNEL_ID Database detected!\n┌ Title: {db_channel.title}\n└ Chat ID: {db_channel.id}\n——"
+                )
+            except Exception as e:
+                self.LOGGER.warning(e)
+                self.LOGGER.warning(
+                    f"Make Sure @{self.username} is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}"
+                )
+                sys.exit() 
             except BaseException as e:
                 logging.exception("Error while cloning bot.")
                 await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
@@ -146,5 +120,3 @@ async def restart_bots():
         except Exception as e:
             logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
 
-# Start the bot
-bot.run()
