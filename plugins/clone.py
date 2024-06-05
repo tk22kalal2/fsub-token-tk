@@ -9,7 +9,7 @@ from Script import script
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
-from config import API_ID, API_HASH, ADMINS, DB_NAME, CHANNEL_ID
+from config import API_ID, API_HASH, ADMINS, DB_NAME, CHANNEL_ID, TG_BOT_TOKEN
 from config import DB_URI as MONGO_URL
 
 # Initialize MongoDB client
