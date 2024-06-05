@@ -1,11 +1,7 @@
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
 import re
 import logging
 from pymongo import MongoClient
-from Script import script
+from Script import script  # Make sure the Script module is correctly imported
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
@@ -17,12 +13,14 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db[DB_NAME]
 
+# Initialize Pyrogram Client
 
-@bot.on_message(filters.command("clone") & filters.private)
+
+@Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
     await message.reply_text(script.CLONE_TXT)
 
-@bot.on_message((filters.regex(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}')) & filters.private)
+@Client.on_message((filters.regex(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}')) & filters.private)
 async def on_clone(client, message):  
     try:
         user_id = message.from_user.id
@@ -31,17 +29,14 @@ async def on_clone(client, message):
         bot_token = bot_token[0] if bot_token else None
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
         bots = list(mongo_db.bots.find())
-        bot_tokens = None  # Initialize bot_tokens variable
-
-        for bot in bots:
-            bot_tokens = bot['token']
+        bot_tokens = [bot['token'] for bot in bots]
 
         forward_from_id = message.forward_from.id if message.forward_from else None
-        if bot_tokens == bot_token and forward_from_id == 93372553:
+        if bot_token in bot_tokens and forward_from_id == 93372553:
             await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
             return
 
-        if not forward_from_id != 93372553:
+        if forward_from_id != 93372553:
             msg = await message.reply_text("**👨‍💻 ᴡᴀɪᴛ ᴀ ᴍɪɴᴜᴛᴇ ɪ ᴀᴍ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʙᴏᴛ ❣️**")
             try:
                 ai = Client(
@@ -62,35 +57,33 @@ async def on_clone(client, message):
                 }
                 mongo_db.bots.insert_one(details)
                 await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
-           try:
-                db_channel = await ai.get_chat(CHANNEL_ID)
-                ai.db_channel = db_channel
-                test = await ai.send_message(chat_id=db_channel.id, text="Test Message", disable_notification=True)
-                await test.delete()
-                self.LOGGER.info(
-                    f"CHANNEL_ID Database detected!\n┌ Title: {db_channel.title}\n└ Chat ID: {db_channel.id}\n——"
-                )
+                
+                try:
+                    db_channel = await ai.get_chat(CHANNEL_ID)
+                    ai.db_channel = db_channel
+                    test = await ai.send_message(chat_id=db_channel.id, text="Test Message", disable_notification=True)
+                    await test.delete()
+                    logging.info(
+                        f"CHANNEL_ID Database detected!\n┌ Title: {db_channel.title}\n└ Chat ID: {db_channel.id}\n——"
+                    )
+                except Exception as e:
+                    logging.warning(e)
+                    logging.warning(
+                        f"Make Sure @{ai.username} is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}"
+                    )
             except Exception as e:
-                self.LOGGER.warning(e)
-                self.LOGGER.warning(
-                    f"Make Sure @{self.username} is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}"
-                )
-                sys.exit() 
-            except BaseException as e:
                 logging.exception("Error while cloning bot.")
                 await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
     except Exception as e:
         logging.exception("Error while handling message.")
 
-@bot.on_message(filters.command("deletecloned") & filters.private)
+@Client.on_message(filters.command("deletecloned") & filters.private)
 async def delete_cloned_bot(client, message):
     try:
         bot_token = re.findall(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}', message.text, re.IGNORECASE)
         bot_token = bot_token[0] if bot_token else None
         bot_id = re.findall(r'\d[0-9]{8,10}', message.text)
 
-        mongo_collection = mongo_db.bots
-        
         cloned_bot = mongo_collection.find_one({"token": bot_token})
         if cloned_bot:
             mongo_collection.delete_one({"token": bot_token})
@@ -100,10 +93,6 @@ async def delete_cloned_bot(client, message):
     except Exception as e:
         logging.exception("Error while deleting cloned bot.")
         await message.reply_text("An error occurred while deleting the cloned bot.")
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
 
 async def restart_bots():
     logging.info("Restarting all bots........")
