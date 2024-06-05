@@ -10,10 +10,8 @@ from pyrogram.errors import FloodWait
 from plugins.database import unpack_new_file_id
 import base64
 from config import DISABLE_CHANNEL_BUTTON
+from helper_func import encode
 
-# Function to encode the string
-async def encode(string):
-    return base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
 
 @Client.on_message(filters.command(['link', 'plink']) & filters.private)
 async def gen_link_s(client: Client, message: Message):
