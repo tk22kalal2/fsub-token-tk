@@ -12,8 +12,8 @@ import base64
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-#@Client.on_message(filters.command(['link', 'plink']))
-#async def gen_link_s(client: Client, message):
+@Client.on_message(filters.command(['link', 'plink']))
+async def gen_link_s(client: Client, message):
     replied = message.reply_to_message
     if not replied:
         return await message.reply('Reply to a message to get a shareable link.')
