@@ -167,34 +167,28 @@ async def base_site_handler(client, m: Message):
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-
-
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
         await query.message.delete()
     elif query.data == "start":
         buttons = [[
-            [InlineKeyboardButton('MARROW', callback_data='marrow')
+            InlineKeyboardButton('MARROW', callback_data='marrow')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
+            chat_id=query.message.chat.id, 
+            message_id=query.message.id, 
+            media=InputMediaPhoto(random.choice(PICS))
         )
         me2 = (await client.get_me()).mention
         await query.message.edit_text(
-            text=script.CLONE_START_TXT.format(query.from_user.mention, me2),
+            text=script["CLONE_START_TXT"].format(query.from_user.mention, me2),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-        
     elif query.data == "marrow":
         marrow_buttons = [
             [InlineKeyboardButton("ANATOMY", callback_data="anatomy")],
@@ -203,6 +197,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
+    
     elif query.data == "anatomy":
         anatomy_buttons = [
             [InlineKeyboardButton("HISTOLOGY", callback_data="histology")],
@@ -211,6 +206,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]
         reply_markup = InlineKeyboardMarkup(anatomy_buttons)
         await query.message.edit_reply_markup(reply_markup)
+    
     elif query.data == "biochemistry":
         biochemistry_buttons = [
             [InlineKeyboardButton("AMINO ACIDS", callback_data="amino_acids")],
@@ -219,6 +215,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]
         reply_markup = InlineKeyboardMarkup(biochemistry_buttons)
         await query.message.edit_reply_markup(reply_markup)
+    
     elif query.data == "histology":
         bot_username = "testingclonepavo_bot"
         histology_message = (
@@ -228,15 +225,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f"https://t.me/{bot_username}?start=Z2V0LTg4MzM4NDY3MTMwMzY0MzI"
         )
         await query.message.reply_text(histology_message)
+    
     elif query.data == "upper_limb":
         # Handle upper limb button press if needed
         pass
+    
     elif query.data == "amino_acids":
         # Handle amino acids button press if needed
         pass
+    
     elif query.data == "proteins":
         # Handle proteins button press if needed
         pass
+        
+
+
+
 
 
 # Don't Remove Credit Tg - @VJ_Botz
