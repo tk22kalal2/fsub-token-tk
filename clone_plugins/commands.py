@@ -184,7 +184,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         me2 = (await client.get_me()).mention
         await query.message.edit_text(
-            text=script["CLONE_START_TXT"].format(query.from_user.mention, me2),
+            text=script.CLONE_START_TXT.format(query.from_user.mention, me2),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
