@@ -52,7 +52,7 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
     if len(message.command) != 2:
         buttons = [[
-            [InlineKeyboardButton('MARROW', callback_data='marrow')
+            InlineKeyboardButton('MARROW', callback_data='marrow')
         ]]
         me2 = (await client.get_me()).mention
         reply_markup = InlineKeyboardMarkup(buttons)
