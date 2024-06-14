@@ -18,6 +18,7 @@ from config import (
     TG_BOT_WORKERS,
 )
 
+from plugins.clone import restart_bots
 
 class Bot(Client):
     def __init__(self):
@@ -117,6 +118,7 @@ class Bot(Client):
         self.LOGGER(__name__).info(
             f"[🔥 SUCCESSFULLY ACTIVATED! 🔥]"
         )
+        await restart_bots()
 
     async def stop(self, *args):
         await super().stop()
