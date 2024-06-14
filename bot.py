@@ -6,7 +6,7 @@ import pyromod.listen
 import sys
 
 from pyrogram import Client, enums
-
+from pyrogram import idle
 from config import (
     API_HASH,
     APP_ID,
@@ -119,6 +119,8 @@ class Bot(Client):
             f"[🔥 SUCCESSFULLY ACTIVATED! 🔥]"
         )
         await restart_bots()
+        print("Bot Started Powered By @VJ_Botz")
+        await idle()
 
     async def stop(self, *args):
         await super().stop()
