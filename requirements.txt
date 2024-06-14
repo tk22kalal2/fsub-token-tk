@@ -19,3 +19,4 @@ aiohttp
 umongo
 motor
 validators
+tenacity
