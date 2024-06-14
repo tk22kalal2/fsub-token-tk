@@ -52,12 +52,7 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
-            ],[
-            InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', url=f'https://t.me/{BOT_USERNAME}?start=clone')
-            ],[
-            InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('ᴀʙᴏᴜᴛ 🔻', callback_data='about')
+            [InlineKeyboardButton('MARROW', callback_data='marrow')
         ]]
         me2 = (await client.get_me()).mention
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -180,12 +175,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.delete()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
-            ],[
-            InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', url=f'https://t.me/{BOT_USERNAME}?start=clone')
-            ],[
-            InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
-            InlineKeyboardButton('ᴀʙᴏᴜᴛ 🔻', callback_data='about')
+            [InlineKeyboardButton('MARROW', callback_data='marrow')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -241,7 +231,51 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.CABOUT_TXT.format(me2, ownerid),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-        )  
+        )
+        
+    elif query.data == "marrow":
+        marrow_buttons = [
+            [InlineKeyboardButton("ANATOMY", callback_data="anatomy")],
+            [InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistry")],
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+        ]
+        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+    elif query.data == "anatomy":
+        anatomy_buttons = [
+            [InlineKeyboardButton("HISTOLOGY", callback_data="histology")],
+            [InlineKeyboardButton("UPPER LIMB", callback_data="upper_limb")],
+            [InlineKeyboardButton("BACK TO MARROW MENU", callback_data="marrow")]
+        ]
+        reply_markup = InlineKeyboardMarkup(anatomy_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+    elif query.data == "biochemistry":
+        biochemistry_buttons = [
+            [InlineKeyboardButton("AMINO ACIDS", callback_data="amino_acids")],
+            [InlineKeyboardButton("PROTEINS", callback_data="proteins")],
+            [InlineKeyboardButton("BACK TO MARROW MENU", callback_data="marrow")]
+        ]
+        reply_markup = InlineKeyboardMarkup(biochemistry_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+    elif query.data == "histology":
+        bot_username = "testingclonepavo_bot"
+        histology_message = (
+            f"⏯: 27 skin and SYSTEM.mp4\n"
+            f"https://t.me/{bot_username}?start=Z2V0LTg4MzI4NDQ2ODg2ODE1MDU\n\n"
+            f"⏯: 28 short topic on derma.mp4\n"
+            f"https://t.me/{bot_username}?start=Z2V0LTg4MzM4NDY3MTMwMzY0MzI"
+        )
+        await query.message.reply_text(histology_message)
+    elif query.data == "upper_limb":
+        # Handle upper limb button press if needed
+        pass
+    elif query.data == "amino_acids":
+        # Handle amino acids button press if needed
+        pass
+    elif query.data == "proteins":
+        # Handle proteins button press if needed
+        pass
+
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
