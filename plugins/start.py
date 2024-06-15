@@ -253,11 +253,6 @@ async def start_command(client: Bot, message: Message):
 
     else:
         out = start_button(client)
-        
-        reply_keyboard = [
-            [KeyboardButton("CLONE", callback_data="clone_command")]
-        ]
-        reply_markup = ReplyKeyboardMarkup(reply_keyboard, resize_keyboard=True)
 
         await message.reply_text(
             text=START_MSG.format(
@@ -272,14 +267,7 @@ async def start_command(client: Bot, message: Message):
             quote=True,
         )
 
-    return
-
-@Client.on_callback_query(filters.regex("clone_command"))
-async def clone_command_callback(client: Client, callback_query):
-    await callback_query.answer()  # Acknowledge the callback query
-    await callback_query.message.reply("/clone")
-
-                
+    return                
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
