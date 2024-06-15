@@ -217,14 +217,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_reply_markup(reply_markup)
     
     elif query.data == "histology":
-        bot_username = "testingclonepavo_bot"
-        histology_message = (
-            f"⏯: 27 skin and SYSTEM.mp4\n"
-            f"https://t.me/{bot_username}?start=Z2V0LTg4MzI4NDQ2ODg2ODE1MDU\n\n"
-            f"⏯: 28 short topic on derma.mp4\n"
-            f"https://t.me/{bot_username}?start=Z2V0LTg4MzM4NDY3MTMwMzY0MzI"
-        )
-        await query.message.reply_text(histology_message)
+    bot_username = "testingclonepavo_bot"
+    histology_message = (
+        f"⏯: 03. NEET PG 2021 atf.mp4\n"
+        f"https://t.me/{bot_username}?start=Z2V0LTg5NjUxMTE5MDM1MzE4Njk\n\n"
+        f"⏯: 04. NEET PG 2020 atf.mp4\n"
+        f"https://t.me/{bot_username}?start=Z2V0LTg5NjYxMTM5Mjc4ODY3OTY\n\n"
+        f"⏯: 01. INI CET May 2022 atf.mp4\n"
+        f"https://t.me/{bot_username}?start=Z2V0LTg5NjcxMTU5NTIyNDE3MjM"
+    )
+    await query.message.reply_text(histology_message)
+
     
     elif query.data == "upper_limb":
         # Handle upper limb button press if needed
