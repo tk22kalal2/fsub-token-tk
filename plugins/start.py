@@ -222,9 +222,7 @@ async def start_command(client: Bot, message: Message):
             else:
                 caption = msg.caption.html if msg.caption else ""
 
-            if isinstance(msg, types.MessageText):
-                caption = remove_links(caption)
-
+            
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
                 await msg.copy(
