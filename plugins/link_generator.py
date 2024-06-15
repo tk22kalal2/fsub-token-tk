@@ -83,7 +83,7 @@ async def batch(client: Client, message: Message):
             
             # Send the caption followed by the link
             try:
-                clean_caption = re.sub(r'https?://\S+', '', caption).strip()
+                clean_caption = re.sub(r'https?://[^\s]+', '', caption).strip()
                 await message.reply(f"{clean_caption}\n{link}")
             except FloodWait as e:
                 await asyncio.sleep(e.x)
