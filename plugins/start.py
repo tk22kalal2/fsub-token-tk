@@ -45,8 +45,6 @@ def replace_hyperlink(text):
             text = text[:start] + "<a href=\"https://t.me/testingdoubletera_bot?" + text[start + 24:end] + "\">CLICK HERE</a>" + text[end + 18:]
     return text
         
-async def get_messages(client, ids):
-    return [await client.get_messages(client.db_channel.id, message_ids=ids)]
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
