@@ -206,8 +206,8 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        for messages in messages_list:
-            for msg in messages:
+        for msg_list in messages:
+            for msg in msg_list:
                 # Check if the message is a text message containing a URL
                 if msg.text and "http" in msg.text:
                     # Split the text message to extract the text and URL
