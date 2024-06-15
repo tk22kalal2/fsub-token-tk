@@ -16,11 +16,17 @@ from config import (
     TG_BOT_TOKEN,
 )
 from pyrogram import filters
-from pyrogram.types import Message
+from pyrogram.types import Message, ReplyKeyboardMarkup
 
-@Bot.on_message(filters.private & filters.incoming)
-async def forward_to_admin(client: Bot, m: Message):
-    # Check if the message is from a private chat
-    if m.chat.type == "private":
-        # Forward the user's message to the admin
-        await client.send_message(ADMINS, f"User ID: {m.from_user.id}\nMessage: {m.text}")
+buttonz = ReplyKeyboardMarkup(
+    [
+        ["CLONE"],
+    ],
+    resize_keyboard=True
+)
+
+@Bot.on_message(filters.command("clone") & filters.private & filters.incoming & filters.regex('CLONE'))
+async def clone(client, message):
+    await message.reply_text(script.CLONE_TXT, reply_markup=buttonz)
+
+
