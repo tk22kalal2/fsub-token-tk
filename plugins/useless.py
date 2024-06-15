@@ -33,5 +33,4 @@ async def show_clone_button(client, message):
 async def clone(client, message):
     await message.reply("/clone")
 
-# Starting the bot
-Bot.run()
+
