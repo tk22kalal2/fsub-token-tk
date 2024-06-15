@@ -53,6 +53,8 @@ OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 # ID Channel Database
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 
+CD_CHANNEL = int(os.environ.get("CHANNEL_ID", ""))
+
 #set True if you want to prevent users from forwarding files from bot
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "True") == "True" else False
 
