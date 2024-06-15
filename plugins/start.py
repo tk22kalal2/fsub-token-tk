@@ -206,55 +206,56 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        for msg in messages:
-            # Check if the message is a text message containing a URL
-            if msg.text and "http" in msg.text:
-                # Split the text message to extract the text and URL
-                parts = msg.text.split(" ")
-                if len(parts) == 2 and parts[1].startswith("http"):
-                    text_part = parts[0]
-                    url_part = parts[1]
+        for messages in messages_list:
+            for msg in messages:
+                # Check if the message is a text message containing a URL
+                if msg.text and "http" in msg.text:
+                    # Split the text message to extract the text and URL
+                    parts = msg.text.split(" ")
+                    if len(parts) == 2 and parts[1].startswith("http"):
+                        text_part = parts[0]
+                        url_part = parts[1]
 
-                    # Create the hyperlink text
-                    hyperlink_text = f'<a href="{url_part}">{text_part}</a>'
+                        # Create the hyperlink text
+                        hyperlink_text = f'<a href="{url_part}">{text_part}</a>'
 
-                    # Send the message with the hyperlink
-                    await client.send_message(
-                        chat_id=message.from_user.id,
-                        text=hyperlink_text,
-                        parse_mode=ParseMode.HTML
+                        # Send the message with the hyperlink
+                        await client.send_message(
+                            chat_id=message.from_user.id,
+                            text=hyperlink_text,
+                            parse_mode=ParseMode.HTML
+                        )
+                        continue
+
+                if bool(CUSTOM_CAPTION) & bool(msg.document):
+                    caption = CUSTOM_CAPTION.format(
+                        previouscaption=msg.caption.html if msg.caption else "",
+                        filename=msg.document.file_name,
                     )
-                    continue
+                else:
+                    caption = msg.caption.html if msg.caption else ""
 
-            if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(
-                    previouscaption=msg.caption.html if msg.caption else "",
-                    filename=msg.document.file_name,
-                )
-            else:
-                caption = msg.caption.html if msg.caption else ""
-
-            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-            try:
-                await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
-                )
-                await asyncio.sleep(0.5)
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-                await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
-                )
-            except BaseException:
-                pass
+                reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+                try:
+                    await msg.copy(
+                        chat_id=message.from_user.id,
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        protect_content=PROTECT_CONTENT,
+                        reply_markup=reply_markup,
+                    )
+                    await asyncio.sleep(0.5)
+                except FloodWait as e:
+                    await asyncio.sleep(e.x)
+                    await msg.copy(
+                        chat_id=message.from_user.id,
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        protect_content=PROTECT_CONTENT,
+                        reply_markup=reply_markup,
+                    )
+                except BaseException:
+                    pass
     else:
         out = start_button(client)
         await message.reply_text(
@@ -271,6 +272,7 @@ async def start_command(client: Bot, message: Message):
         )
 
     return
+        
                 
 
 @Bot.on_message(filters.command("start") & filters.private)
