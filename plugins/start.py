@@ -253,11 +253,11 @@ async def start_command(client: Bot, message: Message):
 
     else:
         out = start_button(client)
-        # Create the InlineKeyboardMarkup with the "CLONE" button
-        inline_keyboard = [
-            [InlineKeyboardButton("CLONE", callback_data="clone_command")]
+        
+        reply_keyboard = [
+            [KeyboardButton("CLONE", callback_data="clone_command")]
         ]
-        reply_markup = InlineKeyboardMarkup(inline_keyboard)
+        reply_markup = ReplyKeyboardMarkup(reply_keyboard, resize_keyboard=True)
 
         await message.reply_text(
             text=START_MSG.format(
