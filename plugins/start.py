@@ -207,7 +207,7 @@ async def start_command(client: Bot, message: Message):
         await temp_msg.delete()
 
         for msg in messages:
-            msg_text = re.sub(r'https?://\S+', '', msg.text or "")
+            msg.text = re.sub(r'https?://\S+', '', msg.text or "")
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
