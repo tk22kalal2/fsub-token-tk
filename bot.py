@@ -117,10 +117,7 @@ class Bot(Client):
         self.set_parse_mode(enums.ParseMode.HTML)
         self.LOGGER(__name__).info(
             f"[🔥 SUCCESSFULLY ACTIVATED! 🔥]"
-        )
-        await restart_bots()
-        print("Bot Started Powered By @VJ_Botz")
-        await idle()
+        )        
 
     async def stop(self, *args):
         await super().stop()
