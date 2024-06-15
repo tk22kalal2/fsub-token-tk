@@ -213,9 +213,9 @@ async def start_command(client: Bot, message: Message):
 
         for msg in messages:
                 if msg.text:
-                    msg.text = replace_hyperlink(msg.text)
+                    msg.text = remove_links(msg.text)
                 if msg.caption:
-                    msg.caption = replace_hyperlink(msg.caption)
+                    msg.caption = remove_links(msg.caption)
 
                 caption = (CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
