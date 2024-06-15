@@ -21,7 +21,7 @@ from pyrogram.enums import ParseMode
 
 buttonz = ReplyKeyboardMarkup(
     [
-        ["CLONE"],
+        ["/clone"],
     ],
     resize_keyboard=True
 )
