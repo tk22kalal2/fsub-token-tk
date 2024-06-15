@@ -206,8 +206,7 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        for msg_list in messages:
-            for msg in msg_list:
+        for msg in messages:
             # Check if the message is a text message containing a URL
             if msg.text and "http" in msg.text:
                 # Split the text message to extract the text and URL
@@ -226,7 +225,7 @@ async def start_command(client: Bot, message: Message):
                         parse_mode=ParseMode.HTML
                     )
                     continue
-                    
+
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
@@ -271,7 +270,7 @@ async def start_command(client: Bot, message: Message):
             quote=True,
         )
 
-    return                
+    return
                 
 
 @Bot.on_message(filters.command("start") & filters.private)
