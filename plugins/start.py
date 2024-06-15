@@ -253,11 +253,9 @@ async def start_command(client: Bot, message: Message):
 
     else:
         out = start_button(client)
-        # Create the ReplyKeyboardMarkup with the "CLONE" button
-        reply_keyboard = [
-            [KeyboardButton("CLONE")]
-        ]
-        reply_markup = ReplyKeyboardMarkup(reply_keyboard, resize_keyboard=True)
+        # Create the InlineKeyboardMarkup with the "CLONE" button
+        clone_button = InlineKeyboardButton("CLONE", callback_data="clone")
+        reply_markup = InlineKeyboardMarkup([[clone_button]])
         
         await message.reply_text(
             text=START_MSG.format(
@@ -269,21 +267,20 @@ async def start_command(client: Bot, message: Message):
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
-            reply_markup=InlineKeyboardMarkup(out),
+            reply_markup=reply_markup,
             disable_web_page_preview=True,
             quote=True,
-        )
-        # Send another message with the ReplyKeyboardMarkup
-        await message.reply_text(
-            text="Please choose an option:",
-            reply_markup=reply_markup
         )
 
     return
 
-        
+# Handler for the "clone" callback query
+@Bot.on_callback_query(filters.regex("clone"))
+async def clone_callback(client: Client, callback_query):
+    await callback_query.message.reply_text("/clone")
+    await callback_query.answer()  # To acknowledge the callback
 
-        
+                
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
