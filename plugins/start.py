@@ -58,6 +58,11 @@ TIME_DURATION_UNITS = (
     ("sec", 1),
 )
 
+def remove_links(text):
+    # Regex pattern to match URLs
+    url_pattern = re.compile(r'https?://\S+|www\.\S+')
+    # Replace URLs with empty string
+    return url_pattern.sub('', text)
 
 async def _human_time_duration(seconds):
     if seconds == 0:
@@ -206,8 +211,7 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        for msg in messages:
-            msg.text = re.sub(r'https?://\S+', '', msg.caption or "")
+        for msg in messages:            
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
@@ -217,6 +221,9 @@ async def start_command(client: Bot, message: Message):
 
             else:
                 caption = msg.caption.html if msg.caption else ""
+
+            if isinstance(msg, types.MessageText):
+                caption = remove_links(caption)
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
