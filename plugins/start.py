@@ -201,6 +201,7 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
+
         snt_msgs = []
 
         for msg in messages:
@@ -242,29 +243,26 @@ async def start_command(client: Bot, message: Message):
                     await asyncio.sleep(0.5)
         
                 except BaseException:
-                pass
-    else:
-        out = start_button(client)
-        await message.reply_text(
-            text=START_MSG.format(
-                first=message.from_user.first_name,
-                last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
-                mention=message.from_user.mention,
-                id=message.from_user.id,
-            ),
-            reply_markup=InlineKeyboardMarkup(out),
-            disable_web_page_preview=True,
-            quote=True,
-        )
-
-
-    return
-
-
-                       
+                    pass
+        else:
+            out = start_button(client)
+            await message.reply_text(
+                text=START_MSG.format(
+                    first=message.from_user.first_name,
+                    last=message.from_user.last_name,
+                    username=f"@{message.from_user.username}"
+                    if message.from_user.username
+                    else None,
+                    mention=message.from_user.mention,
+                    id=message.from_user.id,
+                ),
+                reply_markup=InlineKeyboardMarkup(out),
+                disable_web_page_preview=True,
+                quote=True,
+            )
+        
+        # Ensure proper indentation and formatting for return statement
+        return                       
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
