@@ -200,65 +200,53 @@ async def start_command(client: Bot, message: Message):
                 return
         temp_msg = await message.reply("Please wait...")
         try:
-            messages_list = await get_messages(client, ids)
+            messages = await get_messages(client, ids)
         except BaseException:
             await message.reply_text("Something went wrong..!")
             return
         await temp_msg.delete()
 
-        for messages in messages_list:
-            for msg in messages:
-                # Check if the message is a text message containing a URL
-                if hasattr(msg, 'text') and "http" in msg.text:
-                    # Check if the text matches the specific pattern with a link at the end
-                    parts = msg.text.rsplit(" ", 1)
-                    if len(parts) == 2 and parts[1].startswith("http"):
-                        text_part = parts[0]
+        for msg in messages:
 
-                        # Send the message with only the text part
-                        await client.send_message(
-                            chat_id=message.from_user.id,
-                            text=text_part,
-                            parse_mode=ParseMode.HTML
-                        )
-                        continue
+            if bool(CUSTOM_CAPTION) & bool(msg.document):
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption=msg.caption.html if msg.caption else "",
+                    filename=msg.document.file_name,
+                )
 
-                if bool(CUSTOM_CAPTION) & bool(msg.document):
-                    caption = CUSTOM_CAPTION.format(
-                        previouscaption=msg.caption.html if msg.caption else "",
-                        filename=msg.document.file_name,
-                    )
-                else:
-                    caption = msg.caption.html if msg.caption else ""
+            else:
+                caption = msg.caption.html if msg.caption else ""
 
-                reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-                try:
-                    await msg.copy(
-                        chat_id=message.from_user.id,
-                        caption=caption,
-                        parse_mode=ParseMode.HTML,
-                        protect_content=PROTECT_CONTENT,
-                        reply_markup=reply_markup,
-                    )
-                    await asyncio.sleep(0.5)
-                except FloodWait as e:
-                    await asyncio.sleep(e.x)
-                    await msg.copy(
-                        chat_id=message.from_user.id,
-                        caption=caption,
-                        parse_mode=ParseMode.HTML,
-                        protect_content=PROTECT_CONTENT,
-                        reply_markup=reply_markup,
-                    )
-                except BaseException:
-                    pass
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+            try:
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
+                await asyncio.sleep(0.5)
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
+            except BaseException:
+                pass
     else:
         out = start_button(client)
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}" if message.from_user.username else None,
+                username=f"@{message.from_user.username}"
+                if message.from_user.username
+                else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
@@ -267,7 +255,9 @@ async def start_command(client: Bot, message: Message):
             quote=True,
         )
 
+
     return
+        
         
                 
 
