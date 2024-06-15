@@ -209,7 +209,9 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        for msg in msg_list:
+        snt_msgs = []
+
+        for msg in messages:
                 if msg.text:
                     msg.text = replace_hyperlink(msg.text)
                 if msg.caption:
