@@ -56,11 +56,20 @@ TIME_DURATION_UNITS = (
     ("sec", 1),
 )
 
+import re
+
 def remove_links(text):
-    # Regex pattern to match URLs
-    url_pattern = re.compile(r'https?://\S+|www\.\S+')
+    # Regex pattern to match URLs excluding "https://t.me"
+    url_pattern = re.compile(r'(?!https:\/\/t\.me)\bhttps?:\/\/\S+|www\.\S+')
     # Replace URLs with empty string
     return url_pattern.sub('', text)
+
+# Example usage:
+text_with_links = """02. INI CET Nov 2021 atf.mp4
+https://t.me/testingclonepavo_bot?start=Z2V0LTg3MTY2MDk4NjM1MDk5NzM"""
+cleaned_text = remove_links(text_with_links)
+print(cleaned_text)
+
 
 async def _human_time_duration(seconds):
     if seconds == 0:
@@ -212,8 +221,8 @@ async def start_command(client: Bot, message: Message):
         snt_msgs = []
 
         for msg in messages:
-                if msg.text:
-                    msg.text = remove_links(msg.text)
+            if msg.text:
+                msg.text = remove_links(msg.text)
 
                 caption = (CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
