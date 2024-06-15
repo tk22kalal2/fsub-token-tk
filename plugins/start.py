@@ -242,26 +242,26 @@ async def start_command(client: Bot, message: Message):
                     await asyncio.sleep(0.5)
         
                 except BaseException:
-                    pass
-        
-        # Outside the for loop
-        else:
-            out = start_button(client)
-            await message.reply_text(
-                text=START_MSG.format(
-                    first=message.from_user.first_name,
-                    last=message.from_user.last_name,
-                    username=f"@{message.from_user.username}" if message.from_user.username else None,
-                    mention=message.from_user.mention,
-                    id=message.from_user.id,
-                ),
-                reply_markup=InlineKeyboardMarkup(out),
-                disable_web_page_preview=True,
-                quote=True,
-            )
-        
-        # End of the function or block
-        return
+                pass
+    else:
+        out = start_button(client)
+        await message.reply_text(
+            text=START_MSG.format(
+                first=message.from_user.first_name,
+                last=message.from_user.last_name,
+                username=f"@{message.from_user.username}"
+                if message.from_user.username
+                else None,
+                mention=message.from_user.mention,
+                id=message.from_user.id,
+            ),
+            reply_markup=InlineKeyboardMarkup(out),
+            disable_web_page_preview=True,
+            quote=True,
+        )
+
+
+    return
 
 
                        
