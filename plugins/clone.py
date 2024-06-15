@@ -24,9 +24,9 @@ buttonz = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-@Client.on_message(filters.command("clone") & filters.private & filters.regex('CLONE'))
+@Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
-    await message.reply_text(script.CLONE_TXT, reply_markup=buttonz)
+    await message.reply_text(script.CLONE_TXT)
 
 
 
