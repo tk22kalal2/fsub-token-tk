@@ -253,11 +253,19 @@ async def start_command(client: Bot, message: Message):
 
     else:
         out = start_button(client)
+        # Create the ReplyKeyboardMarkup with the "CLONE" button
+        reply_keyboard = [
+            [KeyboardButton("CLONE")]
+        ]
+        reply_markup = ReplyKeyboardMarkup(reply_keyboard, resize_keyboard=True)
+        
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}" if message.from_user.username else None,
+                username=f"@{message.from_user.username}"
+                if message.from_user.username
+                else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
@@ -265,8 +273,13 @@ async def start_command(client: Bot, message: Message):
             disable_web_page_preview=True,
             quote=True,
         )
-        
-        return
+        # Send another message with the ReplyKeyboardMarkup
+        await message.reply_text(
+            text="Please choose an option:",
+            reply_markup=reply_markup
+        )
+
+    return
 
         
 
