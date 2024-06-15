@@ -36,14 +36,7 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db["bots"]
 
-def replace_hyperlink(text):
-    # Check for hyperlinks with the text "CLICK HERE" and replace the URL part
-    start = text.find("<a href=\"https://t.me/{\"X\"}?")
-    if start != -1:
-        end = text.find("\">CLICK HERE</a>", start)
-        if end != -1:
-            text = text[:start] + "<a href=\"https://t.me/testingdoubletera_bot?" + text[start + 24:end] + "\">CLICK HERE</a>" + text[end + 18:]
-    return text
+
         
 
 START_TIME = datetime.utcnow()
@@ -58,17 +51,7 @@ TIME_DURATION_UNITS = (
 
 import re
 
-def remove_links(text):
-    # Regex pattern to match URLs excluding "https://t.me"
-    url_pattern = re.compile(r'(?!https:\/\/t\.me)\bhttps?:\/\/\S+|www\.\S+')
-    # Replace URLs with empty string
-    return url_pattern.sub('', text)
 
-# Example usage:
-text_with_links = """02. INI CET Nov 2021 atf.mp4
-https://t.me/testingclonepavo_bot?start=Z2V0LTg3MTY2MDk4NjM1MDk5NzM"""
-cleaned_text = remove_links(text_with_links)
-print(cleaned_text)
 
 
 async def _human_time_duration(seconds):
@@ -221,19 +204,33 @@ async def start_command(client: Bot, message: Message):
         snt_msgs = []
 
         for msg in messages:
-            if msg.text:
-                msg.text = remove_links(msg.text)
-
-                caption = (CUSTOM_CAPTION.format(
+            caption = (
+                CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
                     filename=msg.document.file_name
-                ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
-                msg.caption.html if msg.caption else "")
-
-                reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
-
+                )
+                if bool(CUSTOM_CAPTION) and bool(msg.document)
+                else msg.caption.html if msg.caption else ""
+            )
+        
+            reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
+        
+            try:
+                # Send message to the main bot user
+                X = await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
+        
+                await asyncio.sleep(0.5)
+        
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
                 try:
-                    # Send message to the main bot user
+                    # Send message to the main bot user (retry after flood wait)
                     X = await msg.copy(
                         chat_id=message.from_user.id,
                         caption=caption,
@@ -241,46 +238,31 @@ async def start_command(client: Bot, message: Message):
                         protect_content=PROTECT_CONTENT,
                         reply_markup=reply_markup,
                     )
-                    
+        
                     await asyncio.sleep(0.5)
-                    
-                except FloodWait as e:
-                    await asyncio.sleep(e.x)
-                    try:
-                        # Send message to the main bot user
-                        X = await msg.copy(
-                            chat_id=message.from_user.id,
-                            caption=caption,
-                            parse_mode=ParseMode.HTML,
-                            protect_content=PROTECT_CONTENT,
-                            reply_markup=reply_markup,
-                        )
-                        
-                        await asyncio.sleep(0.5)
-                        
-                                                    
-                    except BaseException:
-                        pass
+        
+                except BaseException:
+                    pass
+        
+        # Outside the for loop
+        else:
+            out = start_button(client)
+            await message.reply_text(
+                text=START_MSG.format(
+                    first=message.from_user.first_name,
+                    last=message.from_user.last_name,
+                    username=f"@{message.from_user.username}" if message.from_user.username else None,
+                    mention=message.from_user.mention,
+                    id=message.from_user.id,
+                ),
+                reply_markup=InlineKeyboardMarkup(out),
+                disable_web_page_preview=True,
+                quote=True,
+            )
+        
+        # End of the function or block
+        return
 
-    else:
-        out = start_button(client)
-        await message.reply_text(
-            text=START_MSG.format(
-                first=message.from_user.first_name,
-                last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
-                mention=message.from_user.mention,
-                id=message.from_user.id,
-            ),
-            reply_markup=InlineKeyboardMarkup(out),
-            disable_web_page_preview=True,
-            quote=True,
-        )
-
-
-    return
 
                        
 
