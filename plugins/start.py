@@ -208,11 +208,25 @@ async def start_command(client: Bot, message: Message):
 
         for msg_list in messages:
             for msg in msg_list:
-                if msg.text:
-                    msg.text = replace_hyperlink(msg.text)
-                if msg.caption:
-                    msg.caption = replace_hyperlink(msg.caption)
+            # Check if the message is a text message containing a URL
+            if msg.text and "http" in msg.text:
+                # Split the text message to extract the text and URL
+                parts = msg.text.split(" ")
+                if len(parts) == 2 and parts[1].startswith("http"):
+                    text_part = parts[0]
+                    url_part = parts[1]
 
+                    # Create the hyperlink text
+                    hyperlink_text = f'<a href="{url_part}">{text_part}</a>'
+
+                    # Send the message with the hyperlink
+                    await client.send_message(
+                        chat_id=message.from_user.id,
+                        text=hyperlink_text,
+                        parse_mode=ParseMode.HTML
+                    )
+                    continue
+                            
                 caption = (CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
                     filename=msg.document.file_name
