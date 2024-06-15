@@ -209,39 +209,50 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        for msg in messages:            
+        for msg in msg_list:
+                if msg.text:
+                    msg.text = replace_hyperlink(msg.text)
+                if msg.caption:
+                    msg.caption = replace_hyperlink(msg.caption)
 
-            if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(
+                caption = (CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
-                    filename=msg.document.file_name,
-                )
+                    filename=msg.document.file_name
+                ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
+                msg.caption.html if msg.caption else "")
 
-            else:
-                caption = msg.caption.html if msg.caption else ""
+                reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
 
-            
-            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
-            try:
-                await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
-                )
-                await asyncio.sleep(0.5)
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-                await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
-                )
-            except BaseException:
-                pass
+                try:
+                    # Send message to the main bot user
+                    X = await msg.copy(
+                        chat_id=message.from_user.id,
+                        caption=caption,
+                        parse_mode=ParseMode.HTML,
+                        protect_content=PROTECT_CONTENT,
+                        reply_markup=reply_markup,
+                    )
+                    
+                    await asyncio.sleep(0.5)
+                    
+                except FloodWait as e:
+                    await asyncio.sleep(e.x)
+                    try:
+                        # Send message to the main bot user
+                        X = await msg.copy(
+                            chat_id=message.from_user.id,
+                            caption=caption,
+                            parse_mode=ParseMode.HTML,
+                            protect_content=PROTECT_CONTENT,
+                            reply_markup=reply_markup,
+                        )
+                        
+                        await asyncio.sleep(0.5)
+                        
+                                                    
+                    except BaseException:
+                        pass
+
     else:
         out = start_button(client)
         await message.reply_text(
@@ -261,9 +272,8 @@ async def start_command(client: Bot, message: Message):
 
 
     return
-        
-        
-                
+
+                       
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
