@@ -25,6 +25,13 @@ buttonz = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-@Bot.on_message(filters.command("clone") & filters.private & filters.incoming & filters.regex('CLONE'))
+@Bot.on_message(filters.private & filters.incoming)
+async def show_clone_button(client, message):
+    await message.reply("Choose an option:", reply_markup=buttonz)
+
+@Bot.on_message(filters.private & filters.text & filters.regex('CLONE'))
 async def clone(client, message):
-    await message.reply("/clone", reply_markup=buttonz)
+    await message.reply("/clone")
+
+# Starting the bot
+Bot.run()
