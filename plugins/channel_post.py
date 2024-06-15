@@ -61,7 +61,7 @@ async def channel_post(client: Client, message: Message):
         [
             [
                 InlineKeyboardButton(
-                    "🔁 Share Link", url=f"https://telegram.me/share/url?url={link}"
+                    "Video Link", url=f"{link}"
                 )
             ]
         ]
@@ -94,7 +94,7 @@ async def new_post(client: Client, message: Message):
         [
             [
                 InlineKeyboardButton(
-                    "🔁 Share Link", url=f"https://telegram.me/share/url?url={link}"
+                    "Video Link", url=f"{link}"                    
                 )
             ]
         ]
