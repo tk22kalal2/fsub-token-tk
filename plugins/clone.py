@@ -8,7 +8,7 @@ from tenacity import retry, wait_fixed, stop_after_attempt
 from pymongo import MongoClient
 from Script import script
 from pyrogram import Client, filters
-from pyrogram.types import Message
+from pyrogram.types import Message, ReplyKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
 from config import API_ID, API_HASH, ADMINS, DB_NAME
 from config import DB_URI as MONGO_URL
@@ -17,9 +17,16 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db[DB_NAME]
 
-@Client.on_message(filters.command("clone") & filters.private)
+buttonz = ReplyKeyboardMarkup(
+    [
+        ["CLONE"],
+    ],
+    resize_keyboard=True
+)
+
+@Client.on_message(filters.command("clone") & filters.private & filters.regex('CLONE'))
 async def clone(client, message):
-    await message.reply_text(script.CLONE_TXT)
+    await message.reply_text(script.CLONE_TXT, reply_markup=buttonz)
 
 
 
