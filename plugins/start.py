@@ -239,7 +239,7 @@ async def start_command(client: Bot, message: Message):
             except BaseException:
                 pass
                 
-       await asyncio.sleep(SECONDS)
+        await asyncio.sleep(SECONDS)
 
         for snt_msg in snt_msgs:
             try:
