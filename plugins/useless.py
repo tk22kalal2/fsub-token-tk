@@ -27,6 +27,4 @@ buttonz = ReplyKeyboardMarkup(
 
 @Bot.on_message(filters.command("clone") & filters.private & filters.incoming & filters.regex('CLONE'))
 async def clone(client, message):
-    await message.reply_text(script.CLONE_TXT, reply_markup=buttonz)
-
-
+    await message.reply("/clone", reply_markup=buttonz)
