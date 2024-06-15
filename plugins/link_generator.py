@@ -3,7 +3,7 @@ import re
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from bot import Bot
-from config import ADMINS, CUSTOM_CAPTION
+from config import ADMINS, CUSTOM_CAPTION, CD_CHANNEL
 from helper_func import encode, get_message_id
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
@@ -84,10 +84,10 @@ async def batch(client: Client, message: Message):
             # Send the caption followed by the link
             try:
                 clean_caption = re.sub(r'https?://[^\s]+', '', caption).strip()
-                await message.reply(f"{clean_caption}\n{link}")
+                await client.send_message("CD_CHANNEL", f"{clean_caption}\n{link}")
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await message.reply(f"{clean_caption}\n{link}")
+                await client.send_message("CD_CHANNEL", f"{clean_caption}\n{link}")
 
         except Exception as e:
             await message.reply(f"Error processing message {msg_id}: {e}")
