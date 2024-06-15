@@ -226,54 +226,43 @@ async def start_command(client: Bot, message: Message):
                         parse_mode=ParseMode.HTML
                     )
                     continue
-                            
-                caption = (CUSTOM_CAPTION.format(
+                    
+            if bool(CUSTOM_CAPTION) & bool(msg.document):
+                caption = CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
-                    filename=msg.document.file_name
-                ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
-                msg.caption.html if msg.caption else "")
+                    filename=msg.document.file_name,
+                )
+            else:
+                caption = msg.caption.html if msg.caption else ""
 
-                reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
-
-                try:
-                    # Send message to the main bot user
-                    X = await msg.copy(
-                        chat_id=message.from_user.id,
-                        caption=caption,
-                        parse_mode=ParseMode.HTML,
-                        protect_content=PROTECT_CONTENT,
-                        reply_markup=reply_markup,
-                    )
-                    
-                    await asyncio.sleep(0.5)
-                    
-                except FloodWait as e:
-                    await asyncio.sleep(e.x)
-                    try:
-                        # Send message to the main bot user
-                        X = await msg.copy(
-                            chat_id=message.from_user.id,
-                            caption=caption,
-                            parse_mode=ParseMode.HTML,
-                            protect_content=PROTECT_CONTENT,
-                            reply_markup=reply_markup,
-                        )
-                        
-                        await asyncio.sleep(0.5)
-                        
-                                                    
-                    except BaseException:
-                        pass
-
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+            try:
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
+                await asyncio.sleep(0.5)
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
+            except BaseException:
+                pass
     else:
         out = start_button(client)
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
+                username=f"@{message.from_user.username}" if message.from_user.username else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
@@ -282,8 +271,8 @@ async def start_command(client: Bot, message: Message):
             quote=True,
         )
 
-
-    return
+    return                
+                
 
 @Bot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
