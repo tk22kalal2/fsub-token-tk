@@ -6,6 +6,7 @@ from bot import Bot
 from config import ADMINS, CUSTOM_CAPTION, CD_CHANNEL
 from helper_func import encode, get_message_id
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
+import asyncio
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('batch'))
 async def batch(client: Client, message: Message):
