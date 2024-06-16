@@ -214,10 +214,11 @@ async def start_command(client: Bot, message: Message):
 
         for msg in messages:
             # Check and replace the specific URL pattern in the message text
-            if msg.text and msg.text.startswith("https://t.me/bot_username?"):
-                msg.text = msg.text.replace("https://t.me/bot_username?", "https://t.me/testingdoubletera_bot?")
-            if msg.caption and msg.caption.startswith("https://t.me/bot_username?"):
-                msg.caption = msg.caption.replace("https://t.me/bot_username?", "https://t.me/testingdoubletera_bot?")
+            if msg.text and "https://t.me/{\"X\"}?" in msg.text:
+                msg.text = msg.text.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
+            if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
+                msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
+
 
             caption = (CUSTOM_CAPTION.format(
                 previouscaption=msg.caption.html if msg.caption else "",
