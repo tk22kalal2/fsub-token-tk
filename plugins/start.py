@@ -207,7 +207,7 @@ async def start_command(client: Bot, message: Message):
         for msg in messages:
 
             if msg.caption:
-                msg.caption = msg.caption.replace("{bot_username}", "testingdoubletera_bot")
+                msg.caption = msg.caption.replace("bot_username", "testingdoubletera_bot")
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
