@@ -202,22 +202,31 @@ async def start_command(client: Bot, message: Message):
             return
         finally:
             await temp_msg.delete()
-        
+
+        temp_msg = await message.reply("Please wait...")
+        try:
+            messages = await get_messages(client, ids)
+        except Exception:
+            await message.reply_text("Something went wrong..!")
+            return
+        finally:
+            await temp_msg.delete()
+
         for msg in messages:
             # Check and replace the specific URL pattern in the message text
-            if msg.text and "https://t.me/{\"X\"}?" in msg.text:
-                msg.text = msg.text.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
-            if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
-                msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
-        
+            if msg.text and msg.text.startswith("https://t.me/bot_username?"):
+                msg.text = msg.text.replace("https://t.me/bot_username?", "https://t.me/testingdoubletera_bot?")
+            if msg.caption and msg.caption.startswith("https://t.me/bot_username?"):
+                msg.caption = msg.caption.replace("https://t.me/bot_username?", "https://t.me/testingdoubletera_bot?")
+
             caption = (CUSTOM_CAPTION.format(
                 previouscaption=msg.caption.html if msg.caption else "",
                 filename=msg.document.file_name
             ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
             msg.caption.html if msg.caption else "")
-        
+
             reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
-        
+
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
@@ -240,21 +249,23 @@ async def start_command(client: Bot, message: Message):
                     await asyncio.sleep(0.5)
                 except Exception:
                     pass
-        else:
-            out = start_button(client)
-            await message.reply_text(
-                text=START_MSG.format(
-                    first=message.from_user.first_name,
-                    last=message.from_user.last_name,
-                    username=f"@{message.from_user.username}" if message.from_user.username else None,
-                    mention=message.from_user.mention,
-                    id=message.from_user.id,
-                ),
-                reply_markup=InlineKeyboardMarkup(out),
-                disable_web_page_preview=True,
-                quote=True,
-            )
-            return
+        
+        out = start_button(client)
+        await message.reply_text(
+            text=START_MSG.format(
+                first=message.from_user.first_name,
+                last=message.from_user.last_name,
+                username=f"@{message.from_user.username}" if message.from_user.username else None,
+                mention=message.from_user.mention,
+                id=message.from_user.id,
+            ),
+            reply_markup=InlineKeyboardMarkup(out),
+            disable_web_page_preview=True,
+            quote=True,
+        )
+        return
+        
+
 
         
 
