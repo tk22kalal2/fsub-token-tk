@@ -202,8 +202,6 @@ async def start_command(client: Bot, message: Message):
             return
         await temp_msg.delete()
 
-        snt_msgs = []
-
         for msg_list in messages:
             for msg in msg_list:
                 # Check and replace the specific URL pattern in the message text
@@ -224,7 +222,7 @@ async def start_command(client: Bot, message: Message):
 
             reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                snt_msg = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
@@ -232,26 +230,18 @@ async def start_command(client: Bot, message: Message):
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
-                snt_msgs.append(snt_msg)
+                
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                snt_msg = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
-                snt_msgs.append(snt_msg)
-            except BaseException:
-                pass
                 
-        await asyncio.sleep(SECONDS)
-
-        for snt_msg in snt_msgs:
-            try:
-                await snt_msg.delete()
-            except:
+            except BaseException:
                 pass
 
         return 
