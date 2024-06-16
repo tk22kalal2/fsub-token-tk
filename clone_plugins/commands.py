@@ -246,11 +246,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         X = "testingclonepavo_bot"
         histology_message_template = (
             f"01. NEET PG 2023 atf.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTg3MTE1OTk3NDE3MzUzMzg\n\n"
+            f"https://t.me/{"X"}?start=Z2V0LTkxMTY0MTc1ODExMjU4NDY\n\n"
             f"02. NEET PG 2022 atf.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTg3MTI2MDE3NjYwOTAyNjU\n\n"
+            f"https://t.me/{"X"}?start=Z2V0LTkxMTc0MTk2MDU0ODA3NzM\n\n"
             f"03. NEET PG 2021 atf.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTg3MTM2MDM3OTA0NDUxOTI"
+            f"https://t.me/{"X"}?start=Z2V0LTkxMTg0MjE2Mjk4MzU3MDA"
         )
         histology_message = histology_message_template.replace("{\"X\"}", X)
         await query.message.reply_text(histology_message)
