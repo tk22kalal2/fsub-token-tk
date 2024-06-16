@@ -203,13 +203,8 @@ async def start_command(client: Bot, message: Message):
         finally:
             await temp_msg.delete()
 
-        if isinstance(messages, Message):
+        if not isinstance(messages, list):
             messages = [messages]
-        elif isinstance(messages, list):
-            pass
-        else:
-            await message.reply_text("Unexpected response type.")
-            return
 
         for msg_list in messages:
             for msg in msg_list:
