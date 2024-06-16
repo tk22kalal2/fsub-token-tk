@@ -241,9 +241,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         # Handle proteins button press if needed
         pass
 
-    
+    {"X"} = "testingclonepavo_bot"
     elif query.data == "opthalmology":
-        {"X"} = "testingclonepavo_bot"
+        
         histology_message = (
             f"01. NEET PG 2023 atf.mp4\n"
             f"https://t.me/{\"X\"}?start=Z2V0LTg3MTE1OTk3NDE3MzUzMzg\n\n"
