@@ -253,13 +253,93 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "opthalmology":
         X = "testingclonepavo_bot"
-        histology_message_template = (
-            f"01. NEET PG 2023 atf.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMTY0MTc1ODExMjU4NDY\n\n"
-            f"02. NEET PG 2022 atf.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMTc0MTk2MDU0ODA3NzM\n\n"
-            f"03. NEET PG 2021 atf.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMTg0MjE2Mjk4MzU3MDA"
+        histology_message_template = (            
+            f"1. How to Approach Orthopaedics Ed6 yw .mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMjY0Mzc4MjQ2NzUxMTY\n\n"
+            
+            f"2. Basics Histology and Physiology of Bones yw .mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMjc0Mzk4NDkwMzAwNDM\n\n"
+            
+            f"3. Basics Fracture and Healing yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMjg0NDE4NzMzODQ5NzA\n\n"
+            
+            f"4. Open Fracture Amputations and Polytrauma yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMjk0NDM4OTc3Mzk4OTc\n\n"
+            
+            f"5. Metabolic Bone Disease Part 1 yw .mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzA0NDU5MjIwOTQ4MjQ\n\n"
+            
+            f"6. Metabolic Bone Disease Part 2 yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzE0NDc5NDY0NDk3NTE\n\n"
+            
+            f"7. Upper Limb Trauma Clavicle and Shoulder yw .mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzI0NDk5NzA4MDQ2Nzg\n\n"
+            
+            f"8. Upper Limb Trauma Arm and Elbow yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzM0NTE5OTUxNTk2MDU\n\n"
+            
+            f"9. Upper Limb Trauma Forearm Wrist Hand yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzQ0NTQwMTk1MTQ1MzI\n\n"
+            
+            f"10. Lower Limb Trauma Part 1 yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzU0NTYwNDM4Njk0NTk\n\n"
+            
+            f"11. Lower Limb Trauma Part 2 yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzY0NTgwNjgyMjQzODY\n\n"
+            
+            f"12. Sports Injuries yw .mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzc0NjAwOTI1NzkzMTM\n\n"
+            
+            f"13. Regional conditions (Cumulative Trauma disorders) yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzg0NjIxMTY5MzQyNDA\n\n"
+            
+            f"14. Nerve Injuries Fundamentals yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzk0NjQxNDEyODkxNjc\n\n"
+            
+            f"15. Nerve Injuries Part 1 yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDA0NjYxNjU2NDQwOTQ\n\n"
+            
+            f"16. Nerve Injuries Part 2 yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDE0NjgxODk5OTkwMjE\n\n"
+            
+            f"17. Bone tumors Part 1 yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDI0NzAyMTQzNTM5NDg\n\n"
+            
+            f"18. Bone Tumors Part 2 yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDM0NzIyMzg3MDg4NzU\n\n"
+            
+            f"19. Orthopaedics Infection Pyogenic yw. mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDQ0NzQyNjMwNjM4MDI\n\n"
+            
+            f"20. Orthopaedics Infection Tuberculosis yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDU0NzYyODc0MTg3Mjk\n\n"
+            
+            f"21. Paediatrics Orthopaedics Part 1yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDY0NzgzMTE3NzM2NTY\n\n"
+            
+            f"22. Paediatrics Orthopaedics Part 2 yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDc0ODAzMzYxMjg1ODM\n\n"
+            
+            f"23. Paediatrics Orthopaedics Part 3 yw .mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDg0ODIzNjA0ODM1MTA\n\n"
+            
+            f"24. Paediatrics Orthopaedics MCQs yw.mp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDk0ODQzODQ4Mzg0Mzc\n\n"
+            
+            f"25. AVN and Osteochondritis. Ywmp4\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTA0ODY0MDkxOTMzNjQ\n\n"
+            
+            f"26. Spine Part 1 yw\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTE0ODg0MzM1NDgyOTE\n\n"
+            
+            f"27. Spine Part 2 yw\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTI0OTA0NTc5MDMyMTg\n\n"
+            
+            f"28. Joint Disorders Part 1yw\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTM0OTI0ODIyNTgxNDU\n\n"
+            
+            f"29. Joint Disorders Part yw\n"
+            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTQ0OTQ1MDY2MTMwNzI\n\n"
         )
         histology_message = histology_message_template.replace("{\"X\"}", X)
         msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT)
