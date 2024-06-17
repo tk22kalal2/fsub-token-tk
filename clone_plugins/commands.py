@@ -1,4 +1,4 @@
-# Don't Remove Credit Tg - @VJ_Botz
+ Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
@@ -15,7 +15,7 @@ from plugins.database import get_file_details
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from config import BOT_USERNAME, ADMINS
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery, InputMediaPhoto
-from config import PICS, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE
+from config import PICS, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, PROTECT_CONTENT
 import re
 import json
 import base64
@@ -67,7 +67,7 @@ async def start(client, message):
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
-            reply_markup=reply_markup
+            reply_markup=reply_markup, protect_content=PROTECT_CONTENT
         )
         return
 
@@ -234,7 +234,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f"⏯: 01. INI CET May 2022 atf.mp4\n"
             f"https://t.me/{bot_username}?start=Z2V0LTg5NjcxMTU5NTIyNDE3MjM"
         )
-        msg = await query.message.reply_text(histology_message)
+        msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     
@@ -262,7 +262,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMTg0MjE2Mjk4MzU3MDA"
         )
         histology_message = histology_message_template.replace("{\"X\"}", X)
-        msg = await query.message.reply_text(histology_message)
+        msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     
