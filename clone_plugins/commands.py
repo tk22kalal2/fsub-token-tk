@@ -29,7 +29,15 @@ logger = logging.getLogger(__name__)
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+SECONDS = int(os.getenv("SECONDS", "30"))
+
+async def schedule_deletion(msgs, delay):
+    await asyncio.sleep(delay)
+    for msg in msgs:
+        try:
+            await msg.delete()
+        except Exception as e:
+            print(f"Error deleting message: {e}")
 
 def get_size(size):
     """Get size in readable format"""
@@ -226,7 +234,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f"⏯: 01. INI CET May 2022 atf.mp4\n"
             f"https://t.me/{bot_username}?start=Z2V0LTg5NjcxMTU5NTIyNDE3MjM"
         )
-        await query.message.reply_text(histology_message)
+        msg = await query.message.reply_text(histology_message)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     
     elif query.data == "upper_limb":
@@ -253,7 +262,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMTg0MjE2Mjk4MzU3MDA"
         )
         histology_message = histology_message_template.replace("{\"X\"}", X)
-        await query.message.reply_text(histology_message)
+        msg = await query.message.reply_text(histology_message)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     
 
