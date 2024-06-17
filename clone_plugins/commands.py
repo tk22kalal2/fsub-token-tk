@@ -227,9 +227,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "histology":
         bot_username = "testingclonepavo_bot"
         histology_message = (
-            f"[⏯: 03. NEET PG 2021 atf.mp4](https://t.me/{bot_username}?start=Z2V0LTg5NjUxMTE5MDM1MzE4Njk)\n\n"
-            f"[⏯: 04. NEET PG 2020 atf.mp4](https://t.me/{bot_username}?start=Z2V0LTg5NjYxMTM5Mjc4ODY3OTY)\n\n"
-            f"[⏯: 01. INI CET May 2022 atf.mp4](https://t.me/{bot_username}?start=Z2V0LTg5NjcxMTU5NTIyNDE3MjM)"
+            f"[**⏯: 03. NEET PG 2021 atf.mp4**](https://t.me/{bot_username}?start=Z2V0LTg5NjUxMTE5MDM1MzE4Njk)\n\n"
+            f"[**⏯: 04. NEET PG 2020 atf.mp4**](https://t.me/{bot_username}?start=Z2V0LTg5NjYxMTM5Mjc4ODY3OTY)\n\n"
+            f"[**⏯: 01. INI CET May 2022 atf.mp4**](https://t.me/{bot_username}?start=Z2V0LTg5NjcxMTU5NTIyNDE3MjM)"
         )
         msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
