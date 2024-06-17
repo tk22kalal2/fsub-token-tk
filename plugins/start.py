@@ -38,7 +38,15 @@ mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db["bots"]
 
 
-SECONDS = int(os.getenv("SECONDS", "10"))        
+SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
+
+async def schedule_deletion(msgs, delay):
+    await asyncio.sleep(delay)
+    for msg in msgs:
+        try:
+            await msg.delete()
+        except Exception as e:
+            print(f"Error deleting message: {e}")
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
@@ -212,6 +220,8 @@ async def start_command(client: Bot, message: Message):
         finally:
             await temp_msg.delete()
 
+        snt_msgs = []
+
         for msg in messages:
             # Check and replace the specific URL pattern in the message text
             if msg.text and "https://t.me/{\"X\"}?" in msg.text:
@@ -229,7 +239,7 @@ async def start_command(client: Bot, message: Message):
             reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
 
             try:
-                await msg.copy(
+                snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
@@ -237,17 +247,21 @@ async def start_command(client: Bot, message: Message):
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
+                snt_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(
+                snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
+                snt_msgs.append(snt_msg)
             except BaseException:
                 pass
+
+        asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
         out = start_button(client)
         await message.reply_text(
