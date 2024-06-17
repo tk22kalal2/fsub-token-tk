@@ -194,7 +194,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text=script.CLONE_START_TXT.format(query.from_user.mention, me2),
             reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
+            parse_mode=enums.ParseMode.HTML, protect_content=PROTECT_CONTENT
         )
 
     elif query.data == "marrow":
