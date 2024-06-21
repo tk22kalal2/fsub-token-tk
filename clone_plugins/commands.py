@@ -274,7 +274,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             page = 0
         X = "testingclonepavo_bot"
         histology_message_template = [
-        links = [
             "[<b>0. How to approach pediatrics</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkxOTA1NjczODMzOTA0NDQ)",
             "[<b>0. How to approach pediatrics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTA1NjczODMzOTA0NDQ)",
             "[<b>1. Normal Newborn</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTE1Njk0MDc3NDUzNzE)",
