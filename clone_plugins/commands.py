@@ -255,17 +255,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]
         page_links, has_more = paginate_links(links, page)
         histology_message = "\n\n".join(page_links)
+        
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"histology_{page-1}"))
         if has_more:
-            next_button = InlineKeyboardButton("Next 20 Links", callback_data=f"histology_{page+1}")
-            histology_buttons = [[next_button]]
-            reply_markup = InlineKeyboardMarkup(histology_buttons)
-        else:
-            reply_markup = None
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"histology_{page+1}"))
+        
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
         
         msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    # Add similar handling for other data cases with pagination
     elif query.data.startswith("opthalmology"):
         try:
             page = int(query.data.split('_')[1])
@@ -285,13 +286,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>10.Neonatal jaundice</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDA1ODc2MjY5Mzk3MTQ)",
             "[<b>11. Normal Growth</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDE1ODk2NTEyOTQ2NDE)",
             "[<b>12. Abnormalities in head and size</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDI1OTE2NzU2NDk1Njg)",
-            "[<b>13. Short stature</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDM1OTM3MDAwMDQ0OTU)",
-            "[<b>14. Normal development</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDQ1OTU3MjQzNTk0MjI)",
-            "[<b>15.  Disorders of development</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDU1OTc3NDg3MTQzNDk)",
-            "[<b>16. Behavioural disorders in children</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDY1OTk3NzMwNjkyNzY)",
-            "[<b>17. Breastfeeding</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDc2MDE3OTc0MjQyMDM)",
-            "[<b>18. Malnutrition</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDg2MDM4MjE3NzkxMzA)",
-            "[<b>19. Rickets and scurvy</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDk2MDU4NDYxMzQwNTc)",
+            "[<b>13. Short stature</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDM1OTM3MDAwMDQ0OTU)",
+            "[<b>14. Normal development</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDQ1OTU3MjQzNTk0MjI)",
+            "[<b>15.  Disorders of development</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDU1OTc3NDg3MTQzNDk)",
+            "[<b>16. Behavioural disorders in children</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDY1OTk3NzMwNjkyNzY)",
+            "[<b>17. Breastfeeding</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDc2MDE3OTc0MjQyMDM)",
+            "[<b>18. Malnutrition</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDg2MDM4MjE3NzkxMzA)",
+            "[<b>19. Rickets and scurvy</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDk2MDU4NDYxMzQwNTc)",
             "[<b>20. Vitamin A, B, K deficiency</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTA2MDc4NjA0ODg5ODQ)",
             "[<b>21. Approach to bleeding child and haemophilia</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTE2MDk4ODQ4NDM5MTE)",
             "[<b>22. TORCH Infections</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTI2MTE5MTkxOTg4Mzg)",
@@ -310,30 +311,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>35. Cyanotic congenital heart defects</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjU2MzgyMzU4MTI4ODk)",
             "[<b>36. Acute rheumatic fever</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjY2NDAyNjAxNjc4MTY)",
             "[<b>37. Congenital anomalies of kidney and urinary tract</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjc2NDIyODQ1MjI3NDM)",
-            "[<b>38. Glomerulonephritis</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjg2NDQzMDg4Nzc2NzA)",
+            "[<b>38. Glomerulonephritis</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjg2NDQzMDg4Nzc2NzA)",
             "[<b>39. Nephrotic syndrome</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjk2NDYzMzMyMzI1OTc)",
             "[<b>40. Inherited tubular disorders</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMzA2NDgzNTc1ODc1MjQ)"
         ]
         page_links, has_more = paginate_links(links, page)
         opthalmology_message = "\n\n".join(page_links)
+        
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
         if has_more:
-            next_button = InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}")
-            opthalmology_buttons = [[next_button]]
-            reply_markup = InlineKeyboardMarkup(opthalmology_buttons)
-        else:
-            reply_markup = None
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+        
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
         
         msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
-        
-    
-    
-
-
-
-
-
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
