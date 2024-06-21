@@ -243,7 +243,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         pass
 
     elif query.data.startswith("histology"):
-        page = int(query.data.split('_')[1])
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
         links = [
             "[<b>⏯: 03. NEET PG 2021 atf.mp4</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTg5NjUxMTE5MDM1MzE4Njk)",
             "[<b>⏯: 04. NEET PG 2020 atf.mp4</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTg5NjYxMTM5Mjc4ODY3OTY)",
@@ -253,14 +256,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         page_links, has_more = paginate_links(links, page)
         histology_message = "\n\n".join(page_links)
         if has_more:
-            histology_message += f"\n\n[Next 20 Links](callback_data='histology_{page+1}')"
+            next_button = InlineKeyboardButton("Next 20 Links", callback_data=f"histology_{page+1}")
+            histology_buttons = [[next_button]]
+            reply_markup = InlineKeyboardMarkup(histology_buttons)
+        else:
+            reply_markup = None
         
-        msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT)
+        msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     # Add similar handling for other data cases with pagination
     elif query.data.startswith("opthalmology"):
-        page = int(query.data.split('_')[1])
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
         links = [
             "[<b>0.How to approach pediatrics</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkxOTA1NjczODMzOTA0NDQ)",
             "[<b>1.Normal Newborn</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkxOTE1Njk0MDc3NDUzNzE)",
@@ -275,41 +285,45 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>10.Neonatal jaundice</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDA1ODc2MjY5Mzk3MTQ)",
             "[<b>11. Normal Growth</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDE1ODk2NTEyOTQ2NDE)",
             "[<b>12. Abnormalities in head and size</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDI1OTE2NzU2NDk1Njg)",
-            "[<b>13. Short stature</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDM1OTM3MDAwMDQ0OTU)",
-            "[<b>14. Normal development</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDQ1OTU3MjQzNTk0MjI)",
-            "[<b>15.  Disorders of development</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDU1OTc3NDg3MTQzNDk)",
-            "[<b>16. Behavioural disorders in children</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDY1OTk3NzMwNjkyNzY)",
-            "[<b>17. Breastfeeding</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDc2MDE3OTc0MjQyMDM)",
-            "[<b>18. Malnutrition</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDg2MDM4MjE3NzkxMzA)",
-            "[<b>19. Rickets and scurvy</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMDk2MDU4NDYxMzQwNTc)",
-            "[<b>20. Genetic disorders</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTA2MDc4NzA0ODg5ODQ)",
-            "[<b>21. Common childhood infections</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTE2MDk4OTQ4NDM5MTE)",
+            "[<b>13. Short stature</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDM1OTM3MDAwMDQ0OTU)",
+            "[<b>14. Normal development</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDQ1OTU3MjQzNTk0MjI)",
+            "[<b>15.  Disorders of development</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDU1OTc3NDg3MTQzNDk)",
+            "[<b>16. Behavioural disorders in children</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDY1OTk3NzMwNjkyNzY)",
+            "[<b>17. Breastfeeding</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDc2MDE3OTc0MjQyMDM)",
+            "[<b>18. Malnutrition</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDg2MDM4MjE3NzkxMzA)",
+            "[<b>19. Rickets and scurvy</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMDk2MDU4NDYxMzQwNTc)",
+            "[<b>20. Vitamin A, B, K deficiency</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTA2MDc4NjA0ODg5ODQ)",
+            "[<b>21. Approach to bleeding child and haemophilia</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTE2MDk4ODQ4NDM5MTE)",
             "[<b>22. TORCH Infections</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTI2MTE5MTkxOTg4Mzg)",
-            "[<b>23. COVID-19 in children</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTM2MTM5NDM1NTM3NjU)",
-            "[<b>24. Gastrointestinal anomalies</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTQ2MTU5Njc5MDg2OTI)",
-            "[<b>25. Diarrhoea</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTU2MTc5OTIyNjM2MTk)",
-            "[<b>26. Miscellaneous topics in GIT</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTY2MjAwMTY2MTg1NDY)",
-            "[<b>27. Neonatal Cholestasis</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTc2MjIwNDA5NzM0NzM)",
-            "[<b>28. Metabolic Liver Disease</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTg2MjQwNjUzMjg0MDA)",
-            "[<b>29. Upper airway disorders</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMTk2MjYwODk2ODMzMjc)",
-            "[<b>30. Foreign body, congenital lung anomalies and asthma</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjA2MjgxMTQwMzgyNTQ)",
-            "[<b>31. Lower respiratory tract infection</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjE2MzAxMzgzOTMxODE)",
-            "[<b>32 . Cystic fibrosis</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjI2MzIxNjI3NDgxMDg)",
-            "[<b>33. Fetal circulation and introduction to congenital heart disease</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjM2MzQxODcxMDMwMzU)",
-            "[<b>34. Acynotic congenital heart defects</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjQ2MzYyMTE0NTc5NjI)",
-            "[<b>35. Cyanotic congenital heart defects</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjU2MzgyMzU4MTI4ODk)",
-            "[<b>36. Acute rheumatic fever</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjY2NDAyNjAxNjc4MTY)",
-            "[<b>37. Congenital anomalies of kidney and urinary tract</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjc2NDIyODQ1MjI3NDM)",
-            "[<b>38. Glomerulonephritis</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjg2NDQzMDg4Nzc2NzA)",
-            "[<b>39. Nephrotic syndrome</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMjk2NDYzMzMyMzI1OTc)",
-            "[<b>40. Inherited tubular disorders</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTkyMzA2NDgzNTc1ODc1MjQ)"
+            "[<b>23. COVID-19 in children</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTM2MTM5NDM1NTM3NjU)",
+            "[<b>24. Gastrointestinal anomalies</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTQ2MTU5Njc5MDg2OTI)",
+            "[<b>25. Diarrhoea</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTU2MTc5OTIyNjM2MTk)",
+            "[<b>26. Miscellaneous topics in GIT</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTY2MjAwMTY2MTg1NDY)",
+            "[<b>27. Neonatal Cholestasis</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTc2MjIwNDA5NzM0NzM)",
+            "[<b>28. Metabolic Liver Disease</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTg2MjQwNjUzMjg0MDA)",
+            "[<b>29. Upper airway disorders</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMTk2MjYwODk2ODMzMjc)",
+            "[<b>30. Foreign body, congenital lung anomalies and asthma</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjA2MjgxMTQwMzgyNTQ)",
+            "[<b>31. Lower respiratory tract infection</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjE2MzAxMzgzOTMxODE)",
+            "[<b>32 . Cystic fibrosis</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjI2MzIxNjI3NDgxMDg)",
+            "[<b>33. Fetal circulation and introduction to congenital heart disease</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjM2MzQxODcxMDMwMzU)",
+            "[<b>34. Acynotic congenital heart defects</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjQ2MzYyMTE0NTc5NjI)",
+            "[<b>35. Cyanotic congenital heart defects</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjU2MzgyMzU4MTI4ODk)",
+            "[<b>36. Acute rheumatic fever</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjY2NDAyNjAxNjc4MTY)",
+            "[<b>37. Congenital anomalies of kidney and urinary tract</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjc2NDIyODQ1MjI3NDM)",
+            "[<b>38. Glomerulonephritis</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjg2NDQzMDg4Nzc2NzA)",
+            "[<b>39. Nephrotic syndrome</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMjk2NDYzMzMyMzI1OTc)",
+            "[<b>40. Inherited tubular disorders</b>](https://t.me.testingclonepavo_bot?start=Z2V0LTkyMzA2NDgzNTc1ODc1MjQ)"
         ]
         page_links, has_more = paginate_links(links, page)
         opthalmology_message = "\n\n".join(page_links)
         if has_more:
-            opthalmology_message += f"\n\n[Next 20 Links](callback_data='opthalmology_{page+1}')"
+            next_button = InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}")
+            opthalmology_buttons = [[next_button]]
+            reply_markup = InlineKeyboardMarkup(opthalmology_buttons)
+        else:
+            reply_markup = None
         
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT)
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
         
     
