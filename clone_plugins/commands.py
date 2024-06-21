@@ -205,67 +205,32 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "marrow":
         marrow_buttons = [
             [InlineKeyboardButton("ANATOMY", callback_data="anatomy")],
+            [InlineKeyboardButton("BIOCHEMESTRY", callback_data="biochemestry")],
+            [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiology")],
+            [InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacology")],
+            [InlineKeyboardButton("PATHOLOGY", callback_data="pathology")],
+            [InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiology")],
+            [InlineKeyboardButton("PSM", callback_data="psm")],
             [InlineKeyboardButton("OPTHALMOLOGY", callback_data="opthalmology")],
+            [InlineKeyboardButton("ENT", callback_data="ent")],
+            [InlineKeyboardButton("FMT", callback_data="fmt")],
+            [InlineKeyboardButton("SURGERY", callback_data="surgery")],
+            [InlineKeyboardButton("MEDICINE", callback_data="medicine")],
+            [InlineKeyboardButton("DERMATOLOHY", callback_data="dermatology")],
+            [InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatry")],
+            [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesia")],
+            [InlineKeyboardButton("RADIOLOGY", callback_data="radiology")],
+            [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedics")],
+            [InlineKeyboardButton("PEDIATRICS", callback_data="pediatrics")],
+            [InlineKeyboardButton("OBGY", callback_data="obgy")],
             [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
     
-    elif query.data == "anatomy":
-        anatomy_buttons = [
-            [InlineKeyboardButton("HISTOLOGY", callback_data="histology")],
-            [InlineKeyboardButton("UPPER LIMB", callback_data="upper_limb")],
-            [InlineKeyboardButton("BACK TO MARROW MENU", callback_data="marrow")]
-        ]
-        reply_markup = InlineKeyboardMarkup(anatomy_buttons)
-        await query.message.edit_reply_markup(reply_markup)
-    
-    elif query.data == "biochemistry":
-        biochemistry_buttons = [
-            [InlineKeyboardButton("AMINO ACIDS", callback_data="amino_acids")],
-            [InlineKeyboardButton("PROTEINS", callback_data="proteins")],
-            [InlineKeyboardButton("BACK TO MARROW MENU", callback_data="marrow")]
-        ]
-        reply_markup = InlineKeyboardMarkup(biochemistry_buttons)
-        await query.message.edit_reply_markup(reply_markup)
     
     
-    elif query.data == "upper_limb":
-        # Handle upper limb button press if needed
-        pass
     
-    elif query.data == "amino_acids":
-        # Handle amino acids button press if needed
-        pass
-    
-    elif query.data == "proteins":
-        # Handle proteins button press if needed
-        pass
-
-    elif query.data.startswith("histology"):
-        try:
-            page = int(query.data.split('_')[1])
-        except (IndexError, ValueError):
-            page = 0
-        links = [
-            "[<b>⏯: 03. NEET PG 2021 atf.mp4</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTg5NjUxMTE5MDM1MzE4Njk)",
-            "[<b>⏯: 04. NEET PG 2020 atf.mp4</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTg5NjYxMTM5Mjc4ODY3OTY)",
-            "[<b>⏯: 01. INI CET May 2022 atf.mp4</b>](https://t.me/testingclonepavo_bot?start=Z2V0LTg5NjcxMTU5NTIyNDE3MjM)",
-            # Add more links here...
-        ]
-        page_links, has_more = paginate_links(links, page)
-        histology_message = "\n\n".join(page_links)
-        
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"histology_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"histology_{page+1}"))
-        
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
-        
-        msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-        asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data.startswith("opthalmology"):
         try:
