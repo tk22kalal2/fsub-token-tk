@@ -204,31 +204,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "marrow":
         marrow_buttons = [
-            [InlineKeyboardButton("ANATOMY", callback_data="anatomy")],
-            [InlineKeyboardButton("BIOCHEMESTRY", callback_data="biochemestry")],
-            [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiology")],
-            [InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacology")],
-            [InlineKeyboardButton("PATHOLOGY", callback_data="pathology")],
-            [InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiology")],
-            [InlineKeyboardButton("PSM", callback_data="psm")],
-            [InlineKeyboardButton("OPTHALMOLOGY", callback_data="opthalmology")],
-            [InlineKeyboardButton("ENT", callback_data="ent")],
-            [InlineKeyboardButton("FMT", callback_data="fmt")],
-            [InlineKeyboardButton("SURGERY", callback_data="surgery")],
-            [InlineKeyboardButton("MEDICINE", callback_data="medicine")],
-            [InlineKeyboardButton("DERMATOLOHY", callback_data="dermatology")],
-            [InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatry")],
-            [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesia")],
-            [InlineKeyboardButton("RADIOLOGY", callback_data="radiology")],
-            [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedics")],
-            [InlineKeyboardButton("PEDIATRICS", callback_data="pediatrics")],
-            [InlineKeyboardButton("OBGY", callback_data="obgy")],
-            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+            [InlineKeyboardButton("ANATOMY", callback_data="anatomy"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistry")],
+            [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiology"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacology")],
+            [InlineKeyboardButton("PATHOLOGY", callback_data="pathology"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiology")],
+            [InlineKeyboardButton("PSM", callback_data="psm"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="ophthalmology")],
+            [InlineKeyboardButton("ENT", callback_data="ent"), InlineKeyboardButton("FMT", callback_data="fmt")],
+            [InlineKeyboardButton("SURGERY", callback_data="surgery"), InlineKeyboardButton("MEDICINE", callback_data="medicine")],
+            [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatology"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatry")],
+            [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesia"), InlineKeyboardButton("RADIOLOGY", callback_data="radiology")],
+            [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedics"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatrics")],
+            [InlineKeyboardButton("OBGY", callback_data="obgy"), InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
-
+    
     elif query.data.startswith("orthopedics"):
         try:
             page = int(query.data.split('_')[1])
