@@ -31,6 +31,11 @@ logger = logging.getLogger(__name__)
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 SECONDS = int(os.getenv("SECONDS", "30"))
 
+def paginate_links(links, page, per_page=20):
+    start = page * per_page
+    end = start + per_page
+    return links[start:end], len(links) > end
+    
 async def schedule_deletion(msgs, delay):
     await asyncio.sleep(delay)
     for msg in msgs:
