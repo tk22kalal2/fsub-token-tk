@@ -213,7 +213,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatology"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatry")],
             [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesia"), InlineKeyboardButton("RADIOLOGY", callback_data="radiology")],
             [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedics"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatrics")],
-            [InlineKeyboardButton("OBGY", callback_data="obgy"), InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+            [InlineKeyboardButton("OBGY", callback_data="obgy"), InlineKeyboardButton("RECENT UPDATES", callback_data="recentupdates")]
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start") InlineKeyboardButton("CLOSE", callback_data="close_data")]
         ]
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
@@ -274,7 +275,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         msg = await query.message.reply_text(orthopedics_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("biochemestry"):
+    elif query.data.startswith("biochemistry"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -348,17 +349,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        biochemestry_message = "\n".join(page_links)
+        biochemistry_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"biochemestry_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"biochemistry_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"biochemestry_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"biochemistry_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(biochemestry_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(biochemistry_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     
@@ -419,7 +420,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         msg = await query.message.reply_text(anesthesia_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
     
-    elif query.data.startswith("opthalmology"):
+    elif query.data.startswith("ophthalmology"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -473,17 +474,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        ophthalmology_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ophthalmology_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ophthalmology_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(ophthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data.startswith("fmt"):
