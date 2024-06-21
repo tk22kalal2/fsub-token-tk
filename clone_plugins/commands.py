@@ -251,97 +251,67 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "opthalmology":
         X = "testingclonepavo_bot"
         histology_message_template = (            
-            f"1. How to Approach Orthopaedics Ed6 yw .mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMjY0Mzc4MjQ2NzUxMTY\n\n"
-            
-            f"2. Basics Histology and Physiology of Bones yw .mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMjc0Mzk4NDkwMzAwNDM\n\n"
-            
-            f"3. Basics Fracture and Healing yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMjg0NDE4NzMzODQ5NzA\n\n"
-            
-            f"4. Open Fracture Amputations and Polytrauma yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMjk0NDM4OTc3Mzk4OTc\n\n"
-            
-            f"5. Metabolic Bone Disease Part 1 yw .mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzA0NDU5MjIwOTQ4MjQ\n\n"
-            
-            f"6. Metabolic Bone Disease Part 2 yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzE0NDc5NDY0NDk3NTE\n\n"
-            
-            f"7. Upper Limb Trauma Clavicle and Shoulder yw .mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzI0NDk5NzA4MDQ2Nzg\n\n"
-            
-            f"8. Upper Limb Trauma Arm and Elbow yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzM0NTE5OTUxNTk2MDU\n\n"
-            
-            f"9. Upper Limb Trauma Forearm Wrist Hand yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzQ0NTQwMTk1MTQ1MzI\n\n"
-            
-            f"10. Lower Limb Trauma Part 1 yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzU0NTYwNDM4Njk0NTk\n\n"
-            
-            f"11. Lower Limb Trauma Part 2 yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzY0NTgwNjgyMjQzODY\n\n"
-            
-            f"12. Sports Injuries yw .mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzc0NjAwOTI1NzkzMTM\n\n"
-            
-            f"13. Regional conditions (Cumulative Trauma disorders) yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzg0NjIxMTY5MzQyNDA\n\n"
-            
-            f"14. Nerve Injuries Fundamentals yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxMzk0NjQxNDEyODkxNjc\n\n"
-            
-            f"15. Nerve Injuries Part 1 yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDA0NjYxNjU2NDQwOTQ\n\n"
-            
-            f"16. Nerve Injuries Part 2 yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDE0NjgxODk5OTkwMjE\n\n"
-            
-            f"17. Bone tumors Part 1 yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDI0NzAyMTQzNTM5NDg\n\n"
-            
-            f"18. Bone Tumors Part 2 yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDM0NzIyMzg3MDg4NzU\n\n"
-            
-            f"19. Orthopaedics Infection Pyogenic yw. mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDQ0NzQyNjMwNjM4MDI\n\n"
-            
-            f"20. Orthopaedics Infection Tuberculosis yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDU0NzYyODc0MTg3Mjk\n\n"
-            
-            f"21. Paediatrics Orthopaedics Part 1yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDY0NzgzMTE3NzM2NTY\n\n"
-            
-            f"22. Paediatrics Orthopaedics Part 2 yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDc0ODAzMzYxMjg1ODM\n\n"
-            
-            f"23. Paediatrics Orthopaedics Part 3 yw .mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDg0ODIzNjA0ODM1MTA\n\n"
-            
-            f"24. Paediatrics Orthopaedics MCQs yw.mp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNDk0ODQzODQ4Mzg0Mzc\n\n"
-            
-            f"25. AVN and Osteochondritis. Ywmp4\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTA0ODY0MDkxOTMzNjQ\n\n"
-            
-            f"26. Spine Part 1 yw\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTE0ODg0MzM1NDgyOTE\n\n"
-            
-            f"27. Spine Part 2 yw\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTI0OTA0NTc5MDMyMTg\n\n"
-            
-            f"28. Joint Disorders Part 1yw\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTM0OTI0ODIyNTgxNDU\n\n"
-            
-            f"29. Joint Disorders Part yw\n"
-            f"https://t.me/{{\"X\"}}?start=Z2V0LTkxNTQ0OTQ1MDY2MTMwNzI\n\n"
+            f"[<b>0.How to approach pediatrics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTA1NjczODMzOTA0NDQ)\n\n"
+            f"[<b>1.Normal Newborn</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTE1Njk0MDc3NDUzNzE)\n\n"
+            f"[<b>2.Routine Newborn Care</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTI1NzE0MzIxMDAyOTg)\n\n"
+            f"[<b>3.Management of LBW Babies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTM1NzM0NTY0NTUyMjU)\n\n"
+            f"[<b>4.Neonatal Resuscitation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTQ1NzU0ODA4MTAxNTI)\n\n"
+            f"[<b>5.Infections in neonates</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTU1Nzc1MDUxNjUwNzk)\n\n"
+            f"[<b>6.Birth asphyxia and neonatal seizures</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTY1Nzk1Mjk1MjAwMDY)\n\n"
+            f"[<b>7. NEC</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTc1ODE1NTM4NzQ5MzM)\n\n"
+            f"[<b>8.Respiratory distress in newborn</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTg1ODM1NzgyMjk4NjA)\n\n"
+            f"[<b>9.Neonatal hypoglycemia and infant of diabetic mother</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxOTk1ODU2MDI1ODQ3ODc)\n\n"
+            f"[<b>10.Neonatal jaundice</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDA1ODc2MjY5Mzk3MTQ)\n\n"
+            f"[<b>11. Normal Growth</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDE1ODk2NTEyOTQ2NDE)\n\n"
+            f"[<b>12. Abnormalities in head and size</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDI1OTE2NzU2NDk1Njg)\n\n"
+            f"[<b>13. Short stature</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDM1OTM3MDAwMDQ0OTU)\n\n"
+            f"[<b>14. Normal development</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDQ1OTU3MjQzNTk0MjI)\n\n"
+            f"[<b>15.  Disorders of development</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDU1OTc3NDg3MTQzNDk)\n\n"
+            f"[<b>16. Behavioural disorders in children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDY1OTk3NzMwNjkyNzY)\n\n"
+            f"[<b>17. Breastfeeding</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDc2MDE3OTc0MjQyMDM)\n\n"
+            f"[<b>18. Malnutrition</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDg2MDM4MjE3NzkxMzA)\n\n"
+            f"[<b>19. Rickets and scurvy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMDk2MDU4NDYxMzQwNTc)\n\n"
+            f"[<b>20. Genetic disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTA2MDc4NzA0ODg5ODQ)\n\n"
+            f"[<b>21. Common childhood infections</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTE2MDk4OTQ4NDM5MTE)\n\n"
+            f"[<b>22. TORCH Infections</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTI2MTE5MTkxOTg4Mzg)\n\n"
+            f"[<b>23. COVID-19 in children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTM2MTM5NDM1NTM3NjU)\n\n"
+            f"[<b>24. Gastrointestinal anomalies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTQ2MTU5Njc5MDg2OTI)\n\n"
+            f"[<b>25. Diarrhoea</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTU2MTc5OTIyNjM2MTk)\n\n"
+            f"[<b>26. Miscellaneous topics in GIT</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTY2MjAwMTY2MTg1NDY)\n\n"
+            f"[<b>27. Neonatal Cholestasis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTc2MjIwNDA5NzM0NzM)\n\n"
+            f"[<b>28. Metabolic Liver Disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTg2MjQwNjUzMjg0MDA)\n\n"
+            f"[<b>29. Upper airway disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMTk2MjYwODk2ODMzMjc)\n\n"
+            f"[<b>30. Foreign body, congenital lung anomalies and asthma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjA2MjgxMTQwMzgyNTQ)\n\n"
+            f"[<b>31. Lower respiratory tract infection</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjE2MzAxMzgzOTMxODE)\n\n"
+            f"[<b>32 . Cystic fibrosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjI2MzIxNjI3NDgxMDg)\n\n"
+            f"[<b>33. Fetal circulation and introduction to congenital heart disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjM2MzQxODcxMDMwMzU)\n\n"
+            f"[<b>34. Acynotic congenital heart defects</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjQ2MzYyMTE0NTc5NjI)\n\n"
+            f"[<b>35. Cyanotic congenital heart defects</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjU2MzgyMzU4MTI4ODk)\n\n"
+            f"[<b>36. Acute rheumatic fever</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjY2NDAyNjAxNjc4MTY)\n\n"
+            f"[<b>37. Congenital anomalies of kidney and urinary tract</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjc2NDIyODQ1MjI3NDM)\n\n"
+            f"[<b>38. Glomerulonephritis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjg2NDQzMDg4Nzc2NzA)\n\n"
+            f"[<b>39. Nephrotic syndrome</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMjk2NDYzMzMyMzI1OTc)\n\n"
+            f"[<b>40. Inherited tubular disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzA2NDgzNTc1ODc1MjQ)\n\n"
+            f"[<b>41. Acute kidney injury and chronic kidney disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzE2NTAzODE5NDI0NTE)\n\n"
+            f"[<b>42. Congenital anomalies and hydrocephalus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzI2NTI0MDYyOTczNzg)\n\n"
+            f"[<b>43. Seizure disorders and epilepsy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzM2NTQ0MzA2NTIzMDU)\n\n"
+            f"[<b>44. Cerebral palsy and CNS infections</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzQ2NTY0NTUwMDcyMzI)\n\n"
+            f"[<b>45. Neuromuscular disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzU2NTg0NzkzNjIxNTk)\n\n"
+            f"[<b>46. Growth hormone deficiency and hypothyroidism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzY2NjA1MDM3MTcwODY)\n\n"
+            f"[<b>47. Adrenal disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzc2NjI1MjgwNzIwMTM)\n\n"
+            f"[<b>48. Pubertal disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzg2NjQ1NTI0MjY5NDA)\n\n"
+            f"[<b>49. Haematological malignancies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyMzk2NjY1NzY3ODE4Njc)\n\n"
+            f"[<b>50. Solid tumors in children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyNDA2Njg2MDExMzY3OTQ)\n\n"
+            f"[<b>51. Rheumatic disease of childhood</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyNDE2NzA2MjU0OTE3MjE)\n\n"
+            f"[<b>52. Approach to anemia in children and nutritional anemia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyNDI2NzI2NDk4NDY2NDg)\n\n"
+            f"[<b>53. Congenital Hemolytic Anemia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyNDM2NzQ2NzQyMDE1NzU)\n\n"
+            f"[<b>54. Bleeding disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyNDQ2NzY2OTg1NTY1MDI)\n\n"
+            f"[<b>55. Shock</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyNDU2Nzg3MjI5MTE0Mjk)\n\n"
+            f"[<b>56. PALS Guidelines</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkyNDY2ODA3NDcyNjYzNTY)\n\n"
         )
         histology_message = histology_message_template.replace("{\"X\"}", X)
         msg = await query.message.reply_text(histology_message, protect_content=PROTECT_CONTENT)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
-
     
 
 
