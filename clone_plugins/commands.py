@@ -358,7 +358,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        biochemestry_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
@@ -416,7 +416,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        anesthesia_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
@@ -807,7 +807,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        radiology_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
@@ -912,7 +912,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        pathology_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
