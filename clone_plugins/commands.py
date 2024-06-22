@@ -64,11 +64,11 @@ async def start(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
     if len(message.command) != 2:
-        buttons = [[
-            InlineKeyboardButton('MARROW', callback_data='marrow'),
-            InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder'),
-            InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')
-        ]]
+        buttons = [
+            [InlineKeyboardButton('MARROW', callback_data='marrow')],
+            [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
+            [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')]
+        ]
         me2 = (await client.get_me()).mention
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -187,9 +187,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
         await query.message.delete()
     elif query.data == "start":
-        buttons = [[
-            InlineKeyboardButton('MARROW', callback_data='marrow')
-        ]]
+        buttons = [
+            [InlineKeyboardButton('MARROW', callback_data='marrow')],
+            [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
+            [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')]
+        ]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
