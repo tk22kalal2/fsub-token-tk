@@ -222,6 +222,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_reply_markup(reply_markup)
 
 
+
     
     elif query.data.startswith("orthopedics"):
         try:
