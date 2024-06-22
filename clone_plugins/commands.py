@@ -1249,12 +1249,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatologyp"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatryp")],
             [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesiap"), InlineKeyboardButton("RADIOLOGY", callback_data="radiologyp")],
             [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedicsp"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatricsp")],
-            [InlineKeyboardButton("OBGY", callback_data="obgyp"), InlineKeyboardButton("RECENT UPDATES", callback_data="recentupdatesp")]
-            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start") InlineKeyboardButton("CLOSE", callback_data="close_data")]
+            [InlineKeyboardButton("OBGY", callback_data="obgyp"), InlineKeyboardButton("RAPID REVISION", callback_data="rapidrevisionp")],
+            [InlineKeyboardButton("CLINICALS", callback_data="clinicalp"), InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
+        
     elif query.data.startswith("anatomyp"):
         try:
             page = int(query.data.split('_')[1])
