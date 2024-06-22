@@ -1458,522 +1458,1733 @@ async def cb_handler(client: Client, query: CallbackQuery):
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("physiologyp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Homeostasis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTgyNTcxNDk0NzY4MTc0)",
+            "[<b>2. Body Fluids; Distribution and Management</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTgzNTczNTE5MTIzMTAx)",
+            "[<b>3. Cell Physiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTg0NTc1NTQzNDc4MDI4)",
+            "[<b>4. Transport Across Cell Membrane</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTg1NTc3NTY3ODMyOTU1)",
+            "[<b>1. Nerve And Neuron</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTg2NTc5NTkyMTg3ODgy)",
+            "[<b>2. Resting Membrane Potential</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTg3NTgxNjE2NTQyODA5)",
+            "[<b>3. Action Potential in Neuron</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTg4NTgzNjQwODk3NzM2)",
+            "[<b>4. Nerve Fiber Classification-</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTg5NTg1NjY1MjUyNjYz)",
+            "[<b>5. Structural Functional Anatomy of Skeletal Muscle Part 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTkwNTg3Njg5NjA3NTkw)",
+            "[<b>6. Structural Functional Anatomy of Skeletal Muscle Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTkxNTg5NzEzOTYyNTE3)",
+            "[<b>7. Motor Unit</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTkyNTkxNzM4MzE3NDQ0)",
+            "[<b>8. Smooth Muscle</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTkzNTkzNzYyNjcyMzcx)",
+            "[<b>1. Live Conducting System of Heart</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTk0NTk1Nzg3MDI3Mjk4)",
+            "[<b>2. Action Potential on Heart</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTk1NTk3ODExMzgyMjI1)",
+            "[<b>3. Live ECG Basic Concepts</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTk2NTk5ODM1NzM3MTUy)",
+            "[<b>4. Live Cardiac Cycle</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTk3NjAxODYwMDkyMDc5)",
+            "[<b>5. Live Cardiac Output</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTk4NjAzODg0NDQ3MDA2)",
+            "[<b>6. Live Hemodynamics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTk5NjA1OTA4ODAxOTMz)",
+            "[<b>7. Live Blood Pressure It's Regulation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjAwNjA3OTMzMTU2ODYw)",
+            "[<b>8. Regional Circulation Coronary and Cerebral New</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjAxNjA5OTU3NTExNzg3)",
+            "[<b>1. Hematopoiesis and Blood Cells</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjAyNjExOTgxODY2NzE0)",
+            "[<b>2. Hemostasis-New</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjAzNjE0MDA2MjIxNjQx)",
+            "[<b>1. Functional Anatomy of Renal Physiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjA0NjE2MDMwNTc2NTY4)",
+            "[<b>2. Gfr It's Regulation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjA1NjE4MDU0OTMxNDk1)",
+            "[<b>3. JG Appratus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjA2NjIwMDc5Mjg2NDIy)",
+            "[<b>4. Clearance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjA3NjIyMTAzNjQxMzQ5)",
+            "[<b>5. Tubular Transport Part 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjA4NjI0MTI3OTk2Mjc2)",
+            "[<b>6. Tubular Transport Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjA5NjI2MTUyMzUxMjAz)",
+            "[<b>7. Acid Secretion in Kidney</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjEwNjI4MTc2NzA2MTMw)",
+            "[<b>8. Counter Current System in Kidney</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjExNjMwMjAxMDYxMDU3)",
+            "[<b>1. Functional Anatomy of The Respiratory System new</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjEyNjMyMjI1NDE1OTg0)",
+            "[<b>2. Mechanics of Respiration new</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjEzNjM0MjQ5NzcwOTEx)",
+            "[<b>3. Ventilation Perfusion of Lungs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjE0NjM2Mjc0MTI1ODM4)",
+            "[<b>4.Compliance of Lung New</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjE1NjM4Mjk4NDgwNzY1)",
+            "[<b>5. Lung Volume Capacities New</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjE2NjQwMzIyODM1Njky)",
+            "[<b>6. Principles of Gas Diffusion</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjE3NjQyMzQ3MTkwNjE5)",
+            "[<b>7. Oxygen Transport</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjE4NjQ0MzcxNTQ1NTQ2)",
+            "[<b>8. Carbon Dioxide Transport</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjE5NjQ2Mzk1OTAwNDcz)",
+            "[<b>9. Regulation of Respiration</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjIwNjQ4NDIwMjU1NDAw)",
+            "[<b>10. Hypoxia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjIxNjUwNDQ0NjEwMzI3)",
+            "[<b>11. High Altitude Physiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjIyNjUyNDY4OTY1MjU0)",
+            "[<b>12. Deep Sea Diving</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjIzNjU0NDkzMzIwMTgx)",
+            "[<b>1. Motility of Git</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjI0NjU2NTE3Njc1MTA4)",
+            "[<b>2. Gi Hormones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjI1NjU4NTQyMDMwMDM1)",
+            "[<b>3. Secretion and Absorption</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjI2NjYwNTY2Mzg0OTYy)",
+            "[<b>1. Synapse Pre Synaptic Events</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjI3NjYyNTkwNzM5ODg5)",
+            "[<b>2. Synapse Post Synaptic Events</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjI4NjY0NjE1MDk0ODE2)",
+            "[<b>3. Synaptic Inhibition</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjI5NjY2NjM5NDQ5NzQz)",
+            "[<b>4. Somato Sensory Receptor</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjMwNjY4NjYzODA0Njcw)",
+            "[<b>5. Nociceptor</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjMxNjcwNjg4MTU5NTk3)",
+            "[<b>6. Proprioceptors and Reflexes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjMyNjcyNzEyNTE0NTI0)",
+            "[<b>7. Ascending Tracts of Spinal Cord</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjMzNjc0NzM2ODY5NDUx)",
+            "[<b>8.Descending Tracts of Spinal Cord</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjM0Njc2NzYxMjI0Mzc4)",
+            "[<b>9. Basal Ganglia Cerebellum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjM1Njc4Nzg1NTc5MzA1)",
+            "[<b>10. Special Senses Visual and Auditory Receptors</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjM2NjgwODA5OTM0MjMy)",
+            "[<b>11. Special Senses Smell and Taste Receptors</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjM3NjgyODM0Mjg5MTU5)",
+            "[<b>12. Hypothalamus and Limbic System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjM4Njg0ODU4NjQ0MDg2)",
+            "[<b>13. EEG and Sleep</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjM5Njg2ODgyOTk5MDEz)",
+            "[<b>14. Learning and Memory</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQwNjg4OTA3MzUzOTQw)",
+            "[<b>1. Mechanisms of Hormone Actions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQxNjkwOTMxNzA4ODY3)",
+            "[<b>2. Pituitary Hormones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQyNjkyOTU2MDYzNzk0)",
+            "[<b>3. Thyroid Hormones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQzNjk0OTgwNDE4NzIx)",
+            "[<b>4. Endocrine Pancrease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQ0Njk3MDA0NzczNjQ4)",
+            "[<b>5. Hormonal Regulation of Calcium Balance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQ1Njk5MDI5MTI4NTc1)",
+            "[<b>6. Adrenal Physiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQ2NzAxMDUzNDgzNTAy)",
+            "[<b>7. Male Reproductive Physiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQ3NzAzMDc3ODM4NDI5)",
+            "[<b>8. Female Reproductive Physiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQ4NzA1MTAyMTkzMzU2)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        physiologyp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"physiologyp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"physiologyp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(physiologyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("biochemistryp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1 .Cell and integration of Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjQ5NzA3MTI2NTQ4Mjgz)",
+            "[<b>1. Classification of Carbohydrates Simple Carbohydrates</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjUwNzA5MTUwOTAzMjEw)",
+            "[<b>2. Mucopolysaccharidosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjUxNzExMTc1MjU4MTM3)",
+            "[<b>3. Complex Carbohydrates</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjUyNzEzMTk5NjEzMDY0)",
+            "[<b>4. Isomerism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjUzNzE1MjIzOTY3OTkx)",
+            "[<b>5. Urine Investigations Clinical Diagnosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjU0NzE3MjQ4MzIyOTE4)",
+            "[<b>1. Glut Transporters</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjU1NzE5MjcyNjc3ODQ1)",
+            "[<b>2. Glycolysis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjU2NzIxMjk3MDMyNzcy)",
+            "[<b>3. Citric Acid Cycle</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjU3NzIzMzIxMzg3Njk5)",
+            "[<b>4. Glycogen Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjU4NzI1MzQ1NzQyNjI2)",
+            "[<b>5. gluconeogenesis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjU5NzI3MzcwMDk3NTUz)",
+            "[<b>6. glycogen-storage-disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjYwNzI5Mzk0NDUyNDgw)",
+            "[<b>7.fructose-and-galactose-metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjYxNzMxNDE4ODA3NDA3)",
+            "[<b>8. hmp-shunt</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjYyNzMzNDQzMTYyMzM0)",
+            "[<b>9. fates-of-pyruvate-pdh-complex</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjYzNzM1NDY3NTE3MjYx)",
+            "[<b>1. Electron Transport Chain</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjY0NzM3NDkxODcyMTg4)",
+            "[<b>1. Lipid Chemistry and Complex Lipids</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjY1NzM5NTE2MjI3MTE1)",
+            "[<b>2. Fatty Acid Cholesterol and Glycolipids</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjY2NzQxNTQwNTgyMDQy)",
+            "[<b>1. Fatty Acid Synthesis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjY3NzQzNTY0OTM2OTY5)",
+            "[<b>2. Fatty Acid Oxidation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjY4NzQ1NTg5MjkxODk2)",
+            "[<b>3. Cholesterol and Bile Acid Synthesis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjY5NzQ3NjEzNjQ2ODIz)",
+            "[<b>4. lipoprotein-metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjcwNzQ5NjM4MDAxNzUw)",
+            "[<b>5. Hyperlipoproteinemia & Fatty Liver</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjcxNzUxNjYyMzU2Njc3)",
+            "[<b>1.Amino Acid Protein Chemistry</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjcyNzUzNjg2NzExNjA0)",
+            "[<b>2. Hemoglobin and Myoglobin</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjczNzU1NzExMDY2NTMx)",
+            "[<b>3. EPP Chromatography</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjc0NzU3NzM1NDIxNDU4)",
+            "[<b>1. Amino-Acid Catabolism Urea-Cycle and Hyperammonemia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjc1NzU5NzU5Nzc2Mzg1)",
+            "[<b>2. Glycine and one Carbon Pool</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjc2NzYxNzg0MTMxMzEy)",
+            "[<b>3. Phenylalanine and Tyrosine Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjc3NzYzODA4NDg2MjM5)",
+            "[<b>4. Amino Acid Metabolism Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjc4NzY1ODMyODQxMTY2)",
+            "[<b>1.nucleotides-dna-chromosomes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjc5NzY3ODU3MTk2MDkz)",
+            "[<b>2.mitochondrial-dna-and-replication</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjgwNzY5ODgxNTUxMDIw)",
+            "[<b>3.DNA Repair Mechanism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjgxNzcxOTA1OTA1OTQ3)",
+            "[<b>4.rna-transcription-post-transcriptional-modifications</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjgyNzczOTMwMjYwODc0)",
+            "[<b>5.properties-of-genetic-code-mutation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjgzNzc1OTU0NjE1ODAx)",
+            "[<b>6.inhibitors-of-translation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjg0Nzc3OTc4OTcwNzI4)",
+            "[<b>7.PCR</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjg1NzgwMDAzMzI1NjU1)",
+            "[<b>8.recombinant-dna-technology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjg2NzgyMDI3NjgwNTgy)",
+            "[<b>9. microarray-crispr-lac-operon</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjg3Nzg0MDUyMDM1NTA5)",
+            "[<b>10.chromosomes-cell-cycle</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjg4Nzg2MDc2MzkwNDM2)",
+            "[<b>1.enzymes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjg5Nzg4MTAwNzQ1MzYz)",
+            "[<b>1. heme-synthesis-and-porphyrias</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjkwNzkwMTI1MTAwMjkw)",
+            "[<b>1. fat-soluble-vitamins part1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjkxNzkyMTQ5NDU1MjE3)",
+            "[<b>2.  fat-soluble-vitamins Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjkyNzk0MTczODEwMTQ0)",
+            "[<b>3. water-soluble-vitamins</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjkzNzk2MTk4MTY1MDcx)",
+            "[<b>4. alcohol-metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjk0Nzk4MjIyNTE5OTk4)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        biochemistryp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"biochemistryp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"biochemistryp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(biochemistryp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("pharmacologyp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. How To Study</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjk1ODAwMjQ2ODc0OTI1)",
+            "[<b>2. Introduction to Pharmacology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjk2ODAyMjcxMjI5ODUy)",
+            "[<b>1.Pharmacokinetics Absorption</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjk3ODA0Mjk1NTg0Nzc5)",
+            "[<b>2.  Pharmacokinetics Drug Distribution</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjk4ODA2MzE5OTM5NzA2)",
+            "[<b>3. Pharmacokinetics Drug Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMjk5ODA4MzQ0Mjk0NjMz)",
+            "[<b>4. Pharmacokinetics  Drug Excretion</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzAwODEwMzY4NjQ5NTYw)",
+            "[<b>5. Half - Life, Kinetics of Elimination and Steady State Plasma Concentration</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzAxODEyMzkzMDA0NDg3)",
+            "[<b>6. pH and pKa</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzAyODE0NDE3MzU5NDE0)",
+            "[<b>7. Bioavailablity</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzAzODE2NDQxNzE0MzQx)",
+            "[<b>8.  Pharmacodynamics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzA0ODE4NDY2MDY5MjY4)",
+            "[<b>9. Dose Response Curve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzA1ODIwNDkwNDI0MTk1)",
+            "[<b>10. Combined Effect ff Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzA2ODIyNTE0Nzc5MTIy)",
+            "[<b>11. Adverse Drug Effects</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzA3ODI0NTM5MTM0MDQ5)",
+            "[<b>12. New Drugs Development</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzA4ODI2NTYzNDg4OTc2)",
+            "[<b>13. Drug Label and Fdc</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzA5ODI4NTg3ODQzOTAz)",
+            "[<b>14. Theraputic Drug Monitoring</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzEwODMwNjEyMTk4ODMw)",
+            "[<b>15. Rational Drug Prescribing,Essential Medicine & EBM</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzExODMyNjM2NTUzNzU3)",
+            "[<b>16. Pharmacogenetics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzEyODM0NjYwOTA4Njg0)",
+            "[<b>17. Pharmacokinetics Problems</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzEzODM2Njg1MjYzNjEx)",
+            "[<b>1. Introduction to ANS and Cholinergic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzE0ODM4NzA5NjE4NTM4)",
+            "[<b>2. Management of OP and Carbamate Poisoning</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzE1ODQwNzMzOTczNDY1)",
+            "[<b>3. Drugs Used in Myasthenia Gravis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzE2ODQyNzU4MzI4Mzky)",
+            "[<b>4. Anti Cholinergic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzE3ODQ0NzgyNjgzMzE5)",
+            "[<b>5. Drugs Acting in Eye</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzE4ODQ2ODA3MDM4MjQ2)",
+            "[<b>6. drugs-acting-on-bladder-and-bowel</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzE5ODQ4ODMxMzkzMTcz)",
+            "[<b>7.introduction-of-adrenergic-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzIwODUwODU1NzQ4MTAw)",
+            "[<b>8. adrenergic-drugs-catecholamines</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzIxODUyODgwMTAzMDI3)",
+            "[<b>9. adrenergic-drugs-non-catecholamines</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzIyODU0OTA0NDU3OTU0)",
+            "[<b>10. alpha-blockers</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzIzODU2OTI4ODEyODgx)",
+            "[<b>11. beta-blockers</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzI0ODU4OTUzMTY3ODA4)",
+            "[<b>12. Pharmacotherapy  of Glaucoma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzI1ODYwOTc3NTIyNzM1)",
+            "[<b>13. drugs-acting-on-ganglia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzI2ODYzMDAxODc3NjYy)",
+            "[<b>1. Histamine & Anti Histamine Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzI3ODY1MDI2MjMyNTg5)",
+            "[<b>2. Serotonin Pharmacology and Drug for Migraine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzI4ODY3MDUwNTg3NTE2)",
+            "[<b>3. prostaglandins</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzI5ODY5MDc0OTQyNDQz)",
+            "[<b>4. NSAIDs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzMwODcxMDk5Mjk3Mzcw)",
+            "[<b>5. Gout</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzMxODczMTIzNjUyMjk3)",
+            "[<b>6. Rheumatoid-arthritis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzMyODc1MTQ4MDA3MjI0)",
+            "[<b>1. Diuretic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzMzODc3MTcyMzYyMTUx)",
+            "[<b>2. Anti Diuretics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzM0ODc5MTk2NzE3MDc4)",
+            "[<b>1. Drugs affecting RAAS pathway</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzM1ODgxMjIxMDcyMDA1)",
+            "[<b>2. Anti Anginal Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzM2ODgzMjQ1NDI2OTMy)",
+            "[<b>3. pharamacotherapy-of-chf</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzM3ODg1MjY5NzgxODU5)",
+            "[<b>4. hypertension</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzM4ODg3Mjk0MTM2Nzg2)",
+            "[<b>5. drugs-for-pulmonary-hypertension</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzM5ODg5MzE4NDkxNzEz)",
+            "[<b>6. anti-arrhythmic-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQwODkxMzQyODQ2NjQw)",
+            "[<b>1. sedative-hypnotics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQxODkzMzY3MjAxNTY3)",
+            "[<b>2. ethanol</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQyODk1MzkxNTU2NDk0)",
+            "[<b>3. anti-epileptic-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQzODk3NDE1OTExNDIx)",
+            "[<b>4. anti-parkinsonian-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQ0ODk5NDQwMjY2MzQ4)",
+            "[<b>5. mania-and-bipolar-disorde</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQ1OTAxNDY0NjIxMjc1)",
+            "[<b>6. Anti Psychotic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQ2OTAzNDg4OTc2MjAy)",
+            "[<b>7. anti-depressant-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQ3OTA1NTEzMzMxMTI5)",
+            "[<b>8. opioids</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQ4OTA3NTM3Njg2MDU2)",
+            "[<b>9. drugs-for-anxiety</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzQ5OTA5NTYyMDQwOTgz)",
+            "[<b>1. Hypothalamus & Pituitary Hormones Pharmacology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzUwOTExNTg2Mzk1OTEw)",
+            "[<b>2. pharmacotherapy-of-diabetes-mellitus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzUxOTEzNjEwNzUwODM3)",
+            "[<b>3. pharmacotherapy-of-osteoporosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzUyOTE1NjM1MTA1NzY0)",
+            "[<b>4. corticosteroids</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzUzOTE3NjU5NDYwNjkx)",
+            "[<b>5. testosterone</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzU0OTE5NjgzODE1NjE4)",
+            "[<b>6. benign-prostatic-hyperplasia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzU1OTIxNzA4MTcwNTQ1)",
+            "[<b>7. estrogen-and-progesterone-preparations</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzU2OTIzNzMyNTI1NDcy)",
+            "[<b>8. hormonal-contraceptives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzU3OTI1NzU2ODgwMzk5)",
+            "[<b>9. thyroid-hormones-anti-thyroid-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzU4OTI3NzgxMjM1MzI2)",
+            "[<b>1. anti-microbials-penicillin</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzU5OTI5ODA1NTkwMjUz)",
+            "[<b>2. cephalosporins</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzYwOTMxODI5OTQ1MTgw)",
+            "[<b>3.glycopeptides</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzYxOTMzODU0MzAwMTA3)",
+            "[<b>4. tetracycline</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzYyOTM1ODc4NjU1MDM0)",
+            "[<b>5. macrolides</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzYzOTM3OTAzMDA5OTYx)",
+            "[<b>6. aminoglycosides-and-oxazolidinons</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzY0OTM5OTI3MzY0ODg4)",
+            "[<b>7. sulfonamides</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzY1OTQxOTUxNzE5ODE1)",
+            "[<b>8. flouroquinolones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzY2OTQzOTc2MDc0NzQy)",
+            "[<b>9. antimicrobial-resistance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzY3OTQ2MDAwNDI5NjY5)",
+            "[<b>10. important-points-in-antibacterial-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzY4OTQ4MDI0Nzg0NTk2)",
+            "[<b>11. important-infections-and-drug-of-choice</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzY5OTUwMDQ5MTM5NTIz)",
+            "[<b>12. -drugs-for-uti-and-stis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzcwOTUyMDczNDk0NDUw)",
+            "[<b>1. anti-tb-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzcxOTU0MDk3ODQ5Mzc3)",
+            "[<b>2. tb-treatment-guidlines</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzcyOTU2MTIyMjA0MzA0)",
+            "[<b>3. treatment-of-leprosy-and-mac</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzczOTU4MTQ2NTU5MjMx)",
+            "[<b>4.anti-viral-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzc0OTYwMTcwOTE0MTU4)",
+            "[<b>5. anti-hiv-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzc1OTYyMTk1MjY5MDg1)",
+            "[<b>6. antiprotozoal-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzc2OTY0MjE5NjI0MDEy)",
+            "[<b>7. anti-malarial-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzc3OTY2MjQzOTc4OTM5)",
+            "[<b>8. Anti Fungal Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzc4OTY4MjY4MzMzODY2)",
+            "[<b>9. anti-helminthic-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzc5OTcwMjkyNjg4Nzkz)",
+            "[<b>1. Asthama</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzgwOTcyMzE3MDQzNzIw)",
+            "[<b>2. Cough</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzgxOTc0MzQxMzk4NjQ3)",
+            "[<b>1. Peptic Ulcer Disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzgyOTc2MzY1NzUzNTc0)",
+            "[<b>2. anti-emetic-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzgzOTc4MzkwMTA4NTAx)",
+            "[<b>3. constipation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzg0OTgwNDE0NDYzNDI4)",
+            "[<b>4. anti-diarrheal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzg1OTgyNDM4ODE4MzU1)",
+            "[<b>1. anti-platelet-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzg2OTg0NDYzMTczMjgy)",
+            "[<b>2. anti-coagulants</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzg3OTg2NDg3NTI4MjA5)",
+            "[<b>3. thrombolytics-fibrinolytics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzg4OTg4NTExODgzMTM2)",
+            "[<b>4. drugs-for-dyslipidemia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzg5OTkwNTM2MjM4MDYz)",
+            "[<b>5. colony-stimulating-factors</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzkwOTkyNTYwNTkyOTkw)",
+            "[<b>6. hemantinics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzkxOTk0NTg0OTQ3OTE3)",
+            "[<b>7. chelating-agents</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzkyOTk2NjA5MzAyODQ0)",
+            "[<b>1. platinum-compounds</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzkzOTk4NjMzNjU3Nzcx)",
+            "[<b>2. cell-cycle-specific-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzk1MDAwNjU4MDEyNjk4)",
+            "[<b>3. anti-cancer-drug</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzk2MDAyNjgyMzY3NjI1)",
+            "[<b>4. hormonal-agents</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzk3MDA0NzA2NzIyNTUy)",
+            "[<b>5. targeted-therapy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzk4MDA2NzMxMDc3NDc5)",
+            "[<b>6. adverse-effects-of-anti-cancer-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMzk5MDA4NzU1NDMyNDA2)",
+            "[<b>1. Immunomodulators</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDAwMDEwNzc5Nzg3MzMz)",
+            "[<b>1. general-anaesthesia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDAxMDEyODA0MTQyMjYw)",
+            "[<b>2. local-anaesthesia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDAyMDE0ODI4NDk3MTg3)",
+            "[<b>3. skeletal-muscle-relaxant-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDAzMDE2ODUyODUyMTE0)",
+            "[<b>1. prescribing-drugs-during-pregnancy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDA0MDE4ODc3MjA3MDQx)",
+            "[<b>2. confusing-drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDA1MDIwOTAxNTYxOTY4)",
+            "[<b>3. antidotes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDA2MDIyOTI1OTE2ODk1)",
+            "[<b>4. drug-interactions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDA3MDI0OTUwMjcxODIy)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        pharmacologyp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pharmacologyp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pharmacologyp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pharmacologyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("fmtp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. postmortem-techniques</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDA4MDI2OTc0NjI2NzQ5)",	
+            "[<b>1. IPC Sections</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDA5MDI4OTk4OTgxNjc2)",	
+            "[<b>1. Torture</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDEwMDMxMDIzMzM2NjAz)",	
+            "[<b>1. Court of Law</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDExMDMzMDQ3NjkxNTMw)",	
+            "[<b>1. traces-of-evidence</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDEyMDM1MDcyMDQ2NDU3)",	
+            "[<b>1. sexual-offence</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDEzMDM3MDk2NDAxMzg0)",	
+            "[<b>2. impotence-sterility</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDE0MDM5MTIwNzU2MzEx)",	
+            "[<b>3. version-impotence-abortion-and-mtp</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDE1MDQxMTQ1MTExMjM4)",	
+            "[<b>1. medical-jurisprudence</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDE2MDQzMTY5NDY2MTY1)",	
+            "[<b>1. Infanticide</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDE3MDQ1MTkzODIxMDky)",	
+            "[<b>1. asphyxial-death</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDE4MDQ3MjE4MTc2MDE5)",	
+            "[<b>1. road-traffic-accident</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDE5MDQ5MjQyNTMwOTQ2)",	
+            "[<b>2. thermal-injury</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDIwMDUxMjY2ODg1ODcz)",	
+            "[<b>3. regional-injury</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDIxMDUzMjkxMjQwODAw)",	
+            "[<b>4.mechanical-injuries</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDIyMDU1MzE1NTk1NzI3)",	
+            "[<b>1. Forensic Ballistics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDIzMDU3MzM5OTUwNjU0)",	
+            "[<b>2. discharge-from-gun-effects</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDI0MDU5MzY0MzA1NTgx)",	
+            "[<b>1.indentification-part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDI1MDYxMzg4NjYwNTA4)",	
+            "[<b>2.indentification-part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDI2MDYzNDEzMDE1NDM1)",	
+            "[<b>1. general-toxicology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDI3MDY1NDM3MzcwMzYy)",	
+            "[<b>2. general-toxicology-2-insecticide-metallic-and-non-metallic-poison</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDI4MDY3NDYxNzI1Mjg5)",	
+            "[<b>3. general-toxicology-3-starvation-death-asphyxiant-poison-miscellaneous-laws</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDI5MDY5NDg2MDgwMjE2)",	
+            "[<b>4. animal-irritant-poison</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDMwMDcxNTEwNDM1MTQz)",	
+            "[<b>5. corrosives-poisoning</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDMxMDczNTM0NzkwMDcw)",	
+            "[<b>6. spinal-cardiac-poison</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDMyMDc1NTU5MTQ0OTk3)",	
+            "[<b>7. somniferous-poison</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDMzMDc3NTgzNDk5OTI0)",	
+            "[<b>8. organic-plant-irritant-poisions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDM0MDc5NjA3ODU0ODUx)",	
+            "[<b>9. metal-poisons-miscellaneous-poisons-cns-depressant</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDM1MDgxNjMyMjA5Nzc4)",	
+            "[<b>1.thanatology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDM2MDgzNjU2NTY0NzA1)",	
+            "[<b>1. Forensic Psychiatry Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDM3MDg1NjgwOTE5NjMy)",	
+            "[<b>2. Forensic Psychiatry Part-2.mkv</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDM4MDg3NzA1Mjc0NTU5)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        fmtp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"fmtp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"fmtp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(fmtp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("psmp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Definition , Components and Tools of Epidemiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDM5MDg5NzI5NjI5NDg2)",
+            "[<b>2. need-classification-unit-approach-to-study-designs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQwMDkxNzUzOTg0NDEz)",
+            "[<b>3. descriptive-study-disease-distribution</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQxMDkzNzc4MzM5MzQw)",
+            "[<b>4. cohort-study</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQyMDk1ODAyNjk0MjY3)",
+            "[<b>5. case-control-study</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQzMDk3ODI3MDQ5MTk0)",
+            "[<b>6. nested-case-control</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQ0MDk5ODUxNDA0MTIx)",
+            "[<b>7. cross-sectional-ecological-study-design-and-longitudinal-study-design</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQ1MTAxODc1NzU5MDQ4)",
+            "[<b>8. bias</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQ2MTAzOTAwMTEzOTc1)",
+            "[<b>9. confounders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQ3MTA1OTI0NDY4OTAy)",
+            "[<b>10. experimental-studies-randomized-and-non-randomized-control-trials</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQ4MTA3OTQ4ODIzODI5)",
+            "[<b>11. clinical-trials</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDQ5MTA5OTczMTc4NzU2)",
+            "[<b>12. systematic-review-and-meta-analysis-evidence-based</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDUwMTExOTk3NTMzNjgz)",
+            "[<b>13. hills-criteria</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDUxMTE0MDIxODg4NjEw)",
+            "[<b>1. concept-of-disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDUyMTE2MDQ2MjQzNTM3)",
+            "[<b>2. concept-of-well-being</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDUzMTE4MDcwNTk4NDY0)",
+            "[<b>3. disease-control-elimination-and-eradication-of-disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDU0MTIwMDk0OTUzMzkx)",
+            "[<b>4. levels-of-prevention</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDU1MTIyMTE5MzA4MzE4)",
+            "[<b>5. health-indicators</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDU2MTI0MTQzNjYzMjQ1)",
+            "[<b>v6. monitoring-evaluation-surveillance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDU3MTI2MTY4MDE4MTcy)",
+            "[<b>1. vaccines</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDU4MTI4MTkyMzczMDk5)",
+            "[<b>2. national-immunization-schedule-delayed-immunization</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDU5MTMwMjE2NzI4MDI2)",
+            "[<b>3. open-vial-policy-misson-indradhanush</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDYwMTMyMjQxMDgyOTUz)",
+            "[<b>4. cold-chain</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDYxMTM0MjY1NDM3ODgw)",
+            "[<b>5. vaccines-cold-chain</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDYyMTM2Mjg5NzkyODA3)",
+            "[<b>1. screening-test</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDYzMTM4MzE0MTQ3NzM0)",
+            "[<b>2. properties-of-screening-test</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDY0MTQwMzM4NTAyNjYx)",
+            "[<b>3. tests-in-combination</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDY1MTQyMzYyODU3NTg4)",
+            "[<b>1. demography</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDY2MTQ0Mzg3MjEyNTE1)",
+            "[<b>2. indicators-of-demography</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDY3MTQ2NDExNTY3NDQy)",
+            "[<b>3. fertility-indicators</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDY4MTQ4NDM1OTIyMzY5)",
+            "[<b>4. sources-of-health-information</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDY5MTUwNDYwMjc3Mjk2)",
+            "[<b>1. family-planning-definition-concept</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDcwMTUyNDg0NjMyMjIz)",
+            "[<b>2. Classification of Contraceptives and Barrier Methods of Contraceptive</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDcxMTU0NTA4OTg3MTUw)",
+            "[<b>3. intra uterine devices</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDcyMTU2NTMzMzQyMDc3)",
+            "[<b>4. hormonal-contraceptives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDczMTU4NTU3Njk3MDA0)",
+            "[<b>5. physiological-methods-sterilization</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDc0MTYwNTgyMDUxOTMx)",
+            "[<b>6. National Family Planning Welfare Program</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDc1MTYyNjA2NDA2ODU4)",
+            "[<b>1. Preventive Obstetrics , Maternal Health</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDc2MTY0NjMwNzYxNzg1)",
+            "[<b>2. preventive-paediatrics-child-health-indicators</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDc3MTY2NjU1MTE2NzEy)",
+            "[<b>3. Growth and Devlopment . School Health Services</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDc4MTY4Njc5NDcxNjM5)",
+            "[<b>1. nutrition-macronutrient-micronutrient</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDc5MTcwNzAzODI2NTY2)",
+            "[<b>2. micronutrition-vitamins</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDgwMTcyNzI4MTgxNDkz)",
+            "[<b>3. Food Adulteration and Food Fortification</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDgxMTc0NzUyNTM2NDIw)",
+            "[<b>4.Nutrition Health Programmers and Food Logos</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDgyMTc2Nzc2ODkxMzQ3)",
+            "[<b>5. Recommended Dietary Allowance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDgzMTc4ODAxMjQ2Mjc0)",
+            "[<b>1. sociology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDg0MTgwODI1NjAxMjAx)",
+            "[<b>2. Family and Socioeconomic Scales</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDg1MTgyODQ5OTU2MTI4)",
+            "[<b>3. health-economics-doctor-patient-relationship-right-of-an-individuals-social-security</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDg2MTg0ODc0MzExMDU1)",
+            "[<b>1. Water - Introduction</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDg3MTg2ODk4NjY1OTgy)",
+            "[<b>2. Purification of Water</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDg4MTg4OTIzMDIwOTA5)",
+            "[<b>3. Air Pollution</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDg5MTkwOTQ3Mzc1ODM2)",
+            "[<b>4. waste-disposal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDkwMTkyOTcxNzMwNzYz)",
+            "[<b>5. noise-light-housing-radiation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDkxMTk0OTk2MDg1Njkw)",
+            "[<b>6. entomology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDkyMTk3MDIwNDQwNjE3)",
+            "[<b>1. infectious-disease-epidemiology part 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDkzMTk5MDQ0Nzk1NTQ0)",
+            "[<b>2. Infectious Disease Epidemiology Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDk0MjAxMDY5MTUwNDcx)",
+            "[<b>3. measels-and-rubella</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDk1MjAzMDkzNTA1Mzk4)",
+            "[<b>4. chicken-pox-and-small-pox</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDk2MjA1MTE3ODYwMzI1)",
+            "[<b>5. mumps-and-pertussis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDk3MjA3MTQyMjE1MjUy)",
+            "[<b>6. diptheria</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDk4MjA5MTY2NTcwMTc5)",
+            "[<b>7. acute-respiratory-infection</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNDk5MjExMTkwOTI1MTA2)",
+            "[<b>8. tuberculosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTAwMjEzMjE1MjgwMDMz)",
+            "[<b>9. polio</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTAxMjE1MjM5NjM0OTYw)",
+            "[<b>10. hepatitis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTAyMjE3MjYzOTg5ODg3)",
+            "[<b>11. diarrhea</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTAzMjE5Mjg4MzQ0ODE0)",
+            "[<b>12. cholera</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTA0MjIxMzEyNjk5NzQx)",
+            "[<b>13. typhoid</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTA1MjIzMzM3MDU0NjY4)",
+            "[<b>14. soil-transmitted-helminthic-infections</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTA2MjI1MzYxNDA5NTk1)",
+            "[<b>15. dengue</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTA3MjI3Mzg1NzY0NTIy)",
+            "[<b>16. malaria</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTA4MjI5NDEwMTE5NDQ5)",
+            "[<b>17. lymphatic-filariasis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTA5MjMxNDM0NDc0Mzc2)",
+            "[<b>18. kala-azar-leishmaniasis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTEwMjMzNDU4ODI5MzAz)",
+            "[<b>19. japanese-encephalitis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTExMjM1NDgzMTg0MjMw)",
+            "[<b>20. yellow-fever-kfd</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTEyMjM3NTA3NTM5MTU3)",
+            "[<b>21. Rabies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTEzMjM5NTMxODk0MDg0)",
+            "[<b>22. leptospirosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTE0MjQxNTU2MjQ5MDEx)",
+            "[<b>23. plague</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTE1MjQzNTgwNjAzOTM4)",
+            "[<b>24. tetanus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTE2MjQ1NjA0OTU4ODY1)",
+            "[<b>25. hiv-aids</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTE3MjQ3NjI5MzEzNzky)",
+            "[<b>26. rickettsial-diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTE4MjQ5NjUzNjY4NzE5)",
+            "[<b>27 ebola-nipah-zika-virus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTE5MjUxNjc4MDIzNjQ2)",
+            "[<b>1. national-health-mission-rmnch-a-maternal-initiatives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTIwMjUzNzAyMzc4NTcz)",
+            "[<b>2. child-adolescent-health-initiatives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTIxMjU1NzI2NzMzNTAw)",
+            "[<b>3. nacp-global-initiatives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTIyMjU3NzUxMDg4NDI3)",
+            "[<b>4. national-tuberculosis-elimination-programme</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTIzMjU5Nzc1NDQzMzU0)",
+            "[<b>5. nvbdcp-part1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTI0MjYxNzk5Nzk4Mjgx)",
+            "[<b>6. nvbdcp-part2(diagnosis-treatment-prophylaxis)</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTI1MjYzODI0MTUzMjA4)",
+            "[<b>7. polio-end-game-eradication-strategy-national-polio-surveillance-program</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTI2MjY1ODQ4NTA4MTM1)",
+            "[<b>8. leprosy-and-national-leprosy-eradication-program</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTI3MjY3ODcyODYzMDYy)",
+            "[<b>9. ncds-npcdcs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTI4MjY5ODk3MjE3OTg5)",
+            "[<b>10. national-program-for-control-of-blindness-visual-impairment</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTI5MjcxOTIxNTcyOTE2)",
+            "[<b>11. health-initiatives-idsp-ayushman-bharat-miscellaneous</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTMwMjczOTQ1OTI3ODQz)",
+            "[<b>1. health-education</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTMxMjc1OTcwMjgyNzcw)",
+            "[<b>2. health-communication-interviews</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTMyMjc3OTk0NjM3Njk3)",
+            "[<b>1. health-planing-and-planing-cycle</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTMzMjgwMDE4OTkyNjI0)",
+            "[<b>2. health-planning-committees-niti-aayog</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTM0MjgyMDQzMzQ3NTUx)",
+            "[<b>3. health-management-techniques-inventory-management</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTM1Mjg0MDY3NzAyNDc4)",
+            "[<b>1. healh-care-of-the-community</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTM2Mjg2MDkyMDU3NDA1)",
+            "[<b>2. health-care-delivery-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTM3Mjg4MTE2NDEyMzMy)",
+            "[<b>1. international-health</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTM4MjkwMTQwNzY3MjU5)",
+            "[<b>2. sustainable-development-goals-miscellaneous</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTM5MjkyMTY1MTIyMTg2)",
+            "[<b>1. occupational-health</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQwMjk0MTg5NDc3MTEz)",
+            "[<b>2. ESI Act , Factory Acd and Nrega ACt</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQxMjk2MjEzODMyMDQw)",
+            "[<b>3. disaster-management</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQyMjk4MjM4MTg2OTY3)",
+            "[<b>4. biomedical-waste Managemenr</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQzMzAwMjYyNTQxODk0)",
+            "[<b>5. genetics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQ0MzAyMjg2ODk2ODIx)",
+            "[<b>1. biostatics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQ1MzA0MzExMjUxNzQ4)",
+            "[<b>2. measures-of-central-tendency</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQ2MzA2MzM1NjA2Njc1)",
+            "[<b>3. measures-of-dispersion</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQ3MzA4MzU5OTYxNjAy)",
+            "[<b>4. types-of-distribution</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQ4MzEwMzg0MzE2NTI5)",
+            "[<b>5. types-of-errors</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTQ5MzEyNDA4NjcxNDU2)",
+            "[<b>6. test-of-statistical-significance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTUwMzE0NDMzMDI2Mzgz)",
+            "[<b>7. graphical-representation-of-data</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTUxMzE2NDU3MzgxMzEw)",
+            "[<b>8. sampling-probability</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTUyMzE4NDgxNzM2MjM3)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        psmp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psmp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psmp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(psmp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("entp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Anatomy of External Ear Middle Ear</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTUzMzIwNTA2MDkxMTY0)",
+            "[<b>2. Anatomy of Inner Ear</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTU0MzIyNTMwNDQ2MDkx)",
+            "[<b>3. Physiology of Hearing</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTU1MzI0NTU0ODAxMDE4)",
+            "[<b>4. Assesment of Hearing</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTU2MzI2NTc5MTU1OTQ1)",
+            "[<b>5. Physiology of Vestibular System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTU3MzI4NjAzNTEwODcy)",
+            "[<b>6. Assessment of Vestibular System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTU4MzMwNjI3ODY1Nzk5)",
+            "[<b>7.Disease of Vestibular system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTU5MzMyNjUyMjIwNzI2)",
+            "[<b>8. Disease of External Ear</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTYwMzM0Njc2NTc1NjUz)",
+            "[<b>9. Eustachian Tube</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTYxMzM2NzAwOTMwNTgw)",
+            "[<b>10. Middel Ear Diseases Asom Som</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTYyMzM4NzI1Mjg1NTA3)",
+            "[<b>11. Middle Ear Diseases Cholesteatoma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTYzMzQwNzQ5NjQwNDM0)",
+            "[<b>12. Middel Ear Diseases CSOM</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTY0MzQyNzczOTk1MzYx)",
+            "[<b>13. Complication of ASOM and CSOM</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTY1MzQ0Nzk4MzUwMjg4)",
+            "[<b>14. Otosclerosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTY2MzQ2ODIyNzA1MjE1)",
+            "[<b>15. Facial nerve and Acoustic Neuroma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTY3MzQ4ODQ3MDYwMTQy)",
+            "[<b>16. Meniere's Disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTY4MzUwODcxNDE1MDY5)",
+            "[<b>17. Glomus Tumor</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTY5MzUyODk1NzY5OTk2)",
+            "[<b>18. Hearing Rehabilitation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTcwMzU0OTIwMTI0OTIz)",
+            "[<b>19. Otalgia and Tinnitus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTcxMzU2OTQ0NDc5ODUw)",
+            "[<b>1. Anatomy of Nose and Paranasal Sinuses</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTcyMzU4OTY4ODM0Nzc3)",
+            "[<b>2. Diseases of External Nose</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTczMzYwOTkzMTg5NzA0)",
+            "[<b>3. Acute Chronic Rhinitis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTc0MzYzMDE3NTQ0NjMx)",
+            "[<b>4. CSF Rhinorrhea</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTc1MzY1MDQxODk5NTU4)",
+            "[<b>5. Granulomatous Lesions of Nose</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTc2MzY3MDY2MjU0NDg1)",
+            "[<b>6. Congenital Anomalies of Nose</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTc3MzY5MDkwNjA5NDEy)",
+            "[<b>7. Nasal Polyps</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTc4MzcxMTE0OTY0MzM5)",
+            "[<b>8. Epistaxis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTc5MzczMTM5MzE5MjY2)",
+            "[<b>9. Facial Trauma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTgwMzc1MTYzNjc0MTkz)",
+            "[<b>10. Sinusitis and its Complication</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTgxMzc3MTg4MDI5MTIw)",
+            "[<b>11. Tumors of The Nose Sinuses</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTgyMzc5MjEyMzg0MDQ3)",
+            "[<b>12. Malignancies of Paranasal Sinuses</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTgzMzgxMjM2NzM4OTc0)",
+            "[<b>13. Septal Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTg0MzgzMjYxMDkzOTAx)",
+            "[<b>1. Anatomy of Pharynx Pharyngeal Spaces</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTg1Mzg1Mjg1NDQ4ODI4)",
+            "[<b>2. Adenoids and Tonsils</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTg2Mzg3MzA5ODAzNzU1)",
+            "[<b>3. Juvenile Nasopharyngeal Angiofibroma Nasopharyngeal Carcinoma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTg3Mzg5MzM0MTU4Njgy)",
+            "[<b>4. Ludwigs Angina and Pharyngeal Pouch</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTg4MzkxMzU4NTEzNjA5)",
+            "[<b>5. Abscesses</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTg5MzkzMzgyODY4NTM2)",
+            "[<b>1. Anatomy of Larynx</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTkwMzk1NDA3MjIzNDYz)",
+            "[<b>2. Inflammator Conditions of Larynx</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTkxMzk3NDMxNTc4Mzkw)",
+            "[<b>3.  Benignc Inflammatory Lesions of Larynx</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTkyMzk5NDU1OTMzMzE3)",
+            "[<b>4. Voice Pathalogies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTkzNDAxNDgwMjg4MjQ0)",
+            "[<b>5  Congenital Lesions of Larynx</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTk0NDAzNTA0NjQzMTcx)",
+            "[<b>6. Laryngeal Paralysis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTk1NDA1NTI4OTk4MDk4)",
+            "[<b>7. Laryngeal Carcinoma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTk2NDA3NTUzMzUzMDI1)",
+            "[<b>1. Radiology In ENT</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTk3NDA5NTc3NzA3OTUy)",
+            "[<b>2. Instruments</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTk4NDExNjAyMDYyODc5)",
+            "[<b>3. ENT Surgeries</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNTk5NDEzNjI2NDE3ODA2)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        entp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"entp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"entp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(entp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("pediatricsp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Assessment of Growth and Growth Charts</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjAwNDE1NjUwNzcyNzMz)",
+            "[<b>2. Normal Anthropometric Parameters</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjAxNDE3Njc1MTI3NjYw)",
+            "[<b>3. Short Stature tall Stature</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjAyNDE5Njk5NDgyNTg3)",
+            "[<b>4. Abnormalities of Head Size Shape</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjAzNDIxNzIzODM3NTE0)",
+            "[<b>5. Normal Abnormal Dentition</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjA0NDIzNzQ4MTkyNDQx)",
+            "[<b>6. Image Based Questions Growth</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjA1NDI1NzcyNTQ3MzY4)",
+            "[<b>1. Important Motor Milestones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjA2NDI3Nzk2OTAyMjk1)",
+            "[<b>2. Social Language Milestones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjA3NDI5ODIxMjU3MjIy)",
+            "[<b>3. Developmental Implications of Important Milestones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjA4NDMxODQ1NjEyMTQ5)",
+            "[<b>4. Image Based Questions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjA5NDMzODY5OTY3MDc2)",
+            "[<b>1. Abnormalities of Development</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjEwNDM1ODk0MzIyMDAz)",
+            "[<b>2. Behavioural Disordes in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjExNDM3OTE4Njc2OTMw)",
+            "[<b>1. Puberty and Adolescence</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjEyNDM5OTQzMDMxODU3)",
+            "[<b>1. Important Terminologies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjEzNDQxOTY3Mzg2Nzg0)",
+            "[<b>2. Primitive Neonatalc Reflex Conditions Seen in Neonates Not Requiring Treatment</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjE0NDQzOTkxNzQxNzEx)",
+            "[<b>3. Neonatal Resuscitation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjE1NDQ2MDE2MDk2NjM4)",
+            "[<b>4. IUGR</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjE2NDQ4MDQwNDUxNTY1)",
+            "[<b>5. Feeding of Preterm Neonate</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjE3NDUwMDY0ODA2NDky)",
+            "[<b>6. Neonatal Sepsis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjE4NDUyMDg5MTYxNDE5)",
+            "[<b>7. Neonatal Hypothermia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjE5NDU0MTEzNTE2MzQ2)",
+            "[<b>8.Neonatal Hypoglycemia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjIwNDU2MTM3ODcxMjcz)",
+            "[<b>9. Perinatal Asphyxia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjIxNDU4MTYyMjI2MjAw)",
+            "[<b>10. Important Scores in Neonates</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjIyNDYwMTg2NTgxMTI3)",
+            "[<b>11. Respiratory Disorders in Neonates</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjIzNDYyMjEwOTM2MDU0)",
+            "[<b>12. Necrotising Entercolitis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjI0NDY0MjM1MjkwOTgx)",
+            "[<b>13. Neonatal Jaundice</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjI1NDY2MjU5NjQ1OTA4)",
+            "[<b>14. Erythroblastosis Fetalis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjI2NDY4Mjg0MDAwODM1)",
+            "[<b>15. Latest Updates In Neonatology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjI3NDcwMzA4MzU1NzYy)",
+            "[<b>16. Neonatology Images</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjI4NDcyMzMyNzEwNjg5)",
+            "[<b>1. Breast Milk Breast Feeding</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjI5NDc0MzU3MDY1NjE2)",
+            "[<b>2. Micronutrients in Health Disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjMwNDc2MzgxNDIwNTQz)",
+            "[<b>3. Malnutrition</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjMxNDc4NDA1Nzc1NDcw)",
+            "[<b>4. Images from Nutrition Malnutrition</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjMyNDgwNDMwMTMwMzk3)",
+            "[<b>1. Body Composition Acid Base Balance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjMzNDgyNDU0NDg1MzI0)",
+            "[<b>2. Disorders of Sodium Potassium</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjM0NDg0NDc4ODQwMjUx)",
+            "[<b>3. IV Fluids in Health Disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjM1NDg2NTAzMTk1MTc4)",
+            "[<b>4. Images Fluids and Electrolytes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjM2NDg4NTI3NTUwMTA1)",
+            "[<b>1. Types of Genetic Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjM3NDkwNTUxOTA1MDMy)",
+            "[<b>2. Important Genetic Syndromes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjM4NDkyNTc2MjU5OTU5)",
+            "[<b>3. Images in Genetics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjM5NDk0NjAwNjE0ODg2)",
+            "[<b>1. Disorders of  Carbohydrate Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjQwNDk2NjI0OTY5ODEz)",
+            "[<b>2. Disorders of Amino Acid Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjQxNDk4NjQ5MzI0NzQw)",
+            "[<b>3. Lysosomal Storage Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjQ0NTA0NzIyMzg5NTIx)",
+            "[<b>4. Images Inborn Errors of Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjQ1NTA2NzQ2NzQ0NDQ4)",
+            "[<b>1. Primary Immuno Deficiency</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjQ2NTA4NzcxMDk5Mzc1)",
+            "[<b>2. Vasculitic Disorders of Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjQ3NTEwNzk1NDU0MzAy)",
+            "[<b>3. Images of Disorders Of Immune System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjQ4NTEyODE5ODA5MjI5)",
+            "[<b>1. Important Viral Diseases in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjQ5NTE0ODQ0MTY0MTU2)",
+            "[<b>2. COVID 19 in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjUwNTE2ODY4NTE5MDgz)",
+            "[<b>3. Important Bacterial Diseases in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjUxNTE4ODkyODc0MDEw)",
+            "[<b>4. Congenital Inferctions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjUyNTIwOTE3MjI4OTM3)",
+            "[<b>5. Images of Important Infectious Diseases in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjUzNTIyOTQxNTgzODY0)",
+            "[<b>1. Immunization - General Concepts & Special Situtation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjU0NTI0OTY1OTM4Nzkx)",
+            "[<b>2. Individual Vaccine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjU1NTI2OTkwMjkzNzE4)",
+            "[<b>3. Immunization Related Images</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjU2NTI5MDE0NjQ4NjQ1)",
+            "[<b>1. Fetal Circulation Classification of Congenital Heart Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjU3NTMxMDM5MDAzNTcy)",
+            "[<b>2. Important Acyanotic Congenital Heart Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjU4NTMzMDYzMzU4NDk5)",
+            "[<b>3. Tetralogy of Fallot</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjU5NTM1MDg3NzEzNDI2)",
+            "[<b>4. Rheumatic Heart Disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjYwNTM3MTEyMDY4MzUz)",
+            "[<b>5. Other Congenital Heart Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjYxNTM5MTM2NDIzMjgw)",
+            "[<b>6. Image Based Question Pediatric Cardiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjYyNTQxMTYwNzc4MjA3)",
+            "[<b>1. Important Hemotological Disorders in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjYzNTQzMTg1MTMzMTM0)",
+            "[<b>2. Important Bleeding & Coagulation Disorders in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjY0NTQ1MjA5NDg4MDYx)",
+            "[<b>3. Hematological Malignancies in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjY1NTQ3MjMzODQyOTg4)",
+            "[<b>4. Tumors of Infancy Childhood</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjY2NTQ5MjU4MTk3OTE1)",
+            "[<b>5. Images From Pediatric Hemato Oncology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjY3NTUxMjgyNTUyODQy)",
+            "[<b>1. Disorders of Gastrointestinal System Including Diarrhea</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjY4NTUzMzA2OTA3NzY5)",
+            "[<b>2. Liver Disorders in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjY5NTU1MzMxMjYyNjk2)",
+            "[<b>1. Respiratory Disorders in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjcwNTU3MzU1NjE3NjIz)",
+            "[<b>2. Bronchial Asthma In Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjcxNTU5Mzc5OTcyNTUw)",
+            "[<b>3. Infections Of Airways Lungs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjcyNTYxNDA0MzI3NDc3)",
+            "[<b>4. Images Of Respiratory Disorders in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjczNTYzNDI4NjgyNDA0)",
+            "[<b>5. Cystic Fibrosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjc0NTY1NDUzMDM3MzMx)",
+            "[<b>1. Normal Structure Fuction of Kidney in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjc1NTY3NDc3MzkyMjU4)",
+            "[<b>2. Acute Chronic Kidney Disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjc2NTY5NTAxNzQ3MTg1)",
+            "[<b>3. Congenital Abnormalites of Genitourinary Tract</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjc3NTcxNTI2MTAyMTEy)",
+            "[<b>4. Nephritic Nephrotic Syndrome</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjc4NTczNTUwNDU3MDM5)",
+            "[<b>5. Obstructive Infective Disorders of Urinary Tract Infection in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjc5NTc1NTc0ODExOTY2)",
+            "[<b>6. Renal Tubular Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjgwNTc3NTk5MTY2ODkz)",
+            "[<b>1. Congential CNS  Malformation Hydrocephalus in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjgxNTc5NjIzNTIxODIw)",
+            "[<b>2. Seizures in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjgyNTgxNjQ3ODc2NzQ3)",
+            "[<b>3.Disorders with CNS Involvement Brain Death</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjgzNTgzNjcyMjMxNjc0)",
+            "[<b>4. Images from Pediatricc Neurology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjg0NTg1Njk2NTg2NjAx)",
+            "[<b>1. Disorders of Muscles in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjg1NTg3NzIwOTQxNTI4)",
+            "[<b>2. Rickets</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjg2NTg5NzQ1Mjk2NDU1)",
+            "[<b>3. Disorders Involving Bones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjg3NTkxNzY5NjUxMzgy)",
+            "[<b>2. Disorders of Thryroid in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjg4NTkzNzk0MDA2MzA5)",
+            "[<b>3. Adrenal Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjg5NTk1ODE4MzYxMjM2)",
+            "[<b>4. Disorders of Puberty</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjkwNTk3ODQyNzE2MTYz)",
+            "[<b>5. Disorders of Sexual Development</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjkxNTk5ODY3MDcxMDkw)",
+            "[<b>6. Type 1 Diabetes Mellitus Obesity in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjkyNjAxODkxNDI2MDE3)",
+            "[<b>1. Common Childhood Poisonings</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjkzNjAzOTE1NzgwOTQ0)",
+            "[<b>1. Orogastric Feeding Tube Insertionina Neonate</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjk0NjA1OTQwMTM1ODcx)",
+            "[<b>2. How to use Radiant Warmer for a Neonate</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjk1NjA3OTY0NDkwNzk4)",
+            "[<b>3. Self Inflating Bag and Mask for Neonatal Resuscitation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjk2NjA5OTg4ODQ1NzI1)",
+            "[<b>4. Identification of Preterms VS Term Neonate</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjk3NjEyMDEzMjAwNjUy)",
+            "[<b>5. Steps of Hand Washing before Entering a Neonatal Intensive Care Unit (NICU)</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjk4NjE0MDM3NTU1NTc5)",
+            "[<b>6. Different Types of Seizures seen in Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNjk5NjE2MDYxOTEwNTA2)",
+            "[<b>7. Gower Sign</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzAwNjE4MDg2MjY1NDMz)",
+            "[<b>8. Setting Sun Sign</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzAxNjIwMTEwNjIwMzYw)",
+            "[<b>9. Sturge Weber Syndrome</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzAyNjIyMTM0OTc1Mjg3)",
+            "[<b>10. Intravenous Cannula and its Insertion in Neonates Children</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzAzNjI0MTU5MzMwMjE0)",
+            "[<b>11. Phototheraphy for Neonatal Jaundice</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzA0NjI2MTgzNjg1MTQx)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        pediatricsp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pediatricsp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pediatricsp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pediatricsp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("surgeryp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. About the faculty</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzA1NjI4MjA4MDQwMDY4)",	
+            "[<b>2. How to use theapp</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzA2NjMwMjMyMzk0OTk1)",	
+            "[<b>3. Which books to study</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzA3NjMyMjU2NzQ5OTIy)",	
+            "[<b>1. High Yield Topics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzA4NjM0MjgxMTA0ODQ5)",	
+            "[<b>1. Breast Part 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzA5NjM2MzA1NDU5Nzc2)",	
+            "[<b>2.  Breast Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzEwNjM4MzI5ODE0NzAz)",	
+            "[<b>3. Thyroid Part 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzExNjQwMzU0MTY5NjMw)",	
+            "[<b>4. Thyroid Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzEyNjQyMzc4NTI0NTU3)",	
+            "[<b>5. Parathyroid Adrenal Gland</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzEzNjQ0NDAyODc5NDg0)",	
+            "[<b>1. Liver Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzE0NjQ2NDI3MjM0NDEx)",	
+            "[<b>2. Liver Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzE1NjQ4NDUxNTg5MzM4)",	
+            "[<b>3. Portal Hypertention</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzE2NjUwNDc1OTQ0MjY1)",	
+            "[<b>4. Gallbladder</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzE3NjUyNTAwMjk5MTky)",	
+            "[<b>5. Bile Dusct Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzE4NjU0NTI0NjU0MTE5)",	
+            "[<b>6. Bile Dusct Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzE5NjU2NTQ5MDA5MDQ2)",	
+            "[<b>7. Pancreas</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzIwNjU4NTczMzYzOTcz)",	
+            "[<b>1. Esophagus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzIxNjYwNTk3NzE4OTAw)",	
+            "[<b>2. Stomach and Duodenum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzIyNjYyNjIyMDczODI3)",	
+            "[<b>3. Peritoneum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzIzNjY0NjQ2NDI4NzU0)",	
+            "[<b>4. Intestinal Obtruction</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzI0NjY2NjcwNzgzNjgx)",	
+            "[<b>5. Small Intestine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzI1NjY4Njk1MTM4NjA4)",	
+            "[<b>6. Large Intestine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzI2NjcwNzE5NDkzNTM1)",	
+            "[<b>7. Ileostomy and Colostomy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzI3NjcyNzQzODQ4NDYy)",	
+            "[<b>8. Inflammatory Blow Disease Part1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzI4Njc0NzY4MjAzMzg5)",	
+            "[<b>9. Inflammatory Blow Disease Part2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzI5Njc2NzkyNTU4MzE2)",	
+            "[<b>10. Vermiform Appendix1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzMwNjc4ODE2OTEzMjQz)",	
+            "[<b>11 .Rectum And Anal Canal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzMxNjgwODQxMjY4MTcw)",	
+            "[<b>12. Hernia and Abdominal Wall 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzMyNjgyODY1NjIzMDk3)",	
+            "[<b>12. Hernia and Abdominal Wall 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzMzNjg0ODg5OTc4MDI0)",	
+            "[<b>13. Spleen</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzM0Njg2OTE0MzMyOTUx)",	
+            "[<b>1. Kidney and Ureter Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzM1Njg4OTM4Njg3ODc4)",	
+            "[<b>2. Kidney and Ureter Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzM2NjkwOTYzMDQyODA1)",	
+            "[<b>3. Kidney Ureter Part-3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzM3NjkyOTg3Mzk3NzMy)",	
+            "[<b>4. Urinary Bladder</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzM4Njk1MDExNzUyNjU5)",	
+            "[<b>5. Prostate and Seminal Vesicles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzM5Njk3MDM2MTA3NTg2)",	
+            "[<b>6. Urethra and Penis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQwNjk5MDYwNDYyNTEz)",	
+            "[<b>7. Testis Secrotum Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQxNzAxMDg0ODE3NDQw)",	
+            "[<b>8. Testis Secrotum Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQyNzAzMTA5MTcyMzY3)",	
+            "[<b>1. Arterial Discorders Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQzNzA1MTMzNTI3Mjk0)",	
+            "[<b>2. Arteria Disorders Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQ0NzA3MTU3ODgyMjIx)",	
+            "[<b>3. Venous Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQ1NzA5MTgyMjM3MTQ4)",	
+            "[<b>4. Lymphatic System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQ2NzExMjA2NTkyMDc1)",	
+            "[<b>5. Thorax and Mediastinum Part 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQ3NzEzMjMwOTQ3MDAy)",	
+            "[<b>6. Thorax and Mediastinum Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQ4NzE1MjU1MzAxOTI5)",	
+            "[<b>1. Burns</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzQ5NzE3Mjc5NjU2ODU2)",	
+            "[<b>2. Plastic Surgery and Skin Lesions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzUwNzE5MzA0MDExNzgz)",	
+            "[<b>3. Wound Healding Tissue Reapair and Scar</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzUxNzIxMzI4MzY2NzEw)",	
+            "[<b>1. Cerebrovasular Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzUyNzIzMzUyNzIxNjM3)",	
+            "[<b>2. CNS Tumors</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzUzNzI1Mzc3MDc2NTY0)",	
+            "[<b>1. Oral Cavity</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzU0NzI3NDAxNDMxNDkx)",	
+            "[<b>2. Salivary Glands</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzU1NzI5NDI1Nzg2NDE4)",	
+            "[<b>3. Neck</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzU2NzMxNDUwMTQxMzQ1)",	
+            "[<b>4. Facial Injuries and Abnormalities</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzU3NzMzNDc0NDk2Mjcy)",	
+            "[<b>1. Oncology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzU4NzM1NDk4ODUxMTk5)",	
+            "[<b>1. Trauma ATLS Protocol</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzU5NzM3NTIzMjA2MTI2)",	
+            "[<b>2. Pediatric Surgery Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzYwNzM5NTQ3NTYxMDUz)",	
+            "[<b>3. Nutritionn</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzYxNzQxNTcxOTE1OTgw)",	
+            "[<b>4. Peadiatric Surgery Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzYyNzQzNTk2MjcwOTA3)",	
+            "[<b>5. Head Injury</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzYzNzQ1NjIwNjI1ODM0)",	
+            "[<b>6. Neck and Thoracic Injuries</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzY0NzQ3NjQ0OTgwNzYx)",	
+            "[<b>7. Abdominal Trauma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzY1NzQ5NjY5MzM1Njg4)",	
+            "[<b>8. Trasplantation Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzY2NzUxNjkzNjkwNjE1)",	
+            "[<b>10. Robotics, Laparoscopy and Bariatic Surgery</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzY3NzUzNzE4MDQ1NTQy)",	
+            "[<b>11. Sutures and Anastomoses</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzY4NzU1NzQyNDAwNDY5)",	
+            "[<b>12. Shock</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzY5NzU3NzY2NzU1Mzk2)",	
+            "[<b>13. General Surgery</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzcwNzU5NzkxMTEwMzIz)",	
+            "[<b>14. Tubes, Catheters and Drains</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzcxNzYxODE1NDY1MjUw)",	
+            "[<b>15. Instruments Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzcyNzYzODM5ODIwMTc3)",	
+            "[<b>16. Instruments Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzczNzY1ODY0MTc1MTA0)",	
+            "[<b>9. Trasplantation Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzc0NzY3ODg4NTMwMDMx)",	
+            "[<b>1. Clinical Examination of Fistulan in Ano</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzc1NzY5OTEyODg0OTU4)",	
+            "[<b>2. Modifield Radical Mastectomy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzc2NzcxOTM3MjM5ODg1)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        surgeryp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"surgeryp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"surgeryp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(surgeryp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("radiologyp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Basics of Radiology Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzc3NzczOTYxNTk0ODEy)",	
+            "[<b>2. Basics of Radiology Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzc4Nzc1OTg1OTQ5NzM5)",	
+            "[<b>3. Basics of MRi</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzc5Nzc4MDEwMzA0NjY2)",	
+            "[<b>4. Intervetional Radiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzgwNzgwMDM0NjU5NTkz)",	
+            "[<b>5. Radiation Units, Protectionn, Dose Limits and Hazards</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzgxNzgyMDU5MDE0NTIw)",	
+            "[<b>6. Contrast Media</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzgyNzg0MDgzMzY5NDQ3)",	
+            "[<b>1. Respiratory Radiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzgzNzg2MTA3NzI0Mzc0)",	
+            "[<b>2. CVS Radiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzg0Nzg4MTMyMDc5MzAx)",	
+            "[<b>1. Neuroradiology Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzg1NzkwMTU2NDM0MjI4)",	
+            "[<b>2. Neuroradiology Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzg2NzkyMTgwNzg5MTU1)",	
+            "[<b>3. Head and Neck Radiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzg3Nzk0MjA1MTQ0MDgy)",	
+            "[<b>1. GIT</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzg4Nzk2MjI5NDk5MDA5)",	
+            "[<b>1. Hepatobiliary and Pancreatic Radiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzg5Nzk4MjUzODUzOTM2)",	
+            "[<b>1. Genitourinary Radiology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzkwODAwMjc4MjA4ODYz)",	
+            "[<b>1. OBGy Imaging</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzkxODAyMzAyNTYzNzkw)",	
+            "[<b>2. Breast Imaging</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzkyODA0MzI2OTE4NzE3)",	
+            "[<b>1. MSK</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzkzODA2MzUxMjczNjQ0)",	
+            "[<b>1. nuclear Medicine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzk0ODA4Mzc1NjI4NTcx)",	
+            "[<b>1. Radiotherapy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzk1ODEwMzk5OTgzNDk4)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        radiologyp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"radiologyp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"radiologyp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(radiologyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("anesthesiap"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Introduction to Anesthesia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzk2ODEyNDI0MzM4NDI1)",	
+            "[<b>2. History and Stages of Anesthesia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzk3ODE0NDQ4NjkzMzUy)",	
+            "[<b>1. Preanesthetic Evalution</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzk4ODE2NDczMDQ4Mjc5)",	
+            "[<b>1. Oxygen Therapy and Airway</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwNzk5ODE4NDk3NDAzMjA2)",	
+            "[<b>2. Airway Devices</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODAwODIwNTIxNzU4MTMz)",	
+            "[<b>1. Anesthesia Machine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODAxODIyNTQ2MTEzMDYw)",	
+            "[<b>1. Anesthesia Circuit</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODAyODI0NTcwNDY3OTg3)",	
+            "[<b>1. Monitoring in Anaesthesia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODAzODI2NTk0ODIyOTE0)",	
+            "[<b>1. Modes of Ventilation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODA0ODI4NjE5MTc3ODQx)",	
+            "[<b>1. Inhalational Anesthetic Agents</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODA1ODMwNjQzNTMyNzY4)",	
+            "[<b>1. Intravenous Anesthetic Agents</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODA2ODMyNjY3ODg3Njk1)",	
+            "[<b>1. Neuromuscular Blocker</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODA3ODM0NjkyMjQyNjIy)",	
+            "[<b>1. Regional Anesthesia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODA4ODM2NzE2NTk3NTQ5)",	
+            "[<b>1. Fluid Therapy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODA5ODM4NzQwOTUyNDc2)",	
+            "[<b>1. Discharge Scoring System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODEwODQwNzY1MzA3NDAz)",	
+            "[<b>1. BLS and ACLS Protocol</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODExODQyNzg5NjYyMzMw)",	
+            "[<b>1. Brain Death</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODEyODQ0ODE0MDE3MjU3)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        anesthesiap_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"anesthesiap_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"anesthesiap_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(anesthesiap_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("psychiatryp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Basics of Psychiatry</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODEzODQ2ODM4MzcyMTg0)",
+            "[<b>1. Schizophrenia other Psychotic Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODE0ODQ4ODYyNzI3MTEx)",
+            "[<b>1. Mood DIsorder</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODE1ODUwODg3MDgyMDM4)",
+            "[<b>1. Neurotic Stress Related Somatoform Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODE2ODUyOTExNDM2OTY1)",
+            "[<b>2. Trauma and Stressor Related Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODE3ODU0OTM1NzkxODky)",
+            "[<b>3. Dissocaitive Disorders Conversion Disorder Somatic Symptoms and Related Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODE4ODU2OTYwMTQ2ODE5)",
+            "[<b>1. Substance Use Addictive Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODE5ODU4OTg0NTAxNzQ2)",
+            "[<b>1. Child Psychiatry</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODIwODYxMDA4ODU2Njcz)",
+            "[<b>1. Organic Mental Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODIxODYzMDMzMjExNjAw)",
+            "[<b>1. Sleep Disorder</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODIyODY1MDU3NTY2NTI3)",
+            "[<b>1. Sexual Disorder</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODIzODY3MDgxOTIxNDU0)",
+            "[<b>1. Eating Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODI0ODY5MTA2Mjc2Mzgx)",
+            "[<b>1. Personality Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODI1ODcxMTMwNjMxMzA4)",
+            "[<b>1. Forensic Psychiatry</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODI2ODczMTU0OTg2MjM1)",
+            "[<b>13. Psychology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODI3ODc1MTc5MzQxMTYy)",
+            "[<b>1. Electro Convulsive Therapy(Miscellaneous Topics)</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODI4ODc3MjAzNjk2MDg5)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        psychiatryp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psychiatryp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psychiatryp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(psychiatryp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("orthopedicsp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Introduction to Orthopedics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODI5ODc5MjI4MDUxMDE2)",
+            "[<b>2. Xray Diagnosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODMwODgxMjUyNDA1OTQz)",
+            "[<b>1. Osteomyelitis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODMxODgzMjc2NzYwODcw)",
+            "[<b>2. Chronic Ostheomyelitis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODMyODg1MzAxMTE1Nzk3)",
+            "[<b>3. Special Type of Ostheomyelitis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODMzODg3MzI1NDcwNzI0)",
+            "[<b>4. Osteochondritis and Ostheonecrosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODM0ODg5MzQ5ODI1NjUx)",
+            "[<b>1. Tuberculosis of Bone</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODM1ODkxMzc0MTgwNTc4)",
+            "[<b>1. Bone Tumours Part 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODM2ODkzMzk4NTM1NTA1)",
+            "[<b>2. Bone Tumours Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODM3ODk1NDIyODkwNDMy)",
+            "[<b>1. Peripheral Nerve Injuries</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODM4ODk3NDQ3MjQ1MzU5)",
+            "[<b>1. Upper Limb Trauma Part 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODM5ODk5NDcxNjAwMjg2)",
+            "[<b>2.  Upper Limb Trauma Part 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQwOTAxNDk1OTU1MjEz)",
+            "[<b>1. Fracture Neck of Femur</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQxOTAzNTIwMzEwMTQw)",
+            "[<b>2. Hip Dislocation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQyOTA1NTQ0NjY1MDY3)",
+            "[<b>1. Open Fractures and it's Complications</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQzOTA3NTY5MDE5OTk0)",
+            "[<b>2. Volkmann's Ischemia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQ0OTA5NTkzMzc0OTIx)",
+            "[<b>1. Metabolic Bone Disorder</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQ1OTExNjE3NzI5ODQ4)",
+            "[<b>1. Rheumatoid Arthritis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQ2OTEzNjQyMDg0Nzc1)",
+            "[<b>2. Osteoarthritis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQ3OTE1NjY2NDM5NzAy)",
+            "[<b>1. Sports Injuries</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQ4OTE3NjkwNzk0NjI5)",
+            "[<b>1. CTEV and CDH</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODQ5OTE5NzE1MTQ5NTU2)",
+            "[<b>1. Miscellaneous Topics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODUwOTIxNzM5NTA0NDgz)",
+            "[<b>2. Slipped Capital Femoral Epiphysis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODUxOTIzNzYzODU5NDEw)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        orthopedicsp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"orthopedicsp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"orthopedicsp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(orthopedicsp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("dermatologyp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Basics of Dermatology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODUyOTI1Nzg4MjE0MzM3)",	
+            "[<b>2. Skin Lesions in Dermatology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODUzOTI3ODEyNTY5MjY0)",	
+            "[<b>1. Bacterial Infections</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODU0OTI5ODM2OTI0MTkx)",	
+            "[<b>2. Fungal Infections</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODU1OTMxODYxMjc5MTE4)",	
+            "[<b>3. Viral Infections of Skin</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODU2OTMzODg1NjM0MDQ1)",	
+            "[<b>4. Parasitic Infestations</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODU3OTM1OTA5OTg4OTcy)",	
+            "[<b>1. Cutaneous Tuberculosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODU4OTM3OTM0MzQzODk5)",	
+            "[<b>2. Leprosy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODU5OTM5OTU4Njk4ODI2)",	
+            "[<b>1. Immunobullous Disorders and Skin Structure</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODYwOTQxOTgzMDUzNzUz)",	
+            "[<b>1.  Papulosqaumous Disorders Psoriasis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODYxOTQ0MDA3NDA4Njgw)",	
+            "[<b>2. Lichen Planus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODYyOTQ2MDMxNzYzNjA3)",	
+            "[<b>1. Hair Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODYzOTQ4MDU2MTE4NTM0)",	
+            "[<b>2. Nail Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODY0OTUwMDgwNDczNDYx)",	
+            "[<b>3. Disorders of Glands</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODY1OTUyMTA0ODI4Mzg4)",	
+            "[<b>1. Genital Ulcer Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODY2OTU0MTI5MTgzMzE1)",	
+            "[<b>2. STD Discharge</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODY3OTU2MTUzNTM4MjQy)",	
+            "[<b>1. Eczema</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODY4OTU4MTc3ODkzMTY5)",	
+            "[<b>1. Pigmentary Disorders</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODY5OTYwMjAyMjQ4MDk2)",	
+            "[<b>1. Connective Tissue Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODcwOTYyMjI2NjAzMDIz)",	
+            "[<b>1. Skin Tumors</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODcxOTY0MjUwOTU3OTUw)",	
+            "[<b>1. Systemic Diseases Skin</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODcyOTY2Mjc1MzEyODc3)",	
+            "[<b>1. Adverse Cutaneous Drug Reaction</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODczOTY4Mjk5NjY3ODA0)",	
+            "[<b>2. Pediatric Dermatoses</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODc0OTcwMzI0MDIyNzMx)",	
+            "[<b>3. Urticaria and Angioedema</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODc1OTcyMzQ4Mzc3NjU4)",	
+            "[<b>4. Genodermatoses</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODc2OTc0MzcyNzMyNTg1)",	
+            "[<b>5. Vector Borne Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODc3OTc2Mzk3MDg3NTEy)",	
+            "[<b>6. Bedside Tests in Dermatology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwODc4OTc4NDIxNDQyNDM5)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        dermatologyp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"dermatologyp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"dermatologyp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(dermatologyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("rapidrevisionp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Embryology Histology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTI0NDc0Mzg4Mzk5NTU0)",	
+            "[<b>2.  Neuroanatomy Head Neck part -1 .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTI1NDc2NDEyNzU0NDgx)",	
+            "[<b>3.Neuroanatomy_Head_Neck part -2 .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTI2NDc4NDM3MTA5NDA4)",	
+            "[<b>4.  Back Thorax.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTI3NDgwNDYxNDY0MzM1)",	
+            "[<b>5. Upper Limb Lower Limb.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTI4NDgyNDg1ODE5MjYy)",	
+            "[<b>6.  Abdomen Pelvis Perineum.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTI5NDg0NTEwMTc0MTg5)",	
+            "[<b>7. Anatomy Image discussion Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTMwNDg2NTM0NTI5MTE2)",	
+            "[<b>8. Anatomy Image discussion Part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTMxNDg4NTU4ODg0MDQz)",	
+            "[<b>9. Image Based Discussion Part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTMyNDkwNTgzMjM4OTcw)",	
+            "[<b>10. Image Based Discussion Part 4.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTMzNDkyNjA3NTkzODk3)",	
+            "[<b>1. Neurophysiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTM0NDk0NjMxOTQ4ODI0)",	
+            "[<b>2. General Physiology and Git.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTM1NDk2NjU2MzAzNzUx)",	
+            "[<b>3. Cardiovascular System.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTM2NDk4NjgwNjU4Njc4)",	
+            "[<b>4. Renal Physiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTM3NTAwNzA1MDEzNjA1)",	
+            "[<b>5. Endocrine Reproductive.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTM4NTAyNzI5MzY4NTMy)",	
+            "[<b>6. Respiratory Physiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTM5NTA0NzUzNzIzNDU5)",	
+            "[<b>7. Physiology Image Vased Discussion Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQwNTA2Nzc4MDc4Mzg2)",	
+            "[<b>8. Physiology Image Based Discussion Part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQxNTA4ODAyNDMzMzEz)",	
+            "[<b>1. Integration of Metabolism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQyNTEwODI2Nzg4MjQw)",	
+            "[<b>2. Carbohydrate Chemistry Metabolism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQzNTEyODUxMTQzMTY3)",	
+            "[<b>3. Lipid Chemistry & Metabolism Or Heme Synthesis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQ0NTE0ODc1NDk4MDk0)",	
+            "[<b>4. ABG Interpretation.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQ1NTE2ODk5ODUzMDIx)",	
+            "[<b>5. Aminoacid and Proteins.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQ2NTE4OTI0MjA3OTQ4)",	
+            "[<b>6. Genetics.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQ3NTIwOTQ4NTYyODc1)",	
+            "[<b>1. Cell Injury and Inflammation.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQ4NTIyOTcyOTE3ODAy)",	
+            "[<b>2. Genetics, Neoplasia & Immunity.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTQ5NTI0OTk3MjcyNzI5)",	
+            "[<b>3. Systemic Pathology Part - 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTUwNTI3MDIxNjI3NjU2)",	
+            "[<b>4. Systemic Pathology Part - 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTUxNTI5MDQ1OTgyNTgz)",	
+            "[<b>5. Hemathology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTUyNTMxMDcwMzM3NTEw)",	
+            "[<b>6. Renal Pathology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTUzNTMzMDk0NjkyNDM3)",	
+            "[<b>7. Endocrine Patholog.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTU0NTM1MTE5MDQ3MzY0)",	
+            "[<b>8. Pathology Image Discussion Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTU1NTM3MTQzNDAyMjkx)",	
+            "[<b>9. Pathology Image Discussion Part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTU2NTM5MTY3NzU3MjE4)",	
+            "[<b>1. General & ANS Pharmacology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTU3NTQxMTkyMTEyMTQ1)",	
+            "[<b>2. Renal CVS & CNS Pharmacolony.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTU4NTQzMjE2NDY3MDcy)",	
+            "[<b>3. Anti-Microbials, Endocrine & GIT.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTU5NTQ1MjQwODIxOTk5)",	
+            "[<b>4. Autacoids, Blood, Anti-Cancer, Immunosuppressant.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTYwNTQ3MjY1MTc2OTI2)",	
+            "[<b>5. Pharmacology Image Discussion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTYxNTQ5Mjg5NTMxODUz)",	
+            "[<b>1. General Microbiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTYyNTUxMzEzODg2Nzgw)",	
+            "[<b>2. Mycology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTYzNTUzMzM4MjQxNzA3)",	
+            "[<b>3. Bacteriology Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTY0NTU1MzYyNTk2NjM0)",	
+            "[<b>4. Bacteriology Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTY1NTU3Mzg2OTUxNTYx)",	
+            "[<b>5. Virology Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTY2NTU5NDExMzA2NDg4)",	
+            "[<b>6. Virology Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTY3NTYxNDM1NjYxNDE1)",	
+            "[<b>7. Parasitology Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTY4NTYzNDYwMDE2MzQy)",	
+            "[<b>8. Parasitology Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTY5NTY1NDg0MzcxMjY5)",	
+            "[<b>9. Immunology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTcwNTY3NTA4NzI2MTk2)",	
+            "[<b>1. Forensic MEdicine Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTcxNTY5NTMzMDgxMTIz)",	
+            "[<b>2. Forensic Medicine Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTcyNTcxNTU3NDM2MDUw)",	
+            "[<b>3. Forensic Medicine Part-3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTczNTczNTgxNzkwOTc3)",	
+            "[<b>4. Forensic Medicine Image Discussion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTc0NTc1NjA2MTQ1OTA0)",	
+            "[<b>1. Epidemiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTc1NTc3NjMwNTAwODMx)",	
+            "[<b>2. Nutrition & Health  social and Health.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTc2NTc5NjU0ODU1NzU4)",	
+            "[<b>3. Health care system in india.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTc3NTgxNjc5MjEwNjg1)",	
+            "[<b>4. Environment & Health.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTc4NTgzNzAzNTY1NjEy)",	
+            "[<b>5. Demography & Health.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTc5NTg1NzI3OTIwNTM5)",	
+            "[<b>6. Communicable Disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTgwNTg3NzUyMjc1NDY2)",	
+            "[<b>7. Biostatistics.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTgxNTg5Nzc2NjMwMzkz)",	
+            "[<b>8. National Health Programs.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTgyNTkxODAwOTg1MzIw)",	
+            "[<b>9. Allied Health Disciplines.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTgzNTkzODI1MzQwMjQ3)",	
+            "[<b>10. PSm Image Discussion Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTg0NTk1ODQ5Njk1MTc0)",	
+            "[<b>1. Ear Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTg1NTk3ODc0MDUwMTAx)",	
+            "[<b>2. Ear Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTg2NTk5ODk4NDA1MDI4)",	
+            "[<b>3. Nose.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTg3NjAxOTIyNzU5OTU1)",	
+            "[<b>4. Pharynx.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTg4NjAzOTQ3MTE0ODgy)",	
+            "[<b>5. Lartnx.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTg5NjA1OTcxNDY5ODA5)",	
+            "[<b>6. ENT Image Discussion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTkwNjA3OTk1ODI0NzM2)",	
+            "[<b>1. Opththalmology Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTkxNjEwMDIwMTc5NjYz)",	
+            "[<b>2. Opththalmology Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTkyNjEyMDQ0NTM0NTkw)",	
+            "[<b>3. Ophthamology Image Discussion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTkzNjE0MDY4ODg5NTE3)",	
+            "[<b>1. Obstetrics Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTk0NjE2MDkzMjQ0NDQ0)",	
+            "[<b>2. Obstetrics Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTk1NjE4MTE3NTk5Mzcx)",	
+            "[<b>3. Obstetrics Part-3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTk2NjIwMTQxOTU0Mjk4)",	
+            "[<b>4. Obstetrics Part-4.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTk3NjIyMTY2MzA5MjI1)",	
+            "[<b>5. Gynaecology Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTk4NjI0MTkwNjY0MTUy)",	
+            "[<b>6. Gynaecology Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMTk5NjI2MjE1MDE5MDc5)",	
+            "[<b>7. Obstetrics and Gynaecology Image Discussion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjAwNjI4MjM5Mzc0MDA2)",	
+            "[<b>1. General Pediatrics.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjAxNjMwMjYzNzI4OTMz)",	
+            "[<b>2. Neonatology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjAyNjMyMjg4MDgzODYw)",	
+            "[<b>3.Systemic Pediatrics.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjAzNjM0MzEyNDM4Nzg3)",	
+            "[<b>4. Pediatrics Image Discussion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjA0NjM2MzM2NzkzNzE0)",	
+            "[<b>4. Dermatology Image Discussion .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjA1NjM4MzYxMTQ4NjQx)",	
+            "[<b>1. General Surgery PArt1A.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjA2NjQwMzg1NTAzNTY4)",	
+            "[<b>2. General Surgery Part1B.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjA3NjQyNDA5ODU4NDk1)",	
+            "[<b>3.General Surgery Part2-A.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjA4NjQ0NDM0MjEzNDIy)",	
+            "[<b>4.General Surgery Part2-B.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjA5NjQ2NDU4NTY4MzQ5)",	
+            "[<b>5. Hepatobiliary Pancreatic Surgery.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjEwNjQ4NDgyOTIzMjc2)",	
+            "[<b>6. GIT Part-1 (Esophagus,Stomach,Peritoneum).mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjExNjUwNTA3Mjc4MjAz)",	
+            "[<b>7. GIT Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjEyNjUyNTMxNjMzMTMw)",	
+            "[<b>8. Git Part-3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjEzNjU0NTU1OTg4MDU3)",	
+            "[<b>9. Surgery image Discussion Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjE0NjU2NTgwMzQyOTg0)",	
+            "[<b>10. Surgery image Discussion Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjE1NjU4NjA0Njk3OTEx)",	
+            "[<b>11. Surgery image Discussion Part-3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjE2NjYwNjI5MDUyODM4)",	
+            "[<b>1. Cardiology Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjE3NjYyNjUzNDA3NzY1)",	
+            "[<b>2. Cardiology Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjE4NjY0Njc3NzYyNjky)",	
+            "[<b>3. Cardiology Part-3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjE5NjY2NzAyMTE3NjE5)",	
+            "[<b>4. Rheumatology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjIwNjY4NzI2NDcyNTQ2)",	
+            "[<b>5. Neurology Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjIxNjcwNzUwODI3NDcz)",	
+            "[<b>6. Neurology Part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjIyNjcyNzc1MTgyNDAw)",	
+            "[<b>7. Neurology Part 3 Endocrinology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjIzNjc0Nzk5NTM3MzI3)",	
+            "[<b>8. Kidney.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjI0Njc2ODIzODkyMjU0)",	
+            "[<b>9. Respiratory System.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjI1Njc4ODQ4MjQ3MTgx)",	
+            "[<b>10. Liver, Git & Hematology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjI2NjgwODcyNjAyMTA4)",	
+            "[<b>11. Medical Image Discussion Part-1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjI3NjgyODk2OTU3MDM1)",	
+            "[<b>12. Medical Image Discussion Part-2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjI4Njg0OTIxMzExOTYy)",	
+            "[<b>1. Radiology Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjI5Njg2OTQ1NjY2ODg5)",	
+            "[<b>2. Radiology Part 2 .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjMwNjg4OTcwMDIxODE2)",	
+            "[<b>3. Radiology Part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjMxNjkwOTk0Mzc2NzQz)",	
+            "[<b>4. Radiology Image Discussion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjMyNjkzMDE4NzMxNjcw)",	
+            "[<b>1. Anesthesia Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjMzNjk1MDQzMDg2NTk3)",	
+            "[<b>2.  Anesthesia Part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjM0Njk3MDY3NDQxNTI0)",	
+            "[<b>3. Anesthesia Part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjM1Njk5MDkxNzk2NDUx)",	
+            "[<b>1. Orthopedics Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjM2NzAxMTE2MTUxMzc4)",	
+            "[<b>2. Orthopedics Part 2 .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjM3NzAzMTQwNTA2MzA1)",	
+            "[<b>3. Orthopedics Part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjM4NzA1MTY0ODYxMjMy)",	
+            "[<b>1. Psychiatry Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjM5NzA3MTg5MjE2MTU5)",	
+            "[<b>2. Psychiatry Part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQwNzA5MjEzNTcxMDg2)",	
+            "[<b>3. Image Based Discussion Psychiatry.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQxNzExMjM3OTI2MDEz)",	
+            "[<b>1. Dermatology Part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQyNzEzMjYyMjgwOTQw)",	
+            "[<b>2. Dermatology Part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQzNzE1Mjg2NjM1ODY3)",	
+            "[<b>3. Dermatology Part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQ0NzE3MzEwOTkwNzk0)",	
+            "[<b>4. Dermatology Image Discussion .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQ1NzE5MzM1MzQ1NzIx)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        rapidrevisionp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"rapidrevisionp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"rapidrevisionp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(rapidrevisionp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("microbiologyp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. General Microbiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQ2NzIxMzU5NzAwNjQ4)",
+            "[<b>2. General Microbiology Microscopes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQ3NzIzMzg0MDU1NTc1)",
+            "[<b>3. General Microbiology Bacterial Anatomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQ4NzI1NDA4NDEwNTAy)",
+            "[<b>4. General Microbiology Bacterial Shapes and Physiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjQ5NzI3NDMyNzY1NDI5)",
+            "[<b>5. General Microbiology Bacterial Genetics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjUwNzI5NDU3MTIwMzU2)",
+            "[<b>6. General Microbiology Culture Media atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjUxNzMxNDgxNDc1Mjgz)",
+            "[<b>7. General Microbiology Sterilization and Disinfection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjUyNzMzNTA1ODMwMjEw)",
+            "[<b>8. Staphylococcaceae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjUzNzM1NTMwMTg1MTM3)",
+            "[<b>9. Streptococcaceae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjU0NzM3NTU0NTQwMDY0)",
+            "[<b>10. Neisseria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjU1NzM5NTc4ODk0OTkx)",
+            "[<b>11. Gram Positive Bacilli Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjU2NzQxNjAzMjQ5OTE4)",
+            "[<b>12. Gram Positive Bacilli Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjU3NzQzNjI3NjA0ODQ1)",
+            "[<b>13. Gram Positive Bacteria Part 3 Mycobacteria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjU4NzQ1NjUxOTU5Nzcy)",
+            "[<b>14. Gram Negative Bacteria Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjU5NzQ3Njc2MzE0Njk5)",
+            "[<b>15. Gram Negative Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjYwNzQ5NzAwNjY5NjI2)",
+            "[<b>16. Bacteriology Vibrio and Non Fermenters atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjYxNzUxNzI1MDI0NTUz)",
+            "[<b>17. Bacteriology Hbb 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjYyNzUzNzQ5Mzc5NDgw)",
+            "[<b>18. Bacteriology Spirochetes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjYzNzU1NzczNzM0NDA3)",
+            "[<b>19. Bacteriology Rickettsiae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjY0NzU3Nzk4MDg5MzM0)",
+            "[<b>20. Bacteriology Chlamydia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjY1NzU5ODIyNDQ0MjYx)",
+            "[<b>21. Miscellaneous Bacteria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjY2NzYxODQ2Nzk5MTg4)",
+            "[<b>22. Virology General Properties atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjY3NzYzODcxMTU0MTE1)",
+            "[<b>23. Dna Virology Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjY4NzY1ODk1NTA5MDQy)",
+            "[<b>24. Dna Virology Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjY5NzY3OTE5ODYzOTY5)",
+            "[<b>25. Dna Virology Hepatitis Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjcwNzY5OTQ0MjE4ODk2)",
+            "[<b>26. Virology Rna Myxovirus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjcxNzcxOTY4NTczODIz)",
+            "[<b>27. Virology Rna Picornaviridae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjcyNzczOTkyOTI4NzUw)",
+            "[<b>28. Virology Rna Rhabdovirus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjczNzc2MDE3MjgzNjc3)",
+            "[<b>29. Rna Virology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjc0Nzc4MDQxNjM4NjA0)",
+            "[<b>30. Retrovirus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjc1NzgwMDY1OTkzNTMx)",
+            "[<b>31. Virology Other Rna Viruses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjc2NzgyMDkwMzQ4NDU4)",
+            "[<b>32. Covid 19 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjc3Nzg0MTE0NzAzMzg1)",
+            "[<b>33. Mycology Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjc4Nzg2MTM5MDU4MzEy)",
+            "[<b>34. Mycology Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjc5Nzg4MTYzNDEzMjM5)",
+            "[<b>35. Parasitology Classification Amoeba atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjgwNzkwMTg3NzY4MTY2)",
+            "[<b>36. Parasitology Flagellates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjgxNzkyMjEyMTIzMDkz)",
+            "[<b>37. Parasitology Hemoflagellates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjgyNzk0MjM2NDc4MDIw)",
+            "[<b>38. Parasitology Coccidian Parasites atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjgzNzk2MjYwODMyOTQ3)",
+            "[<b>39. Plasmodium and Babesia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjg0Nzk4Mjg1MTg3ODc0)",
+            "[<b>40. Cestodes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjg1ODAwMzA5NTQyODAx)",
+            "[<b>41. Trematodes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjg2ODAyMzMzODk3NzI4)",
+            "[<b>42. Nematodes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjg3ODA0MzU4MjUyNjU1)",
+            "[<b>43. Immunity Introduction Activation of Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjg4ODA2MzgyNjA3NTgy)",
+            "[<b>44. Types of Hypersensitivity Reactions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjg5ODA4NDA2OTYyNTA5)",
+            "[<b>45. Immunity Tolerance Autoimmune Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjkwODEwNDMxMzE3NDM2)",
+            "[<b>46. Immunodeficiency Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjkxODEyNDU1NjcyMzYz)",
+            "[<b>47. Transplant Immunology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjkyODE0NDgwMDI3Mjkw)",
+            "[<b>48. Immunity Antigen and Antibody atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjkzODE2NTA0MzgyMjE3)",
+            "[<b>49. Immunity Antigen Antibody Reactions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjk0ODE4NTI4NzM3MTQ0)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        microbiologyp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"microbiologyp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"microbiologyp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(microbiologyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("pathologyp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Cell Injury Introduction Necrosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjk1ODIwNTUzMDkyMDcx)",
+            "[<b>2. Cell Injury Newer Cell Deaths atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjk2ODIyNTc3NDQ2OTk4)",
+            "[<b>3. Intracellular Accumulations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjk3ODI0NjAxODAxOTI1)",
+            "[<b>4. Autophagy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjk4ODI2NjI2MTU2ODUy)",
+            "[<b>5. Inflammation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMjk5ODI4NjUwNTExNzc5)",
+            "[<b>6. Inflammation Mediators atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzAwODMwNjc0ODY2NzA2)",
+            "[<b>7. Chronic Inflammation Granuloma and Wound Healing atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzAxODMyNjk5MjIxNjMz)",
+            "[<b>8. Genetics Indroduction and Mendelian Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzAyODM0NzIzNTc2NTYw)",
+            "[<b>9. Genetics Non Mendelian and Chromosomal Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzAzODM2NzQ3OTMxNDg3)",
+            "[<b>10. Genetics Diagnosis of Genetic Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzA0ODM4NzcyMjg2NDE0)",
+            "[<b>11. Genetics Miscellaneous Concepts in Genetics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzA1ODQwNzk2NjQxMzQx)",
+            "[<b>12. Classification of Neoplasms atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzA2ODQyODIwOTk2MjY4)",
+            "[<b>13. Features of Neoplasia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzA3ODQ0ODQ1MzUxMTk1)",
+            "[<b>14. Fundamental of Neoplasia Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzA4ODQ2ODY5NzA2MTIy)",
+            "[<b>15. Fundamental of Neoplasia Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzA5ODQ4ODk0MDYxMDQ5)",
+            "[<b>16. Etiology of Neoplasia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzEwODUwOTE4NDE1OTc2)",
+            "[<b>17. Diagnosis of Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzExODUyOTQyNzcwOTAz)",
+            "[<b>18. Immunity Introduction Activation of Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzEyODU0OTY3MTI1ODMw)",
+            "[<b>19. Types of Hypersensitivity Reactions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzEzODU2OTkxNDgwNzU3)",
+            "[<b>20. Immunity Tolerance Autoimmune Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzE0ODU5MDE1ODM1Njg0)",
+            "[<b>21. Immunodeficiency Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzE1ODYxMDQwMTkwNjEx)",
+            "[<b>22. Transplant Immunology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzE2ODYzMDY0NTQ1NTM4)",
+            "[<b>23. Amyloidosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzE3ODY1MDg4OTAwNDY1)",
+            "[<b>24. Vasculitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzE4ODY3MTEzMjU1Mzky)",
+            "[<b>25. Cardiac Pathology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzE5ODY5MTM3NjEwMzE5)",
+            "[<b>26. Carditis and Cardiac Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzIwODcxMTYxOTY1MjQ2)",
+            "[<b>27. Lung Pathology Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzIxODczMTg2MzIwMTcz)",
+            "[<b>28. Lung Pathology Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzIyODc1MjEwNjc1MTAw)",
+            "[<b>29. Salivary Gland atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzIzODc3MjM1MDMwMDI3)",
+            "[<b>30. Git Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzI0ODc5MjU5Mzg0OTU0)",
+            "[<b>31. Git Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzI1ODgxMjgzNzM5ODgx)",
+            "[<b>32. Hepatobiliaryology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzI2ODgzMzA4MDk0ODA4)",
+            "[<b>33. Cirrhosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzI3ODg1MzMyNDQ5NzM1)",
+            "[<b>34. Renal Pathology Introduction and Spotters atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzI4ODg3MzU2ODA0NjYy)",
+            "[<b>35. Renal Pathology Nephritic and Nephrotic Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzI5ODg5MzgxMTU5NTg5)",
+            "[<b>36. Renal Pathology Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzMwODkxNDA1NTE0NTE2)",
+            "[<b>37. Pathology of Female Genital atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzMxODkzNDI5ODY5NDQz)",
+            "[<b>38. Pathology of Male Genital atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzMyODk1NDU0MjI0Mzcw)",
+            "[<b>39. Breast Pathology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzMzODk3NDc4NTc5Mjk3)",
+            "[<b>40. Breast Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzM0ODk5NTAyOTM0MjI0)",
+            "[<b>41. Central Nervous System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzM1OTAxNTI3Mjg5MTUx)",
+            "[<b>42. Brain Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzM2OTAzNTUxNjQ0MDc4)",
+            "[<b>43. Thyroid Gland Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzM3OTA1NTc1OTk5MDA1)",
+            "[<b>44. Endocrineology Parathyroid Gland atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzM4OTA3NjAwMzUzOTMy)",
+            "[<b>45. Bone and Soft Tissue Pathology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzM5OTA5NjI0NzA4ODU5)",
+            "[<b>46. Dermatology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQwOTExNjQ5MDYzNzg2)",
+            "[<b>47. Hematology Inroduction Erythropoiesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQxOTEzNjczNDE4NzEz)",
+            "[<b>48. Microcytic Hypochromic Anaemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQyOTE1Njk3NzczNjQw)",
+            "[<b>49. Macrocytic Anaemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQzOTE3NzIyMTI4NTY3)",
+            "[<b>50. Hemolytic Anemias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQ0OTE5NzQ2NDgzNDk0)",
+            "[<b>51. Sickle Cell Anaemia Thalasemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQ1OTIxNzcwODM4NDIx)",
+            "[<b>52. Auto Immune Hemolytic Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQ2OTIzNzk1MTkzMzQ4)",
+            "[<b>53. Rbc Shapes Inclusions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQ3OTI1ODE5NTQ4Mjc1)",
+            "[<b>54. Basics of Wbc atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQ4OTI3ODQzOTAzMjAy)",
+            "[<b>55. Leukemia and Lymphoma Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzQ5OTI5ODY4MjU4MTI5)",
+            "[<b>56. Leukemia and Lymphoma Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzUwOTMxODkyNjEzMDU2)",
+            "[<b>57. Leukemia and Lymphoma Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzUxOTMzOTE2OTY3OTgz)",
+            "[<b>58. Chronic Myeloproliferative Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzUyOTM1OTQxMzIyOTEw)",
+            "[<b>59. Plasma Cell Dyscrasia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzUzOTM3OTY1Njc3ODM3)",
+            "[<b>60. Flow Cytometry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzU0OTM5OTkwMDMyNzY0)",
+            "[<b>61. Platelet Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzU1OTQyMDE0Mzg3Njkx)",
+            "[<b>62. Platelet Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzU2OTQ0MDM4NzQyNjE4)",
+            "[<b>63. Blood Banking and Transfusion Medicine Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzU3OTQ2MDYzMDk3NTQ1)",
+            "[<b>64. Blood Banking and Transfusion Medicine Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzU4OTQ4MDg3NDUyNDcy)",
+            "[<b>65. Tissue Processing atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzU5OTUwMTExODA3Mzk5)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        pathologyp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pathologyp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pathologyp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pathologyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("ophthalmologyp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Address to Students atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzYwOTUyMTM2MTYyMzI2)",
+            "[<b>2. Introuction to Opthalmology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzYxOTU0MTYwNTE3MjUz)",
+            "[<b>3. Lens Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzYyOTU2MTg0ODcyMTgw)",
+            "[<b>4. Complication of Cataract Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzYzOTU4MjA5MjI3MTA3)",
+            "[<b>5. Lasers in Eye atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzY0OTYwMjMzNTgyMDM0)",
+            "[<b>6. Glaucoma Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzY1OTYyMjU3OTM2OTYx)",
+            "[<b>7. Glaucoma Part 2  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzY2OTY0MjgyMjkxODg4)",
+            "[<b>8. Glaucoma Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzY3OTY2MzA2NjQ2ODE1)",
+            "[<b>9. Glaucoma Part 4 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzY4OTY4MzMxMDAxNzQy)",
+            "[<b>10. Laser Treatment in Glaucoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzY5OTcwMzU1MzU2NjY5)",
+            "[<b>11. Cornea Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzcwOTcyMzc5NzExNTk2)",
+            "[<b>12. Cornea Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzcxOTc0NDA0MDY2NTIz)",
+            "[<b>13. Sclera atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzcyOTc2NDI4NDIxNDUw)",
+            "[<b>14. Uveitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzczOTc4NDUyNzc2Mzc3)",
+            "[<b>15. Neuro Ophthalmology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzc0OTgwNDc3MTMxMzA0)",
+            "[<b>16. Conjunctiva atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzc1OTgyNTAxNDg2MjMx)",
+            "[<b>17. Allergic Conjunctiva atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzc2OTg0NTI1ODQxMTU4)",
+            "[<b>18. Lacrimal Drainage System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzc3OTg2NTUwMTk2MDg1)",
+            "[<b>19. Orbit atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzc4OTg4NTc0NTUxMDEy)",
+            "[<b>20. Occluar Injuries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzc5OTkwNTk4OTA1OTM5)",
+            "[<b>21. Lids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzgwOTkyNjIzMjYwODY2)",
+            "[<b>22. Optics Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzgxOTk0NjQ3NjE1Nzkz)",
+            "[<b>23. Optics Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzgyOTk2NjcxOTcwNzIw)",
+            "[<b>24. Squint Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzgzOTk4Njk2MzI1NjQ3)",
+            "[<b>25. Squint Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzg1MDAwNzIwNjgwNTc0)",
+            "[<b>26. Squint Workup atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzg2MDAyNzQ1MDM1NTAx)",
+            "[<b>27. Retina atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzg3MDA0NzY5MzkwNDI4)",
+            "[<b>28. Vitreous atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzg4MDA2NzkzNzQ1MzU1)",
+            "[<b>29. Embryology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzg5MDA4ODE4MTAwMjgy)",
+            "[<b>30. Community Ophthalmology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzkwMDEwODQyNDU1MjA5)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        ophthalmologyp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ophthalmologyp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ophthalmologyp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(ophthalmologyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("obgyp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Menstruation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzkxMDEyODY2ODEwMTM2)",
+            "[<b>2. Menstruation Problems Young Small Girls atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzkyMDE0ODkxMTY1MDYz)",
+            "[<b>3. Ovarian Hyperstimulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzkzMDE2OTE1NTE5OTkw)",
+            "[<b>4. Tests of Ovulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzk0MDE4OTM5ODc0OTE3)",
+            "[<b>5. Endometriosis Adenomyosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzk1MDIwOTY0MjI5ODQ0)",
+            "[<b>6. Hormone Replacement Therapy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzk2MDIyOTg4NTg0Nzcx)",
+            "[<b>7. Ovarian Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzk3MDI1MDEyOTM5Njk4)",
+            "[<b>8. Polycystic Ovarian Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzk4MDI3MDM3Mjk0NjI1)",
+            "[<b>9. Cervical Carcinoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExMzk5MDI5MDYxNjQ5NTUy)",
+            "[<b>10. Post Menopausal Bleeding atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDAwMDMxMDg2MDA0NDc5)",
+            "[<b>11. Vulvar Carcinoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDAxMDMzMTEwMzU5NDA2)",
+            "[<b>12. Fibroids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDAyMDM1MTM0NzE0MzMz)",
+            "[<b>13. Hysterectomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDAzMDM3MTU5MDY5MjYw)",
+            "[<b>14. Gametogenesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDA0MDM5MTgzNDI0MTg3)",
+            "[<b>15. Mullerian Defects atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDA1MDQxMjA3Nzc5MTE0)",
+            "[<b>16. Abnormal Uterine Bleeding Its a Downpour atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDA2MDQzMjMyMTM0MDQx)",
+            "[<b>17. Intersex She Is Your Brother atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDA3MDQ1MjU2NDg4OTY4)",
+            "[<b>18. Pubertal Changes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDA4MDQ3MjgwODQzODk1)",
+            "[<b>19. Infertility atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDA5MDQ5MzA1MTk4ODIy)",
+            "[<b>20. Genital Organ Prolapse atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDEwMDUxMzI5NTUzNzQ5)",
+            "[<b>21. Urinary Fistula in Obstetrics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDExMDUzMzUzOTA4Njc2)",
+            "[<b>22. Emergency Contraceptives atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDEyMDU1Mzc4MjYzNjAz)",
+            "[<b>23. Contraception atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDEzMDU3NDAyNjE4NTMw)",
+            "[<b>24. Genital Tract Infection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDE0MDU5NDI2OTczNDU3)",
+            "[<b>25. Amenorrhea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDE1MDYxNDUxMzI4Mzg0)",
+            "[<b>26. Clinical Anatomy Female Reproductive Tract atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDE2MDYzNDc1NjgzMzEx)",
+            "[<b>27. Endometrial Carcinoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDE3MDY1NTAwMDM4MjM4)",
+            "[<b>28. Covid 19 in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDE4MDY3NTI0MzkzMTY1)",
+            "[<b>29. Post Partum Haemorrhage atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDE5MDY5NTQ4NzQ4MDky)",
+            "[<b>30. Placenta Separation Complications atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDIwMDcxNTczMTAzMDE5)",
+            "[<b>31. Placenta Cord Complications atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDIxMDczNTk3NDU3OTQ2)",
+            "[<b>32. Rh Isoimmunization atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDIyMDc1NjIxODEyODcz)",
+            "[<b>33. Twin Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDIzMDc3NjQ2MTY3ODAw)",
+            "[<b>34. Molar Pregnancy Gestational Trophoblastic Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDI0MDc5NjcwNTIyNzI3)",
+            "[<b>35. Antepartum Hemorrhage atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDI1MDgxNjk0ODc3NjU0)",
+            "[<b>36. Pregnancy Induced Hypertension atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDI2MDgzNzE5MjMyNTgx)",
+            "[<b>37. Diabetes in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDI3MDg1NzQzNTg3NTA4)",
+            "[<b>38. Intrauterine Growth Retardation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDI4MDg3NzY3OTQyNDM1)",
+            "[<b>39. Basic Definitions Cardinal Movements Ecv atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDI5MDg5NzkyMjk3MzYy)",
+            "[<b>40. Medical Illness Complicating Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDMwMDkxODE2NjUyMjg5)",
+            "[<b>41. Parturition Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDMxMDkzODQxMDA3MjE2)",
+            "[<b>42. Fetal Skull Maternal Pelvis Important Dimensions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDMyMDk1ODY1MzYyMTQz)",
+            "[<b>43. Malpositions Malpresentations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDMzMDk3ODg5NzE3MDcw)",
+            "[<b>44. Basics of Instrumental Delivery Methods of Labour Induction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDM0MDk5OTE0MDcxOTk3)",
+            "[<b>45. Episiotomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDM1MTAxOTM4NDI2OTI0)",
+            "[<b>46. Puerperium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDM2MTAzOTYyNzgxODUx)",
+            "[<b>47. Caeserian Section atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDM3MTA1OTg3MTM2Nzc4)",
+            "[<b>48. Infection in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDM4MTA4MDExNDkxNzA1)",
+            "[<b>49. Ectopic Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDM5MTEwMDM1ODQ2NjMy)",
+            "[<b>50. Drugs in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQwMTEyMDYwMjAxNTU5)",
+            "[<b>51. Anaemia in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQxMTE0MDg0NTU2NDg2)",
+            "[<b>52. Vomiting in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQyMTE2MTA4OTExNDEz)",
+            "[<b>53. Abortions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQzMTE4MTMzMjY2MzQw)",
+            "[<b>54. Induced Abortions Mtp atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQ0MTIwMTU3NjIxMjY3)",
+            "[<b>55. Physiological Changes of Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQ1MTIyMTgxOTc2MTk0)",
+            "[<b>56. Diagnosis of Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQ2MTI0MjA2MzMxMTIx)",
+            "[<b>57. Prenatal Diagnosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQ3MTI2MjMwNjg2MDQ4)",
+            "[<b>58. Preterm Labor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQ4MTI4MjU1MDQwOTc1)",
+            "[<b>59. Pndt Act atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDQ5MTMwMjc5Mzk1OTAy)",
+            "[<b>60. Fetal Circulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDUwMTMyMzAzNzUwODI5)",
+            "[<b>61. Amniotic Fluid Dynamics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDUxMTM0MzI4MTA1NzU2)",
+            "[<b>62. Sterlization Surgeries Tubectomy and Vasectomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDUyMTM2MzUyNDYwNjgz)",
+            "[<b>63. Special Cases in Obstetrics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDUzMTM4Mzc2ODE1NjEw)",
+            "[<b>64. Liver Disease in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDU0MTQwNDAxMTcwNTM3)",
+            "[<b>65. Tuberculosis and Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDU1MTQyNDI1NTI1NDY0)",
+            "[<b>66. Antenatal Care in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDU2MTQ0NDQ5ODgwMzkx)",
+            "[<b>67. Drugs Used in Obstetrics and Gynaecology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDU3MTQ2NDc0MjM1MzE4)",
+            "[<b>68. Instruments in Gynecology and Obstetrics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDU4MTQ4NDk4NTkwMjQ1)",
+            "[<b>69. Controversial Questions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDU5MTUwNTIyOTQ1MTcy)",
+            "[<b>70. Common Controversies in Obstetrics Gynaecology Mcqs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDYwMTUyNTQ3MzAwMDk5)",
+            "[<b>71. Image Based Questions Obs and Gyne atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDYxMTU0NTcxNjU1MDI2)",
+            "[<b>72. Azoospermic Man Gets His Own Biological Child atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDYyMTU2NTk2MDA5OTUz)",
+            "[<b>73. From Being a Gamate to Becoming a Human atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDYzMTU4NjIwMzY0ODgw)",
+            "[<b>74. Lapro Hysteroscopy for Workup of an Infertile Women atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDY0MTYwNjQ0NzE5ODA3)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        obgyp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"obgyp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"obgyp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(obgyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psm"):
+    elif query.data.startswith("clinicalp"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>Acute Respiratory Infection Dr. Neha Taneja atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDY1MTYyNjY5MDc0NzM0)",
+            "[<b>Antenatal care Dr. Neha Taneja atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDY2MTY0NjkzNDI5NjYx)",
+            "[<b>Diarrhoea Dr. Neha Taneja atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDY3MTY2NzE3Nzg0NTg4)",
+            "[<b>Hypertension Dr.Neha Taneja atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDY4MTY4NzQyMTM5NTE1)",
+            "[<b>Natal Care Dr.Neha Taneja atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDY5MTcwNzY2NDk0NDQy)",
+            "[<b>Severe Acute Malnutrition Dr. Neha Taneja atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDcwMTcyNzkwODQ5MzY5)",
+            "[<b>CNS examination Dr. Rajat Chauhan atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDcxMTc0ODE1MjA0Mjk2)",
+            "[<b>General Physical Examination Dr. Rajat Chauhan atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDcyMTc2ODM5NTU5MjIz)",
+            "[<b>Normal CVS examination Dr. Rajat-Chauhan atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDczMTc4ODYzOTE0MTUw)",
+            "[<b>Normal GIT Examination Dr. Rajat Chauhan atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDc0MTgwODg4MjY5MDc3)",
+            "[<b>Respiratory examination Dr. Rajat Chauhan atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDc1MTgyOTEyNjI0MDA0)",
+            "[<b>Basal Cell Carcinoma Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDc2MTg0OTM2OTc4OTMx)",
+            "[<b>Clinical Case Discussion Atopic Dermatitis Re Render  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDc3MTg2OTYxMzMzODU4)",
+            "[<b>Clinical Case Discussion Vitiligo Dr. Chesta Aggarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDc4MTg4OTg1Njg4Nzg1)",
+            "[<b>Fixed Drug Eruption Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDc5MTkxMDEwMDQzNzEy)",
+            "[<b>Herpes Zoster Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDgwMTkzMDM0Mzk4NjM5)",
+            "[<b>Kaposi Sarcoma Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDgxMTk1MDU4NzUzNTY2)",
+            "[<b>Leprosy Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDgyMTk3MDgzMTA4NDkz)",
+            "[<b>Lichen Planus Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDgzMTk5MTA3NDYzNDIw)",
+            "[<b>Malignent Melanoma Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDg0MjAxMTMxODE4MzQ3)",
+            "[<b>Pemphigus Vulgaris Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDg1MjAzMTU2MTczMjc0)",
+            "[<b>Psoriasis Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDg2MjA1MTgwNTI4MjAx)",
+            "[<b>Scabies Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDg3MjA3MjA0ODgzMTI4)",
+            "[<b>Sjs Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDg4MjA5MjI5MjM4MDU1)",
+            "[<b>ASOM Dr. Vyshnavi atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDg5MjExMjUzNTkyOTgy)",
+            "[<b>Facial Nerve Palsy Dr.Vyshnavi  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDkwMjEzMjc3OTQ3OTA5)",
+            "[<b>Tonsillitis Dr.Vyshnavi  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDkxMjE1MzAyMzAyODM2)",
+            "[<b>Cataract Dr. Sudha Replace atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDkyMjE3MzI2NjU3NzYz)",
+            "[<b>Chronic Dacryocystitis Dr. Sudha  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDkzMjE5MzUxMDEyNjkw)",
+            "[<b>Diabetic Retinopathy Dr. Sudha  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDk0MjIxMzc1MzY3NjE3)",
+            "[<b>Leucomatous Corneal Opacity Dr. Sudha Replace atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDk1MjIzMzk5NzIyNTQ0)",
+            "[<b>Pseudophakia Dr. Sudha  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDk2MjI1NDI0MDc3NDcx)",
+            "[<b>Pterygium Dr. Sudha Replace atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDk3MjI3NDQ4NDMyMzk4)",
+            "[<b>Third Nerve Palsy Dr. Sudha Replace atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDk4MjI5NDcyNzg3MzI1)",
+            "[<b>Vernal Kerato Conjunctivitis Dr. Sudha  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNDk5MjMxNDk3MTQyMjUy)",
+            "[<b>Abruptio Placenta Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTAwMjMzNTIxNDk3MTc5)",
+            "[<b>Amenorrhea Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTAxMjM1NTQ1ODUyMTA2)",
+            "[<b>Anemia in Pregnancy Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTAyMjM3NTcwMjA3MDMz)",
+            "[<b>Bad Obg History Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTAzMjM5NTk0NTYxOTYw)",
+            "[<b>Breech Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTA0MjQxNjE4OTE2ODg3)",
+            "[<b>Case Discusion Rh Incompatibility Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTA1MjQzNjQzMjcxODE0)",
+            "[<b>Case Discussio Uterine Prolapase Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTA2MjQ1NjY3NjI2NzQx)",
+            "[<b>Contraception Dr. Puni Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTA3MjQ3NjkxOTgxNjY4)",
+            "[<b>Diabetes Mellitus in Pregnancy Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTA4MjQ5NzE2MzM2NTk1)",
+            "[<b>Drugs in Pregancy Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTA5MjUxNzQwNjkxNTIy)",
+            "[<b>Ectopic Pregnency Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTEwMjUzNzY1MDQ2NDQ5)",
+            "[<b>Endometriosis Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTExMjU1Nzg5NDAxMzc2)",
+            "[<b>Fibroid Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTEyMjU3ODEzNzU2MzAz)",
+            "[<b>Heart Diseases in Pregnancy Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTEzMjU5ODM4MTExMjMw)",
+            "[<b>IUGR Dr. Punit Bhojani atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTE0MjYxODYyNDY2MTU3)",
+            "[<b>Infection Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTE1MjYzODg2ODIxMDg0)",
+            "[<b>Infertility Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTE2MjY1OTExMTc2MDEx)",
+            "[<b>Menorhagia Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTE3MjY3OTM1NTMwOTM4)",
+            "[<b>Molar Pregnancy Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTE4MjY5OTU5ODg1ODY1)",
+            "[<b>Neet Pg 1080 Live C a Cervix Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTE5MjcxOTg0MjQwNzky)",
+            "[<b>Oligohydramnios Polyhydramnios Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTIwMjc0MDA4NTk1NzE5)",
+            "[<b>Ovarian Cancer Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTIxMjc2MDMyOTUwNjQ2)",
+            "[<b>PCOS Dr. Punit Bhojani atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTIyMjc4MDU3MzA1NTcz)",
+            "[<b>PPH Dr. Punit Bhojani atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTIzMjgwMDgxNjYwNTAw)",
+            "[<b>Placenta Previa Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTI0MjgyMTA2MDE1NDI3)",
+            "[<b>Post Date Pregnancy Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTI1Mjg0MTMwMzcwMzU0)",
+            "[<b>Pre Eclampsia Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTI2Mjg2MTU0NzI1Mjgx)",
+            "[<b>Pregnancy With Previous LSCS Dr. Punit Bhojani atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTI3Mjg4MTc5MDgwMjA4)",
+            "[<b>Preterm Labor Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTI4MjkwMjAzNDM1MTM1)",
+            "[<b>Tuberculosis Dr. Neha Taneja  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTI5MjkyMjI3NzkwMDYy)",
+            "[<b>Twin Pregnany Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTMwMjk0MjUyMTQ0OTg5)",
+            "[<b>Acute Epiglotitis Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTMxMjk2Mjc2NDk5OTE2)",
+            "[<b>Acyanotic Congentinal Heart Disease Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTMyMjk4MzAwODU0ODQz)",
+            "[<b>Bronchiolitis Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTMzMzAwMzI1MjA5Nzcw)",
+            "[<b>Congenital Diaphragmatic Hernia Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTM0MzAyMzQ5NTY0Njk3)",
+            "[<b>Cse Discussion Systic Fibrosis Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTM1MzA0MzczOTE5NjI0)",
+            "[<b>Down Syndrome Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTM2MzA2Mzk4Mjc0NTUx)",
+            "[<b>Infantile Hypertrophic Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTM3MzA4NDIyNjI5NDc4)",
+            "[<b>Kawasaki Disease Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTM4MzEwNDQ2OTg0NDA1)",
+            "[<b>Nephrotic Syndrome Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTM5MzEyNDcxMzM5MzMy)",
+            "[<b>Neuroblastoma Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQwMzE0NDk1Njk0MjU5)",
+            "[<b>New Born Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQxMzE2NTIwMDQ5MTg2)",
+            "[<b>Pneumonia Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQyMzE4NTQ0NDA0MTEz)",
+            "[<b>Post Infectious Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQzMzIwNTY4NzU5MDQw)",
+            "[<b>Respiratory Distress Syndrome Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQ0MzIyNTkzMTEzOTY3)",
+            "[<b>Rickets Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQ1MzI0NjE3NDY4ODk0)",
+            "[<b>Tettralogy of Fallot Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQ2MzI2NjQxODIzODIx)",
+            "[<b>Thalassemia Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQ3MzI4NjY2MTc4NzQ4)",
+            "[<b>Wilm's Tumor Dr. Sanjay Khatri atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQ4MzMwNjkwNTMzNjc1)",
+            "[<b>Abdominal Mass Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTQ5MzMyNzE0ODg4NjAy)",
+            "[<b>Acute Cholecystitis Dr.Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTUwMzM0NzM5MjQzNTI5)",
+            "[<b>Appendicitis Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTUxMzM2NzYzNTk4NDU2)",
+            "[<b>Benign Prostatic Hyperplasia Dr.Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTUyMzM4Nzg3OTUzMzgz)",
+            "[<b>Bleeding per Rectum Dr Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTUzMzQwODEyMzA4MzEw)",
+            "[<b>Breast Lump Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTU0MzQyODM2NjYzMjM3)",
+            "[<b>Carcinoma Esophagus Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTU1MzQ0ODYxMDE4MTY0)",
+            "[<b>Carcinoma Prostate Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTU2MzQ2ODg1MzczMDkx)",
+            "[<b>Carcinoma Tongue Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTU3MzQ4OTA5NzI4MDE4)",
+            "[<b>Carcinoma of Bladder Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTU4MzUwOTM0MDgyOTQ1)",
+            "[<b>Cervical Lymphadenopathy Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTU5MzUyOTU4NDM3ODcy)",
+            "[<b>Hepatocellular Carcinoma Dr. Deepak 3 June 2022 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTYwMzU0OTgyNzkyNzk5)",
+            "[<b>Inguinal Hernia Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTYxMzU3MDA3MTQ3NzI2)",
+            "[<b>Intestinal Obstructon Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTYyMzU5MDMxNTAyNjUz)",
+            "[<b>Neet Pg 1080 Live C a Penis Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTYzMzYxMDU1ODU3NTgw)",
+            "[<b>Obstructive Jaudice Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTY0MzYzMDgwMjEyNTA3)",
+            "[<b>Paraumbilical Hernia Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTY1MzY1MTA0NTY3NDM0)",
+            "[<b>Parotid Swelling Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTY2MzY3MTI4OTIyMzYx)",
+            "[<b>Peripheral Vascular Disease Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTY3MzY5MTUzMjc3Mjg4)",
+            "[<b>Rif Lump Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTY4MzcxMTc3NjMyMjE1)",
+            "[<b>Scrotal Swelling Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTY5MzczMjAxOTg3MTQy)",
+            "[<b>Soft Tissue Sarcoma Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTcwMzc1MjI2MzQyMDY5)",
+            "[<b>Thyroid Swelling Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTcxMzc3MjUwNjk2OTk2)",
+            "[<b>Varicose Vein Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTcyMzc5Mjc1MDUxOTIz)",
+            "[<b>Acute Ischemic Contracture Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTczMzgxMjk5NDA2ODUw)",
+            "[<b>Bony Swelling Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTc0MzgzMzIzNzYxNzc3)",
+            "[<b>Carpal Tunnel Syndrome Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTc1Mzg1MzQ4MTE2NzA0)",
+            "[<b>Dequervain S Tenosynovitis Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTc2Mzg3MzcyNDcxNjMx)",
+            "[<b>Knee Synovitis Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTc3Mzg5Mzk2ODI2NTU4)",
+            "[<b>Malunion Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTc4MzkxNDIxMTgxNDg1)",
+            "[<b>Non Union Diaphyseal Fracture Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTc5MzkzNDQ1NTM2NDEy)",
+            "[<b>Osteoarthritis Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTgwMzk1NDY5ODkxMzM5)",
+            "[<b>Osteoporosis Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTgxMzk3NDk0MjQ2MjY2)",
+            "[<b>Pivd Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTgyMzk5NTE4NjAxMTkz)",
+            "[<b>Rheumatoid Arthritis Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTgzNDAxNTQyOTU2MTIw)",
+            "[<b>Septic Arthritis Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTg0NDAzNTY3MzExMDQ3)",
+            "[<b>T.B Spine Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTg1NDA1NTkxNjY1OTc0)",
+            "[<b>Ulnar Nerve Palsy Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTg2NDA3NjE2MDIwOTAx)",
+            "[<b>Anorexia Nervosa Dr. Sandeep Goil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTg3NDA5NjQwMzc1ODI4)",
+            "[<b>Autism Dr. Sandeep Govil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTg4NDExNjY0NzMwNzU1)",
+            "[<b>Bulima Nervosa Dr. Sandeep Govil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTg5NDEzNjg5MDg1Njgy)",
+            "[<b>Case Discusion Ptsd Dr. Sandeep Govil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTkwNDE1NzEzNDQwNjA5)",
+            "[<b>Cocaine Intoxication Dr. Sandeep Govil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTkxNDE3NzM3Nzk1NTM2)",
+            "[<b>Dementia Dr. Sandeep Govil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTkyNDE5NzYyMTUwNDYz)",
+            "[<b>Depression Dr. Sandeep Govil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTkzNDIxNzg2NTA1Mzkw)",
+            "[<b>Hyperacyivity Disorder Dr. Sandeep Govil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTk0NDIzODEwODYwMzE3)",
+            "[<b>Panic Attack Dr. Sandeep Govil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTk1NDI1ODM1MjE1MjQ0)",
+            "[<b>Acute Bacterial Meningitis Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTk2NDI3ODU5NTcwMTcx)",
+            "[<b>Atrial Fibrillation Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTk3NDI5ODgzOTI1MDk4)",
+            "[<b>Bartter Syndrome Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTk4NDMxOTA4MjgwMDI1)",
+            "[<b>Bronchial Asthma Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNTk5NDMzOTMyNjM0OTUy)",
+            "[<b>COPD Dr. Santosh Patil atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjAwNDM1OTU2OTg5ODc5)",
+            "[<b>Cerebrovascular Accident Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjAxNDM3OTgxMzQ0ODA2)",
+            "[<b>Chronic Kidney Disease Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjAyNDQwMDA1Njk5NzMz)",
+            "[<b>Chronic Stable Angina Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjAzNDQyMDMwMDU0NjYw)",
+            "[<b>Coarctation of Arota Dr. Sanjay Khatri  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjA0NDQ0MDU0NDA5NTg3)",
+            "[<b>Community Acquired Pneumona Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjA1NDQ2MDc4NzY0NTE0)",
+            "[<b>Congestive Heart Failure Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjA2NDQ4MTAzMTE5NDQx)",
+            "[<b>Cor Pulmonale Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjA3NDUwMTI3NDc0MzY4)",
+            "[<b>Covid 19 Pneumonia Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjA4NDUyMTUxODI5Mjk1)",
+            "[<b>Crohn's Disease Dr. Santosh Patil atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjA5NDU0MTc2MTg0MjIy)",
+            "[<b>Cushing Syndrome Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjEwNDU2MjAwNTM5MTQ5)",
+            "[<b>Dengue Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjExNDU4MjI0ODk0MDc2)",
+            "[<b>Diabetes Insipidus Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjEyNDYwMjQ5MjQ5MDAz)",
+            "[<b>Diabetic Ketoacidosis Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjEzNDYyMjczNjAzOTMw)",
+            "[<b>Dilated Cardiomyopathy Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjE0NDY0Mjk3OTU4ODU3)",
+            "[<b>Dyslipidemia Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjE1NDY2MzIyMzEzNzg0)",
+            "[<b>Gastritis Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjE2NDY4MzQ2NjY4NzEx)",
+            "[<b>Gbs Dr.Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjE3NDcwMzcxMDIzNjM4)",
+            "[<b>Graves Disease Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjE4NDcyMzk1Mzc4NTY1)",
+            "[<b>Hemiplegia Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjE5NDc0NDE5NzMzNDky)",
+            "[<b>Hip Arthritis Dr. Mukul Mohindra  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjIwNDc2NDQ0MDg4NDE5)",
+            "[<b>Hyperprolactinemia Dr. Santosh Patil 3 June 2022 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjIxNDc4NDY4NDQzMzQ2)",
+            "[<b>Hypertension Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjIyNDgwNDkyNzk4Mjcz)",
+            "[<b>Hyperthyroidism Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjIzNDgyNTE3MTUzMjAw)",
+            "[<b>Hypertrophic Cardiomyopathy Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjI0NDg0NTQxNTA4MTI3)",
+            "[<b>Idiopathic Thrombocytopenic Purpura Dr. Punit Bhojani  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjI1NDg2NTY1ODYzMDU0)",
+            "[<b>Inflammatory Bowel Disease Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjI2NDg4NTkwMjE3OTgx)",
+            "[<b>Interstitial Lung Diseases Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjI3NDkwNjE0NTcyOTA4)",
+            "[<b>Lung Cancer Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjI4NDkyNjM4OTI3ODM1)",
+            "[<b>Matablic Syndrome Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjI5NDk0NjYzMjgyNzYy)",
+            "[<b>Migraine Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjMwNDk2Njg3NjM3Njg5)",
+            "[<b>Mitral Regurgitation Dr. Santosh Patil 3 June 2022 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjMxNDk4NzExOTkyNjE2)",
+            "[<b>Mitral Stenosis Final Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjMyNTAwNzM2MzQ3NTQz)",
+            "[<b>Motor Neuron Disease Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjMzNTAyNzYwNzAyNDcw)",
+            "[<b>Multiply Melganoma Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjM0NTA0Nzg1MDU3Mzk3)",
+            "[<b>Muscular Dystrophy Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjM1NTA2ODA5NDEyMzI0)",
+            "[<b>Myxedema Coma Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjM2NTA4ODMzNzY3MjUx)",
+            "[<b>Nephritic Syndrome Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjM3NTEwODU4MTIyMTc4)",
+            "[<b>Obstructive Sleep Apnea Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjM4NTEyODgyNDc3MTA1)",
+            "[<b>Paraplegia Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjM5NTE0OTA2ODMyMDMy)",
+            "[<b>Parkinsons Dr.Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQwNTE2OTMxMTg2OTU5)",
+            "[<b>Peptic Ulcer Disease Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQxNTE4OTU1NTQxODg2)",
+            "[<b>Pericarditis Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQyNTIwOTc5ODk2ODEz)",
+            "[<b>Pheochromocytoma Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQzNTIzMDA0MjUxNzQw)",
+            "[<b>Pleural Effusion Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQ0NTI1MDI4NjA2NjY3)",
+            "[<b>Pneumoconosis Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQ1NTI3MDUyOTYxNTk0)",
+            "[<b>Pneumocystis Pneumonia Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQ2NTI5MDc3MzE2NTIx)",
+            "[<b>Polycystic Kidney Diesease Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQ3NTMxMTAxNjcxNDQ4)",
+            "[<b>Pulmonary Tuberculosis Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQ4NTMzMTI2MDI2Mzc1)",
+            "[<b>Renal Lump Dr. Deepak  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjQ5NTM1MTUwMzgxMzAy)",
+            "[<b>Secondary to Insulinoma Dr. Santosh Patil 3 June 2022 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjUwNTM3MTc0NzM2MjI5)",
+            "[<b>Sick Sinus Syndrome Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjUxNTM5MTk5MDkxMTU2)",
+            "[<b>Subarachnoid Haemorrhage Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjUyNTQxMjIzNDQ2MDgz)",
+            "[<b>Subdural Hemorrhagea Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjUzNTQzMjQ3ODAxMDEw)",
+            "[<b>Syphilis Dr. Santosh Patil 3 June 2022 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjU0NTQ1MjcyMTU1OTM3)",
+            "[<b>Typhoid Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjU1NTQ3Mjk2NTEwODY0)",
+            "[<b>Ulcerative Colitis Dr. Santosh Patil 3 June 2022 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjU2NTQ5MzIwODY1Nzkx)",
+            "[<b>Urticiria Dr. Chesta Agarwal  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjU3NTUxMzQ1MjIwNzE4)",
+            "[<b>Viral Hepatitis Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjU4NTUzMzY5NTc1NjQ1)",
+            "[<b>Wilson S Disease Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjU5NTU1MzkzOTMwNTcy)",
+            "[<b>Zollinger Ellison Syndrome Dr. Santosh Patil  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjYwNTU3NDE4Mjg1NDk5)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        opthalmology_message = "\n".join(page_links)
+        clinicalp_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"clinicalp_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"clinicalp_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(clinicalp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data.startswith("psm"):
