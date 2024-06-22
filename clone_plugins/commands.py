@@ -216,12 +216,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesia"), InlineKeyboardButton("RADIOLOGY", callback_data="radiology")],
             [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedics"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatrics")],
             [InlineKeyboardButton("OBGY", callback_data="obgy"), InlineKeyboardButton("RECENT UPDATES", callback_data="recentupdates")],
-            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start"), InlineKeyboardButton("CLOSE", callback_data="close_data")]
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
-
-
 
     
     elif query.data.startswith("orthopedics"):
