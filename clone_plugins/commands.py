@@ -65,7 +65,9 @@ async def start(client, message):
         await db.add_user(message.from_user.id, message.from_user.first_name)
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('MARROW', callback_data='marrow')
+            InlineKeyboardButton('MARROW', callback_data='marrow'),
+            InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder'),
+            InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')
         ]]
         me2 = (await client.get_me()).mention
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1234,4 +1236,1066 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
         msg = await query.message.reply_text(pediatrics_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data == "prepladder":
+        marrow_buttons = [
+            [InlineKeyboardButton("ANATOMY", callback_data="anatomyp"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistryp")],
+            [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiologyp"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacologyp")],
+            [InlineKeyboardButton("PATHOLOGY", callback_data="pathologyp"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiologyp")],
+            [InlineKeyboardButton("PSM", callback_data="psmp"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="ophthalmologyp")],
+            [InlineKeyboardButton("ENT", callback_data="entp"), InlineKeyboardButton("FMT", callback_data="fmtp")],
+            [InlineKeyboardButton("SURGERY", callback_data="surgeryp"), InlineKeyboardButton("MEDICINE", callback_data="medicinep")],
+            [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatologyp"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatryp")],
+            [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesiap"), InlineKeyboardButton("RADIOLOGY", callback_data="radiologyp")],
+            [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedicsp"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatricsp")],
+            [InlineKeyboardButton("OBGY", callback_data="obgyp"), InlineKeyboardButton("RECENT UPDATES", callback_data="recentupdatesp")]
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start") InlineKeyboardButton("CLOSE", callback_data="close_data")]
+        ]
+        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+
+    elif query.data.startswith("anatomyp"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>1. Introduction</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDA2MjE1MjA4MzAxMDIy)",
+            "[<b>1. developmental-timeline</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDA3MjE3MjMyNjU1OTQ5)",
+            "[<b>2. Gametogenesis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDA4MjE5MjU3MDEwODc2)",
+            "[<b>3. developmental period week 1 & 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDA5MjIxMjgxMzY1ODAz)",
+            "[<b>4. developmental-period-week-3-4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDEwMjIzMzA1NzIwNzMw)",
+            "[<b>5. ectoderm-neural-crest-cells-derivatives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDExMjI1MzMwMDc1NjU3)",
+            "[<b>6. mesoderm-derivatives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDEyMjI3MzU0NDMwNTg0)",
+            "[<b>7. endoderm-derivatives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDEzMjI5Mzc4Nzg1NTEx)",
+            "[<b>8. placenta-formation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDE0MjMxNDAzMTQwNDM4)",
+            "[<b>9. Germ-layer-derivatives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDE1MjMzNDI3NDk1MzY1)",
+            "[<b>1 body-tubes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDE2MjM1NDUxODUwMjky)",
+            "[<b>2 epithelial-tissue</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDE3MjM3NDc2MjA1MjE5)",
+            "[<b>3 glands</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDE4MjM5NTAwNTYwMTQ2)",
+            "[<b>4 connective-tissue</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDE5MjQxNTI0OTE1MDcz)",
+            "[<b>5 lymphoid-tissue</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDIwMjQzNTQ5MjcwMDAw)",
+            "[<b>6 Cartilage-tissue</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDIxMjQ1NTczNjI0OTI3)",
+            "[<b>7 Integumentary-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDIyMjQ3NTk3OTc5ODU0)",
+            "[<b>8 Cell-junctions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDIzMjQ5NjIyMzM0Nzgx)",
+            "[<b>9 Cell-junctions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDI0MjUxNjQ2Njg5NzA4)",
+            "[<b>10 Respiratory-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDI1MjUzNjcxMDQ0NjM1)",
+            "[<b>11 Digestive-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDI2MjU1Njk1Mzk5NTYy)",
+            "[<b>12 Urinary-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDI3MjU3NzE5NzU0NDg5)",
+            "[<b>13 Genital-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDI4MjU5NzQ0MTA5NDE2)",
+            "[<b>1 Osteology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDI5MjYxNzY4NDY0MzQz)",
+            "[<b>2 Arthrology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDMwMjYzNzkyODE5Mjcw)",
+            "[<b>1 Organization-Of-Nervous-System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDMxMjY1ODE3MTc0MTk3)",
+            "[<b>2 Development-Of-Nervous-System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDMyMjY3ODQxNTI5MTI0)",
+            "[<b>3 Third-Ventricle</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDMzMjY5ODY1ODg0MDUx)",
+            "[<b>4 Fourth-Ventricle</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDM0MjcxODkwMjM4OTc4)",
+            "[<b>5 White-Matter-Types-Of-Fibres</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDM1MjczOTE0NTkzOTA1)",
+            "[<b>6 Neural-Columns</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDM2Mjc1OTM4OTQ4ODMy)",
+            "[<b>7 cerebrum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDM3Mjc3OTYzMzAzNzU5)",
+            "[<b>8 Basal-Ganglia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDM4Mjc5OTg3NjU4Njg2)",
+            "[<b>9 Internal-Capsule</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDM5MjgyMDEyMDEzNjEz)",
+            "[<b>10 Thalamus-And-Hypthalamus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQwMjg0MDM2MzY4NTQw)",
+            "[<b>11 Brainstem-and-Cranial-Nerve-Nuclei</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQxMjg2MDYwNzIzNDY3)",
+            "[<b>12 Neural-Column-and-Brainstem-Nuclei</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQyMjg4MDg1MDc4Mzk0)",
+            "[<b>13 Cerebellum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQzMjkwMTA5NDMzMzIx)",
+            "[<b>14 Spinal-Cord</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQ0MjkyMTMzNzg4MjQ4)",
+            "[<b>15 Autonomic-nervous-system.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQ1Mjk0MTU4MTQzMTc1)",
+            "[<b>16 Arterial-Supply-of-Brain</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQ2Mjk2MTgyNDk4MTAy)",
+            "[<b>17 Brainstem-Lesions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQ3Mjk4MjA2ODUzMDI5)",
+            "[<b>18 Venous-Drainage-of-Cranial-Cavity</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQ4MzAwMjMxMjA3OTU2)",
+            "[<b>1 Pharyngeal-Arches</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDQ5MzAyMjU1NTYyODgz)",
+            "[<b>2 Pharyngeal-Pouches-Clefts</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDUwMzA0Mjc5OTE3ODEw)",
+            "[<b>3 Tongue-Development</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDUxMzA2MzA0MjcyNzM3)",
+            "[<b>4 Pharyngeal-Arch-Arteries</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDUyMzA4MzI4NjI3NjY0)",
+            "[<b>5 Development-of-Skull</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDUzMzEwMzUyOTgyNTkx)",
+            "[<b>6 Cranial-Cavity-Introduction</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDU0MzEyMzc3MzM3NTE4)",
+            "[<b>7 Cranial-Cavity-II-Cranial-fossae-and-related-foramina</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDU1MzE0NDAxNjkyNDQ1)",
+            "[<b>8 _Cranial-Cavity-III-Middle-Cranial-Fossa</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDU2MzE2NDI2MDQ3Mzcy)",
+            "[<b>9 Cranial-Cavity-IV-Posterior-Cranial-Fossa</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDU3MzE4NDUwNDAyMjk5)",
+            "[<b>10 Trigeminal-Nerve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDU4MzIwNDc0NzU3MjI2)",
+            "[<b>11 Cavernous-sinus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDU5MzIyNDk5MTEyMTUz)",
+            "[<b>12 Facial-Nerve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDYwMzI0NTIzNDY3MDgw)",
+            "[<b>13 Glossopharyngeal-Nerve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDYxMzI2NTQ3ODIyMDA3)",
+            "[<b>14 vagus-nerve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDYyMzI4NTcyMTc2OTM0)",
+            "[<b>15 hypoglossal-nerve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDYzMzMwNTk2NTMxODYx)",
+            "[<b>16 cervical-plexus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDY0MzMyNjIwODg2Nzg4)",
+            "[<b>17 scalenus-anterior-muscle-relations</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDY1MzM0NjQ1MjQxNzE1)",
+            "[<b>18 Head-and-Neck-Arterial-Supply</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDY2MzM2NjY5NTk2NjQy)",
+            "[<b>19 Head-and-Neck-Venous-Drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDY3MzM4NjkzOTUxNTY5)",
+            "[<b>20 Head-and-Neck-Lymphatic-Drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDY4MzQwNzE4MzA2NDk2)",
+            "[<b>21 Scalp</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDY5MzQyNzQyNjYxNDIz)",
+            "[<b>22 Neck-Triangles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDcwMzQ0NzY3MDE2MzUw)",
+            "[<b>23 Neck-Fascia-and-Spaces</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDcxMzQ2NzkxMzcxMjc3)",
+            "[<b>24 Neck-Fascia-and-Spaces-Revision</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDcyMzQ4ODE1NzI2MjA0)",
+            "[<b>25 Parotid-Gland</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDczMzUwODQwMDgxMTMx)",
+            "[<b>26 Pharynx</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDc0MzUyODY0NDM2MDU4)",
+            "[<b>27 Oesophagus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDc1MzU0ODg4NzkwOTg1)",
+            "[<b>29 Larynx</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDc2MzU2OTEzMTQ1OTEy)",
+            "[<b>30 Vertebral-LandMarks</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDc3MzU4OTM3NTAwODM5)",
+            "[<b>31 Ear</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDc4MzYwOTYxODU1NzY2)",
+            "[<b>32 Nose</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDc5MzYyOTg2MjEwNjkz)",
+            "[<b>33 EyeBall</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDgwMzY1MDEwNTY1NjIw)",
+            "[<b>34 Cranial-Nerves-3-4-and-6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDgxMzY3MDM0OTIwNTQ3)",
+            "[<b>1 Spinal-cord-termination</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDgyMzY5MDU5Mjc1NDc0)",
+            "[<b>2 Spinal-cord-Enlargements-and-Spaces</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDgzMzcxMDgzNjMwNDAx)",
+            "[<b>3 Vertebrae</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDg0MzczMTA3OTg1MzI4)",
+            "[<b>4 Lumbar-puncture</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDg1Mzc1MTMyMzQwMjU1)",
+            "[<b>5 Vertebral-curvatures-and-slip-disc</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDg2Mzc3MTU2Njk1MTgy)",
+            "[<b>6 Cranio-Vertebral-joints</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDg3Mzc5MTgxMDUwMTA5)",
+            "[<b>7 -Vertebral-landmarks-and-triangles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDg4MzgxMjA1NDA1MDM2)",
+            "[<b>1 evelopment-Cardiovascular-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDg5MzgzMjI5NzU5OTYz)",
+            "[<b>2 Development Embryonicveins</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDkwMzg1MjU0MTE0ODkw)",
+            "[<b>3 Development-Heart-tube</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDkxMzg3Mjc4NDY5ODE3)",
+            "[<b>4 Development-Heart-Tube-Transverse-pericardial-sinus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDkyMzg5MzAyODI0NzQ0)",
+            "[<b>5 Development Interatrial-septum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDkzMzkxMzI3MTc5Njcx)",
+            "[<b>6 Development AP-septum-formation-anomalies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDk0MzkzMzUxNTM0NTk4)",
+            "[<b>7 Fetoplacental-circulation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDk1Mzk1Mzc1ODg5NTI1)",
+            "[<b>8 Surfaces and Grooves</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDk2Mzk3NDAwMjQ0NDUy)",
+            "[<b>9 Venous drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDk3Mzk5NDI0NTk5Mzc5)",
+            "[<b>10 Interior</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDk4NDAxNDQ4OTU0MzA2)",
+            "[<b>11 Arterial-supply</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMDk5NDAzNDczMzA5MjMz)",
+            "[<b>12 Sternal-angle-and-Mediastinum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTAwNDA1NDk3NjY0MTYw)",
+            "[<b>13 Lungs Hilum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTAxNDA3NTIyMDE5MDg3)",
+            "[<b>14 Broncho-pulmonary-segments</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTAyNDA5NTQ2Mzc0MDE0)",
+            "[<b>15 Pleura-Surface-markings</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTAzNDExNTcwNzI4OTQx)",
+            "[<b>16 Joints</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTA0NDEzNTk1MDgzODY4)",
+            "[<b>17 Respiratory-movements</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTA1NDE1NjE5NDM4Nzk1)",
+            "[<b>18 Intercostal-drainage-and-block</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTA2NDE3NjQzNzkzNzIy)",
+            "[<b>19 Phrenic-nerve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTA3NDE5NjY4MTQ4NjQ5)",
+            "[<b>20 Venous-drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTA4NDIxNjkyNTAzNTc2)",
+            "[<b>21 Lymphatic-drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTA5NDIzNzE2ODU4NTAz)",
+            "[<b>1 Embryology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTEwNDI1NzQxMjEzNDMw)",
+            "[<b>2 Nerve-supply</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTExNDI3NzY1NTY4MzU3)",
+            "[<b>3 Dermatomes-and-Myotomes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTEyNDI5Nzg5OTIzMjg0)",
+            "[<b>4 Brachial-Plexus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTEzNDMxODE0Mjc4MjEx)",
+            "[<b>5 Brachial-Plexus-II</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTE0NDMzODM4NjMzMTM4)",
+            "[<b>6 Bones-and-Muscles-Proximal-Region-Part-1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTE1NDM1ODYyOTg4MDY1)",
+            "[<b>7 Bones-and-Muscles-Proximal-Region-Part-2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTE2NDM3ODg3MzQyOTky)",
+            "[<b>8 Bones-and-Muscles-Proximal-Region-Part-3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTE3NDM5OTExNjk3OTE5)",
+            "[<b>9 Axilla</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTE4NDQxOTM2MDUyODQ2)",
+            "[<b>10 Scapular-movements</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTE5NDQzOTYwNDA3Nzcz)",
+            "[<b>11 Clavipectoral-fascia</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTIwNDQ1OTg0NzYyNzAw)",
+            "[<b>12 Muscles-of-anterior-arm-region</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTIxNDQ4MDA5MTE3NjI3)",
+            "[<b>13 Muscles-of-anterior-forearm-region</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTIyNDUwMDMzNDcyNTU0)",
+            "[<b>14 Cubital-fossa</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTIzNDUyMDU3ODI3NDgx)",
+            "[<b>15 Carpal-and-Metacarpal-bones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTI0NDU0MDgyMTgyNDA4)",
+            "[<b>16 Muscles-of-Hand</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTI1NDU2MTA2NTM3MzM1)",
+            "[<b>17 Posterior-forearm-muscles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTI2NDU4MTMwODkyMjYy)",
+            "[<b>18. radial-nerve-lessions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTI3NDYwMTU1MjQ3MTg5)",
+            "[<b>19. ulnar-nerve-lesions</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTI4NDYyMTc5NjAyMTE2)",
+            "[<b>20. dr-rajesh-kaushal-1080-live-upper-limb-venous-drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTI5NDY0MjAzOTU3MDQz)",
+            "[<b>21. dr-rajesh-kaushal-1080-live-upper-limb-lymphatic-drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTMwNDY2MjI4MzExOTcw)",
+            "[<b>22. muscles-of-anterior-arm-region</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTMxNDY4MjUyNjY2ODk3)",
+            "[<b>1. Umbilical-cord-contents-and-Anomalies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTMyNDcwMjc3MDIxODI0)",
+            "[<b>2. Diaphragm-Development</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTMzNDcyMzAxMzc2NzUx)",
+            "[<b>3. Development-of-Mesentery</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTM0NDc0MzI1NzMxNjc4)",
+            "[<b>4. Gut-Rotation</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTM1NDc2MzUwMDg2NjA1)",
+            "[<b>5. Abdominal-planes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTM2NDc4Mzc0NDQxNTMy)",
+            "[<b>6. Neurovascular-bundles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTM3NDgwMzk4Nzk2NDU5)",
+            "[<b>7. Liver</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTM4NDgyNDIzMTUxMzg2)",
+            "[<b>8. Inguinal-region-and-Femoral-region</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTM5NDg0NDQ3NTA2MzEz)",
+            "[<b>9. Abdominal-wall-layers</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQwNDg2NDcxODYxMjQw)",
+            "[<b>10. Inguinal-canal-and-Spermatic-cord</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQxNDg4NDk2MjE2MTY3)",
+            "[<b>11. Inguinal-and-Femoral-region-associated-hernias</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQyNDkwNTIwNTcxMDk0)",
+            "[<b>12. Peritoneal-cavity-Sacs-and-spaces</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQzNDkyNTQ0OTI2MDIx)",
+            "[<b>13.Stomach</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQ0NDk0NTY5MjgwOTQ4)",
+            "[<b>14. Arterial-supply</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQ1NDk2NTkzNjM1ODc1)",
+            "[<b>15. Small-Intestine-Duodenum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQ2NDk4NjE3OTkwODAy)",
+            "[<b>16.Small-Intestine-Jejunum-and-Ileum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQ3NTAwNjQyMzQ1NzI5)",
+            "[<b>17. Small-Intestine-Biliary-Apparatus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQ4NTAyNjY2NzAwNjU2)",
+            "[<b>18. Large-Intestine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTQ5NTA0NjkxMDU1NTgz)",
+            "[<b>19. Pancreas</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTUwNTA2NzE1NDEwNTEw)",
+            "[<b>20. Kidney</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTUxNTA4NzM5NzY1NDM3)",
+            "[<b>21. Ureter</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTUyNTEwNzY0MTIwMzY0)",
+            "[<b>22. Venous-drainage-of-abdomen-and-thorax</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTUzNTEyNzg4NDc1Mjkx)",
+            "[<b>1. Development-of-Genito-Urinary-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTU0NTE0ODEyODMwMjE4)",
+            "[<b>2. Pelvis-and-Perineum</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTU1NTE2ODM3MTg1MTQ1)",
+            "[<b>3. Perineal-pouches-and-ischiorectal-fossa</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTU2NTE4ODYxNTQwMDcy)",
+            "[<b>4. Perineal-pouches-II</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTU3NTIwODg1ODk0OTk5)",
+            "[<b>5. Prostate-gland-and-Parts-of-male-urethra</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTU4NTIyOTEwMjQ5OTI2)",
+            "[<b>6. Pelvic-diaphragm</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTU5NTI0OTM0NjA0ODUz)",
+            "[<b>7. Extravasation-of-Urine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTYwNTI2OTU4OTU5Nzgw)",
+            "[<b>8. Pudendal-nerve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTYxNTI4OTgzMzE0NzA3)",
+            "[<b>9. Pelvis-Perineum-Arterial-supply</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTYyNTMxMDA3NjY5NjM0)",
+            "[<b>10. Pelvis-Perineum-Nerve-supply</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTYzNTMzMDMyMDI0NTYx)",
+            "[<b>11. Female-reproductive-system</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTY0NTM1MDU2Mzc5NDg4)",
+            "[<b>12. Rectum-and-Anal-canal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTY1NTM3MDgwNzM0NDE1)",
+            "[<b>1. Nerve-Supply-Overview-Lower-limb</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTY2NTM5MTA1MDg5MzQy)",
+            "[<b>3. Nerve-Supply-Thigh-Muscles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTY3NTQxMTI5NDQ0MjY5)",
+            "[<b>4. Movements-Associated-Muscles-Hip-Knee-Joints</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTY4NTQzMTUzNzk5MTk2)",
+            "[<b>5. Muscles-of-Gluteal-Region</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTY5NTQ1MTc4MTU0MTIz)",
+            "[<b>6. Hybrid-Muscles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTcwNTQ3MjAyNTA5MDUw)",
+            "[<b>7.  Popliteus</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTcxNTQ5MjI2ODYzOTc3)",
+            "[<b>8. Knee-Joint</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTcyNTUxMjUxMjE4OTA0)",
+            "[<b>9. Adductor-Canal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTczNTUzMjc1NTczODMx)",
+            "[<b>10. Popliteal-Fossa</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTc0NTU1Mjk5OTI4NzU4)",
+            "[<b>11. Leg-Muscles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTc1NTU3MzI0MjgzNjg1)",
+            "[<b>12-Legand Footregion Nervesupply Replace</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTc2NTU5MzQ4NjM4NjEy)",
+            "[<b>13. plantar-arches-eng-replace</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTc3NTYxMzcyOTkzNTM5)",
+            "[<b>14. flexor-retinaculum-eng-replace</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTc4NTYzMzk3MzQ4NDY2)",
+            "[<b>15. sole-muscles</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTc5NTY1NDIxNzAzMzkz)",
+            "[<b>16. lower-limb-arterial-supply</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTgwNTY3NDQ2MDU4MzIw)",
+            "[<b>17. lower-limb-venous-drainage</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEwMTgxNTY5NDcwNDEzMjQ3)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        anatomyp_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"anatomyp_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"anatomyp_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(anatomyp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("psm"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        opthalmology_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"opthalmology_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opthalmology_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
