@@ -20,3 +20,4 @@ umongo
 motor
 validators
 tenacity
+aiohttp
