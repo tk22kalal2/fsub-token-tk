@@ -32,6 +32,10 @@ logger = logging.getLogger(__name__)
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 SECONDS = int(os.getenv("SECONDS", "30"))
 
+# Initialize Telegraph
+telegraph_client = telegraph.Telegraph()
+telegraph_client.create_account(short_name='short_name')
+
 def paginate_links(links, page, per_page=20):
     start = page * per_page
     end = start + per_page
@@ -226,11 +230,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 
 
-# Initialize Telegraph
-telegraph_client = telegraph.Telegraph()
-telegraph_client.create_account(short_name='short_name')
-
-
     elif query.data.startswith("orthopedics"):
         try:
             page = int(query.data.split('_')[1])
@@ -302,7 +301,6 @@ telegraph_client.create_account(short_name='short_name')
         )
 
         asyncio.create_task(schedule_deletion([msg], SECONDS))
-
 
     elif query.data.startswith("biochemistry"):
         try:
