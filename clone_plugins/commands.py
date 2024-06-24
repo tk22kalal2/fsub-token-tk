@@ -3530,515 +3530,2358 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("anatomyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>Abdomen Abdominal Aorta  Celia Trunk atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjYxNTU5NDQyNjQwNDI2)",	
+            "[<b>Abdomen Anterior Abdominal Wall and Inguinal Canal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjYyNTYxNDY2OTk1MzUz)",	
+            "[<b>Abdomen Ivc Portal Vein Ivc  Portocaval Anastomosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjYzNTYzNDkxMzUwMjgw)",	
+            "[<b>Abdomen Liver Kidney atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjY0NTY1NTE1NzA1MjA3)",	
+            "[<b>Abdomen Peritoneum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjY1NTY3NTQwMDYwMTM0)",	
+            "[<b>Abdomen Rectus Sheath Posterior Abdominal Wall and Thoracolumbar Fascia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjY2NTY5NTY0NDE1MDYx)",	
+            "[<b>Abdomen Sma Ima atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjY3NTcxNTg4NzY5OTg4)",	
+            "[<b>Abdomen Stomach  Diaphragm atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjY4NTczNjEzMTI0OTE1)",	
+            "[<b>Embryology 1. General Embryology 3 2Nd Week atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjY5NTc1NjM3NDc5ODQy)",	
+            "[<b>Embryology 1. General Embryology 3 3Rd Week atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjcwNTc3NjYxODM0NzY5)",	
+            "[<b>Embryology 1. General Embryology 3 Gametogenesis 1St Week atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjcxNTc5Njg2MTg5Njk2)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Cns Embryology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjcyNTgxNzEwNTQ0NjIz)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Development of Arterial System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjczNTgzNzM0ODk5NTUw)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Development of Diaphragm atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjc0NTg1NzU5MjU0NDc3)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Development of Face Palate atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjc1NTg3NzgzNjA5NDA0)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Development of Heart atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjc2NTg5ODA3OTY0MzMx)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Development of Interatrial Septum  Interventricular Septum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjc3NTkxODMyMzE5MjU4)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Development of Tongue  Thyroid Gland atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjc4NTkzODU2Njc0MTg1)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Development of Venous System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjc5NTk1ODgxMDI5MTEy)",	
+            "[<b>Embryology 2. Systemic Embryology 12 Gut Embrology Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjgwNTk3OTA1Mzg0MDM5)",	
+            "[<b>Head and Neck Dural Venous Sinuses and Cavernous Sinus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjgxNTk5OTI5NzM4OTY2)",	
+            "[<b>Head and Neck Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjgyNjAxOTU0MDkzODkz)",	
+            "[<b>Head and Neck Pharynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjgzNjAzOTc4NDQ4ODIw)",	
+            "[<b>Head and Neck Posterior Triangle of Neck atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjg0NjA2MDAyODAzNzQ3)",	
+            "[<b>Head and Neck Subclavian Artery Scalenus Anterior Muscle Veins of Face atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjg1NjA4MDI3MTU4Njc0)",	
+            "[<b>Head and Neck Temporomandibular Joint atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjg2NjEwMDUxNTEzNjAx)",	
+            "[<b>Head and Neck Tongue atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjg3NjEyMDc1ODY4NTI4)",	
+            "[<b>Head and Neck Transverse Section of Neck atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjg4NjE0MTAwMjIzNDU1)",	
+            "[<b>Histology Epithelium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjg5NjE2MTI0NTc4Mzgy)",	
+            "[<b>Lower Limb Adductor Canal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjkwNjE4MTQ4OTMzMzA5)",	
+            "[<b>Lower Limb Arches of Foot atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjkxNjIwMTczMjg4MjM2)",	
+            "[<b>Lower Limb Common Peroneal Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjkyNjIyMTk3NjQzMTYz)",	
+            "[<b>Lower Limb Femoral Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjkzNjI0MjIxOTk4MDkw)",	
+            "[<b>Lower Limb Femoral Triangle atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjk0NjI2MjQ2MzUzMDE3)",	
+            "[<b>Lower Limb Gluteal Region Greater  Lesser Sciatic Foramen atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjk1NjI4MjcwNzA3OTQ0)",	
+            "[<b>Lower Limb Iliotibial Tract atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjk2NjMwMjk1MDYyODcx)",	
+            "[<b>Lower Limb Lumbosacral Plexus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjk3NjMyMzE5NDE3Nzk4)",	
+            "[<b>Lower Limb Obturator Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjk4NjM0MzQzNzcyNzI1)",	
+            "[<b>Lower Limb Tibial Nerve  Sole of Foot atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNjk5NjM2MzY4MTI3NjUy)",	
+            "[<b>Lower Limb V S of Lower Limb  Popliteal Fossa atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzAwNjM4MzkyNDgyNTc5)",	
+            "[<b>NeuroBasal Ganglia and Internal Capsule atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzAxNjQwNDE2ODM3NTA2)",	
+            "[<b>NeuroBlood Supply of Brain atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzAyNjQyNDQxMTkyNDMz)",	
+            "[<b>NeuroBrodmann Area atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzAzNjQ0NDY1NTQ3MzYw)",	
+            "[<b>NeuroCerebellumb atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzA0NjQ2NDg5OTAyMjg3)",	
+            "[<b>NeuroCervical Fossa and Cranial Foramen atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzA1NjQ4NTE0MjU3MjE0)",	
+            "[<b>NeuroCranial Nerve Nuclei atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzA2NjUwNTM4NjEyMTQx)",	
+            "[<b>NeuroIntroduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzA3NjUyNTYyOTY3MDY4)",	
+            "[<b>NeuroLateral Ventricles  3Rd Ventricle atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzA4NjU0NTg3MzIxOTk1)",	
+            "[<b>NeuroSpinal Cord atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzA5NjU2NjExNjc2OTIy)",	
+            "[<b>NeuroT S of Midbrain Pons and Medulla atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzEwNjU4NjM2MDMxODQ5)",	
+            "[<b>NeuroVentral Aspect of Brainstem Dorsal Ventral Aspect of Brainstem atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzExNjYwNjYwMzg2Nzc2)",	
+            "[<b>NeuroWhite Matter  Projection Fibers Ascending Tracts atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzEyNjYyNjg0NzQxNzAz)",	
+            "[<b>NeuroWhite Matter  Projection Fibers Descending Tracts atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzEzNjY0NzA5MDk2NjMw)",	
+            "[<b>NeuroWhite Matter Association  Commissural Fibers atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzE0NjY2NzMzNDUxNTU3)",	
+            "[<b>Pelvis and Perinium Internal Iliac Artery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzE1NjY4NzU3ODA2NDg0)",	
+            "[<b>Pelvis and Perinium Ischiorectal Fossa atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzE2NjcwNzgyMTYxNDEx)",	
+            "[<b>Pelvis and Perinium Pelvis  Perineum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzE3NjcyODA2NTE2MzM4)",	
+            "[<b>Pelvis and Perinium Urinary Bladder  Urethra atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzE4Njc0ODMwODcxMjY1)",	
+            "[<b>Qrp atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzE5Njc2ODU1MjI2MTky)",	
+            "[<b>Qrp by Dr Mohammed Azam atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzIwNjc4ODc5NTgxMTE5)",	
+            "[<b>Upper Limb Anatomical Snuff Box and Extensor Retinaculum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzIxNjgwOTAzOTM2MDQ2)",	
+            "[<b>Upper Limb Axillary Artery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzIyNjgyOTI4MjkwOTcz)",	
+            "[<b>Upper Limb Brachial Artery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzIzNjg0OTUyNjQ1OTAw)",	
+            "[<b>Upper Limb Brachial Plexus and Clinical Correlation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzI0Njg2OTc3MDAwODI3)",	
+            "[<b>Upper Limb Carpal Tunnel atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzI1Njg5MDAxMzU1NzU0)",	
+            "[<b>Upper Limb Cubital Fossa atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzI2NjkxMDI1NzEwNjgx)",	
+            "[<b>Upper Limb Major Nerves  Musculocutaneous Nerve  Axillary Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzI3NjkzMDUwMDY1NjA4)",	
+            "[<b>Upper Limb Muscles of Arm and Forearm atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzI4Njk1MDc0NDIwNTM1)",	
+            "[<b>Upper Limb Median Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzI5Njk3MDk4Nzc1NDYy)",	
+            "[<b>Upper Limb Muscles of Hand atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzMwNjk5MTIzMTMwMzg5)",	
+            "[<b>Upper Limb Palmar Arches atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzMxNzAxMTQ3NDg1MzE2)",	
+            "[<b>Upper Limb Pectoral Region Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzMyNzAzMTcxODQwMjQz)",	
+            "[<b>Upper Limb Pectoral Region Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzMzNzA1MTk2MTk1MTcw)",	
+            "[<b>Upper Limb Radial Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzM0NzA3MjIwNTUwMDk3)",	
+            "[<b>Upper Limb Scapular Anastomosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzM1NzA5MjQ0OTA1MDI0)",	
+            "[<b>Upper Limb Ulnar Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzM2NzExMjY5MjU5OTUx)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        anatomyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"anatomyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"anatomyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(anatomyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("physiologyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>Cell Cell Connections  Intracellular Organelles Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzM3NzEzMjkzNjE0ODc4)",
+            "[<b>Cell Cell Connections  Intracellular Organelles Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzM4NzE1MzE3OTY5ODA1)",
+            "[<b>Cell Cell Membrane atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzM5NzE3MzQyMzI0NzMy)",
+            "[<b>Cell Demonstration of Electrical Activities atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQwNzE5MzY2Njc5NjU5)",
+            "[<b>Cell Electrical Properties of Cell atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQxNzIxMzkxMDM0NTg2)",
+            "[<b>Cell Transport Across Membrane atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQyNzIzNDE1Mzg5NTEz)",
+            "[<b>Cns Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQzNzI1NDM5NzQ0NDQw)",
+            "[<b>Cns Brown Sequard Syndrome  Other Spinal Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQ0NzI3NDY0MDk5MzY3)",
+            "[<b>Cns Cerebellum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQ1NzI5NDg4NDU0Mjk0)",
+            "[<b>Cns Cortex atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQ2NzMxNTEyODA5MjIx)",
+            "[<b>Cns Eeg Normal  Abnormalities atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQ3NzMzNTM3MTY0MTQ4)",
+            "[<b>Cns Epilepsy and Status Epilepticus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQ4NzM1NTYxNTE5MDc1)",
+            "[<b>Cns Hemispherical Specialization atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzQ5NzM3NTg1ODc0MDAy)",
+            "[<b>Cns Initiation Propagation of Action Potentials atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzUwNzM5NjEwMjI4OTI5)",
+            "[<b>Cns Language  Aphasias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzUxNzQxNjM0NTgzODU2)",
+            "[<b>Cns Learning  Memory atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzUyNzQzNjU4OTM4Nzgz)",
+            "[<b>Cns Miscellaneous atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzUzNzQ1NjgzMjkzNzEw)",
+            "[<b>Cns Muscle Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzU0NzQ3NzA3NjQ4NjM3)",
+            "[<b>Cns Muscle Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzU1NzQ5NzMyMDAzNTY0)",
+            "[<b>Cns Muscle Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzU2NzUxNzU2MzU4NDkx)",
+            "[<b>Cns Nerve Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzU3NzUzNzgwNzEzNDE4)",
+            "[<b>Cns Nerve Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzU4NzU1ODA1MDY4MzQ1)",
+            "[<b>Cns Neuromuscular Junction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzU5NzU3ODI5NDIzMjcy)",
+            "[<b>Cns Papez Circuit atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzYwNzU5ODUzNzc4MTk5)",
+            "[<b>Cns Physiological Correlates  Peripheral Nerve Disorders Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzYxNzYxODc4MTMzMTI2)",
+            "[<b>Cns Physiological Correlates  Peripheral Nerve Disorders Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzYyNzYzOTAyNDg4MDUz)",
+            "[<b>Cns Spinal Cord atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzYzNzY1OTI2ODQyOTgw)",
+            "[<b>Cns Stroke atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzY0NzY3OTUxMTk3OTA3)",
+            "[<b>Cns Thalamus  Hypothalamus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzY1NzY5OTc1NTUyODM0)",
+            "[<b>Cvs Abnormalities of Ecg Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzY2NzcxOTk5OTA3NzYx)",
+            "[<b>Cvs Abnormalities of Ecg Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzY3Nzc0MDI0MjYyNjg4)",
+            "[<b>Cvs Basics of Ecg Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzY4Nzc2MDQ4NjE3NjE1)",
+            "[<b>Cvs Basics of Ecg Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzY5Nzc4MDcyOTcyNTQy)",
+            "[<b>Cvs Blood Pressure atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzcwNzgwMDk3MzI3NDY5)",
+            "[<b>Cvs Cardiac Action Potential atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzcxNzgyMTIxNjgyMzk2)",
+            "[<b>Cvs Cardiac Contraction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzcyNzg0MTQ2MDM3MzIz)",
+            "[<b>Cvs Cardiac Cycle and Output atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzczNzg2MTcwMzkyMjUw)",
+            "[<b>Cvs Cardiac Output Calculation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzc0Nzg4MTk0NzQ3MTc3)",
+            "[<b>Cvs Conduction System  Basics of Ecg atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzc1NzkwMjE5MTAyMTA0)",
+            "[<b>Cvs Flow Resistance atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzc2NzkyMjQzNDU3MDMx)",
+            "[<b>Cvs Heart Failure atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzc3Nzk0MjY3ODExOTU4)",
+            "[<b>Cvs Heart Sounds atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzc4Nzk2MjkyMTY2ODg1)",
+            "[<b>Cvs Jvp atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzc5Nzk4MzE2NTIxODEy)",
+            "[<b>Cvs Myocardial Ischemia Infarction Electrical Correlates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzgwODAwMzQwODc2NzM5)",
+            "[<b>Cvs Pressure Volume Loop atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzgxODAyMzY1MjMxNjY2)",
+            "[<b>Cvs Reflexes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzgyODA0Mzg5NTg2NTkz)",
+            "[<b>Cvs Regulation of Cardiac Output atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzgzODA2NDEzOTQxNTIw)",
+            "[<b>Endocrine Adrenal Cortex atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzg0ODA4NDM4Mjk2NDQ3)",
+            "[<b>Endocrine Anterior Pituitary Growth Hormone atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzg1ODEwNDYyNjUxMzc0)",
+            "[<b>Endocrine Anterior Pituitary Prolactin atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzg2ODEyNDg3MDA2MzAx)",
+            "[<b>Endocrine Classification of Hormones atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzg3ODE0NTExMzYxMjI4)",
+            "[<b>Endocrine Female Reproductive System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzg4ODE2NTM1NzE2MTU1)",
+            "[<b>Endocrine Hormones Questions in Calcium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzg5ODE4NTYwMDcxMDgy)",
+            "[<b>Endocrine Implantation and Placenta atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzkwODIwNTg0NDI2MDA5)",
+            "[<b>Endocrine Male Reproductive System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzkxODIyNjA4NzgwOTM2)",
+            "[<b>Endocrine Oogenesis Fertilization atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzkyODI0NjMzMTM1ODYz)",
+            "[<b>Endocrine Pancreas atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzkzODI2NjU3NDkwNzkw)",
+            "[<b>Endocrine Physiological Changes in Pregnancy Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzk0ODI4NjgxODQ1NzE3)",
+            "[<b>Endocrine Physiological Changes in Pregnancy Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzk1ODMwNzA2MjAwNjQ0)",
+            "[<b>Endocrine Posterior Pituitary Vasopressin and Siadh and Diabetes Insipidus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzk2ODMyNzMwNTU1NTcx)",
+            "[<b>Endocrine Receptors and Second Messengers atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzk3ODM0NzU0OTEwNDk4)",
+            "[<b>Endocrine Spermatogenesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzk4ODM2Nzc5MjY1NDI1)",
+            "[<b>Endocrine Thyroid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExNzk5ODM4ODAzNjIwMzUy)",
+            "[<b>Fundamental Biophysics 1 Fundamental Biophysics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODAwODQwODI3OTc1Mjc5)",
+            "[<b>Git Esophagus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODAxODQyODUyMzMwMjA2)",
+            "[<b>Git Intestinal Absorption atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODAyODQ0ODc2Njg1MTMz)",
+            "[<b>Git Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODAzODQ2OTAxMDQwMDYw)",
+            "[<b>Git Pancreas and Bile atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODA0ODQ4OTI1Mzk0OTg3)",
+            "[<b>Git Questions on Esophagus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODA1ODUwOTQ5NzQ5OTE0)",
+            "[<b>Git Saliva atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODA2ODUyOTc0MTA0ODQx)",
+            "[<b>Git Stomach atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODA3ODU0OTk4NDU5NzY4)",
+            "[<b>Miscellaneous Deep Sea Diving  High Actinide atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODA4ODU3MDIyODE0Njk1)",
+            "[<b>Miscellaneous Exercise  Sports atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODA5ODU5MDQ3MTY5NjIy)",
+            "[<b>Miscellaneous Space  Gravity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODEwODYxMDcxNTI0NTQ5)",
+            "[<b>Miscellaneous Temperature Regulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODExODYzMDk1ODc5NDc2)",
+            "[<b>Qrp Ini Cet Qrp Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODEyODY1MTIwMjM0NDAz)",
+            "[<b>Qrp by Dr Prem 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODEzODY3MTQ0NTg5MzMw)",
+            "[<b>Qrp by Dr Prem 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODE0ODY5MTY4OTQ0MjU3)",
+            "[<b>Renal Physiology - Acid Base Physiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODE1ODcxMTkzMjk5MTg0)",
+            "[<b>Renal Physiology - Basics of Nephron atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODE2ODczMjE3NjU0MTEx)",
+            "[<b>Renal Physiology - Body Fluids Movments atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODE3ODc1MjQyMDA5MDM4)",
+            "[<b>Renal Physiology - Body Fluids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODE4ODc3MjY2MzYzOTY1)",
+            "[<b>Renal Physiology - Distal Convoluted Tubule and Collecting Duct atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODE5ODc5MjkwNzE4ODky)",
+            "[<b>Renal Physiology - Electrolyte Mineral H2o Homeostasis Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODIwODgxMzE1MDczODE5)",
+            "[<b>Respiration - O2 Therapy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODIxODgzMzM5NDI4NzQ2)",
+            "[<b>Respiration - Ventilization Perfusion Relationship atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODIyODg1MzYzNzgzNjcz)",
+            "[<b>Special Senses Vision atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODIzODg3Mzg4MTM4NjAw)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        physiologyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"physiologyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"physiologyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(physiologyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("biochemistryd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>Aiims Recall Qs Aiims Recall Session May 2019 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODI0ODg5NDEyNDkzNTI3)",
+            "[<b>Aiims Recall Qs Aiims Recall Session Nov 2019 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODI1ODkxNDM2ODQ4NDU0)",
+            "[<b>Amino Acid and Proteins 21St  22Nd Amino Acids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODI2ODkzNDYxMjAzMzgx)",
+            "[<b>Amino Acid and Proteins Amino Acid Catabolism Carbon Skelton atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODI3ODk1NDg1NTU4MzA4)",
+            "[<b>Amino Acid and Proteins Amino Acid Catabolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODI4ODk3NTA5OTEzMjM1)",
+            "[<b>Amino Acid and Proteins Amino Acids  Classification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODI5ODk5NTM0MjY4MTYy)",
+            "[<b>Amino Acid and Proteins Amino Acids  Properties atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODMwOTAxNTU4NjIzMDg5)",
+            "[<b>Amino Acid and Proteins Biosynthesis of Amino Acids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODMxOTAzNTgyOTc4MDE2)",
+            "[<b>Amino Acid and Proteins Collagend atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODMyOTA1NjA3MzMyOTQz)",
+            "[<b>Amino Acid and Proteins Disorders of Urea Cycle atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODMzOTA3NjMxNjg3ODcw)",
+            "[<b>Amino Acid and Proteins Phenylalanine Tyrosine Complex atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODM0OTA5NjU2MDQyNzk3)",
+            "[<b>Amino Acid and Proteins Phenylalanine Tyrosine Complex Tyrosinemia  Others atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODM1OTExNjgwMzk3NzI0)",
+            "[<b>Amino Acid and Proteins Post Translational Modification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODM2OTEzNzA0NzUyNjUx)",
+            "[<b>Amino Acid and Proteins Protein Structure atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODM3OTE1NzI5MTA3NTc4)",
+            "[<b>Amino Acid and Proteins Separation of Proteins atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODM4OTE3NzUzNDYyNTA1)",
+            "[<b>Amino Acid and Proteins Special Products of Amino Acids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODM5OTE5Nzc3ODE3NDMy)",
+            "[<b>Bioenergetics Eelectron Transport Chain atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQwOTIxODAyMTcyMzU5)",
+            "[<b>Bioenergetics Krebs Cycle Tca Cycle atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQxOTIzODI2NTI3Mjg2)",
+            "[<b>Bioenergetics Link Reaction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQyOTI1ODUwODgyMjEz)",
+            "[<b>Bioenergetics Shuttle atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQzOTI3ODc1MjM3MTQw)",
+            "[<b>Carbohydrates Classification 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQ0OTI5ODk5NTkyMDY3)",
+            "[<b>Carbohydrates Classification 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQ1OTMxOTIzOTQ2OTk0)",
+            "[<b>Carbohydrates Fructose Metabolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQ2OTMzOTQ4MzAxOTIx)",
+            "[<b>Carbohydrates Galactose Metabolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQ3OTM1OTcyNjU2ODQ4)",
+            "[<b>Carbohydrates Gluconeogenesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQ4OTM3OTk3MDExNzc1)",
+            "[<b>Carbohydrates Glucose Transport atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODQ5OTQwMDIxMzY2NzAy)",
+            "[<b>Carbohydrates Glycogen Metabolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODUwOTQyMDQ1NzIxNjI5)",
+            "[<b>Carbohydrates Glycogen Storage Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODUxOTQ0MDcwMDc2NTU2)",
+            "[<b>Carbohydrates Glycolysis Highlights atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODUyOTQ2MDk0NDMxNDgz)",
+            "[<b>Carbohydrates Glycolysis Reaction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODUzOTQ4MTE4Nzg2NDEw)",
+            "[<b>Carbohydrates Hmp Shunt atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODU0OTUwMTQzMTQxMzM3)",
+            "[<b>Carbohydrates Identification of Carbohydrates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODU1OTUyMTY3NDk2MjY0)",
+            "[<b>Carbohydrates Isomerism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODU2OTU0MTkxODUxMTkx)",
+            "[<b>Enzymes Applications atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODU3OTU2MjE2MjA2MTE4)",
+            "[<b>Enzymes Enzyme Inhibition atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODU4OTU4MjQwNTYxMDQ1)",
+            "[<b>Enzymes Enzyme Regulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODU5OTYwMjY0OTE1OTcy)",
+            "[<b>Enzymes Introduction and Classification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODYwOTYyMjg5MjcwODk5)",
+            "[<b>Enzymes Isoenzymes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODYxOTY0MzEzNjI1ODI2)",
+            "[<b>Enzymes Kinetics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODYyOTY2MzM3OTgwNzUz)",
+            "[<b>Enzymes Mechanism of Catalysis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODYzOTY4MzYyMzM1Njgw)",
+            "[<b>Enzymes Properties atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODY0OTcwMzg2NjkwNjA3)",
+            "[<b>General Acid Base Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODY1OTcyNDExMDQ1NTM0)",
+            "[<b>General Acid Base Homeostasis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODY2OTc0NDM1NDAwNDYx)",
+            "[<b>General Actions of Insulin atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODY3OTc2NDU5NzU1Mzg4)",
+            "[<b>General Introduction to atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODY4OTc4NDg0MTEwMzE1)",
+            "[<b>Heme Metabolism Heme Degradation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODY5OTgwNTA4NDY1MjQy)",
+            "[<b>Heme Metabolism Heme Synthesis and Porphyriase atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODcwOTgyNTMyODIwMTY5)",
+            "[<b>Heme Metabolism Hyperbilirubinemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODcxOTg0NTU3MTc1MDk2)",
+            "[<b>Lipid Metabolism Bile Acid Synthesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODcyOTg2NTgxNTMwMDIz)",
+            "[<b>Lipid Metabolism Cholesterol Synthesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODczOTg4NjA1ODg0OTUw)",
+            "[<b>Lipid Metabolism Fatty Acid Oxidation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODc0OTkwNjMwMjM5ODc3)",
+            "[<b>Lipid Metabolism Fatty Acid Synthesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODc1OTkyNjU0NTk0ODA0)",
+            "[<b>Lipid Metabolism Fatty Acids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODc2OTk0Njc4OTQ5NzMx)",
+            "[<b>Lipid Metabolism Ketogenesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODc3OTk2NzAzMzA0NjU4)",
+            "[<b>Lipid Metabolism Lipids Introduction and Classification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODc4OTk4NzI3NjU5NTg1)",
+            "[<b>Lipid Metabolism Lipoprotein Transport atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODgwMDAwNzUyMDE0NTEy)",
+            "[<b>Lipid Metabolism Lipoprotein atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODgxMDAyNzc2MzY5NDM5)",
+            "[<b>Lipid Metabolism Sphingolipids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODgyMDA0ODAwNzI0MzY2)",
+            "[<b>Molecular Biology Dna 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODgzMDA2ODI1MDc5Mjkz)",
+            "[<b>Molecular Biology Dna 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODg0MDA4ODQ5NDM0MjIw)",
+            "[<b>Molecular Biology Dna Damage Repair atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODg1MDEwODczNzg5MTQ3)",
+            "[<b>Molecular Biology Dna Polymerase atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODg2MDEyODk4MTQ0MDc0)",
+            "[<b>Molecular Biology Dna Rna Sequence Relationship atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODg3MDE0OTIyNDk5MDAx)",
+            "[<b>Molecular Biology Dna Synthesis Replication atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODg4MDE2OTQ2ODUzOTI4)",
+            "[<b>Molecular Biology Genetic Code atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODg5MDE4OTcxMjA4ODU1)",
+            "[<b>Molecular Biology Introduction Nucleotide atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODkwMDIwOTk1NTYzNzgy)",
+            "[<b>Molecular Biology Lac Operon atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODkxMDIzMDE5OTE4NzA5)",
+            "[<b>Molecular Biology Lesch Nyhan Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODkyMDI1MDQ0MjczNjM2)",
+            "[<b>Molecular Biology Mitochondrial Dna  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODkzMDI3MDY4NjI4NTYz)",
+            "[<b>Molecular Biology Mutation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODk0MDI5MDkyOTgzNDkw)",
+            "[<b>Molecular Biology Nucleotide Properties atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODk1MDMxMTE3MzM4NDE3)",
+            "[<b>Molecular Biology Pcr atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODk2MDMzMTQxNjkzMzQ0)",
+            "[<b>Molecular Biology Protein Synthesis Translation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODk3MDM1MTY2MDQ4Mjcx)",
+            "[<b>Molecular Biology Purine Degradation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODk4MDM3MTkwNDAzMTk4)",
+            "[<b>Molecular Biology Purine Synthesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExODk5MDM5MjE0NzU4MTI1)",
+            "[<b>Molecular Biology Pyrimidine Metabolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTAwMDQxMjM5MTEzMDUy)",
+            "[<b>Molecular Biology Rna 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTAxMDQzMjYzNDY3OTc5)",
+            "[<b>Molecular Biology Rna 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTAyMDQ1Mjg3ODIyOTA2)",
+            "[<b>Molecular Biology Rna Synthesis Transcription atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTAzMDQ3MzEyMTc3ODMz)",
+            "[<b>Qrp Ini Cet Qrp Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTA0MDQ5MzM2NTMyNzYw)",
+            "[<b>Qrp by Dr Nilesh Chandra 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTA1MDUxMzYwODg3Njg3)",
+            "[<b>Qrp by Dr Nilesh Chandra atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTA2MDUzMzg1MjQyNjE0)",
+            "[<b>Vitamins Lipid Soluble Vitamins atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTA3MDU1NDA5NTk3NTQx)",
+            "[<b>Vitamins Vitamins Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTA4MDU3NDMzOTUyNDY4)",
+            "[<b>Vitamins Water Soluble Vitamins atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTA5MDU5NDU4MzA3Mzk1)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        biochemistryd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"biochemistryd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"biochemistryd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(biochemistryd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("pathologyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Patho Fee Videos - Approach to Anemia and Understanding atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTEwMDYxNDgyNjYyMzIy)",
+            "[<b>1. Patho Fee Videos - Diagnosis Part 2 Fnac atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTExMDYzNTA3MDE3MjQ5)",
+            "[<b>1. Patho Fee Videos - How to Revise Pathology for Upcoming Exams atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTEyMDY1NTMxMzcyMTc2)",
+            "[<b>1. Patho Fee Videos - How to Use Doctutorials App atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTEzMDY3NTU1NzI3MTAz)",
+            "[<b>1. Patho Fee Videos - Membranoproliferative Glomerulonephritis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTE0MDY5NTgwMDgyMDMw)",
+            "[<b>1. Patho Fee Videos - Natural Killer Cells Nk Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTE1MDcxNjA0NDM2OTU3)",
+            "[<b>1. Patho Fee Videos - Pathophysiology and Approach to Diagnosis of G6pd Deficiency atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTE2MDczNjI4NzkxODg0)",
+            "[<b>1. Patho Fee Videos - Wilms Tumor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTE3MDc1NjUzMTQ2ODEx)",
+            "[<b>2. General 1. Cell - Anchoring Junction With Concepts of Bullous Lesions of Skin and Immunofluorescence atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTE4MDc3Njc3NTAxNzM4)",
+            "[<b>2. General 1. Cell - Cell Chromatin and Epigenetics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTE5MDc5NzAxODU2NjY1)",
+            "[<b>2. General 1. Cell - Cell to Cell Interactions Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTIwMDgxNzI2MjExNTky)",
+            "[<b>2. General 1. Cell - Collagen and Some of Its Defects and Differentiation of Epidermolysis Bullosa From Bullous Pemphigoid Aiims Special Topic atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTIxMDgzNzUwNTY2NTE5)",
+            "[<b>2. General 1. Cell - Cytoplasmic Protiens and Focus on Immunohistochemistry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTIyMDg1Nzc0OTIxNDQ2)",
+            "[<b>2. General 1. Cell - Extracellular Matrix Fibrillinopathies Marfan Syndrome and Stain for Elastic Fibres atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTIzMDg3Nzk5Mjc2Mzcz)",
+            "[<b>2. General 1. Cell - Microtubules Ciliopathies and Cilocythopthoria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTI0MDg5ODIzNjMxMzAw)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Aging atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTI1MDkxODQ3OTg2MjI3)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Autophagy and R10 Updates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTI2MDkzODcyMzQxMTU0)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Causes of Cell Injury and Reversible Cell Injury atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTI3MDk1ODk2Njk2MDgx)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Cell Death and Differences Between Apoptosis and Necrosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTI4MDk3OTIxMDUxMDA4)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Cellular Accumulations Calcium and Malakoplakia and Stains atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTI5MDk5OTQ1NDA1OTM1)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Cellular Accumulations Fats atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTMwMTAxOTY5NzYwODYy)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Cellular Accumulations Pigments atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTMxMTAzOTk0MTE1Nzg5)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Cellular Accumulations Proteins atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTMyMTA2MDE4NDcwNzE2)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Cellular Adaptations Part 1  Hypertrophy and Atrophy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTMzMTA4MDQyODI1NjQz)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Irreversible Cell Injury atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTM0MTEwMDY3MTgwNTcw)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Necrosis Its Mechanisms and Subtypes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTM1MTEyMDkxNTM1NDk3)",
+            "[<b>2. General 2. Cell Adaptation, Injury - Robbins 10Th Updates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTM2MTE0MTE1ODkwNDI0)",
+            "[<b>2. General 3. Neoplasia - Cell Cycle Its Regulators Rb Gene atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTM3MTE2MTQwMjQ1MzUx)",
+            "[<b>2. General 3. Neoplasia - Chemical Carcinogenesis and Ames Test atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTM4MTE4MTY0NjAwMjc4)",
+            "[<b>2. General 3. Neoplasia - Diagnosis Part 2 Fnac atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTM5MTIwMTg4OTU1MjA1)",
+            "[<b>2. General 3. Neoplasia - Diagnosis Part 3 Biopsy Special Stains and Immunohistochemistry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQwMTIyMjEzMzEwMTMy)",
+            "[<b>2. General 3. Neoplasia - Diagnosis of Cancer Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQxMTI0MjM3NjY1MDU5)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Angiogenesis Genes Apoptotic Genes and Dna Repair Genes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQyMTI2MjYyMDE5OTg2)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Angiogenesis Genes Vhl Energy and Oncometabolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQzMTI4Mjg2Mzc0OTEz)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQ0MTMwMzEwNzI5ODQw)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Metastasis and Escaping Immunity and Death and Recap atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQ1MTMyMzM1MDg0NzY3)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Proto Oncogenes Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQ2MTM0MzU5NDM5Njk0)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Proto Oncogenes Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQ3MTM2MzgzNzk0NjIx)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Proto Oncogenes Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQ4MTM4NDA4MTQ5NTQ4)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Tumor Suppressor Genes Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTQ5MTQwNDMyNTA0NDc1)",
+            "[<b>2. General 3. Neoplasia - Genetic Basis of Cancer Tumor Suppressor Genes Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTUwMTQyNDU2ODU5NDAy)",
+            "[<b>2. General 3. Neoplasia - Introduction to Neoplasia Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTUxMTQ0NDgxMjE0MzI5)",
+            "[<b>2. General 3. Neoplasia - Microbial Carcinogenesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTUyMTQ2NTA1NTY5MjU2)",
+            "[<b>2. General 3. Neoplasia - Radiation Carcinogenesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTUzMTQ4NTI5OTI0MTgz)",
+            "[<b>2. General 3. Neoplasia - Recent Advances in Neoplasia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTU0MTUwNTU0Mjc5MTEw)",
+            "[<b>2. General 4. Genetic Disorders - Cgh and Gwasc atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTU1MTUyNTc4NjM0MDM3)",
+            "[<b>2. General 4. Genetic Disorders - Chromosomal Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTU2MTU0NjAyOTg4OTY0)",
+            "[<b>2. General 4. Genetic Disorders - Fluorescent in Situ Hybridization Fish atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTU3MTU2NjI3MzQzODkx)",
+            "[<b>2. General 4. Genetic Disorders - Gene Editing atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTU4MTU4NjUxNjk4ODE4)",
+            "[<b>2. General 4. Genetic Disorders - Introduction to Genetics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTU5MTYwNjc2MDUzNzQ1)",
+            "[<b>2. General 4. Genetic Disorders - Mendelian Disorders Autosomal Dominant Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTYwMTYyNzAwNDA4Njcy)",
+            "[<b>2. General 4. Genetic Disorders - Mendelian Disorders Autosomal Recessive atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTYxMTY0NzI0NzYzNTk5)",
+            "[<b>2. General 4. Genetic Disorders - Mendelian Disorders Holandric Disorders Co Dominant Pleiotrophy Genetic Heterogenetity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTYyMTY2NzQ5MTE4NTI2)",
+            "[<b>2. General 4. Genetic Disorders - Mendelian Disorders X Linked Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTYzMTY4NzczNDczNDUz)",
+            "[<b>2. General 4. Genetic Disorders - Microarray atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTY0MTcwNzk3ODI4Mzgw)",
+            "[<b>2. General 4. Genetic Disorders - Mlpa Jist of All Techniques atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTY1MTcyODIyMTgzMzA3)",
+            "[<b>2. General 4. Genetic Disorders - Molecular Techniques in Genetics Basics and Karyotyping atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTY2MTc0ODQ2NTM4MjM0)",
+            "[<b>2. General 4. Genetic Disorders - Multifactorial Inheritance Polymorphisms and Linkage atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTY3MTc2ODcwODkzMTYx)",
+            "[<b>2. General 4. Genetic Disorders - Non Mendelian Disorders Genomic Imprinting atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTY4MTc4ODk1MjQ4MDg4)",
+            "[<b>2. General 4. Genetic Disorders - Non Mendelian Disorders Gonadal Mosacism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTY5MTgwOTE5NjAzMDE1)",
+            "[<b>2. General 4. Genetic Disorders - Non Mendelian Disorders Mitochondrial Inheritance atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTcwMTgyOTQzOTU3OTQy)",
+            "[<b>2. General 4. Genetic Disorders - Non Mendelian Disorders Trinucleotide Repeat Inheritence and Fragile X Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTcxMTg0OTY4MzEyODY5)",
+            "[<b>2. General 4. Genetic Disorders - Pcr and Other Molecular Techniques atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTcyMTg2OTkyNjY3Nzk2)",
+            "[<b>2. General 4. Genetic Disorders - Understanding Pedigree Analysis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTczMTg5MDE3MDIyNzIz)",
+            "[<b>2. General 5. Inflammation - Cellular Mediators Ibq Mast Cell atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTc0MTkxMDQxMzc3NjUw)",
+            "[<b>2. General 5. Inflammation - Chronic Inflammation Types of Macrophages and Giant Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTc1MTkzMDY1NzMyNTc3)",
+            "[<b>2. General 5. Inflammation - Classification of Inflammation and Mechanism of Inflammation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTc2MTk1MDkwMDg3NTA0)",
+            "[<b>2. General 5. Inflammation - Diagnosis of Inflammation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTc3MTk3MTE0NDQyNDMx)",
+            "[<b>2. General 5. Inflammation - Disease of Inflammation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTc4MTk5MTM4Nzk3MzU4)",
+            "[<b>2. General 5. Inflammation - Mechanism of Inflammation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTc5MjAxMTYzMTUyMjg1)",
+            "[<b>2. General 5. Inflammation - Morphological Features of Inflammation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTgwMjAzMTg3NTA3MjEy)",
+            "[<b>2. General 5. Inflammation - Plasma Mediators With Complement Opathies Aiims Highlight Topic atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTgxMjA1MjExODYyMTM5)",
+            "[<b>2. General 5. Inflammation - Repair and Regeneration and Their Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTgyMjA3MjM2MjE3MDY2)",
+            "[<b>2. General 5. Inflammation - Rosai Dorfman Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTgzMjA5MjYwNTcxOTkz)",
+            "[<b>2. General 5. Inflammation - Types of Granulomas atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTg0MjExMjg0OTI2OTIw)",
+            "[<b>2. General 6. Immunity - Adaptive Immunity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTg1MjEzMzA5MjgxODQ3)",
+            "[<b>2. General 6. Immunity - Amyloidosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTg2MjE1MzMzNjM2Nzc0)",
+            "[<b>2. General 6. Immunity - Basic Function of Immunity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTg3MjE3MzU3OTkxNzAx)",
+            "[<b>2. General 6. Immunity - Bruton Agammaglobulinemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTg4MjE5MzgyMzQ2NjI4)",
+            "[<b>2. General 6. Immunity - Digeorge Syndrome and Recap of Lymphocyte Maturation Defects atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTg5MjIxNDA2NzAxNTU1)",
+            "[<b>2. General 6. Immunity - Graft Rejection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTkwMjIzNDMxMDU2NDgy)",
+            "[<b>2. General 6. Immunity - Hyper Igm Syndrome Isolated Iga Defect X Linked Lymphoproliferative Disorder and Recap of All Immunodeficiency Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTkxMjI1NDU1NDExNDA5)",
+            "[<b>2. General 6. Immunity - Hypersensitivity Reactions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTkyMjI3NDc5NzY2MzM2)",
+            "[<b>2. General 6. Immunity - Immunodeficiency Diseases Classification Detailed Overview of Scid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTkzMjI5NTA0MTIxMjYz)",
+            "[<b>2. General 6. Immunity - Immunodeficiency Diseases Questions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTk0MjMxNTI4NDc2MTkw)",
+            "[<b>2. General 6. Immunity - Innate Immunity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTk1MjMzNTUyODMxMTE3)",
+            "[<b>2. General 6. Immunity - Interaction of B Cell T Cell Hyper Igm Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTk2MjM1NTc3MTg2MDQ0)",
+            "[<b>2. General 6. Immunity - Lymphocyte Activation Defects Classification and Common Variable Immunodeficiency Cvid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTk3MjM3NjAxNTQwOTcx)",
+            "[<b>2. General 6. Immunity - Mhc and Its Matching atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTk4MjM5NjI1ODk1ODk4)",
+            "[<b>2. General 6. Immunity - Must Know Hiv in Hiv atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTExOTk5MjQxNjUwMjUwODI1)",
+            "[<b>2. General 6. Immunity - Natural Killer Cells Nk Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDAwMjQzNjc0NjA1NzUy)",
+            "[<b>2. General 6. Immunity - Preventing Graft Rejection and Gvhd Gvl atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDAxMjQ1Njk4OTYwNjc5)",
+            "[<b>2. General 6. Immunity - Tolerance and Its Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDAyMjQ3NzIzMzE1NjA2)",
+            "[<b>2. General 6. Immunity - Wiskott Aldrich Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDAzMjQ5NzQ3NjcwNTMz)",
+            "[<b>2. General 7. Hemodynamics - Difference Between Hyperemia and Congestion With Emphasis on All Types of Cvc atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDA0MjUxNzcyMDI1NDYw)",
+            "[<b>2. General 7. Hemodynamics - Embolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDA1MjUzNzk2MzgwMzg3)",
+            "[<b>2. General 7. Hemodynamics - Infarcts atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDA2MjU1ODIwNzM1MzE0)",
+            "[<b>2. General 7. Hemodynamics - Shock atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDA3MjU3ODQ1MDkwMjQx)",
+            "[<b>2. General 7. Hemodynamics - Virchow Triad atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDA4MjU5ODY5NDQ1MTY4)",
+            "[<b>3. Cardiovascular System - Hypertrophic Obstructive Cardiomyopathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDA5MjYxODkzODAwMDk1)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Alzheimer Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDEwMjYzOTE4MTU1MDIy)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Approach to Cns Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDExMjY1OTQyNTA5OTQ5)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Basic Introduction With Focus on Glial Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDEyMjY3OTY2ODY0ODc2)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Cns Hemorrhage atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDEzMjY5OTkxMjE5ODAz)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Craniopharyngioma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDE0MjcyMDE1NTc0NzMw)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Csf Examination atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDE1Mjc0MDM5OTI5NjU3)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Focus on Neuronal Cells Its Inclusions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDE2Mjc2MDY0Mjg0NTg0)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Metastasis Meningioma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDE3Mjc4MDg4NjM5NTEx)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Nerve Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDE4MjgwMTEyOTk0NDM4)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Oligodendroglioma and Updates on Gloma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDE5MjgyMTM3MzQ5MzY1)",
+            "[<b>4. Systemic 1. Central Nervous System and Its Disorders - Prion Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDIwMjg0MTYxNzA0Mjky)",
+            "[<b>4. Systemic 2. Git - Basic Understanding of Git atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDIxMjg2MTg2MDU5MjE5)",
+            "[<b>4. Systemic 2. Git - Carcinoma of Colon and Anal Canal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDIyMjg4MjEwNDE0MTQ2)",
+            "[<b>4. Systemic 2. Git - Esophagus Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDIzMjkwMjM0NzY5MDcz)",
+            "[<b>4. Systemic 2. Git - Esophagus Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDI0MjkyMjU5MTI0MDAw)",
+            "[<b>4. Systemic 2. Git - Esophagus Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDI1Mjk0MjgzNDc4OTI3)",
+            "[<b>4. Systemic 2. Git - Gastric Polyps and Stomach Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDI2Mjk2MzA3ODMzODU0)",
+            "[<b>4. Systemic 2. Git - Gastritis Gastric Ulcer and H Pylori atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDI3Mjk4MzMyMTg4Nzgx)",
+            "[<b>4. Systemic 2. Git - Hirschsprung Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDI4MzAwMzU2NTQzNzA4)",
+            "[<b>4. Systemic 2. Git - Inflammatory Bowel Disease and Detailed Discussion of Chrons Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDI5MzAyMzgwODk4NjM1)",
+            "[<b>4. Systemic 2. Git - Intestinal Polyps and Syndromes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDMwMzA0NDA1MjUzNTYy)",
+            "[<b>4. Systemic 2. Git - Malabsorbtion Syndromes With Focus on Celiac Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDMxMzA2NDI5NjA4NDg5)",
+            "[<b>4. Systemic 2. Git - Malabsorption Syndromes With Focus on Whipple Disease and Tropical Sprue atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDMyMzA4NDUzOTYzNDE2)",
+            "[<b>4. Systemic 2. Git - Overview of Ibd and Detailed Discussion of Ulcerative Colitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDMzMzEwNDc4MzE4MzQz)",
+            "[<b>4. Systemic 2. Git - Ulcers of Intestine With Importance on Pseudomemenranous Colitis Jipmer Focus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDM0MzEyNTAyNjczMjcw)",
+            "[<b>4. Systemic 2. Git - Unusual Causes of Malabsorption Aiims Highlight Topic atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDM1MzE0NTI3MDI4MTk3)",
+            "[<b>4. Systemic 3. Breast - Basics of Breast Pathology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDM2MzE2NTUxMzgzMTI0)",
+            "[<b>4. Systemic 3. Breast - Basics of Breast atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDM3MzE4NTc1NzM4MDUx)",
+            "[<b>4. Systemic 3. Breast - Breast Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDM4MzIwNjAwMDkyOTc4)",
+            "[<b>4. Systemic 3. Breast - Classification of Breast Lesions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDM5MzIyNjI0NDQ3OTA1)",
+            "[<b>4. Systemic 3. Breast - Fibrocystic Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQwMzI0NjQ4ODAyODMy)",
+            "[<b>4. Systemic 3. Breast - Fibroepithelial Lesions With Emphasis on Fibroadenoma and Phyllodes Tumor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQxMzI2NjczMTU3NzU5)",
+            "[<b>4. Systemic 3. Breast - In Situ Lesions Dcis Lcis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQyMzI4Njk3NTEyNjg2)",
+            "[<b>4. Systemic 3. Breast - Inflammatory Lesions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQzMzMwNzIxODY3NjEz)",
+            "[<b>4. Systemic 3. Breast - Proliferative Breast Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQ0MzMyNzQ2MjIyNTQw)",
+            "[<b>4. Systemic 4. Male Genital System - Classification of Testicular Tumors Continued and Seminoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQ1MzM0NzcwNTc3NDY3)",
+            "[<b>4. Systemic 4. Male Genital System - Gonadoblastoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQ2MzM2Nzk0OTMyMzk0)",
+            "[<b>4. Systemic 4. Male Genital System - Penile Lesions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQ3MzM4ODE5Mjg3MzIx)",
+            "[<b>4. Systemic 4. Male Genital System - Prostate Cancer and Gleason Score atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQ4MzQwODQzNjQyMjQ4)",
+            "[<b>4. Systemic 4. Male Genital System - Sex Cord Tumors Testicular Lymphoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDQ5MzQyODY3OTk3MTc1)",
+            "[<b>4. Systemic 4. Male Genital System - Spermatocytic Tumor and Nsgct 1 Non Seminomatous Gct atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDUwMzQ0ODkyMzUyMTAy)",
+            "[<b>4. Systemic 4. Male Genital System - Understanding Basic Testis Structure Gcnis and Classification of Testicular Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDUxMzQ2OTE2NzA3MDI5)",
+            "[<b>4. Systemic 5. Female Genital System - Classification of Ovarian Cancers in Detail atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDUyMzQ4OTQxMDYxOTU2)",
+            "[<b>4. Systemic 5. Female Genital System - Endometrium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDUzMzUwOTY1NDE2ODgz)",
+            "[<b>4. Systemic 5. Female Genital System - Gestational Trophoblastic Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDU0MzUyOTg5NzcxODEw)",
+            "[<b>4. Systemic 5. Female Genital System - Myometrium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDU1MzU1MDE0MTI2NzM3)",
+            "[<b>4. Systemic 5. Female Genital System - Pap Smear atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDU2MzU3MDM4NDgxNjY0)",
+            "[<b>4. Systemic 5. Female Genital System - Vaginal Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDU3MzU5MDYyODM2NTkx)",
+            "[<b>4. Systemic 5. Female Genital System - Vulva atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDU4MzYxMDg3MTkxNTE4)",
+            "[<b>4. Systemic 5. Female Genital System - Who Classification of Ovarian Malignancies atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDU5MzYzMTExNTQ2NDQ1)",
+            "[<b>4. Systemic 6. Cardiovascular System and Its Disorders - Arrythmogenic Right Ventricular atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDYwMzY1MTM1OTAxMzcy)",
+            "[<b>4. Systemic 6. Cardiovascular System and Its Disorders - Cardiac Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDYxMzY3MTYwMjU2Mjk5)",
+            "[<b>4. Systemic 6. Cardiovascular System and Its Disorders - Dilated Cardiomyopathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDYyMzY5MTg0NjExMjI2)",
+            "[<b>4. Systemic 6. Cardiovascular System and Its Disorders - Endocarditis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDYzMzcxMjA4OTY2MTUz)",
+            "[<b>4. Systemic 6. Cardiovascular System and Its Disorders - Myocardial Infarction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDY0MzczMjMzMzIxMDgw)",
+            "[<b>4. Systemic 6. Cardiovascular System and Its Disorders - Restrictive Cardiomyopathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDY1Mzc1MjU3Njc2MDA3)",
+            "[<b>4. Systemic 6. Cardiovascular System and Its Disorders - Rheumatic Heart Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDY2Mzc3MjgyMDMwOTM0)",
+            "[<b>4. Systemic 6. Cardiovascular System and Its Disorders - Understanding Cardiomyopathies atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDY3Mzc5MzA2Mzg1ODYx)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Alcoholic Liver Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDY4MzgxMzMwNzQwNzg4)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Approach to Jaundice atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDY5MzgzMzU1MDk1NzE1)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Autoimmune Hepatitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDcwMzg1Mzc5NDUwNjQy)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Cirrhosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDcxMzg3NDAzODA1NTY5)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Hepatic Adenoma Aiims atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDcyMzg5NDI4MTYwNDk2)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Introduction to Liver atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDczMzkxNDUyNTE1NDIz)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Liver Function Test atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDc0MzkzNDc2ODcwMzUw)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Nafld Non Alcoholic Fatty Liver Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDc1Mzk1NTAxMjI1Mjc3)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Neonatal Hepatitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDc2Mzk3NTI1NTgwMjA0)",
+            "[<b>4. Systemic 7. Liver Gallbladder Pancreas and Its Disorders - Nodules of Liver atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDc3Mzk5NTQ5OTM1MTMx)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Amyloid Kidney atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDc4NDAxNTc0MjkwMDU4)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Crystals in Urine Casts atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDc5NDAzNTk4NjQ0OTg1)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Diabetic Kidney atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDgwNDA1NjIyOTk5OTEy)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Electron Microscopy of Kidney Understanding With Images atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDgxNDA3NjQ3MzU0ODM5)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Focal Segmental Glomerulosclerosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDgyNDA5NjcxNzA5NzY2)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Iga Nephropathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDgzNDExNjk2MDY0Njkz)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Immunofluorescence in Kidney Aiims Highlight Topics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDg0NDEzNzIwNDE5NjIw)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Membranoproliferative Glomerulonephritis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDg1NDE1NzQ0Nzc0NTQ3)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Membranous Nephropathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDg2NDE3NzY5MTI5NDc0)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Minimal Change Disease Nephrotic Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDg3NDE5NzkzNDg0NDAx)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Nephritic Syndrome Clinical Features Urine Findings atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDg4NDIxODE3ODM5MzI4)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Nephrotic Syndrome Clinical Features Genes Urine Findings atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDg5NDIzODQyMTk0MjU1)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Pathophysiology of Glomerular Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDkwNDI1ODY2NTQ5MTgy)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Polyomavirus Tb Kidney Malakoplakia Aiims Highlight Topics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDkxNDI3ODkwOTA0MTA5)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Post Streptococcal Glomerulonephritis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDkyNDI5OTE1MjU5MDM2)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Rapidly Progressive Glomerulonephritis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDkzNDMxOTM5NjEzOTYz)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Renal Tumors in Adults atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDk0NDMzOTYzOTY4ODkw)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Sle Kidney atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDk1NDM1OTg4MzIzODE3)",
+            "[<b>4. Systemic 8. Renal System and Its Disorders - Wilms Tumor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDk2NDM4MDEyNjc4NzQ0)",
+            "[<b>4. Systemic 10. Respiratory System - Ards Acute Respiratory Distress Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDk3NDQwMDM3MDMzNjcx)",
+            "[<b>4. Systemic 10. Respiratory System - Basics of Respiratory System Alveoli Bronchi With Images atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDk4NDQyMDYxMzg4NTk4)",
+            "[<b>4. Systemic 10. Respiratory System - Benign Lung Tumours Unsual Tumours of Lung atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMDk5NDQ0MDg1NzQzNTI1)",
+            "[<b>4. Systemic 10. Respiratory System - Copd Chronic Bronchitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTAwNDQ2MTEwMDk4NDUy)",
+            "[<b>4. Systemic 10. Respiratory System - Lung Tumour atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTAxNDQ4MTM0NDUzMzc5)",
+            "[<b>4. Systemic 10. Respiratory System - Obstructive Lung Disease With Focus on Emphysema atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTAyNDUwMTU4ODA4MzA2)",
+            "[<b>4. Systemic 10. Respiratory System - Obstructive Lung Diseases Bronchiectasis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTAzNDUyMTgzMTYzMjMz)",
+            "[<b>4. Systemic 10. Respiratory System - Obstructive Lung Diseases Asthma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTA0NDU0MjA3NTE4MTYw)",
+            "[<b>4. Systemic 10. Respiratory System - Pneumonia With Special Types of Fungal Pneumonias and Pneumocystis Pneumonia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTA1NDU2MjMxODczMDg3)",
+            "[<b>4. Systemic 10. Respiratory System - Restrictive Lung Disease Classification Except Pneumoconiosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTA2NDU4MjU2MjI4MDE0)",
+            "[<b>4. Systemic 10. Respiratory System - Restrictive Lung Disease With Focus on Pneumoconiosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTA3NDYwMjgwNTgyOTQx)",
+            "[<b>4. Systemic 10. Respiratory System - Restrictive Lung Disease Fibrosing Rld and Honeycomb Lung atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTA4NDYyMzA0OTM3ODY4)",
+            "[<b>4. Systemic 10. Respiratory System - Pneumonia With Special Types of Pneumonias Aspiration Pneumonia Golden Pneumonia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTA5NDY0MzI5MjkyNzk1)",
+            "[<b>4. Systemic 10. Respiratory System - Restrictive Lung Disease Part 3 Sarcoidosis and Its Differentials atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTEwNDY2MzUzNjQ3NzIy)",
+            "[<b>4. Systemic 11. Blood Vessels - Basics of Blood Vessels atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTExNDY4Mzc4MDAyNjQ5)",
+            "[<b>4. Systemic 11. Blood Vessels - Benign Vascular Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTEyNDcwNDAyMzU3NTc2)",
+            "[<b>4. Systemic 11. Blood Vessels - Blood Vessels Anomalies and Abnormalities atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTEzNDcyNDI2NzEyNTAz)",
+            "[<b>4. Systemic 11. Blood Vessels - Dissection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTE0NDc0NDUxMDY3NDMw)",
+            "[<b>4. Systemic 11. Blood Vessels - Kaposi Sarcoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTE1NDc2NDc1NDIyMzU3)",
+            "[<b>4. Systemic 11. Blood Vessels - Large Vessel Vasculitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTE2NDc4NDk5Nzc3Mjg0)",
+            "[<b>4. Systemic 11. Blood Vessels - Aneurysm atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTE3NDgwNTI0MTMyMjEx)",
+            "[<b>4. Systemic 11. Blood Vessels - Blood Vessel Tumors Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTE4NDgyNTQ4NDg3MTM4)",
+            "[<b>4. Systemic 11. Blood Vessels - Malignant Vascular Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTE5NDg0NTcyODQyMDY1)",
+            "[<b>4. Systemic 11. Blood Vessels - Medium Vessel Vasculitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTIwNDg2NTk3MTk2OTky)",
+            "[<b>4. Systemic 11. Blood Vessels - Small Vessel Vasculitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTIxNDg4NjIxNTUxOTE5)",
+            "[<b>4. Systemic 11. Blood Vessels - Sclerosis With Highlight on Atherosclerosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTIyNDkwNjQ1OTA2ODQ2)",
+            "[<b>4. Systemic 11. Blood Vessels - Vasculitis Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTIzNDkyNjcwMjYxNzcz)",
+            "[<b>4. Systemic 11. Blood Vessels - Vasculitis Special Types atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTI0NDk0Njk0NjE2NzAw)",
+            "[<b>4. Systemic 12. Skin - Basics of Skin atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTI1NDk2NzE4OTcxNjI3)",
+            "[<b>4. Systemic 12. Skin - Bullous Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTI2NDk4NzQzMzI2NTU0)",
+            "[<b>4. Systemic 12. Skin - Infections of Skin atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTI3NTAwNzY3NjgxNDgx)",
+            "[<b>4. Systemic 12. Skin - Inflammatory Dermatos Including Psoriasis and Lichen Planus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTI4NTAyNzkyMDM2NDA4)",
+            "[<b>4. Systemic 12. Skin - Pigmentary Disorders of Skin Including Nevus and Melanoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTI5NTA0ODE2MzkxMzM1)",
+            "[<b>4. Systemic 12. Skin - Tumors of Skin atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTMwNTA2ODQwNzQ2MjYy)",
+            "[<b>4. Systemic 13. Head and Neck - Head Neck atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTMxNTA4ODY1MTAxMTg5)",
+            "[<b>4. Systemic 13. Head and Neck - Malignant Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTMyNTEwODg5NDU2MTE2)",
+            "[<b>4. Systemic 13. Head and Neck - Salivary Gland Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTMzNTEyOTEzODExMDQz)",
+            "[<b>4. Systemic 13. Head and Neck - Salivary Gland Quiz atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTM0NTE0OTM4MTY1OTcw)",
+            "[<b>4. Systemic 13. Head and Neck - Salivary Gland Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTM1NTE2OTYyNTIwODk3)",
+            "[<b>4. Systemic 14. Bone Tumors in Jist - Bone Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTM2NTE4OTg2ODc1ODI0)",
+            "[<b>4. Systemic 15. Pancreas - Classification of Cystic Lesions of Pancreas atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTM3NTIxMDExMjMwNzUx)",
+            "[<b>5. Endocrine 1. Endocrine System and Its Disorders - Pituitary atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTM4NTIzMDM1NTg1Njc4)",
+            "[<b>Basics of Thyroid With Emphasis on Graves Disease and Thyroiditis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTM5NTI1MDU5OTQwNjA1)",
+            "[<b>Malignancy of Thyroid With Emphasis on Molecular Classification of Follicular Neoplasms atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQwNTI3MDg0Mjk1NTMy)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Alpha Thalassemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQxNTI5MTA4NjUwNDU5)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Approach to Anemia With Emphasis on Approach to Hemolytic Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQyNTMxMTMzMDA1Mzg2)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Approach to Anemia and Understanding Mch Mchc Rdw Red Cell Parameters Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQzNTMzMTU3MzYwMzEz)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Approach to Microcytic Hypochromic Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQ0NTM1MTgxNzE1MjQw)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Autoimmune Hemolytic Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQ1NTM3MjA2MDcwMTY3)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Diagnosis of Thalassemia in Jist and Alkali Denaturation Test atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQ2NTM5MjMwNDI1MDk0)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Genetics of B Thalassemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQ3NTQxMjU0NzgwMDIx)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Hypoproliferative Anemias Aplastic Anemia and Pure Red Cell Aplasia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQ4NTQzMjc5MTM0OTQ4)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Macrocytic Anemia With Focus on Megaloblastic Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTQ5NTQ1MzAzNDg5ODc1)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Pathophysiological Features and Diagnosis of Sickle Cell Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTUwNTQ3MzI3ODQ0ODAy)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Pathophysiology and Approach to Diagnosis of G6pd Deficiency atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTUxNTQ5MzUyMTk5NzI5)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Pathophysiology and Approach to Diagnosis of Pnh atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTUyNTUxMzc2NTU0NjU2)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Pathophysiology and Approach to Diagnosis of Spherocytosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTUzNTUzNDAwOTA5NTgz)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Red Cell Inclusions Aiims atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTU0NTU1NDI1MjY0NTEw)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Red Cell Membrane Abnormalities Jipmer and Aiims atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTU1NTU3NDQ5NjE5NDM3)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Sideroblastic Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTU2NTU5NDczOTc0MzY0)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Thalassemia Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTU3NTYxNDk4MzI5Mjkx)",
+            "[<b>6. Hematology - 1. Red Blood Cells and Its Disorders - Understanding Sickle Cell Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTU4NTYzNTIyNjg0MjE4)",
+            "[<b>APLA_and_Factor_8_Inhibitors_Concept_of_Mixing_Studies_and_Reptilase atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTU5NTY1NTQ3MDM5MTQ1)",
+            "[<b>Approach-To-Secondary-Hemostatic-Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTYwNTY3NTcxMzk0MDcy)",
+            "[<b>Approach-to-Fibrinolytic-System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTYxNTY5NTk1NzQ4OTk5)",
+            "[<b>Approach_to_Anticoagulant_Molecules_with_Special_Emphasis_on_Factor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTYyNTcxNjIwMTAzOTI2)",
+            "[<b>Approach_to_Primary_Hemostatic_Disorders_and_Platelet_Aggregometry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTYzNTczNjQ0NDU4ODUz)",
+            "[<b>Idiopathic-Thrombocytopenic-Purpura atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTY0NTc1NjY4ODEzNzgw)",
+            "[<b>Platelets-and-Coagulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTY1NTc3NjkzMTY4NzA3)",
+            "[<b>Thrombotic_Microangiopathies_Microangiopathic_Hemolytic_Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTY2NTc5NzE3NTIzNjM0)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Acute Myeloid Leukemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTY3NTgxNzQxODc4NTYx)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Approach to B Cell Lymphoma Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTY4NTgzNzY2MjMzNDg4)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Basic Understanding of Leukemia Lymphoma and Pathogenesis of Acute Leukemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTY5NTg1NzkwNTg4NDE1)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Basis of Chronic Leukemia and Lymphomas atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTcwNTg3ODE0OTQzMzQy)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Chronic Lymphocytic Leukemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTcxNTg5ODM5Mjk4MjY5)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Chronic Myeloproliferative Neoplasms Chronic Myeloid Leukemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTcyNTkxODYzNjUzMTk2)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Classification and Clinical Features of Acute Lymphoblastic Leukemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTczNTkzODg4MDA4MTIz)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Flow Cytometry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTc0NTk1OTEyMzYzMDUw)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Heavy Chain Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTc1NTk3OTM2NzE3OTc3)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Hodgkin Lymphoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTc2NTk5OTYxMDcyOTA0)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Images of Mature White Blood Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTc3NjAxOTg1NDI3ODMx)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Introduction to Wbc atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTc4NjA0MDA5NzgyNzU4)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Langerhans Cell Histiocytosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTc5NjA2MDM0MTM3Njg1)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Mds atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTgwNjA4MDU4NDkyNjEy)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - Monoclonal Gammopathy Myeloma and Waldenstrom Macroglobulinemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTgxNjEwMDgyODQ3NTM5)",
+            "[<b>6. Hematology - 3. White Blood Cells and Its Disorders - T Cell Lympoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTgyNjEyMTA3MjAyNDY2)",
+            "[<b>6. Hematology - 4. Techniques in Haematology - Anticoagulants and Vacutainers in Haematology and Blood Banking Aiims atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTgzNjE0MTMxNTU3Mzkz)",
+            "[<b>6. Hematology - 4. Techniques in Haematology - Basics of Normal Bone Marrow Topography and Needles atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTg0NjE2MTU1OTEyMzIw)",
+            "[<b>7. Blood Banking, Blood Grouping - Abo Rh Kell Lewis Duffy Blood Groups and Methods of Blood Grouping atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTg1NjE4MTgwMjY3MjQ3)",
+            "[<b>7. Blood Banking, Blood Grouping - Blood Bags atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTg2NjIwMjA0NjIyMTc0)",
+            "[<b>7. Blood Banking, Blood Grouping - Blood Transfusion Reaction Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTg3NjIyMjI4OTc3MTAx)",
+            "[<b>7. Blood Banking, Blood Grouping - Blood Transfusion Reaction Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTg4NjI0MjUzMzMyMDI4)",
+            "[<b>7. Blood Banking, Blood Grouping - Questions on Blood Grouping atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTg5NjI2Mjc3Njg2OTU1)",
+            "[<b>7. Blood Banking, Blood Grouping - Test for Blood Grouping atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTkwNjI4MzAyMDQxODgy)",
+            "[<b>8. Techniques Section - Cytoplasmic Protiens and Focus on Immunohistochemistry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTkxNjMwMzI2Mzk2ODA5)",
+            "[<b>8. Techniques Section - Flow Cytometry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTkyNjMyMzUwNzUxNzM2)",
+            "[<b>8. Techniques Section - Histopathology Fixation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTkzNjM0Mzc1MTA2NjYz)",
+            "[<b>8. Techniques Section - Pap Smear atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTk0NjM2Mzk5NDYxNTkw)",
+            "[<b>9. Qrp - Ini Cet Qrp Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTk1NjM4NDIzODE2NTE3)",
+            "[<b>9. Qrp - Pathology Session 1 by Dr Vandana Puri atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTk2NjQwNDQ4MTcxNDQ0)",
+            "[<b>9. Qrp - Pathology Session 2 by Dr Vandana Puri atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTk3NjQyNDcyNTI2Mzcx)",
+            "[<b>9. Qrp - Pathology by Dr Vandana Puri atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTk4NjQ0NDk2ODgxMjk4)",
+            "[<b>Sinusoidal Obstruction Syndrome Sos or Vod Aiims atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMTk5NjQ2NTIxMjM2MjI1)",
+            "[<b>Approach to Anemia and Understanding Hematocrit Esr and Mcv Red Cell Parameters Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjAwNjQ4NTQ1NTkxMTUy)",
+            "[<b>Approach to B Cell Lymphomas Part 2 With Focus on Hairy Cell Leukemia and Castleman Disease Aiims atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjAxNjUwNTY5OTQ2MDc5)",
+            "[<b>Astrocytoma With Special Mention of Pilocytic Astrocytoma and Glioblastoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjAyNjUyNTk0MzAxMDA2)",
+            "[<b>Autoimmune Cholangiopathies Primary Sclerosing Cholangitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjAzNjU0NjE4NjU1OTMz)",
+            "[<b>Biliary Cirrhosis Difference Between Primary and Secondary atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjA0NjU2NjQzMDEwODYw)",
+            "[<b>Cellular Adaptations Part 2  Hyperplasia and Metaplasia and Questions on Cellular Adaptations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjA1NjU4NjY3MzY1Nzg3)",
+            "[<b>Cholangiocarcinoma Angiosarcoma Metastasis and Hepatoblastoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjA2NjYwNjkxNzIwNzE0)",
+            "[<b>Chronic Myeloproliferative Neoplasms Polycythemia Vera Essential Thrombocytosis Primary Myelofibrosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjA3NjYyNzE2MDc1NjQx)",
+            "[<b>Classification of Hepatitis Detailed Discussion of Viral Hepatitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjA4NjY0NzQwNDMwNTY4)",
+            "[<b>Classification of Liver Tumors Cavernous Hemangioma and Differentiation From Peliosis Hepatis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjA5NjY2NzY0Nzg1NDk1)",
+            "[<b>Ependymoma With Special Mention of New Who Types Chordoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjEwNjY4Nzg5MTQwNDIy)",
+            "[<b>Hepatic Malignancies Hepatocellular Ca and Fibrolamellar Ca atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjExNjcwODEzNDk1MzQ5)",
+            "[<b>Introduction to Red Blood Cells Precursors With Emphasis on Reticulocyte Count Assessment Supravital Stains and Its Use atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjEyNjcyODM3ODUwMjc2)",
+            "[<b>Mechanism of Apoptosis and Various Types of Programmed Cell Deaths Necroptosis Pyroptosis Entosis and Net atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjEzNjc0ODYyMjA1MjAz)",
+            "[<b>Neuronal Tumor Poorly Differentiated Tumors Medulloblastoma Atrt and Cns Lymphoma and Hemangic atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjE0Njc2ODg2NTYwMTMw)",
+            "[<b>Restrictive Lung Disease Smoking Related Rld and Pulmonary Alveolar Protienosis and Jist All of Restrictive Lung Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjE1Njc4OTEwOTE1MDU3)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        pathologyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pathologyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pathologyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pathologyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("microbiologyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. General 1. General Micro - Bacterial Cell Anatomy Structure atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjE2NjgwOTM1MjY5OTg0)",
+            "[<b>1. General 1. General Micro - Bacterial Genetics Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjE3NjgyOTU5NjI0OTEx)",
+            "[<b>1. General 1. General Micro - Bacterial Genetics Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjE4Njg0OTgzOTc5ODM4)",
+            "[<b>1. General 1. General Micro - Bacterial Growth Curve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjE5Njg3MDA4MzM0NzY1)",
+            "[<b>1. General 1. General Micro - Bacterial Spores atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjIwNjg5MDMyNjg5Njky)",
+            "[<b>1. General 1. General Micro - Classification of Microbes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjIxNjkxMDU3MDQ0NjE5)",
+            "[<b>1. General 1. General Micro - Introduction and Definition of Microbiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjIyNjkzMDgxMzk5NTQ2)",
+            "[<b>1. General 1. General Micro - Microscope atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjIzNjk1MTA1NzU0NDcz)",
+            "[<b>1. General 1. General Micro - Temperature Oxygen Carbon Dioxide Ph and Salt Requirements of Microbes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjI0Njk3MTMwMTA5NDAw)",
+            "[<b>1. General 1. General Micro - Virulence Factors of Microbes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjI1Njk5MTU0NDY0MzI3)",
+            "[<b>1. General 2. Stains - Differential Stains Gram Stain atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjI2NzAxMTc4ODE5MjU0)",
+            "[<b>1. General 2. Stains - Differential Stains Ziehl Neelsene atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjI3NzAzMjAzMTc0MTgx)",
+            "[<b>1. General 2. Stains - Negative Stain atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjI4NzA1MjI3NTI5MTA4)",
+            "[<b>1. General 2. Stains - Silver Impregnation Stain atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjI5NzA3MjUxODg0MDM1)",
+            "[<b>1. General 2. Stains - Simple Stains atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjMwNzA5Mjc2MjM4OTYy)",
+            "[<b>1. General 3. Sterilisation and Disinfection - Chemical Methods of Sterilization and Disinfection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjMxNzExMzAwNTkzODg5)",
+            "[<b>1. General 3. Sterilisation and Disinfection - Introduction and Physical Methods Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjMyNzEzMzI0OTQ4ODE2)",
+            "[<b>1. General 3. Sterilisation and Disinfection - Introduction and Physical Methods Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjMzNzE1MzQ5MzAzNzQz)",
+            "[<b>2. Immunology - Active and Passive Immunity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjM0NzE3MzczNjU4Njcw)",
+            "[<b>2. Immunology - Antibody Diversity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjM1NzE5Mzk4MDEzNTk3)",
+            "[<b>2. Immunology - Antibody Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjM2NzIxNDIyMzY4NTI0)",
+            "[<b>2. Immunology - Antibody Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjM3NzIzNDQ2NzIzNDUx)",
+            "[<b>2. Immunology - Antibody Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjM4NzI1NDcxMDc4Mzc4)",
+            "[<b>2. Immunology - Antigen Antibody Reactions Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjM5NzI3NDk1NDMzMzA1)",
+            "[<b>2. Immunology - Antigen Antibody Reactions Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQwNzI5NTE5Nzg4MjMy)",
+            "[<b>2. Immunology - Antigen Antibody Reactions Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQxNzMxNTQ0MTQzMTU5)",
+            "[<b>2. Immunology - Antigen atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQyNzMzNTY4NDk4MDg2)",
+            "[<b>2. Immunology - Complement Proteins Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQzNzM1NTkyODUzMDEz)",
+            "[<b>2. Immunology - Complement Proteins Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQ0NzM3NjE3MjA3OTQw)",
+            "[<b>2. Immunology - Generation of Th1 Th2 Cells and Pathogenesis of Hypersensitivity Reactions and Role of Tc Cells and Interplay Between Th and Tc Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQ1NzM5NjQxNTYyODY3)",
+            "[<b>2. Immunology - Innate and Acquired Immunity Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQ2NzQxNjY1OTE3Nzk0)",
+            "[<b>2. Immunology - Innate and Acquired Immunity Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQ3NzQzNjkwMjcyNzIx)",
+            "[<b>2. Immunology - Introduction to Immunology Innate and Acquired Immunity Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQ4NzQ1NzE0NjI3NjQ4)",
+            "[<b>2. Immunology - Members of Acquired Immunity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjQ5NzQ3NzM4OTgyNTc1)",
+            "[<b>2. Immunology - Mhc Complex and Antigen Processing atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjUwNzQ5NzYzMzM3NTAy)",
+            "[<b>2. Immunology - Superantigen atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjUxNzUxNzg3NjkyNDI5)",
+            "[<b>2. Immunology - Td and Ti Antigens atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjUyNzUzODEyMDQ3MzU2)",
+            "[<b>2. Immunology - Tolerance atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjUzNzU1ODM2NDAyMjgz)",
+            "[<b>2. Immunology - Type 1 Hypersensitivity Reaction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjU0NzU3ODYwNzU3MjEw)",
+            "[<b>2. Immunology - Type 2 Hypersensitivity Reaction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjU1NzU5ODg1MTEyMTM3)",
+            "[<b>2. Immunology - Type 3 Hypersensitivity Reaction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjU2NzYxOTA5NDY3MDY0)",
+            "[<b>2. Immunology - Type 4 Hypersensitivity Reaction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjU3NzYzOTMzODIxOTkx)",
+            "[<b>3. Bacteriology - 1. Organisms Not Seen on Gram Stain - Organisms Not Seen on Gram Stain Chlamydiae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjU4NzY1OTU4MTc2OTE4)",
+            "[<b>3. Bacteriology - 1. Organisms Not Seen on Gram Stain - Organisms Not Seen on Gram Stain Mycoplasma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjU5NzY3OTgyNTMxODQ1)",
+            "[<b>3. Bacteriology - 1. Organisms Not Seen on Gram Stain - Organisms Not Seen on Gram Stain Rickettsiae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjYwNzcwMDA2ODg2Nzcy)",
+            "[<b>3. Bacteriology - 1. Organisms Not Seen on Gram Stain - Organisms Not Seen on Gram Stain Spirochaetes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjYxNzcyMDMxMjQxNjk5)",
+            "[<b>3. Bacteriology - 2. Enterobacteriaceae Family - Escherichia Coli atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjYyNzc0MDU1NTk2NjI2)",
+            "[<b>3. Bacteriology - 2. Enterobacteriaceae Family - Klebsiellae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjYzNzc2MDc5OTUxNTUz)",
+            "[<b>3. Bacteriology - 2. Enterobacteriaceae Family - Proteus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjY0Nzc4MTA0MzA2NDgw)",
+            "[<b>3. Bacteriology - 2. Enterobacteriaceae Family - Salmonella atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjY1NzgwMTI4NjYxNDA3)",
+            "[<b>3. Bacteriology - 2. Enterobacteriaceae Family - Serratia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjY2NzgyMTUzMDE2MzM0)",
+            "[<b>3. Bacteriology - 2. Enterobacteriaceae Family - Shigella atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjY3Nzg0MTc3MzcxMjYx)",
+            "[<b>3. Bacteriology - 2. Enterobacteriaceae Family - Yersinia Pestis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjY4Nzg2MjAxNzI2MTg4)",
+            "[<b>3. Bacteriology - 3. Gram Positive Spore Bearing Rods - Bacillus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjY5Nzg4MjI2MDgxMTE1)",
+            "[<b>3. Bacteriology - 3. Gram Positive Spore Bearing Rods - Clostridium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjcwNzkwMjUwNDM2MDQy)",
+            "[<b>3. Bacteriology - 4. Gram Positive Non Sporing Rods - Corynebacterium Diphtheriae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjcxNzkyMjc0NzkwOTY5)",
+            "[<b>3. Bacteriology - 4. Gram Positive Non Sporing Rods - Listeria Monocytogenes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjcyNzk0Mjk5MTQ1ODk2)",
+            "[<b>Gram Positive Filamentous Bacteria Nocardia and Actinomyces atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjczNzk2MzIzNTAwODIz)",
+            "[<b>3. Bacteriology - 6. Gram Negative Cocci Neisseria - Gram Negative Cocci Neisseria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjc0Nzk4MzQ3ODU1NzUw)",
+            "[<b>3. Bacteriology - 7. Gram Positive Cocci - Staphylococcus Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjc1ODAwMzcyMjEwNjc3)",
+            "[<b>3. Bacteriology - 7. Gram Positive Cocci - Staphylococcus Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjc2ODAyMzk2NTY1NjA0)",
+            "[<b>3. Bacteriology - 7. Gram Positive Cocci - Streptococcus Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjc3ODA0NDIwOTIwNTMx)",
+            "[<b>3. Bacteriology - 7. Gram Positive Cocci - Streptococcus Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjc4ODA2NDQ1Mjc1NDU4)",
+            "[<b>3. Bacteriology - 7. Gram Positive Cocci - Streptococcus Pneumoniae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjc5ODA4NDY5NjMwMzg1)",
+            "[<b>3. Bacteriology - 8. Gram Negative Oxidase Positive Rods Coccobacilli - Bordetella Pertussis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjgwODEwNDkzOTg1MzEy)",
+            "[<b>3. Bacteriology - 8. Gram Negative Oxidase Positive Rods Coccobacilli - Brucella atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjgxODEyNTE4MzQwMjM5)",
+            "[<b>3. Bacteriology - 8. Gram Negative Oxidase Positive Rods Coccobacilli - Campylobacter Jejuni atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjgyODE0NTQyNjk1MTY2)",
+            "[<b>3. Bacteriology - 8. Gram Negative Oxidase Positive Rods Coccobacilli - Haemophilus Aegyptius and H Ducreyi atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjgzODE2NTY3MDUwMDkz)",
+            "[<b>3. Bacteriology - 8. Gram Negative Oxidase Positive Rods Coccobacilli - Haemophilus Influenzae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjg0ODE4NTkxNDA1MDIw)",
+            "[<b>3. Bacteriology - 8. Gram Negative Oxidase Positive Rods Coccobacilli - Helicobacter Pylori atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjg1ODIwNjE1NzU5OTQ3)",
+            "[<b>3. Bacteriology - 8. Gram Negative Oxidase Positive Rods Coccobacilli - Pseudomonas Aeruginosa atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjg2ODIyNjQwMTE0ODc0)",
+            "[<b>3. Bacteriology - 8. Gram Negative Oxidase Positive Rods Coccobacilli - Vibrio Cholerae Halophilic atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjg3ODI0NjY0NDY5ODAx)",
+            "[<b>3. Bacteriology - 9. Mycobacteria - Atypical Mycobacteria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjg4ODI2Njg4ODI0NzI4)",
+            "[<b>3. Bacteriology - 9. Mycobacteria - Mycobacterium Leprae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjg5ODI4NzEzMTc5NjU1)",
+            "[<b>3. Bacteriology - 9. Mycobacteria - Mycobacterium Tuberculosis Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjkwODMwNzM3NTM0NTgy)",
+            "[<b>3. Bacteriology - 9. Mycobacteria - Mycobacterium Tuberculosis Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjkxODMyNzYxODg5NTA5)",
+            "[<b>4. Clinical Mycology - Introduction to Medical Mycology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjkyODM0Nzg2MjQ0NDM2)",
+            "[<b>4. Clinical Mycology - Opportunistic Mycoses Aspergillosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjkzODM2ODEwNTk5MzYz)",
+            "[<b>4. Clinical Mycology - Opportunistic Mycoses Candidiasis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjk0ODM4ODM0OTU0Mjkw)",
+            "[<b>4. Clinical Mycology - Opportunistic Mycoses Cryptococcosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjk1ODQwODU5MzA5MjE3)",
+            "[<b>4. Clinical Mycology - Opportunistic Mycoses Pneumocystosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjk2ODQyODgzNjY0MTQ0)",
+            "[<b>4. Clinical Mycology - Opportunistic Mycoses Zygomycosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjk3ODQ0OTA4MDE5MDcx)",
+            "[<b>4. Clinical Mycology - Subcutaneous Mycoses Chromoblastomycosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjk4ODQ2OTMyMzczOTk4)",
+            "[<b>4. Clinical Mycology - Subcutaneous Mycoses Mycetoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMjk5ODQ4OTU2NzI4OTI1)",
+            "[<b>4. Clinical Mycology - Subcutaneous Mycoses Rhinosporidiosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzAwODUwOTgxMDgzODUy)",
+            "[<b>4. Clinical Mycology - Subcutaneous Mycoses Sporotrichosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzAxODUzMDA1NDM4Nzc5)",
+            "[<b>4. Clinical Mycology - Superficial Mycoses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzAyODU1MDI5NzkzNzA2)",
+            "[<b>4. Clinical Mycology - Systemic Mycoses Blastomycosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzAzODU3MDU0MTQ4NjMz)",
+            "[<b>4. Clinical Mycology - Systemic Mycoses Coccidioidomycosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzA0ODU5MDc4NTAzNTYw)",
+            "[<b>4. Clinical Mycology - Systemic Mycoses Histoplasmosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzA1ODYxMTAyODU4NDg3)",
+            "[<b>4. Clinical Mycology - Systemic Mycoses Paracoccidioidomycosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzA2ODYzMTI3MjEzNDE0)",
+            "[<b>4. Clinical Mycology - Systemic Mycoses Penicilliosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzA3ODY1MTUxNTY4MzQx)",
+            "[<b>5. Clinical Virology - Adenovirus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzA4ODY3MTc1OTIzMjY4)",
+            "[<b>5. Clinical Virology - Arboviruses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzA5ODY5MjAwMjc4MTk1)",
+            "[<b>5. Clinical Virology - Coxsackie Viruses Enteroviruses Echoviruses Rhinoviruses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzEwODcxMjI0NjMzMTIy)",
+            "[<b>5. Clinical Virology - Hepatitis Viruses Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzExODczMjQ4OTg4MDQ5)",
+            "[<b>5. Clinical Virology - Hepatitis Viruses Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzEyODc1MjczMzQyOTc2)",
+            "[<b>5. Clinical Virology - Hepatitis Viruses Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzEzODc3Mjk3Njk3OTAz)",
+            "[<b>5. Clinical Virology - Herpes Viruses Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzE0ODc5MzIyMDUyODMw)",
+            "[<b>5. Clinical Virology - Herpes Viruses Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzE1ODgxMzQ2NDA3NzU3)",
+            "[<b>5. Clinical Virology - Herpes Viruses Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzE2ODgzMzcwNzYyNjg0)",
+            "[<b>5. Clinical Virology - Herpes Viruses Part 4 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzE3ODg1Mzk1MTE3NjEx)",
+            "[<b>5. Clinical Virology - Herpes Viruses Part 5 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzE4ODg3NDE5NDcyNTM4)",
+            "[<b>5. Clinical Virology - Hiv atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzE5ODg5NDQzODI3NDY1)",
+            "[<b>5. Clinical Virology - Human Papillomavirus Hpv atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzIwODkxNDY4MTgyMzky)",
+            "[<b>5. Clinical Virology - Introduction to Rna Viruses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzIxODkzNDkyNTM3MzE5)",
+            "[<b>5. Clinical Virology - Introduction to Virology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzIyODk1NTE2ODkyMjQ2)",
+            "[<b>5. Clinical Virology - Myxoviruses Orthomyxoviruses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzIzODk3NTQxMjQ3MTcz)",
+            "[<b>5. Clinical Virology - Paramyxoviruses Measles Virus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzI0ODk5NTY1NjAyMTAw)",
+            "[<b>5. Clinical Virology - Paramyxoviruses Mumps Virus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzI1OTAxNTg5OTU3MDI3)",
+            "[<b>5. Clinical Virology - Paramyxoviruses Respiratory Syncytial Virus Parainfluenza Viruses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzI2OTAzNjE0MzExOTU0)",
+            "[<b>5. Clinical Virology - Parvovirus B19 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzI3OTA1NjM4NjY2ODgx)",
+            "[<b>5. Clinical Virology - Poliovirus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzI4OTA3NjYzMDIxODA4)",
+            "[<b>5. Clinical Virology - Poxviruses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzI5OTA5Njg3Mzc2NzM1)",
+            "[<b>5. Clinical Virology - Rabies Virus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzMwOTExNzExNzMxNjYy)",
+            "[<b>5. Clinical Virology - Rubella Virus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzMxOTEzNzM2MDg2NTg5)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Babesia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzMyOTE1NzYwNDQxNTE2)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Entamoeba Histolytica atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzMzOTE3Nzg0Nzk2NDQz)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Free Living Amoeba atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzM0OTE5ODA5MTUxMzcw)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Giardia Lamblia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzM1OTIxODMzNTA2Mjk3)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Introduction to Parasitology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzM2OTIzODU3ODYxMjI0)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Leishmaniae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzM3OTI1ODgyMjE2MTUx)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Plasmodium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzM4OTI3OTA2NTcxMDc4)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Toxoplasma Gondii atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzM5OTI5OTMwOTI2MDA1)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Trichomonas Vaginalis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQwOTMxOTU1MjgwOTMy)",
+            "[<b>6. Clinical Parasitology - 1. Protozoa - Trypanosoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQxOTMzOTc5NjM1ODU5)",
+            "[<b>6. Clinical Parasitology - 2. Nematodes - Large Intestinal Nematodes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQyOTM2MDAzOTkwNzg2)",
+            "[<b>6. Clinical Parasitology - 2. Nematodes - Small Intestinal Nematodes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQzOTM4MDI4MzQ1NzEz)",
+            "[<b>6. Clinical Parasitology - 2. Nematodes - Tissue Nematodes Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQ0OTQwMDUyNzAwNjQw)",
+            "[<b>6. Clinical Parasitology - 2. Nematodes - Tissue Nematodes Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQ1OTQyMDc3MDU1NTY3)",
+            "[<b>6. Clinical Parasitology - 2. Nematodes - Tissue Nematodes Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQ2OTQ0MTAxNDEwNDk0)",
+            "[<b>6. Clinical Parasitology - 3. Cestodes - Hymenolepis Nana atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQ3OTQ2MTI1NzY1NDIx)",
+            "[<b>6. Clinical Parasitology - 3. Cestodes - Echinococcus Granulosus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQ4OTQ4MTUwMTIwMzQ4)",
+            "[<b>6. Clinical Parasitology - 3. Cestodes - Introduction to Cestodes Taenia Solium Taenia Saginata atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzQ5OTUwMTc0NDc1Mjc1)",
+            "[<b>6. Clinical Parasitology - 4. Trematodes - Trematodes Intestinal Flukes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzUwOTUyMTk4ODMwMjAy)",
+            "[<b>6. Clinical Parasitology - 4. Trematodes - Trematodes Blood Flukes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzUxOTU0MjIzMTg1MTI5)",
+            "[<b>6. Clinical Parasitology - 4. Trematodes - Trematodes Lung Fluke atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzUyOTU2MjQ3NTQwMDU2)",
+            "[<b>6. Clinical Parasitology - 4. Trematodes - Trematodes Liver Flukes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzUzOTU4MjcxODk0OTgz)",
+            "[<b>8. Qrp - Microbiology by Dr Mamta Jawa atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzU0OTYwMjk2MjQ5OTEw)",
+            "[<b>7. Covid9 - Mucormycosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzU1OTYyMzIwNjA0ODM3)",
+            "[<b>8. Qrp - Ini Cet Qrp 2021 Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzU2OTY0MzQ0OTU5NzY0)",
+            "[<b>8. Qrp - Microbiology Recall Questions   Ini Cet Nov '21 by Dr Mamta Jawa  Ini atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzU3OTY2MzY5MzE0Njkx)",
+            "[<b>8. Qrp - Microbiology by Dr Mamta Jawa 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzU4OTY4MzkzNjY5NjE4)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        microbiologyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"microbiologyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"microbiologyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(microbiologyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("pharmacologyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Fundamental Principles of Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzU5OTcwNDE4MDI0NTQ1)",
+            "[<b>1. Fundamental Principles of Drug Absorption atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzYwOTcyNDQyMzc5NDcy)",
+            "[<b>1. Fundamental Principles of Drug Action atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzYxOTc0NDY2NzM0Mzk5)",
+            "[<b>1. Fundamental Principles of Drug Distribution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzYyOTc2NDkxMDg5MzI2)",
+            "[<b>1. Fundamental Principles of Excretion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzYzOTc4NTE1NDQ0MjUz)",
+            "[<b>1. Fundamental Principles of Metabolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzY0OTgwNTM5Nzk5MTgw)",
+            "[<b>1. Fundamental Principles of Pharmacodynamics Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzY1OTgyNTY0MTU0MTA3)",
+            "[<b>1. Fundamental Principles of Pharmacodynamics Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzY2OTg0NTg4NTA5MDM0)",
+            "[<b>1. Fundamental Principles of Pharmacodynamics Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzY3OTg2NjEyODYzOTYx)",
+            "[<b>1. Spm Free Videos - Determinants or Rf Study atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzY4OTg4NjM3MjE4ODg4)",
+            "[<b>Adrenergic Pharmacology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzY5OTkwNjYxNTczODE1)",
+            "[<b>Anti Adrenergic Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzcwOTkyNjg1OTI4NzQy)",
+            "[<b>Cholinergic Pharmacology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzcxOTk0NzEwMjgzNjY5)",
+            "[<b>Local Anaesthetics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzcyOTk2NzM0NjM4NTk2)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Psychosis Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzczOTk4NzU4OTkzNTIz)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Psychosis Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzc1MDAwNzgzMzQ4NDUw)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Opioids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzc2MDAyODA3NzAzMzc3)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Sedative Hypnotics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzc3MDA0ODMyMDU4MzA0)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Psychosis Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzc4MDA2ODU2NDEzMjMx)",
+            "[<b>3. Neuro1. Drugs Affectiong Autonomic and Peripheral Nervous System - Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzc5MDA4ODgwNzY4MTU4)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Depression Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzgwMDEwOTA1MTIzMDg1)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Depression Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzgxMDEyOTI5NDc4MDEy)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Epilepsy Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzgyMDE0OTUzODMyOTM5)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Epilepsy Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzgzMDE2OTc4MTg3ODY2)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Cns Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzg0MDE5MDAyNTQyNzkz)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Mania atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzg1MDIxMDI2ODk3NzIw)",
+            "[<b>3. Neuro2. Drugs Affecting Central Nervous System2 - Drugs for Movement Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzg2MDIzMDUxMjUyNjQ3)",
+            "[<b>2. Fundamental of Drug Development and Regulation - Clinical Trails atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzg3MDI1MDc1NjA3NTc0)",
+            "[<b>4. Cardiovascular 1. Drugs Affecting Vascular Tone - Anti Anginal Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzg4MDI3MDk5OTYyNTAx)",
+            "[<b>4. Cardiovascular 1. Drugs Affecting Vascular Tone - Anti Hypertensive Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzg5MDI5MTI0MzE3NDI4)",
+            "[<b>4. Cardiovascular 1. Drugs Affecting Vascular Tone - Nitric Oxide atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzkwMDMxMTQ4NjcyMzU1)",
+            "[<b>4. Cardiovascular 1. Drugs Affecting Vascular Tone - Vasoactive Peptides atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzkxMDMzMTczMDI3Mjgy)",
+            "[<b>4. Cardiovascular 2. Pharmacology of Volume Regulation - Diuretics Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzkyMDM1MTk3MzgyMjA5)",
+            "[<b>4. Cardiovascular 2. Pharmacology of Volume Regulation - Drugs for Congestive Cardiac Failure Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzkzMDM3MjIxNzM3MTM2)",
+            "[<b>4. Cardiovascular 2. Pharmacology of Volume Regulation - Drugs for Congestive Cardiac Failure Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzk0MDM5MjQ2MDkyMDYz)",
+            "[<b>4. Cardiovascular 2. Pharmacology of Volume Regulation - Diuretics Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzk1MDQxMjcwNDQ2OTkw)",
+            "[<b>4. Cardiovascular 3. Drugs Affecting Cardiac Rythm - Anti Arrhythmic Drugs Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzk2MDQzMjk0ODAxOTE3)",
+            "[<b>4. Cardiovascular 3. Drugs Affecting Cardiac Rythm - Anti Arrhythmic Drugs Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzk3MDQ1MzE5MTU2ODQ0)",
+            "[<b>4. Cardiovascular 3. Drugs Affecting Cardiac Rythm - Anti Arrhythmic Drugs Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzk4MDQ3MzQzNTExNzcx)",
+            "[<b>4. Cardiovascular 4. Pharmacology of Hemostasis and Thrombosis - Anti Coagulants atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyMzk5MDQ5MzY3ODY2Njk4)",
+            "[<b>4. Cardiovascular 4. Pharmacology of Hemostasis and Thrombosis - Anti Platelet atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDAwMDUxMzkyMjIxNjI1)",
+            "[<b>4. Cardiovascular 4. Pharmacology of Hemostasis and Thrombosis - Fibrinolytics Hematinics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDAxMDUzNDE2NTc2NTUy)",
+            "[<b>4. Cardiovascular 4. Pharmacology of Hemostasis and Thrombosis - Hematinics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDAyMDU1NDQwOTMxNDc5)",
+            "[<b>Drugs Used for Dyslipidemia Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDAzMDU3NDY1Mjg2NDA2)",
+            "[<b>Drugs Used for Dyslipidemia Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDA0MDU5NDg5NjQxMzMz)",
+            "[<b>5. Endocrine 2. Drugs Affecting Thyroid Gland - Drugs Used for Hyperthyroidism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDA1MDYxNTEzOTk2MjYw)",
+            "[<b>5. Endocrine 2. Drugs Affecting Thyroid Gland - Drugs Used for Hypothyroidism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDA2MDYzNTM4MzUxMTg3)",
+            "[<b>5. Endocrine 7. Insulin and Antidiabetic Drugs - Insulin and Analogues atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDA3MDY1NTYyNzA2MTE0)",
+            "[<b>5. Endocrine 7. Insulin and Antidiabetic Drugs - Non Insulin Anti Diabetic Agents atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDA4MDY3NTg3MDYxMDQx)",
+            "[<b>5. Endocrine 6. Androgens and Drugs for Erectile Dysfunction - Sex Hormones Androgen atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDA5MDY5NjExNDE1OTY4)",
+            "[<b>5. Endocrine 5. Ocps, Estrogens and Progestins - Sex Hormone Estrogen Progestins and Oc atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDEwMDcxNjM1NzcwODk1)",
+            "[<b>5. Endocrine 4. Osteoporosis and Ca Metabolism - Bisphosphonates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDExMDczNjYwMTI1ODIy)",
+            "[<b>5. Endocrine 4. Osteoporosis and Ca Metabolism - Calcitonin Vitamin D atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDEyMDc1Njg0NDgwNzQ5)",
+            "[<b>5. Endocrine 4. Osteoporosis and Ca Metabolism - Calcium Pth atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDEzMDc3NzA4ODM1Njc2)",
+            "[<b>5. Endocrine 4. Osteoporosis and Ca Metabolism - Drugs Affecting Calcium Balance Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDE0MDc5NzMzMTkwNjAz)",
+            "[<b>5. Endocrine 3. Corticosteroids - Corticosteroids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDE1MDgxNzU3NTQ1NTMw)",
+            "[<b>5. Endocrine 1. Drugs Affecting Hypothalamus and Pituitary - Drugs Affecting Anterior Pituitary atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDE2MDgzNzgxOTAwNDU3)",
+            "[<b>5. Endocrine 1. Drugs Affecting Hypothalamus and Pituitary - Drugs Affecting Hypothalamus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDE3MDg1ODA2MjU1Mzg0)",
+            "[<b>5. Endocrine 1. Drugs Affecting Hypothalamus and Pituitary - Drugs Affecting Posterior Pituitary atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDE4MDg3ODMwNjEwMzEx)",
+            "[<b>6. Inflammation and Immune 4. Applied Pharmacology Drugs for Gout - Drugs for Gout Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDE5MDg5ODU0OTY1MjM4)",
+            "[<b>6. Inflammation and Immune 4. Applied Pharmacology Drugs for Gout - Drugs for Gout Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDIwMDkxODc5MzIwMTY1)",
+            "[<b>Dmard Disease Modifying Anti Rheumatoid Drugs Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDIxMDkzOTAzNjc1MDky)",
+            "[<b>Dmard Disease Modifying Anti Rheumatoid Drugs Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDIyMDk1OTI4MDMwMDE5)",
+            "[<b>Prostaglandins Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDIzMDk3OTUyMzg0OTQ2)",
+            "[<b>Prostaglandins Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDI0MDk5OTc2NzM5ODcz)",
+            "[<b>6. Inflammation and Immune 1. Histaminergic Histamine Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDI1MTAyMDAxMDk0ODAw)",
+            "[<b>6. Inflammation and Immune 1. Histaminergic Histamine Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDI2MTA0MDI1NDQ5NzI3)",
+            "[<b>6. Inflammation and Immune 2. Serotonergic Serotonin Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDI3MTA2MDQ5ODA0NjU0)",
+            "[<b>6. Inflammation and Immune 2. Serotonergic Serotonin Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDI4MTA4MDc0MTU5NTgx)",
+            "[<b>6. Inflammation and Immune 2. Serotonergic Serotonin Part 3 Drugs for Migraine atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDI5MTEwMDk4NTE0NTA4)",
+            "[<b>6. Inflammation and Immune 4. Applied Pharmacology Drugs for Gout - Drugs for Gout Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDMwMTEyMTIyODY5NDM1)",
+            "[<b>7. Infectious Chemotherapy - 1. Introduction - Introduction Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDMxMTE0MTQ3MjI0MzYy)",
+            "[<b>7. Infectious Chemotherapy - 1. Introduction - Introduction Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDMyMTE2MTcxNTc5Mjg5)",
+            "[<b>7. Infectious Chemotherapy - 7. Anti Mycobacterial Drugs - Anti Leprotic Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDMzMTE4MTk1OTM0MjE2)",
+            "[<b>7. Infectious Chemotherapy - 7. Anti Mycobacterial Drugs - Anti Tb Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDM0MTIwMjIwMjg5MTQz)",
+            "[<b>7. Infectious Chemotherapy - 10. Antiviral Drugs - Anti Viral Drugs Anti Covid Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDM1MTIyMjQ0NjQ0MDcw)",
+            "[<b>7. Infectious Chemotherapy - 10. Antiviral Drugs - Anti Viral Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDM2MTI0MjY4OTk4OTk3)",
+            "[<b>7. Infectious Chemotherapy - 10. Antiviral Drugs - Anti Retroviral Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDM3MTI2MjkzMzUzOTI0)",
+            "[<b>7. Infectious Chemotherapy - 9. Anti Fungal Drugs - Anti Fungal Agents Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDM4MTI4MzE3NzA4ODUx)",
+            "[<b>7. Infectious Chemotherapy - 9. Anti Fungal Drugs - Anti Fungal Agents Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDM5MTMwMzQyMDYzNzc4)",
+            "[<b>7. Infectious Chemotherapy - 8. Anti Parasitic Drugs - Anti Helmintic Agents atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQwMTMyMzY2NDE4NzA1)",
+            "[<b>7. Infectious Chemotherapy - 8. Anti Parasitic Drugs - Anti Malarial Drugs Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQxMTM0MzkwNzczNjMy)",
+            "[<b>7. Infectious Chemotherapy - 8. Anti Parasitic Drugs - Anti Malarial Drugs Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQyMTM2NDE1MTI4NTU5)",
+            "[<b>7. Infectious Chemotherapy - 5. Folic Acid Synthesis Inhibitors - Drugs Affecting Folic Acid Synthesis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQzMTM4NDM5NDgzNDg2)",
+            "[<b>7. Infectious Chemotherapy - 4. Nucleic Acid Synthesis Inhibitors - Drugs Affecting Bacterial Nucleic Acid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQ0MTQwNDYzODM4NDEz)",
+            "[<b>7. Infectious Chemotherapy - 3. Protein Synthesis Inhibitors - Drug Affecting Bacterial Protein Synthesis Part 2 Macrolides atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQ1MTQyNDg4MTkzMzQw)",
+            "[<b>Drug Affecting Bacterial Protein Synthesis Part 1 Aminoglycosides atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQ2MTQ0NTEyNTQ4MjY3)",
+            "[<b>Drug Affecting Bacterial Protein Synthesis Part 3 Tetracyclines and Chloramphenicol atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQ3MTQ2NTM2OTAzMTk0)",
+            "[<b>Drug Affecting Bacterial Protein Synthesis Part 4 Miscellaneous atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQ4MTQ4NTYxMjU4MTIx)",
+            "[<b>7. Infectious Chemotherapy - 2. Cell Membrane Synthesis Inhibitors - Drugs Affecting Bacterial Cell Membrane atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDQ5MTUwNTg1NjEzMDQ4)",
+            "[<b>7. Infectious Chemotherapy - 6. Miscellaneous - Drugs for Pseudomembranous Enterocolitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDUwMTUyNjA5OTY3OTc1)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        pharmacologyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pharmacologyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pharmacologyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pharmacologyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("fmtd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Legal Procedure - Introduction Legal Procedure Part 1 Basic atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDUxMTU0NjM0MzIyOTAy)",
+            "[<b>1. Legal Procedure - Legal Procedure Part 2 Court Procedures atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDUyMTU2NjU4Njc3ODI5)",
+            "[<b>2. Medical Law and Ethics - Medical Law and Ethics Part 1 Basics and Consatf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDUzMTU4NjgzMDMyNzU2)",
+            "[<b>2. Medical Law and Ethics - Medical Law and Ethics Part 2 Medical Negligence atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDU0MTYwNzA3Mzg3Njgz)",
+            "[<b>3. Identification - Identification Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDU1MTYyNzMxNzQyNjEw)",
+            "[<b>3. Identification - Identification Part 2 Dentition atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDU2MTY0NzU2MDk3NTM3)",
+            "[<b>3. Identification - Identification Part 3 Bones atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDU3MTY2NzgwNDUyNDY0)",
+            "[<b>4. Medico Legal Autopsy - Medico Legal Autopsy Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDU4MTY4ODA0ODA3Mzkx)",
+            "[<b>4. Medico Legal Autopsy - Medico Legal Autopsy Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDU5MTcwODI5MTYyMzE4)",
+            "[<b>5. Thanotology - Thanatology Part 1 Death Early Changes After Death atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDYwMTcyODUzNTE3MjQ1)",
+            "[<b>5. Thanotology - Thanatology Part Late Changes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDYxMTc0ODc3ODcyMTcy)",
+            "[<b>11. Ballistics - Ballistics Part 2 Wound Ballistics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDYyMTc2OTAyMjI3MDk5)",
+            "[<b>11. Ballistics - Ballistics Part 1 Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDYzMTc4OTI2NTgyMDI2)",
+            "[<b>10. Medico Legal Aspects of Injuries - Medico Legal Aspects of Injuries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDY0MTgwOTUwOTM2OTUz)",
+            "[<b>6. Mechanical Injuries - Mechanical Injuries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDY1MTgyOTc1MjkxODgw)",
+            "[<b>7. Regional Injuries - Regional Injuries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDY2MTg0OTk5NjQ2ODA3)",
+            "[<b>8. Rta and Bomb Blast - Road Traffic Accidents and Bomb Blast atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDY3MTg3MDI0MDAxNzM0)",
+            "[<b>9. Thermal Injuries - Thermal Injuries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDY4MTg5MDQ4MzU2NjYx)",
+            "[<b>12. Mechanical Asphyxia - Mechanical Asphyxia Part 2 Suffocation Drowning atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDY5MTkxMDcyNzExNTg4)",
+            "[<b>12. Mechanical Asphyxia - Mchanical Asphyxia Part 1 Basics Hanging Strangulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDcwMTkzMDk3MDY2NTE1)",
+            "[<b>13. Impotence, Sterility and Virginity - Impotence Sterility and Virginity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDcxMTk1MTIxNDIxNDQy)",
+            "[<b>14. Pregnancy, Delivery and Abortions - Pregnancy Delivery and Abortion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDcyMTk3MTQ1Nzc2MzY5)",
+            "[<b>15. Natural Sexual Offences - Natural Sexual Offences atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDczMTk5MTcwMTMxMjk2)",
+            "[<b>17. Infanticide, Child Abuse and Sids - Infanticide Child Abuse and Sids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDc0MjAxMTk0NDg2MjIz)",
+            "[<b>16. Unnatural Sexual Offences 1 - Unnatural Sexual Offences atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDc1MjAzMjE4ODQxMTUw)",
+            "[<b>18. Forensic Psychiatry - Forensic Psychiatry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDc2MjA1MjQzMTk2MDc3)",
+            "[<b>20. Death Certificate, Starvation, Torture and Artefact - Death Certificate Starvation Torture and Artefact atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDc3MjA3MjY3NTUxMDA0)",
+            "[<b>21. Euthanasia, Dowry Death and Acts Copra, Thoa and Pcpndt - Euthanasia Dowry Deaths and Acts atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDc4MjA5MjkxOTA1OTMx)",
+            "[<b>20. Death Certificate, Starvation, Torture and Artefact - Death Certificate Starvation Torture and Artefact atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDc5MjExMzE2MjYwODU4)",
+            "[<b>21. Euthanasia, Dowry Death and Acts Copra, Thoa and Pcpndt - Euthanasia Dowry Deaths and Acts atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDgwMjEzMzQwNjE1Nzg1)",
+            "[<b>27. Asphyxiants, Cardiac Poisons and Miscellaneous - Asphyxiants Cardiac Poisons and Miscellaneous atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDgxMjE1MzY0OTcwNzEy)",
+            "[<b>28. Neet Pg Qrp 2021 - by Dr Jayaprakash atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDgyMjE3Mzg5MzI1NjM5)",
+            "[<b>25. Pesticide and Insecticides and Poisonous Food - Pesticide Insecticides and Poisonous Food atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDgzMjE5NDEzNjgwNTY2)",
+            "[<b>28. Neet Pg Qrp 2021 - Fmt by Dr Jayaprakash atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDg0MjIxNDM4MDM1NDkz)",
+            "[<b>28. Neet Pg Qrp 2021 - Neet Pg 2021 Quick Revision Program by Dr Jayaprakash atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDg1MjIzNDYyMzkwNDIw)",
+            "[<b>26. Neurotoxics - Neurotoxics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDg2MjI1NDg2NzQ1MzQ3)",
+            "[<b>22. General Toxicology and Caustics - General Toxicology Caustics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDg3MjI3NTExMTAwMjc0)",
+            "[<b>23. Inorganic Irritants - Inorganic Irritants atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDg4MjI5NTM1NDU1MjAx)",
+            "[<b>24. Organic Irritants - Organic Irritants atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDg5MjMxNTU5ODEwMTI4)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        fmtd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"fmtd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"fmtd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(fmtd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("psmd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Spm Free Videos - Time Distribution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDkwMjMzNTg0MTY1MDU1)",
+            "[<b>1. Spm Free Videos - Type 1 Error and Type 2 Error atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDkxMjM1NjA4NTE5OTgy)",
+            "[<b>2. Concept of Health and Disease - Compare and Contrast atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDkyMjM3NjMyODc0OTA5)",
+            "[<b>2. Concept of Health and Disease - Health Index atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDkzMjM5NjU3MjI5ODM2)",
+            "[<b>3. Epidemiology - 1. Introduction Types of Studies, Methods - Introduction to Epidemiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDk0MjQxNjgxNTg0NzYz)",
+            "[<b>3. Epidemiology - 2. Frequency Measurement - Disability Frequency atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDk1MjQzNzA1OTM5Njkw)",
+            "[<b>3. Epidemiology - 2. Frequency Measurement - International Classification of Diseases Icd and Icf atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDk2MjQ1NzMwMjk0NjE3)",
+            "[<b>3. Epidemiology - 2. Frequency Measurement - International Death Certificate atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDk3MjQ3NzU0NjQ5NTQ0)",
+            "[<b>3. Epidemiology - 2. Frequency Measurement - Mcqs in Mortality and Standardisation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDk4MjQ5Nzc5MDA0NDcx)",
+            "[<b>3. Epidemiology - 2. Frequency Measurement - Morbidity Measures atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNDk5MjUxODAzMzU5Mzk4)",
+            "[<b>3. Epidemiology - 2. Frequency Measurement - Mortality atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTAwMjUzODI3NzE0MzI1)",
+            "[<b>3. Epidemiology - 3. Descriptive Epidemiology - Person Distribution and Place Distribution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTAxMjU1ODUyMDY5MjUy)",
+            "[<b>3. Epidemiology - 3. Descriptive Epidemiology - Time Distribution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTAyMjU3ODc2NDI0MTc5)",
+            "[<b>3. Epidemiology - 4. Analytical Epidemiology - Determinants or Rf Study atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTAzMjU5OTAwNzc5MTA2)",
+            "[<b>3. Epidemiology - 4. Analytical Epidemiology - Ecological Study Design atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTA0MjYxOTI1MTM0MDMz)",
+            "[<b>3. Epidemiology - 4. Analytical Epidemiology - Introduction to Study Design atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTA1MjYzOTQ5NDg4OTYw)",
+            "[<b>3. Epidemiology - 4. Analytical Epidemiology - Rct atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTA2MjY1OTczODQzODg3)",
+            "[<b>3. Epidemiology - 4. Analytical Epidemiology - Study Design Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTA3MjY3OTk4MTk4ODE0)",
+            "[<b>3. Epidemiology - 4. Analytical Epidemiology - Study Designs Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTA4MjcwMDIyNTUzNzQx)",
+            "[<b>3. Epidemiology - 4. Analytical Epidemiology - Study Designs Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTA5MjcyMDQ2OTA4NjY4)",
+            "[<b>3. Epidemiology - 5. Meta Analysis - Meta Analysis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTEwMjc0MDcxMjYzNTk1)",
+            "[<b>4. International Health - International Health atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTExMjc2MDk1NjE4NTIy)",
+            "[<b>5. Image Based Questions - History of Public Health Image Based Questions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTEyMjc4MTE5OTczNDQ5)",
+            "[<b>5. Image Based Questions - Image Based Questions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTEzMjgwMTQ0MzI4Mzc2)",
+            "[<b>6. Screening of Diseases - Combination of Tests atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTE0MjgyMTY4NjgzMzAz)",
+            "[<b>6. Screening of Diseases - Factors Affecting Ppv atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTE1Mjg0MTkzMDM4MjMw)",
+            "[<b>6. Screening of Diseases - Lead Time and Lead Time Bias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTE2Mjg2MjE3MzkzMTU3)",
+            "[<b>6. Screening of Diseases - Levels of Prevention atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTE3Mjg4MjQxNzQ4MDg0)",
+            "[<b>6. Screening of Diseases - Relationship Between Sensitivity Specificity and Predictive Values atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTE4MjkwMjY2MTAzMDEx)",
+            "[<b>6. Screening of Diseases - Reliability atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTE5MjkyMjkwNDU3OTM4)",
+            "[<b>6. Screening of Diseases - Sensitivity Specificity Predictive Values atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTIwMjk0MzE0ODEyODY1)",
+            "[<b>6. Screening of Diseases - Type 1 Error and Type 2 Error atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTIxMjk2MzM5MTY3Nzky)",
+            "[<b>6. Screening of Diseases - Types of Screening atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTIyMjk4MzYzNTIyNzE5)",
+            "[<b>6. Screening of Diseases - Validity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTIzMzAwMzg3ODc3NjQ2)",
+            "[<b>7. Demography - Demographic Cycle atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTI0MzAyNDEyMjMyNTcz)",
+            "[<b>7. Demography - Dependency Ratio and Literacy Rate atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTI1MzA0NDM2NTg3NTAw)",
+            "[<b>7. Demography - Fertility Rates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTI2MzA2NDYwOTQyNDI3)",
+            "[<b>7. Demography - Introduction to Demography atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTI3MzA4NDg1Mjk3MzU0)",
+            "[<b>7. Demography - Sex Ratio and Age Population Pyramid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTI4MzEwNTA5NjUyMjgx)",
+            "[<b>7. Demography - Tools or Sources of Population Data atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTI5MzEyNTM0MDA3MjA4)",
+            "[<b>8. Family Planning - Barrier Methods atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTMwMzE0NTU4MzYyMTM1)",
+            "[<b>8. Family Planning - Contraceptive Efficacy Ce atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTMxMzE2NTgyNzE3MDYy)",
+            "[<b>8. Family Planning - Couple Protection Rate Cpr atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTMyMzE4NjA3MDcxOTg5)",
+            "[<b>8. Family Planning - Emergency Contraceptives atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTMzMzIwNjMxNDI2OTE2)",
+            "[<b>8. Family Planning - Family Planning Clinic and Field Delivery Practices atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTM0MzIyNjU1NzgxODQz)",
+            "[<b>8. Family Planning - Hormonal Methods atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTM1MzI0NjgwMTM2Nzcw)",
+            "[<b>8. Family Planning - Iucd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTM2MzI2NzA0NDkxNjk3)",
+            "[<b>8. Family Planning - Miscellaneous Methods atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTM3MzI4NzI4ODQ2NjI0)",
+            "[<b>8. Family Planning - Mtp Act atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTM4MzMwNzUzMjAxNTUx)",
+            "[<b>8. Family Planning - Post Conception Method atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTM5MzMyNzc3NTU2NDc4)",
+            "[<b>8. Family Planning - Sterilisation Terminal Methods of Contraception atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQwMzM0ODAxOTExNDA1)",
+            "[<b>9. Maternal and Child Health - Antenatal Diet Immunisation Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQxMzM2ODI2MjY2MzMy)",
+            "[<b>9. Maternal and Child Health - Antenatal Rh Incompatibility atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQyMzM4ODUwNjIxMjU5)",
+            "[<b>9. Maternal and Child Health - Birth Weight Apgar Score atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQzMzQwODc0OTc2MTg2)",
+            "[<b>9. Maternal and Child Health - Breast Feeding atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQ0MzQyODk5MzMxMTEz)",
+            "[<b>9. Maternal and Child Health - Childhood Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQ1MzQ0OTIzNjg2MDQw)",
+            "[<b>9. Maternal and Child Health - Growth Chart atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQ2MzQ2OTQ4MDQwOTY3)",
+            "[<b>9. Maternal and Child Health - Intranatal Period atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQ3MzQ4OTcyMzk1ODk0)",
+            "[<b>9. Maternal and Child Health - Iron Folic Acid Ifa Schedule in Mother and Child atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQ4MzUwOTk2NzUwODIx)",
+            "[<b>9. Maternal and Child Health - Malnutrition atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTQ5MzUzMDIxMTA1NzQ4)",
+            "[<b>9. Maternal and Child Health - Mch Indicators atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTUwMzU1MDQ1NDYwNjc1)",
+            "[<b>9. Maternal and Child Health - Newer Technologies in Mch atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTUxMzU3MDY5ODE1NjAy)",
+            "[<b>10. Nutrition - Assessment of Protein atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTUyMzU5MDk0MTcwNTI5)",
+            "[<b>10. Nutrition - Dietary Fibres Glycemic Index atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTUzMzYxMTE4NTI1NDU2)",
+            "[<b>10. Nutrition - Essential Fatty Acids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTU0MzYzMTQyODgwMzgz)",
+            "[<b>10. Nutrition - Essential and Limiting Amino Acids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTU1MzY1MTY3MjM1MzEw)",
+            "[<b>10. Nutrition - Indian Reference Man and Woman atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTU2MzY3MTkxNTkwMjM3)",
+            "[<b>10. Nutrition - Introduction to Nutrition atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTU3MzY5MjE1OTQ1MTY0)",
+            "[<b>10. Nutrition - Minerals atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTU4MzcxMjQwMzAwMDkx)",
+            "[<b>10. Nutrition - Nutritional Values of Food Items atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTU5MzczMjY0NjU1MDE4)",
+            "[<b>10. Nutrition - Rda and Par atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTYwMzc1Mjg5MDA5OTQ1)",
+            "[<b>10. Nutrition - Vitamins atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTYxMzc3MzEzMzY0ODcy)",
+            "[<b>11. Statistics - 1. Statistics2 - Data Presentation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTYyMzc5MzM3NzE5Nzk5)",
+            "[<b>11. Statistics - 1. Statistics2 - Box Whisker Plote atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTYzMzgxMzYyMDc0NzI2)",
+            "[<b>1. Spm Free Videos - Time Distribution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTY0MzgzMzg2NDI5NjUz)",
+            "[<b>11. Statistics - 1. Statistics2 - Measures of Central Tendency atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTY1Mzg1NDEwNzg0NTgw)",
+            "[<b>11. Statistics - 1. Statistics2 - Measures of Dispersion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTY2Mzg3NDM1MTM5NTA3)",
+            "[<b>11. Statistics - 1. Statistics2 - Data and Variables atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTY3Mzg5NDU5NDk0NDM0)",
+            "[<b>11. Statistics - 1. Statistics2 - Normal Distribution Curve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTY4MzkxNDgzODQ5MzYx)",
+            "[<b>11. Statistics - 1. Statistics2 - Quartiles Percentiles atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTY5MzkzNTA4MjA0Mjg4)",
+            "[<b>11. Statistics - 1. Statistics2 - Sample Size Calculation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTcwMzk1NTMyNTU5MjE1)",
+            "[<b>11. Statistics - 1. Statistics2 - Sampling Technique atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTcxMzk3NTU2OTE0MTQy)",
+            "[<b>11. Statistics - 2. Statistics - Correlation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTcyMzk5NTgxMjY5MDY5)",
+            "[<b>11. Statistics - 1. Statistics2 - Scales of Measurement atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTczNDAxNjA1NjIzOTk2)",
+            "[<b>11. Statistics - 2. Statistics - Chisquare Test atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTc0NDAzNjI5OTc4OTIz)",
+            "[<b>11. Statistics - 2. Statistics - Degrees of Freedom atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTc1NDA1NjU0MzMzODUw)",
+            "[<b>11. Statistics - 2. Statistics - Regression atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTc2NDA3Njc4Njg4Nzc3)",
+            "[<b>11. Statistics - 2. Statistics - Coefficient of Variation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTc3NDA5NzAzMDQzNzA0)",
+            "[<b>11. Statistics - 2. Statistics - Likelihood Ratio atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTc4NDExNzI3Mzk4NjMx)",
+            "[<b>11. Statistics - 2. Statistics - Roc Curve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTc5NDEzNzUxNzUzNTU4)",
+            "[<b>11. Statistics - 2. Statistics - Probability atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTgwNDE1Nzc2MTA4NDg1)",
+            "[<b>11. Statistics - 1. Statistics2 - Skewing atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTgxNDE3ODAwNDYzNDEy)",
+            "[<b>11. Statistics - 2. Statistics - Types of Distribution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTgyNDE5ODI0ODE4MzM5)",
+            "[<b>11. Statistics - 1. Statistics2 - Z Score atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTgzNDIxODQ5MTczMjY2)",
+            "[<b>Truely Clinical - 1. PSM - Biomedical Waste Disposal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTg0NDIzODczNTI4MTkz)",
+            "[<b>12. Biomedical Waste Management - Biomedical Waste Management atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTg1NDI1ODk3ODgzMTIw)",
+            "[<b>13. Disaster Management - Types of Disasters atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTg2NDI3OTIyMjM4MDQ3)",
+            "[<b>14. Occupational Health - Occupational Cancers and Caisson S Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTg3NDI5OTQ2NTkyOTc0)",
+            "[<b>15. Genetics - Genetics and Health atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTg4NDMxOTcwOTQ3OTAx)",
+            "[<b>16. Diseases and Their National Programs in India New Topic - 1. Tb and Ntep - Advancements in Tb atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTg5NDMzOTk1MzAyODI4)",
+            "[<b>16. Diseases and Their National Programs in India New Topic - 1. Tb and Ntep - Co Morbidities in Tb atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTkwNDM2MDE5NjU3NzU1)",
+            "[<b>16. Diseases and Their National Programs in India New Topic - 1. Tb and Ntep - Diagnosis of Pulmonary Tb in Adults atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTkxNDM4MDQ0MDEyNjgy)",
+            "[<b>16. Diseases and Their National Programs in India New Topic - 2. Hiv and Nacp - Hiv and Nacp atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTkyNDQwMDY4MzY3NjA5)",
+            "[<b>16. Diseases and Their National Programs in India New Topic - 1. Tb and Ntep - Treatment of Pulmonary Tb in Adults atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTkzNDQyMDkyNzIyNTM2)",
+            "[<b>16. Diseases and Their National Programs in India New Topic - 1. Tb and Ntep - Extrapulmonary and Pediatric Tb atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTk0NDQ0MTE3MDc3NDYz)",
+            "[<b>16. Diseases and Their National Programs in India New Topic - 3. Uip - Uip atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTk1NDQ2MTQxNDMyMzkw)",
+            "[<b>Ncd Control Program atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTk2NDQ4MTY1Nzg3MzE3)",
+            "[<b>Communicable Diseases and Their Control Program atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTk3NDUwMTkwMTQyMjQ0)",
+            "[<b>Blindness Control Program and Nvbdcp atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTk4NDUyMjE0NDk3MTcx)",
+            "[<b>Reproductive and Child Health atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNTk5NDU0MjM4ODUyMDk4)",
+            "[<b>17. Mosquito - Mosquito Control Measures atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjAwNDU2MjYzMjA3MDI1)",
+            "[<b>18. Water Pollution - Water Purification Methods atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjAxNDU4Mjg3NTYxOTUy)",
+            "[<b>18. Water Pollution - Sewage and Diseases Caused by Water atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjAyNDYwMzExOTE2ODc5)",
+            "[<b>18. Water Pollution - Indicators of Fecal Pollution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjAzNDYyMzM2MjcxODA2)",
+            "[<b>18. Water Pollution - Problem Village and Water Requirement atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjA0NDY0MzYwNjI2NzMz)",
+            "[<b>19. Air Pollution - Effects of Air Pollution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjA1NDY2Mzg0OTgxNjYw)",
+            "[<b>19. Air Pollution - Indicators of Air Pollution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjA2NDY4NDA5MzM2NTg3)",
+            "[<b>19. Air Pollution - Instruments for Measuring Air Pollution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjA3NDcwNDMzNjkxNTE0)",
+            "[<b>19. Air Pollution - Types of Ventilation and Mcqs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjA4NDcyNDU4MDQ2NDQx)",
+            "[<b>21. Entomology - Biological Transmission and Insecticides atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjA5NDc0NDgyNDAxMzY4)",
+            "[<b>21. Entomology - Vectors of Public Health Importance atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjEwNDc2NTA2NzU2Mjk1)",
+            "[<b>20. Noise Pollution - Noise Pollution atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjExNDc4NTMxMTExMjIy)",
+            "[<b>22. Health Communication - Components of Communication and Types of Communication atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjEyNDgwNTU1NDY2MTQ5)",
+            "[<b>22. Health Communication - Special Methods of Communication atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjEzNDgyNTc5ODIxMDc2)",
+            "[<b>22. Health Communication - Group Discussion Methods atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjE0NDg0NjA0MTc2MDAz)",
+            "[<b>23. Sociology - Family atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjE1NDg2NjI4NTMwOTMw)",
+            "[<b>23. Sociology - Society and Health atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjE2NDg4NjUyODg1ODU3)",
+            "[<b>24. Mental Health - Mental Health atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjE3NDkwNjc3MjQwNzg0)",
+            "[<b>25. Health Care Delivery System in India - Health System in India atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjE4NDkyNzAxNTk1NzEx)",
+            "[<b>25. Health Care Delivery System in India - Health Committees and International Summits atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjE5NDk0NzI1OTUwNjM4)",
+            "[<b>26. Diseases and Their National Programs in India - Adult Immunisation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjIwNDk2NzUwMzA1NTY1)",
+            "[<b>27. Covid Vaccination and Covid Mutants - Updates in Covid Vaccines and Covid Mutants atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjIxNDk4Nzc0NjYwNDky)",
+            "[<b>28. Qrp - Psm by Dr Rajasi 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjIyNTAwNzk5MDE1NDE5)",
+            "[<b>28. Qrp - Ini Cet Qrp Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjIzNTAyODIzMzcwMzQ2)",
+            "[<b>28. Qrp - Psm by Dr Rajasi atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjI0NTA0ODQ3NzI1Mjcz)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        psmd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psmd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psmd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(psmd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("entd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Cochlear Implantation and Hearing Aids 1 - Cochlear Implantation Auditory Brainstem Implantation Baha and Hearing Aids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjI1NTA2ODcyMDgwMjAw)",
+            "[<b>1. Introduction to 1 - Introduction to atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjI2NTA4ODk2NDM1MTI3)",
+            "[<b>2. Nose and Paranasal Sunuses - Anatomy of Nose and Nasal Septum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjI3NTEwOTIwNzkwMDU0)",
+            "[<b>2. Nose and Paranasal Sunuses - Anatomy of Nose atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjI4NTEyOTQ1MTQ0OTgx)",
+            "[<b>2. Nose and Paranasal Sunuses - Anatomy of Pns atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjI5NTE0OTY5NDk5OTA4)",
+            "[<b>2. Nose and Paranasal Sunuses - Csf Rhinorrhoea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjMwNTE2OTkzODU0ODM1)",
+            "[<b>2. Nose and Paranasal Sunuses - Epistaxis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjMxNTE5MDE4MjA5NzYy)",
+            "[<b>2. Nose and Paranasal Sunuses - Fess Surgery Landmarks Complications atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjMyNTIxMDQyNTY0Njg5)",
+            "[<b>2. Nose and Paranasal Sunuses - Inverted Papilloma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjMzNTIzMDY2OTE5NjE2)",
+            "[<b>2. Nose and Paranasal Sunuses - Juvenile Nasopharnyngel Angiofibroma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjM0NTI1MDkxMjc0NTQz)",
+            "[<b>2. Nose and Paranasal Sunuses - Maxillofacial Trauma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjM1NTI3MTE1NjI5NDcw)",
+            "[<b>2. Nose and Paranasal Sunuses - Nasal Polyps atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjM2NTI5MTM5OTg0Mzk3)",
+            "[<b>2. Nose and Paranasal Sunuses - Nasal Septum and Its Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjM3NTMxMTY0MzM5MzI0)",
+            "[<b>2. Nose and Paranasal Sunuses - Nasopharyngeal Carcinoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjM4NTMzMTg4Njk0MjUx)",
+            "[<b>2. Nose and Paranasal Sunuses - Rhinoscleroma Rhinosporidiosis Midline Lethal Granuloma Rhinophyma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjM5NTM1MjEzMDQ5MTc4)",
+            "[<b>2. Nose and Paranasal Sunuses - Sinusitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQwNTM3MjM3NDA0MTA1)",
+            "[<b>3. Oral Cavity and Pharynx - Adenoids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQxNTM5MjYxNzU5MDMy)",
+            "[<b>3. Oral Cavity and Pharynx - Lesions of Oral Cavity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQyNTQxMjg2MTEzOTU5)",
+            "[<b>3. Oral Cavity and Pharynx - Ludwing S Angina atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQzNTQzMzEwNDY4ODg2)",
+            "[<b>3. Oral Cavity and Pharynx - Parapharyngeal Abcess atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQ0NTQ1MzM0ODIzODEz)",
+            "[<b>3. Oral Cavity and Pharynx - Peritonsillar Abcess atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQ1NTQ3MzU5MTc4NzQw)",
+            "[<b>3. Oral Cavity and Pharynx - Retropharyngeal Abcess atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQ2NTQ5MzgzNTMzNjY3)",
+            "[<b>3. Oral Cavity and Pharynx - Tonsils atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQ3NTUxNDA3ODg4NTk0)",
+            "[<b>4. Larynx and Trachea - Anatomy of Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQ4NTUzNDMyMjQzNTIx)",
+            "[<b>4. Larynx and Trachea - Dysphonia Plica Ventricularis Functional Aphonia Puberphonia Phonasthenia Spasmodic Dysphonia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjQ5NTU1NDU2NTk4NDQ4)",
+            "[<b>4. Larynx and Trachea - Foreign Bodies in Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjUwNTU3NDgwOTUzMzc1)",
+            "[<b>4. Larynx and Trachea - Inflammatory Conditions of Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjUxNTU5NTA1MzA4MzAy)",
+            "[<b>4. Larynx and Trachea - Laryngeal Paralysis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjUyNTYxNTI5NjYzMjI5)",
+            "[<b>4. Larynx and Trachea - Paediatric Laryngology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjUzNTYzNTU0MDE4MTU2)",
+            "[<b>4. Larynx and Trachea - Tracheostomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjU0NTY1NTc4MzczMDgz)",
+            "[<b>9. Complications of Suppurative Otitis Media 1 - Chronic Suppurative Otitis Media atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjU1NTY3NjAyNzI4MDEw)",
+            "[<b>9. Operative Surgeries - Adenoids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjU2NTY5NjI3MDgyOTM3)",
+            "[<b>9. Operative Surgeries - Caldwell Luc Operation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjU3NTcxNjUxNDM3ODY0)",
+            "[<b>9. Operative Surgeries - Diagnostic Nasal Endoscopy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjU4NTczNjc1NzkyNzkx)",
+            "[<b>9. Operative Surgeries - Fess Surgery Landmarks Complications atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjU5NTc1NzAwMTQ3NzE4)",
+            "[<b>9. Operative Surgeries - Microlaryngeal Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjYwNTc3NzI0NTAyNjQ1)",
+            "[<b>9. Operative Surgeries - Neck Dissection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjYxNTc5NzQ4ODU3NTcy)",
+            "[<b>9. Operative Surgeries - Parotid Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjYyNTgxNzczMjEyNDk5)",
+            "[<b>9. Operative Surgeries - Septoplasty atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjYzNTgzNzk3NTY3NDI2)",
+            "[<b>9. Operative Surgeries - Surgery of Ear atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjY0NTg1ODIxOTIyMzUz)",
+            "[<b>9. Operative Surgeries - Thyroid Surgery and Rln Landmarks atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjY1NTg3ODQ2Mjc3Mjgw)",
+            "[<b>9. Operative Surgeries - Thyroplasty atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjY2NTg5ODcwNjMyMjA3)",
+            "[<b>9. Operative Surgeries - Tonsils atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjY3NTkxODk0OTg3MTM0)",
+            "[<b>8. Cholesteatoma 1 - Cholesteatoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjY4NTkzOTE5MzQyMDYx)",
+            "[<b>8. Clinical Methods in - Ear History and Examination atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjY5NTk1OTQzNjk2OTg4)",
+            "[<b>8. Clinical Methods in - Larynx History and Examination atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjcwNTk3OTY4MDUxOTE1)",
+            "[<b>8. Clinical Methods in - Nose History and Examination atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjcxNTk5OTkyNDA2ODQy)",
+            "[<b>7. RecAdvances - Chemoradiotherapy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjcyNjAyMDE2NzYxNzY5)",
+            "[<b>7. RecAdvances - Coblation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjczNjA0MDQxMTE2Njk2)",
+            "[<b>7. RecAdvances - Image Guided Navigation System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjc0NjA2MDY1NDcxNjIz)",
+            "[<b>7. RecAdvances - Laser atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjc1NjA4MDg5ODI2NTUw)",
+            "[<b>7. RecAdvances - Robotic Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjc2NjEwMTE0MTgxNDc3)",
+            "[<b>10. Clinical Case Discussion - Non Healing Tangue Ulcer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjc3NjEyMTM4NTM2NDA0)",
+            "[<b>10. Otosclerosis 2 - Cochlear Otosclerosis Stapedial Otosclerosis and Stapedoyomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjc4NjE0MTYyODkxMzMx)",
+            "[<b>10. Otosclerosis 2 - Stapedotomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjc5NjE2MTg3MjQ2MjU4)",
+            "[<b>11. Covid 19 - Mucormycosis Black Fungus in Covid 19 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjgwNjE4MjExNjAxMTg1)",
+            "[<b>11. Meniere's Disease 1 - Meniere S Disease Disorders of Vertigo atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjgxNjIwMjM1OTU2MTEy)",
+            "[<b>12. Facial Nerve and Its Disorders 1 - Facial Nerve Bells Palsy Melkerson Rosenthal Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjgyNjIyMjYwMzExMDM5)",
+            "[<b>12. Qrp - Ini Cet Qrp 2021 Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjgzNjI0Mjg0NjY1OTY2)",
+            "[<b>12. Qrp - Session 1 by Dr Darwin Kaushal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjg0NjI2MzA5MDIwODkz)",
+            "[<b>12. Qrp - Session 2 by Dr Darwin Kaushal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjg1NjI4MzMzMzc1ODIw)",
+            "[<b>12. Qrp - by Dr Darwin Kaushal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjg2NjMwMzU3NzMwNzQ3)",
+            "[<b>13. Acoustic Neuroma 1 - Acoustic Neuroma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjg3NjMyMzgyMDg1Njc0)",
+            "[<b>14. Glomus Tumors 1 - Glomus Tumours atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjg4NjM0NDA2NDQwNjAx)",
+            "[<b>15. Surgery of Ear and Its Landmarks 1 - Surgery of Ear atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjg5NjM2NDMwNzk1NTI4)",
+            "[<b>5. Diseases of External Ear 1 - Eustachian Tube atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjkwNjM4NDU1MTUwNDU1)",
+            "[<b>5. Parotid Tumors, Surgery and Facial Nerve Landmarks - Parotid Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjkxNjQwNDc5NTA1Mzgy)",
+            "[<b>6. Eustachian Tube and Its Disorders 1 - Furunculosis Otitis Externa Otomycosis Ramsay Hunt Syndrome and Malignant Otitis Ecterna atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjkyNjQyNTAzODYwMzA5)",
+            "[<b>6. Thyroid Tumors, Surgery and RecurrLaryngeal Nerve Landmarks - Thyroid Surgery and Rln Landmarks atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjkzNjQ0NTI4MjE1MjM2)",
+            "[<b>7. Disorders of Middle Ear 1 - Disorders of Middle Ear atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjk0NjQ2NTUyNTcwMTYz)",
+            "[<b>9. Complications of Suppurative Otitis Media 1 - Chronic Suppurative Otitis Media atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjk1NjQ4NTc2OTI1MDkw)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        entd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"entd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"entd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(entd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("ophthalmologyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Mda - Mda Optic Neuritis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjk2NjUwNjAxMjgwMDE3)",
+            "[<b>2. Basics of Anatomy of Eyeball atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjk3NjUyNjI1NjM0OTQ0)",
+            "[<b>2. Basics of Cavities of Eyeball atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjk4NjU0NjQ5OTg5ODcx)",
+            "[<b>2. Basics of Orbital Cavity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNjk5NjU2Njc0MzQ0Nzk4)",
+            "[<b>3. Embryology of Eyeball - Embryology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzAwNjU4Njk4Njk5NzI1)",
+            "[<b>4. Conjunctiva - Anatomy of Conjunctiva atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzAxNjYwNzIzMDU0NjUy)",
+            "[<b>4. Conjunctiva - Phlyctenular Keratoconjunctivitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzAyNjYyNzQ3NDA5NTc5)",
+            "[<b>4. Conjunctiva - Trachoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzAzNjY0NzcxNzY0NTA2)",
+            "[<b>4. Conjunctiva - Vernal Keratoconjunctivitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzA0NjY2Nzk2MTE5NDMz)",
+            "[<b>4. Conjunctiva - Conjunctivitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzA1NjY4ODIwNDc0MzYw)",
+            "[<b>4. Conjunctiva - Pterygium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzA2NjcwODQ0ODI5Mjg3)",
+            "[<b>5. Cornea - Corneal Degenerations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzA3NjcyODY5MTg0MjE0)",
+            "[<b>5. Cornea - Corneal Opacities atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzA4Njc0ODkzNTM5MTQx)",
+            "[<b>5. Cornea - Anatomy of Cornea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzA5Njc2OTE3ODk0MDY4)",
+            "[<b>5. Cornea - Corneal Ulcer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzEwNjc4OTQyMjQ4OTk1)",
+            "[<b>5. Cornea - Corneal Dystrophies atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzExNjgwOTY2NjAzOTIy)",
+            "[<b>5. Cornea - Deposits in Cornea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzEyNjgyOTkwOTU4ODQ5)",
+            "[<b>5. Cornea - Investigations of Cornea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzEzNjg1MDE1MzEzNzc2)",
+            "[<b>5. Cornea - Keratoconus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzE0Njg3MDM5NjY4NzAz)",
+            "[<b>5. Cornea - Herpes Zoster Ophthalmicus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzE1Njg5MDY0MDIzNjMw)",
+            "[<b>6. Lens - Congenital Cataract atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzE2NjkxMDg4Mzc4NTU3)",
+            "[<b>6. Lens - Ectopia Lentis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzE3NjkzMTEyNzMzNDg0)",
+            "[<b>6. Lens - Cataract atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzE4Njk1MTM3MDg4NDEx)",
+            "[<b>6. Lens - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzE5Njk3MTYxNDQzMzM4)",
+            "[<b>6. Lens - Iol Types Formulae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzIwNjk5MTg1Nzk4MjY1)",
+            "[<b>6. Lens - Lens Anatomy Anomalies atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzIxNzAxMjEwMTUzMTky)",
+            "[<b>6. Lens - Nuclear Sclerosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzIyNzAzMjM0NTA4MTE5)",
+            "[<b>6. Lens - Cataract Surgeries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzIzNzA1MjU4ODYzMDQ2)",
+            "[<b>7. Uvea - Anatomy of Uveal Tract atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzI0NzA3MjgzMjE3OTcz)",
+            "[<b>7. Uvea - Classification of Uveitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzI1NzA5MzA3NTcyOTAw)",
+            "[<b>7. Uvea - Clinical Conditions of Iris atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzI2NzExMzMxOTI3ODI3)",
+            "[<b>7. Uvea - Intermediate Uveitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzI3NzEzMzU2MjgyNzU0)",
+            "[<b>7. Uvea - Panuveitis Sympathetic Ophthalmia and Vkh Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzI4NzE1MzgwNjM3Njgx)",
+            "[<b>7. Uvea - Anterior Uveitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzI5NzE3NDA0OTkyNjA4)",
+            "[<b>7. Uvea - Posterior Uveitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzMwNzE5NDI5MzQ3NTM1)",
+            "[<b>8. Retina - Diabetic Htn Retinopathies Eale S Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzMxNzIxNDUzNzAyNDYy)",
+            "[<b>8. Retina - Diseases of the Macula atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzMyNzIzNDc4MDU3Mzg5)",
+            "[<b>8. Retina - Retinal Layers and Fundus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzMzNzI1NTAyNDEyMzE2)",
+            "[<b>8. Retina - Retinitis Pigmentosa atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzM0NzI3NTI2NzY3MjQz)",
+            "[<b>8. Retina - Retinal Vascular Occlusions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzM1NzI5NTUxMTIyMTcw)",
+            "[<b>8. Retina - Retinal Detachment atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzM2NzMxNTc1NDc3MDk3)",
+            "[<b>9. Glaucoma - Anti Glaucoma Drugs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzM3NzMzNTk5ODMyMDI0)",
+            "[<b>9. Glaucoma - Optic Disc Changes in Glaucoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzM4NzM1NjI0MTg2OTUx)",
+            "[<b>9. Glaucoma - Congenital Glaucoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzM5NzM3NjQ4NTQxODc4)",
+            "[<b>9. Glaucoma - Definition and Classification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQwNzM5NjcyODk2ODA1)",
+            "[<b>9. Glaucoma - Investigation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQxNzQxNjk3MjUxNzMy)",
+            "[<b>9. Glaucoma - Risk Factors of Glaucoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQyNzQzNzIxNjA2NjU5)",
+            "[<b>9. Glaucoma - Special Types of Glaucoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQzNzQ1NzQ1OTYxNTg2)",
+            "[<b>9. Glaucoma - Visual Field Defects of Glaucoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQ0NzQ3NzcwMzE2NTEz)",
+            "[<b>9. Glaucoma - Angle Closure Glaucoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQ1NzQ5Nzk0NjcxNDQw)",
+            "[<b>10. Neuro Optic Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQ2NzUxODE5MDI2MzY3)",
+            "[<b>10. Neuro Papilledema atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQ3NzUzODQzMzgxMjk0)",
+            "[<b>10. Neuro Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQ4NzU1ODY3NzM2MjIx)",
+            "[<b>10. Neuro Primary Visual Center atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzQ5NzU3ODkyMDkxMTQ4)",
+            "[<b>10. Neuro Pupillary Reflex Pathway Lesions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzUwNzU5OTE2NDQ2MDc1)",
+            "[<b>10. Neuro Third Cranial Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzUxNzYxOTQwODAxMDAy)",
+            "[<b>10. Neuro Visual Pathway Lesions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzUyNzYzOTY1MTU1OTI5)",
+            "[<b>10. Neuro Third Nerve Palsy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzUzNzY1OTg5NTEwODU2)",
+            "[<b>10. Neuro Gaze Pathway Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzU0NzY4MDEzODY1Nzgz)",
+            "[<b>11. Squint - Compensatory Head Posture Park S 3 Step Test atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzU1NzcwMDM4MjIwNzEw)",
+            "[<b>11. Squint - Extraocular Muscle Actions Laws atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzU2NzcyMDYyNTc1NjM3)",
+            "[<b>11. Squint - Gazes Yoke Muscles atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzU3Nzc0MDg2OTMwNTY0)",
+            "[<b>11. Squint - Management of Squint atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzU4Nzc2MTExMjg1NDkx)",
+            "[<b>12. Refraction - Accomodation Presbyopia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzU5Nzc4MTM1NjQwNDE4)",
+            "[<b>12. Refraction - Refraction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzYwNzgwMTU5OTk1MzQ1)",
+            "[<b>12. Refraction - Myopia Hypermetropia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzYxNzgyMTg0MzUwMjcy)",
+            "[<b>12. Refraction - Astigmatism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzYyNzg0MjA4NzA1MTk5)",
+            "[<b>12. Refraction - Spectacle Prescription Numericals atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzYzNzg2MjMzMDYwMTI2)",
+            "[<b>13. Orbit - Orbit Anatomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzY0Nzg4MjU3NDE1MDUz)",
+            "[<b>13. Orbit - Proptosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzY1NzkwMjgxNzY5OTgw)",
+            "[<b>13. Orbit - Thyroid Eye Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzY2NzkyMzA2MTI0OTA3)",
+            "[<b>14. Eyelids and Lacrimal Apparatus - Eyelid Anatomy Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzY3Nzk0MzMwNDc5ODM0)",
+            "[<b>14. Eyelids and Lacrimal Apparatus - Lacrimal System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzY4Nzk2MzU0ODM0NzYx)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        ophthalmologyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ophthalmologyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ophthalmologyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(ophthalmologyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("medicined"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Pulmonology - Ards atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzY5Nzk4Mzc5MTg5Njg4)",	
+            "[<b>1. Pulmonology - Basics of Spirometry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzcwODAwNDAzNTQ0NjE1)",	
+            "[<b>1. Pulmonology - Bronchial Asthma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzcxODAyNDI3ODk5NTQy)",	
+            "[<b>1. Pulmonology - Bronchiectasis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzcyODA0NDUyMjU0NDY5)",	
+            "[<b>1. Pulmonology - Copd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzczODA2NDc2NjA5Mzk2)",	
+            "[<b>1. Pulmonology - Hypersensitivity Pneumonitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzc0ODA4NTAwOTY0MzIz)",	
+            "[<b>1. Pulmonology - Interstitial Lung Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzc1ODEwNTI1MzE5MjUw)",	
+            "[<b>1. Pulmonology - Obstructive Sleep Apnea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzc2ODEyNTQ5Njc0MTc3)",	
+            "[<b>1. Pulmonology - Pleural Effusion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzc3ODE0NTc0MDI5MTA0)",	
+            "[<b>1. Pulmonology - Pneumoconiosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzc4ODE2NTk4Mzg0MDMx)",	
+            "[<b>1. Pulmonology - Pneumonia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzc5ODE4NjIyNzM4OTU4)",	
+            "[<b>1. Pulmonology - Pneumothorax atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzgwODIwNjQ3MDkzODg1)",	
+            "[<b>1. Pulmonology - Pulmonary Thromboembolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzgxODIyNjcxNDQ4ODEy)",	
+            "[<b>1. Pulmonology - Respiratory Failure atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzgyODI0Njk1ODAzNzM5)",	
+            "[<b>1. Pulmonology - Tuberculosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzgzODI2NzIwMTU4NjY2)",	
+            "[<b>2. Seizures and Epilepsy - Status Epilepticus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzg0ODI4NzQ0NTEzNTkz)",	
+            "[<b>2. Seizures and Epilepsy - Women and Epilepsy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzg1ODMwNzY4ODY4NTIw)",	
+            "[<b>2. Seizures and Epilepsy - Basics of Eeg atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzg2ODMyNzkzMjIzNDQ3)",	
+            "[<b>2. Seizures and Epilepsy - Causes of Seizures atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzg3ODM0ODE3NTc4Mzc0)",	
+            "[<b>2. Seizures and Epilepsy - Classification of Seizures Epilepsy and Epilepsy Syndromes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzg4ODM2ODQxOTMzMzAx)",	
+            "[<b>2. Seizures and Epilepsy - Drug Resistant Epilepsy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzg5ODM4ODY2Mjg4MjI4)",	
+            "[<b>2. Seizures and Epilepsy - Epilepsy Syndromes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzkwODQwODkwNjQzMTU1)",	
+            "[<b>2. Seizures and Epilepsy - Evaluation of First Onset Seizure atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzkxODQyOTE0OTk4MDgy)",	
+            "[<b>2. Seizures and Epilepsy - General Principles in Management of Seizures and Epilepsy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzkyODQ0OTM5MzUzMDA5)",	
+            "[<b>2. Seizures and Epilepsy - Seizure Versus Syncope atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzkzODQ2OTYzNzA3OTM2)",	
+            "[<b>3. Cerebrovascular Diseases Module Part - Arterial Supply of Brain atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzk0ODQ4OTg4MDYyODYz)",	
+            "[<b>3. Cerebrovascular Diseases Module Part - Basic Principles of Stroke Localization atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzk1ODUxMDEyNDE3Nzkw)",	
+            "[<b>3. Cerebrovascular Diseases Module Part - Etiopathogenesis of Stroke atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzk2ODUzMDM2NzcyNzE3)",	
+            "[<b>3. Cerebrovascular Diseases Module Part - Genetic Causes of Stroke atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzk3ODU1MDYxMTI3NjQ0)",	
+            "[<b>3. Cerebrovascular Diseases Module Part - Subtypes of Stroke atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzk4ODU3MDg1NDgyNTcx)",	
+            "[<b>3. Cerebrovascular Diseases Module Part - Young Stroke atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyNzk5ODU5MTA5ODM3NDk4)",	
+            "[<b>4. Cerebrovascular Diseases Module Part - Cerebral Venous Thrombosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODAwODYxMTM0MTkyNDI1)",	
+            "[<b>4. Cerebrovascular Diseases Module Part - Intracranial Hemorrhage atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODAxODYzMTU4NTQ3MzUy)",	
+            "[<b>4. Cerebrovascular Diseases Module Part - Management of Acute Ischemic Stroke atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODAyODY1MTgyOTAyMjc5)",	
+            "[<b>4. Cerebrovascular Diseases Module Part - Posterior Reversible Encephalopathy Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODAzODY3MjA3MjU3MjA2)",	
+            "[<b>4. Cerebrovascular Diseases Module Part - Secondary Prophylaxis of Stroke atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODA0ODY5MjMxNjEyMTMz)",	
+            "[<b>4. Cerebrovascular Diseases Module Part - Stroke Syndromes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODA1ODcxMjU1OTY3MDYw)",	
+            "[<b>4. Cerebrovascular Diseases Module Part - Transient Global Amnesia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODA2ODczMjgwMzIxOTg3)",	
+            "[<b>4. Cerebrovascular Diseases Module Part - Transient Ischemic Attacks atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODA3ODc1MzA0Njc2OTE0)",	
+            "[<b>5. Headache and Other Related Disorders - Cdh Ndph atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODA4ODc3MzI5MDMxODQx)",	
+            "[<b>5. Headache and Other Related Disorders - Introduction and Classification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODA5ODc5MzUzMzg2NzY4)",	
+            "[<b>5. Headache and Other Related Disorders - Migraine atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODEwODgxMzc3NzQxNjk1)",	
+            "[<b>5. Headache and Other Related Disorders - Secondary Headaches atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODExODgzNDAyMDk2NjIy)",	
+            "[<b>5. Headache and Other Related Disorders - Tension Type Headache atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODEyODg1NDI2NDUxNTQ5)",	
+            "[<b>5. Headache and Other Related Disorders - Trigeminal Autonomic Cephalalgias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODEzODg3NDUwODA2NDc2)",	
+            "[<b>6. Hypokinetic Movement Disorders Module - Atypical Parkinsonian Syndromes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODE0ODg5NDc1MTYxNDAz)",	
+            "[<b>6. Hypokinetic Movement Disorders Module - Basal Ganglia Physiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODE1ODkxNDk5NTE2MzMw)",	
+            "[<b>6. Hypokinetic Movement Disorders Module - Parkinson S Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODE2ODkzNTIzODcxMjU3)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Chorea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODE3ODk1NTQ4MjI2MTg0)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Drug Induced Movement Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODE4ODk3NTcyNTgxMTEx)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Dystonia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODE5ODk5NTk2OTM2MDM4)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Myoclonus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODIwOTAxNjIxMjkwOTY1)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Nbia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODIxOTAzNjQ1NjQ1ODky)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Restless Legs Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODIyOTA1NjcwMDAwODE5)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Tics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODIzOTA3Njk0MzU1NzQ2)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Tremor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODI0OTA5NzE4NzEwNjcz)",	
+            "[<b>7. Hyperkinetic Movement Disorders - Wilson S Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODI1OTExNzQzMDY1NjAw)",	
+            "[<b>8. Dementia - Alzheimer S Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODI2OTEzNzY3NDIwNTI3)",	
+            "[<b>8. Dementia - Cortical Versus Subcortical Dementias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODI3OTE1NzkxNzc1NDU0)",	
+            "[<b>8. Dementia - Delirium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODI4OTE3ODE2MTMwMzgx)",	
+            "[<b>8. Dementia - Frontotemporal Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODI5OTE5ODQwNDg1MzA4)",	
+            "[<b>8. Dementia - Normal Pressure Hydrocephalus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODMwOTIxODY0ODQwMjM1)",	
+            "[<b>8. Dementia - Parkinsonian Dementias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODMxOTIzODg5MTk1MTYy)",	
+            "[<b>8. Dementia - Prion Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODMyOTI1OTEzNTUwMDg5)",	
+            "[<b>8. Dementia - Reversible Dementias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODMzOTI3OTM3OTA1MDE2)",	
+            "[<b>8. Dementia - Vascular Cognitive Impairment atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODM0OTI5OTYyMjU5OTQz)",	
+            "[<b>9. Multiple Sclerosis and Other Cns Demyelinationg Disorders - Adem atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODM1OTMxOTg2NjE0ODcw)",	
+            "[<b>Multiple Sclerosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODM2OTM0MDEwOTY5Nzk3)",	
+            "[<b>Nmo Spectrum Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODM3OTM2MDM1MzI0NzI0)",	
+            "[<b>Non Functional Tumors Suprasellar Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODM4OTM4MDU5Njc5NjUx)",	
+            "[<b>10. Ataxia - Ataxias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODM5OTQwMDg0MDM0NTc4)",	
+            "[<b>11. Lmn Disorders - Als and Other Motor Neuron Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQwOTQyMTA4Mzg5NTA1)",	
+            "[<b>11. Lmn Disorders - Disorders of Neuromuscular Junction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQxOTQ0MTMyNzQ0NDMy)",	
+            "[<b>11. Lmn Disorders - Disorders of Peripheral Nerve atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQyOTQ2MTU3MDk5MzU5)",	
+            "[<b>11. Lmn Disorders - Muscle Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQzOTQ4MTgxNDU0Mjg2)",	
+            "[<b>12. Diseases of Spinal Cord - Checklist in a Case of Paraplegia Quadriplegia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQ0OTUwMjA1ODA5MjEz)",	
+            "[<b>12. Diseases of Spinal Cord - Classification of Myelopathies atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQ1OTUyMjMwMTY0MTQw)",	
+            "[<b>12. Diseases of Spinal Cord - Diseases of Spinal Cord atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQ2OTU0MjU0NTE5MDY3)",	
+            "[<b>12. Diseases of Spinal Cord - Neurogenic Bladder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQ3OTU2Mjc4ODczOTk0)",	
+            "[<b>12. Diseases of Spinal Cord - Spinal Cord Syndromes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQ4OTU4MzAzMjI4OTIx)",	
+            "[<b>13. Cardiology - 1. Cardiomyopathies - Arrhythmogenic Right Ventricular Cardiomyopathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODQ5OTYwMzI3NTgzODQ4)",	
+            "[<b>13. Cardiology - 1. Cardiomyopathies - Dilated Cardiomyopathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODUwOTYyMzUxOTM4Nzc1)",	
+            "[<b>13. Cardiology - 1. Cardiomyopathies - Hypertrophic Cardiomyopathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODUxOTY0Mzc2MjkzNzAy)",	
+            "[<b>13. Cardiology - 1. Cardiomyopathies - Left Ventricular Non Compaction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODUyOTY2NDAwNjQ4NjI5)",	
+            "[<b>13. Cardiology - 1. Cardiomyopathies - Restrictive Cardiomyopathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODUzOTY4NDI1MDAzNTU2)",	
+            "[<b>13. Cardiology - 1. Cardiomyopathies - Takotsubo Cardiomyopathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODU0OTcwNDQ5MzU4NDgz)",	
+            "[<b>13. Cardiology - 2. Hypertension - Hypertension atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODU1OTcyNDczNzEzNDEw)",	
+            "[<b>13. Cardiology - 3. Ischemic Heart Diseases - Atherosclerosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODU2OTc0NDk4MDY4MzM3)",	
+            "[<b>13. Cardiology - 3. Ischemic Heart Diseases - Basics Introduction to ACS atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODU3OTc2NTIyNDIzMjY0)",	
+            "[<b>13. Cardiology - 3. Ischemic Heart Diseases - Chronic Stable Angina atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODU4OTc4NTQ2Nzc4MTkx)",	
+            "[<b>13. Cardiology - 3. Ischemic Heart Diseases - Evaluation Management of Nstemi atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODU5OTgwNTcxMTMzMTE4)",	
+            "[<b>13. Cardiology - 3. Ischemic Heart Diseases - Management of Stemie atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODYwOTgyNTk1NDg4MDQ1)",	
+            "[<b>13. Cardiology - 3. Ischemic Heart Diseases - Types of Myocardial Infarction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODYxOTg0NjE5ODQyOTcy)",	
+            "[<b>13. Cardiology - 4. Ecg - Basics of Electrocardiography atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODYyOTg2NjQ0MTk3ODk5)",	
+            "[<b>13. Cardiology - 4. Ecg - Interpretation of Ecg atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODYzOTg4NjY4NTUyODI2)",	
+            "[<b>13. Cardiology - 5. Heart Sounds - Heart Sounds atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODY0OTkwNjkyOTA3NzUz)",	
+            "[<b>14. Endocrinology - 1. Disorders of Anterior Pituitary Gland - Acquired Hypopituitarism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODY1OTkyNzE3MjYyNjgw)",	
+            "[<b>14. Endocrinology - 1. Disorders of Anterior Pituitary Gland - Acromegaly atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODY2OTk0NzQxNjE3NjA3)",	
+            "[<b>14. Endocrinology - 1. Disorders of Anterior Pituitary Gland - Congenital Hypopituitarism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODY3OTk2NzY1OTcyNTM0)",	
+            "[<b>14. Endocrinology - 1. Disorders of Anterior Pituitary Gland - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODY4OTk4NzkwMzI3NDYx)",	
+            "[<b>14. Endocrinology - 1. Disorders of Anterior Pituitary Gland - Pituitary Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODcwMDAwODE0NjgyMzg4)",	
+            "[<b>14. Endocrinology - 2. Disorders of Posterior Pituitary Gland - Diabetes Insipidus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODcxMDAyODM5MDM3MzE1)",	
+            "[<b>14. Endocrinology - 2. Disorders of Posterior Pituitary Gland - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODcyMDA0ODYzMzkyMjQy)",	
+            "[<b>14. Endocrinology - 2. Disorders of Posterior Pituitary Gland - Siadh atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODczMDA2ODg3NzQ3MTY5)",	
+            "[<b>14. Endocrinology - 3. Disorders of Thyroid Gland - Basics of Thyroid Function Tests atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODc0MDA4OTEyMTAyMDk2)",	
+            "[<b>14. Endocrinology - 3. Disorders of Thyroid Gland - Hypothyroidism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODc1MDEwOTM2NDU3MDIz)",	
+            "[<b>14. Endocrinology - 3. Disorders of Thyroid Gland - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODc2MDEyOTYwODExOTUw)",	
+            "[<b>14. Endocrinology - 3. Disorders of Thyroid Gland - Thyrotoxicosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODc3MDE0OTg1MTY2ODc3)",	
+            "[<b>14. Endocrinology - 4. Disorders Fo Parathyroid Gland - Hypoparathyroidism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODc4MDE3MDA5NTIxODA0)",	
+            "[<b>14. Endocrinology - 4. Disorders Fo Parathyroid Gland - Introduction Hyperparathyroidism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODc5MDE5MDMzODc2NzMx)",	
+            "[<b>14. Endocrinology - 4. Disorders Fo Parathyroid Gland - Pseudohypoparathyroidism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODgwMDIxMDU4MjMxNjU4)",	
+            "[<b>14. Endocrinology - 5. Disorders of Adrenal - Adrenal Insufficiency atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODgxMDIzMDgyNTg2NTg1)",	
+            "[<b>14. Endocrinology - 5. Disorders of Adrenal - Cushing S Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODgyMDI1MTA2OTQxNTEy)",	
+            "[<b>14. Endocrinology - 5. Disorders of Adrenal - Hyperaldosteronism  atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODgzMDI3MTMxMjk2NDM5)",	
+            "[<b>14. Endocrinology - 5. Disorders of Adrenal - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODg0MDI5MTU1NjUxMzY2)",	
+            "[<b>14. Endocrinology - 5. Disorders of Adrenal - Pheochromocytoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODg1MDMxMTgwMDA2Mjkz)",	
+            "[<b>14. Endocrinology - 6. Men & Meons - Men Meons atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODg2MDMzMjA0MzYxMjIw)",	
+            "[<b>14. Endocrinology - 7. Diabetes Mellitus - Acute Complications of Diabetes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODg3MDM1MjI4NzE2MTQ3)",	
+            "[<b>14. Endocrinology - 7. Diabetes Mellitus - Chronic Complications of Diabetes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODg4MDM3MjUzMDcxMDc0)",	
+            "[<b>14. Endocrinology - 7. Diabetes Mellitus - Diagnosis of Diabetes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODg5MDM5Mjc3NDI2MDAx)",	
+            "[<b>14. Endocrinology - 7. Diabetes Mellitus - Introduction and Classification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODkwMDQxMzAxNzgwOTI4)",	
+            "[<b>14. Endocrinology - 7. Diabetes Mellitus - Management of Diabetes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODkxMDQzMzI2MTM1ODU1)",	
+            "[<b>15. Nephrology - 1. Approach to Proteinuria - Approach to Proteinuria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODkyMDQ1MzUwNDkwNzgy)",	
+            "[<b>15. Nephrology - 2. Approach to Hematuria - Approach to Hematuria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODkzMDQ3Mzc0ODQ1NzA5)",	
+            "[<b>15. Nephrology - 3. Urine Anlaysis - Urine Analysis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODk0MDQ5Mzk5MjAwNjM2)",	
+            "[<b>15. Nephrology - 4. Acute Kidney Injury - Acute Kidney Injury atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODk1MDUxNDIzNTU1NTYz)",	
+            "[<b>15. Nephrology - 5. Chronic Kidney Disease - Cardiovascular Manifestations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODk2MDUzNDQ3OTEwNDkw)",	
+            "[<b>15. Nephrology - 5. Chronic Kidney Disease - Dermatological Manifestations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODk3MDU1NDcyMjY1NDE3)",	
+            "[<b>15. Nephrology - 5. Chronic Kidney Disease - Hematological Manifestations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODk4MDU3NDk2NjIwMzQ0)",	
+            "[<b>15. Nephrology - 5. Chronic Kidney Disease - Introduction Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyODk5MDU5NTIwOTc1Mjcx)",	
+            "[<b>15. Nephrology - 5. Chronic Kidney Disease - Mineral Bone Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTAwMDYxNTQ1MzMwMTk4)",	
+            "[<b>15. Nephrology - 5. Chronic Kidney Disease - Neurologic Manifestations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTAxMDYzNTY5Njg1MTI1)",	
+            "[<b>15. Nephrology - 5. Chronic Kidney Disease - Overview of Clinical Manifestations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTAyMDY1NTk0MDQwMDUy)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Alport Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTAzMDY3NjE4Mzk0OTc5)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Basic Structure of Glomerulus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTA0MDY5NjQyNzQ5OTA2)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Clinical Presentations of Glomerular Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTA1MDcxNjY3MTA0ODMz)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - FSGS atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTA2MDczNjkxNDU5NzYw)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Iga Nephropathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTA3MDc1NzE1ODE0Njg3)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Membranous Nephropathy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTA4MDc3NzQwMTY5NjE0)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Minimal Change Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTA5MDc5NzY0NTI0NTQx)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Mpgn atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTEwMDgxNzg4ODc5NDY4)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Psgn atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTExMDgzODEzMjM0Mzk1)",	
+            "[<b>15. Nephrology - 6. Glomerular Disorders - Rpgn Goodpasture Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTEyMDg1ODM3NTg5MzIy)",	
+            "[<b>15. Nephrology - 7. Vascular Diseases of Kidney - Renal Artery Stenosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTEzMDg3ODYxOTQ0MjQ5)",	
+            "[<b>15. Nephrology - 8. Hereditary Cystic Diseases of Kidney - Adpkd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTE0MDg5ODg2Mjk5MTc2)",	
+            "[<b>15. Nephrology - 8. Hereditary Cystic Diseases of Kidney - Arpkd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTE1MDkxOTEwNjU0MTAz)",	
+            "[<b>15. Nephrology - 8. Hereditary Cystic Diseases of Kidney - Medullary Sponge Kidney atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTE2MDkzOTM1MDA5MDMw)",	
+            "[<b>15. Nephrology - 8. Hereditary Cystic Diseases of Kidney - Nephronophthisis Adtkd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTE3MDk1OTU5MzYzOTU3)",	
+            "[<b>15. Nephrology - 8. Hereditary Cystic Diseases of Kidney - Tuberous Sclerosis Vhl Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTE4MDk3OTgzNzE4ODg0)",	
+            "[<b>16. Rheumatology - Apla Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTE5MTAwMDA4MDczODEx)",	
+            "[<b>16. Rheumatology - Crystal Associated Arthropathies atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTIwMTAyMDMyNDI4NzM4)",	
+            "[<b>16. Rheumatology - Igg4 Related Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTIxMTA0MDU2NzgzNjY1)",	
+            "[<b>16. Rheumatology - Inflammatory Myopathies atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTIyMTA2MDgxMTM4NTky)",	
+            "[<b>16. Rheumatology - Rheumatoid Arthritis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTIzMTA4MTA1NDkzNTE5)",	
+            "[<b>16. Rheumatology - Sarcoidosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTI0MTEwMTI5ODQ4NDQ2)",	
+            "[<b>16. Rheumatology - Seronegative Spondyloarthritides atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTI1MTEyMTU0MjAzMzcz)",	
+            "[<b>16. Rheumatology - Sjogren S Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTI2MTE0MTc4NTU4MzAw)",	
+            "[<b>16. Rheumatology - Sle atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTI3MTE2MjAyOTEzMjI3)",	
+            "[<b>16. Rheumatology - Systemic Sclerosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTI4MTE4MjI3MjY4MTU0)",	
+            "[<b>16. Rheumatology - Vasculitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTI5MTIwMjUxNjIzMDgx)",	
+            "[<b>17. Hematology - 1. Hemolytic Anemias - Introduction and Basics0 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTMwMTIyMjc1OTc4MDA4)",	
+            "[<b>17. Hematology - 1. Hemolytic Anemias - Paroxysmal Nocturnal Hemoglobinuria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTMxMTI0MzAwMzMyOTM1)",	
+            "[<b>17. Hematology - 2. Plasma Cell Disorders - Introduction and Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTMyMTI2MzI0Njg3ODYy)",	
+            "[<b>17. Hematology - 2. Plasma Cell Disorders - Multiple Myeloma Etiopathogenesis and Clinical Features atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTMzMTI4MzQ5MDQyNzg5)",	
+            "[<b>17. Hematology - 2. Plasma Cell Disorders - Multiple Myeloma Work Up and Staging atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTM0MTMwMzczMzk3NzE2)",	
+            "[<b>17. Hematology - 2. Plasma Cell Disorders - Treatment of Multiple Myeloma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTM1MTMyMzk3NzUyNjQz)",	
+            "[<b>17. Hematology - 3. Von Willebrand Disease - Von Willebrand Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTM2MTM0NDIyMTA3NTcw)",	
+            "[<b>17. Hematology - 4. Myeloproliferative Neoplasms - Chronic Myeloid Leukemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTM3MTM2NDQ2NDYyNDk3)",	
+            "[<b>17. Hematology - 4. Myeloproliferative Neoplasms - Essential Thrombocytosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTM4MTM4NDcwODE3NDI0)",	
+            "[<b>17. Hematology - 4. Myeloproliferative Neoplasms - Introduction Classification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTM5MTQwNDk1MTcyMzUx)",	
+            "[<b>17. Hematology - 4. Myeloproliferative Neoplasms - Polycythemia Vera atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQwMTQyNTE5NTI3Mjc4)",	
+            "[<b>17. Hematology - 4. Myeloproliferative Neoplasms - Primary Myelofibrosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQxMTQ0NTQzODgyMjA1)",	
+            "[<b>17. Hematology - 4. Myeloproliferative Neoplasms - Treatment of Cml atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQyMTQ2NTY4MjM3MTMy)",	
+            "[<b>17. Hematology - 4. Myeloproliferative Neoplasms - Treatment of Polycthemia Vera atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQzMTQ4NTkyNTkyMDU5)",	
+            "[<b>18. Infectious Diseases - Acute Bacterial Meningitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQ0MTUwNjE2OTQ2OTg2)",	
+            "[<b>18. Infectious Diseases - Infective Endocarditis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQ1MTUyNjQxMzAxOTEz)",	
+            "[<b>18. Infectious Diseases - Management of Covid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQ2MTU0NjY1NjU2ODQw)",	
+            "[<b>18. Infectious Diseases - Oxygen Therapy in Covid 19 Patients atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQ3MTU2NjkwMDExNzY3)",	
+            "[<b>19. Gastroenterology and Hepatology - Autoimmune Hepatits atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQ4MTU4NzE0MzY2Njk0)",	
+            "[<b>19. Gastroenterology and Hepatology - Hemochromatosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTQ5MTYwNzM4NzIxNjIx)",	
+            "[<b>19. Gastroenterology and Hepatology - Overview of Liver Cirrhosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTUwMTYyNzYzMDc2NTQ4)",	
+            "[<b>19. Gastroenterology and Hepatology - Overview of Portal Hypertension atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTUxMTY0Nzg3NDMxNDc1)",	
+            "[<b>19. Gastroenterology and Hepatology - Treatment of Portal Hypertension atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTUyMTY2ODExNzg2NDAy)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        medicined_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"medicined_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"medicined_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(medicined_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("surgeryd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. General Aspects - Blood Transfusion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTUzMTY4ODM2MTQxMzI5)",
+            "[<b>1. General Aspects - Inside the Operation Theatre atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTU0MTcwODYwNDk2MjU2)",
+            "[<b>1. General Aspects - Instruments Used in Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTU1MTcyODg0ODUxMTgz)",
+            "[<b>1. General Aspects - Nutrition in Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTU2MTc0OTA5MjA2MTEw)",
+            "[<b>1. General Aspects - Operation Theatre Protocols atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTU3MTc2OTMzNTYxMDM3)",
+            "[<b>1. General Aspects - Shock atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTU4MTc4OTU3OTE1OTY0)",
+            "[<b>1. General Aspects - Surgical Site Infection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTU5MTgwOTgyMjcwODkx)",
+            "[<b>1. General Aspects - Sutures Needles Blades atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTYwMTgzMDA2NjI1ODE4)",
+            "[<b>2. Trauma - Abdominal Injuries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTYxMTg1MDMwOTgwNzQ1)",
+            "[<b>2. Trauma - Atls Latest Protocols atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTYyMTg3MDU1MzM1Njcy)",
+            "[<b>2. Trauma - Burns atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTYzMTg5MDc5NjkwNTk5)",
+            "[<b>2. Trauma - Head Injury Face Injury and Neck Injury atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTY0MTkxMTA0MDQ1NTI2)",
+            "[<b>2. Trauma - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTY1MTkzMTI4NDAwNDUz)",
+            "[<b>2. Trauma - Miscellaneous atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTY2MTk1MTUyNzU1Mzgw)",
+            "[<b>2. Trauma - Scoring System in Trauma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTY3MTk3MTc3MTEwMzA3)",
+            "[<b>2. Trauma - Thoracic Trauma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTY4MTk5MjAxNDY1MjM0)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 1. Head and Neck - Module 2 Salivary Gland atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTY5MjAxMjI1ODIwMTYx)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 1. Head and Neck - Module 3 Neck Swellings atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTcwMjAzMjUwMTc1MDg4)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 1. Head and Neck - Oral Cavity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTcxMjA1Mjc0NTMwMDE1)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Anatomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTcyMjA3Mjk4ODg0OTQy)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Clinical Aspects atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTczMjA5MzIzMjM5ODY5)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Graves Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTc0MjExMzQ3NTk0Nzk2)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Investigation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTc1MjEzMzcxOTQ5NzIz)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Miscellaneous Thyroid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTc2MjE1Mzk2MzA0NjUw)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Physiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTc3MjE3NDIwNjU5NTc3)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Thyroid Cancer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTc4MjE5NDQ1MDE0NTA0)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Thyroid Images atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTc5MjIxNDY5MzY5NDMx)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 2. Thyroid - Thyroid Surgical Aspect atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTgwMjIzNDkzNzI0MzU4)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 3. Breast - Adjuvant Therapy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTgxMjI1NTE4MDc5Mjg1)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 3. Breast - Clinical Examination atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTgyMjI3NTQyNDM0MjEy)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 3. Breast - Images atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTgzMjI5NTY2Nzg5MTM5)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 3. Breast - Miscellaneous Topics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTg0MjMxNTkxMTQ0MDY2)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 3. Breast - Pathological Examination atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTg1MjMzNjE1NDk4OTkz)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 3. Breast - Radiological Examination atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTg2MjM1NjM5ODUzOTIw)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 3. Breast - Risk Factors of Cancer Breast atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTg3MjM3NjY0MjA4ODQ3)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 3. Breast - Surgical Aspects in Breast Cancer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTg4MjM5Njg4NTYzNzc0)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 4. Anatomy of Hernia - Hernia Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTg5MjQxNzEyOTE4NzAx)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 4. Anatomy of Hernia - Hernia Surgeries atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTkwMjQzNzM3MjczNjI4)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 5. Types of Hernia - Named Hernias 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTkxMjQ1NzYxNjI4NTU1)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 5. Types of Hernia - Named Hernias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTkyMjQ3Nzg1OTgzNDgy)",
+            "[<b>3. Head and Neck, Thyoid and Breast - 6. Laproscopic Anatomy and Hernia Repair - Laparoscopic Hernial Repairs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTkzMjQ5ODEwMzM4NDA5)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Barrett S Esophagus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTk0MjUxODM0NjkzMzM2)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Diverticulum in Esophagus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTk1MjUzODU5MDQ4MjYz)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Esophagus Perforation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTk2MjU1ODgzNDAzMTkw)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Gerd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTk3MjU3OTA3NzU4MTE3)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Hiatus Hernia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTk4MjU5OTMyMTEzMDQ0)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEyOTk5MjYxOTU2NDY3OTcx)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Miscellaneous atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDAwMjYzOTgwODIyODk4)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Motility Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDAxMjY2MDA1MTc3ODI1)",
+            "[<b>4. Gastrointestinal 1. Esophagus - Tumors of Esophagus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDAyMjY4MDI5NTMyNzUy)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric Cancer Stomach Intro atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDAzMjcwMDUzODg3Njc5)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric Complications of Peptic Ulcer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDA0MjcyMDc4MjQyNjA2)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric H Pylon atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDA1Mjc0MTAyNTk3NTMz)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric Miscellaneous Lesions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDA2Mjc2MTI2OTUyNDYw)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric Other Tumors in Stomach atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDA3Mjc4MTUxMzA3Mzg3)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric Peptic Ulcer Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDA4MjgwMTc1NjYyMzE0)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric Stomach Cancer Management atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDA5MjgyMjAwMDE3MjQx)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric Upper Gi Bleed Protocol atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDEwMjg0MjI0MzcyMTY4)",
+            "[<b>4. Gastrointestinal 2. Stomach and Bariatric Vagus Nave Applied Anatomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDExMjg2MjQ4NzI3MDk1)",
+            "[<b>4. Gastrointestinal 3. Intestines - Appendix atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDEyMjg4MjczMDgyMDIy)",
+            "[<b>4. Gastrointestinal 3. Intestines - Carcinoid Sb Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDEzMjkwMjk3NDM2OTQ5)",
+            "[<b>4. Gastrointestinal 3. Intestines - Colon Cancer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDE0MjkyMzIxNzkxODc2)",
+            "[<b>4. Gastrointestinal 3. Intestines - Diverticulum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDE1Mjk0MzQ2MTQ2ODAz)",
+            "[<b>4. Gastrointestinal 3. Intestines - Hairspring S Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDE2Mjk2MzcwNTAxNzMw)",
+            "[<b>4. Gastrointestinal 3. Intestines - Inflammatory Bowel Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDE3Mjk4Mzk0ODU2NjU3)",
+            "[<b>4. Gastrointestinal 3. Intestines - Intestinal Obstruction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDE4MzAwNDE5MjExNTg0)",
+            "[<b>4. Gastrointestinal 3. Intestines - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDE5MzAyNDQzNTY2NTEx)",
+            "[<b>4. Gastrointestinal 3. Intestines - Polyps in Intestine atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDIwMzA0NDY3OTIxNDM4)",
+            "[<b>4. Gastrointestinal 3. Intestines - Small Bowel Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDIxMzA2NDkyMjc2MzY1)",
+            "[<b>4. Gastrointestinal 3. Intestines - Stomas atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDIyMzA4NTE2NjMxMjky)",
+            "[<b>4. Gastrointestinal 3. Intestines - Vascular Diseases of Bowel atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDIzMzEwNTQwOTg2MjE5)",
+            "[<b>4. Gastrointestinal 4. Rectum and Anus - Malignant Diseases of Rectum and Anus atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDI0MzEyNTY1MzQxMTQ2)",
+            "[<b>4. Gastrointestinal 4. Rectum and Anus - Rectum and Anus Benign atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDI1MzE0NTg5Njk2MDcz)",
+            "[<b>4. Gastrointestinal 5. Miscellaneous - Miscellaneous Topics in Git atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDI2MzE2NjE0MDUxMDAw)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 1. Gallbladder and Biliary System - Bile Duct Injury atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDI3MzE4NjM4NDA1OTI3)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 1. Gallbladder and Biliary System - Biliary Malignancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDI4MzIwNjYyNzYwODU0)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 1. Gallbladder and Biliary System - Cbd Stones atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDI5MzIyNjg3MTE1Nzgx)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 1. Gallbladder and Biliary System - Gall Stones atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDMwMzI0NzExNDcwNzA4)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 1. Gallbladder and Biliary System - Gallbladder and Bile Duct atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDMxMzI2NzM1ODI1NjM1)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 1. Gallbladder and Biliary System - Management of Gall Stones atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDMyMzI4NzYwMTgwNTYy)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 1. Gallbladder and Biliary System - Miscellaneous Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDMzMzMwNzg0NTM1NDg5)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 2. Pancreas - Chronic Pancreatitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDM0MzMyODA4ODkwNDE2)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 2. Pancreas - Pancreas Acute Pancreatitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDM1MzM0ODMzMjQ1MzQz)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 2. Pancreas - Pancreas Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDM2MzM2ODU3NjAwMjcw)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 2. Pancreas - Pancreatic Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDM3MzM4ODgxOTU1MTk3)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 3. Liver - Infections in Liver atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDM4MzQwOTA2MzEwMTI0)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 3. Liver - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDM5MzQyOTMwNjY1MDUx)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 3. Liver - Liver Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQwMzQ0OTU1MDE5OTc4)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 3. Liver - Portal Hypertension atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQxMzQ2OTc5Mzc0OTA1)",
+            "[<b>5. Hepatobiliary and Pancreatic System - 4. Spleen - Spleen atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQyMzQ5MDAzNzI5ODMy)",
+            "[<b>6. Surgical Speciality Topics - 1. Urology - Urology 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQzMzUxMDI4MDg0NzU5)",
+            "[<b>6. Surgical Speciality Topics - 1. Urology - Urology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQ0MzUzMDUyNDM5Njg2)",
+            "[<b>6. Surgical Speciality Topics - 2. Vascular - Artery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQ1MzU1MDc2Nzk0NjEz)",
+            "[<b>6. Surgical Speciality Topics - 2. Vascular - Lymphatics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQ2MzU3MTAxMTQ5NTQw)",
+            "[<b>6. Surgical Speciality Topics - 2. Vascular - Venous System atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQ3MzU5MTI1NTA0NDY3)",
+            "[<b>6. Surgical Speciality Topics - 3. Plastic Surgery and Skin Lesions - Plastic Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQ4MzYxMTQ5ODU5Mzk0)",
+            "[<b>6. Surgical Speciality Topics - 4. Paediatrics Paediatrics Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDQ5MzYzMTc0MjE0MzIx)",
+            "[<b>6. Surgical Speciality Topics - 5. OncoSkin Cancer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDUwMzY1MTk4NTY5MjQ4)",
+            "[<b>6. Surgical Speciality Topics - 6. Cardiothoracic Cardiothoracic Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDUxMzY3MjIyOTI0MTc1)",
+            "[<b>6. Surgical Speciality Topics - 6. Cardiothoracic Thoracic Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDUyMzY5MjQ3Mjc5MTAy)",
+            "[<b>6. Surgical Speciality Topics - 7. Endocrine Adrenal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDUzMzcxMjcxNjM0MDI5)",
+            "[<b>6. Surgical Speciality Topics - 7. Endocrine Men Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDU0MzczMjk1OTg4OTU2)",
+            "[<b>6. Surgical Speciality Topics - 7. Endocrine Parathyroid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDU1Mzc1MzIwMzQzODgz)",
+            "[<b>6. Surgical Speciality Topics - 8. NeuroNeurosurgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDU2Mzc3MzQ0Njk4ODEw)",
+            "[<b>6. Surgical Speciality Topics - 9. Transplantation - Advance Transplant atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDU3Mzc5MzY5MDUzNzM3)",
+            "[<b>6. Surgical Speciality Topics - 9. Transplantation - Basics of Transplant atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDU4MzgxMzkzNDA4NjY0)",
+            "[<b>7. Qrp - Ini Cet Qrp 2021 Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDU5MzgzNDE3NzYzNTkx)",
+            "[<b>7. Qrp - Surgery by Dr Rajamahendran atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDYwMzg1NDQyMTE4NTE4)",
+            "[<b>7. Qrp - Surgery Session 1 by Dr Rajamahendran atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDYxMzg3NDY2NDczNDQ1)",
+            "[<b>7. Qrp - Surgery Session 2 by Dr Rajamahendran atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDYyMzg5NDkwODI4Mzcy)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        surgeryd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"surgeryd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"surgeryd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(surgeryd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("obgyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Basics of Obstetrics - Amniotic Fluid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDYzMzkxNTE1MTgzMjk5)",
+            "[<b>1. Basics of Obstetrics - Anatomy of Female Genital Tract atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDY0MzkzNTM5NTM4MjI2)",
+            "[<b>1. Basics of Obstetrics - Cardiovascular Changes of Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDY1Mzk1NTYzODkzMTUz)",
+            "[<b>1. Basics of Obstetrics - Diagnosis of Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDY2Mzk3NTg4MjQ4MDgw)",
+            "[<b>1. Basics of Obstetrics - Fetal Circulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDY3Mzk5NjEyNjAzMDA3)",
+            "[<b>1. Basics of Obstetrics - Fetal Endocrinology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDY4NDAxNjM2OTU3OTM0)",
+            "[<b>1. Basics of Obstetrics - Fundamentals of Reproduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDY5NDAzNjYxMzEyODYx)",
+            "[<b>1. Basics of Obstetrics - Hematological Changes of Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDcwNDA1Njg1NjY3Nzg4)",
+            "[<b>1. Basics of Obstetrics - Nst and Ctg atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDcxNDA3NzEwMDIyNzE1)",
+            "[<b>1. Basics of Obstetrics - Physiological Changes of Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDcyNDA5NzM0Mzc3NjQy)",
+            "[<b>1. Basics of Obstetrics - Placenta and Umbilical Cord atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDczNDExNzU4NzMyNTY5)",
+            "[<b>1. Basics of Obstetrics - Placental Hormones atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDc0NDEzNzgzMDg3NDk2)",
+            "[<b>1. Basics of Obstetrics - Respiratory Urinary System and Gi Changes of Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDc1NDE1ODA3NDQyNDIz)",
+            "[<b>2. Normal Labour - Induction Augmentation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDc2NDE3ODMxNzk3MzUw)",
+            "[<b>2. Normal Labour - Maternal Pelvis and Fetal Skull atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDc3NDE5ODU2MTUyMjc3)",
+            "[<b>2. Normal Labour - Normal Puerperium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDc4NDIxODgwNTA3MjA0)",
+            "[<b>2. Normal Labour - Physiology of Labor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDc5NDIzOTA0ODYyMTMx)",
+            "[<b>2. Normal Labour - Stages of Labour and Partogram atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDgwNDI1OTI5MjE3MDU4)",
+            "[<b>3. Abnormal Labour - Breech Presentation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDgxNDI3OTUzNTcxOTg1)",
+            "[<b>3. Abnormal Labour - Caesarean Section atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDgyNDI5OTc3OTI2OTEy)",
+            "[<b>3. Abnormal Labour - Cord Prolapse atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDgzNDMyMDAyMjgxODM5)",
+            "[<b>3. Abnormal Labour - Episiotomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDg0NDM0MDI2NjM2NzY2)",
+            "[<b>3. Abnormal Labour - Face and Brow Presentation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDg1NDM2MDUwOTkxNjkz)",
+            "[<b>3. Abnormal Labour - Occipitoposterior Position atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDg2NDM4MDc1MzQ2NjIw)",
+            "[<b>3. Abnormal Labour - Post Dated Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDg3NDQwMDk5NzAxNTQ3)",
+            "[<b>3. Abnormal Labour - Preterm Labor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDg4NDQyMTI0MDU2NDc0)",
+            "[<b>3. Abnormal Labour - Prolonged Labour Obstructed Labour and Precipitate Labour atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDg5NDQ0MTQ4NDExNDAx)",
+            "[<b>3. Abnormal Labour - Shoulder Dystocia Contracted Pelvis and Cpd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDkwNDQ2MTcyNzY2MzI4)",
+            "[<b>3. Abnormal Labour - Transverse Lie Unstable Lie and Compound Presentation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDkxNDQ4MTk3MTIxMjU1)",
+            "[<b>4. Third Stage Abnormalities - Amniotic Fluid Embolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDkyNDUwMjIxNDc2MTgy)",
+            "[<b>4. Third Stage Abnormalities - Placenta Accreta and Retained Placenta atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDkzNDUyMjQ1ODMxMTA5)",
+            "[<b>4. Third Stage Abnormalities - Postpartum Hemorrhage atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDk0NDU0MjcwMTg2MDM2)",
+            "[<b>4. Third Stage Abnormalities - Third and Fourth Degree Perineal Tears atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDk1NDU2Mjk0NTQwOTYz)",
+            "[<b>4. Third Stage Abnormalities - Uteine Inversion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDk2NDU4MzE4ODk1ODkw)",
+            "[<b>5. Complication of Pregnancy - Acute Fatty Liver of Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDk3NDYwMzQzMjUwODE3)",
+            "[<b>5. Complication of Pregnancy - Antepartum Haemorrhage atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDk4NDYyMzY3NjA1NzQ0)",
+            "[<b>5. Complication of Pregnancy - Apla atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMDk5NDY0MzkxOTYwNjcx)",
+            "[<b>5. Complication of Pregnancy - Causes of Abortion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTAwNDY2NDE2MzE1NTk4)",
+            "[<b>5. Complication of Pregnancy - Cx Incompetence atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTAxNDY4NDQwNjcwNTI1)",
+            "[<b>5. Complication of Pregnancy - Definition and Types of Abortion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTAyNDcwNDY1MDI1NDUy)",
+            "[<b>5. Complication of Pregnancy - Diabities Complicating Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTAzNDcyNDg5MzgwMzc5)",
+            "[<b>5. Complication of Pregnancy - Drugs in Obstetric atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTA0NDc0NTEzNzM1MzA2)",
+            "[<b>5. Complication of Pregnancy - Ectopic Pregnancy 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTA1NDc2NTM4MDkwMjMz)",
+            "[<b>5. Complication of Pregnancy - Ectopic Pregnancy 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTA2NDc4NTYyNDQ1MTYw)",
+            "[<b>5. Complication of Pregnancy - Fetal Anomalies in Pregnancy Prenatal Testing atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTA3NDgwNTg2ODAwMDg3)",
+            "[<b>5. Complication of Pregnancy - Gestational Trophoblastic Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTA4NDgyNjExMTU1MDE0)",
+            "[<b>5. Complication of Pregnancy - Heart Disease in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTA5NDg0NjM1NTA5OTQx)",
+            "[<b>5. Complication of Pregnancy - Hiv in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTEwNDg2NjU5ODY0ODY4)",
+            "[<b>5. Complication of Pregnancy - Hyperemesis Gravidarum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTExNDg4Njg0MjE5Nzk1)",
+            "[<b>5. Complication of Pregnancy - Hypertensive Disorders in Pregnancy 1 Definition Risk Factors 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTEyNDkwNzA4NTc0NzIy)",
+            "[<b>5. Complication of Pregnancy - Hypertensive Disorders in Pregnancy 2 Pathophysiology Markers atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTEzNDkyNzMyOTI5NjQ5)",
+            "[<b>5. Complication of Pregnancy - Hypertensive Disorders in Pregnancy 3 End Organ Changes Prediction Prevention atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTE0NDk0NzU3Mjg0NTc2)",
+            "[<b>5. Complication of Pregnancy - Intrahepatic Cholestasis of Pregnency atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTE1NDk2NzgxNjM5NTAz)",
+            "[<b>5. Complication of Pregnancy - Intrauterine Growth Retardation Iugr atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTE2NDk4ODA1OTk0NDMw)",
+            "[<b>5. Complication of Pregnancy - Iron Deficiency Anemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTE3NTAwODMwMzQ5MzU3)",
+            "[<b>5. Complication of Pregnancy - Malaria in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTE4NTAyODU0NzA0Mjg0)",
+            "[<b>5. Complication of Pregnancy - Mcqs on Pregnency After Previeus Caesarean atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTE5NTA0ODc5MDU5MjEx)",
+            "[<b>5. Complication of Pregnancy - Multifetal Pregnancy Complications of Twin Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTIwNTA2OTAzNDE0MTM4)",
+            "[<b>5. Complication of Pregnancy - Multifetal Pregnancy Diagnosis of Twin Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTIxNTA4OTI3NzY5MDY1)",
+            "[<b>5. Complication of Pregnancy - Multifetal Pregnancy Management of Twin Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTIyNTEwOTUyMTIzOTky)",
+            "[<b>5. Complication of Pregnancy - Multifetal Pregnancy Types Risk Factors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTIzNTEyOTc2NDc4OTE5)",
+            "[<b>5. Complication of Pregnancy - Pregnency After Previeus Caesarean atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTI0NTE1MDAwODMzODQ2)",
+            "[<b>5. Complication of Pregnancy - Red Cell Alloimmunisation in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTI1NTE3MDI1MTg4Nzcz)",
+            "[<b>5. Complication of Pregnancy - Rh Negative Mother atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTI2NTE5MDQ5NTQzNzAw)",
+            "[<b>5. Complication of Pregnancy - Rubella in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTI3NTIxMDczODk4NjI3)",
+            "[<b>5. Complication of Pregnancy - Sickle Cell Disease in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTI4NTIzMDk4MjUzNTU0)",
+            "[<b>5. Complication of Pregnancy - Thyroid Disorders in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTI5NTI1MTIyNjA4NDgx)",
+            "[<b>5. Complication of Pregnancy - Torch in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTMwNTI3MTQ2OTYzNDA4)",
+            "[<b>5. Complication of Pregnancy - Varicella in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTMxNTI5MTcxMzE4MzM1)",
+            "[<b>5. Complication of Pregnancy - Venous Thromboembolism in Pregnancy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTMyNTMxMTk1NjczMjYy)",
+            "[<b>5. Complication of Pregnancy - Viral Hepatitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTMzNTMzMjIwMDI4MTg5)",
+            "[<b>5. Cpcr - Complications in or Cpr atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTM0NTM1MjQ0MzgzMTE2)",
+            "[<b>6. General Gynaecology - Anatomy of Female Genital Tract atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTM1NTM3MjY4NzM4MDQz)",
+            "[<b>6. General Gynaecology - Dysmenorrhea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTM2NTM5MjkzMDkyOTcw)",
+            "[<b>6. General Gynaecology - Physiology of Menstruation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTM3NTQxMzE3NDQ3ODk3)",
+            "[<b>6. General Gynaecology - Precocious Puberty atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTM4NTQzMzQxODAyODI0)",
+            "[<b>6. General Gynaecology - Premenstrual Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTM5NTQ1MzY2MTU3NzUx)",
+            "[<b>7. Benign Diseases of Genital Tract - Abnormal Uterine Bleeding Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQwNTQ3MzkwNTEyNjc4)",
+            "[<b>7. Benign Diseases of Genital Tract - Abnormal Uterine Bleeding Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQxNTQ5NDE0ODY3NjA1)",
+            "[<b>7. Benign Diseases of Genital Tract - Degeneration atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQyNTUxNDM5MjIyNTMy)",
+            "[<b>7. Benign Diseases of Genital Tract - Endometriosis and Adenomyosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQzNTUzNDYzNTc3NDU5)",
+            "[<b>7. Benign Diseases of Genital Tract - Genital Tuberculosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQ0NTU1NDg3OTMyMzg2)",
+            "[<b>7. Benign Diseases of Genital Tract - Lower Genital Infection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQ1NTU3NTEyMjg3MzEz)",
+            "[<b>7. Benign Diseases of Genital Tract - Pelvic Inflammatory Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQ2NTU5NTM2NjQyMjQw)",
+            "[<b>7. Benign Diseases of Genital Tract - Risk Fctors Types atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQ3NTYxNTYwOTk3MTY3)",
+            "[<b>7. Benign Diseases of Genital Tract - Symptoms Treatment atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQ4NTYzNTg1MzUyMDk0)",
+            "[<b>8. Disorders of Menstruation - Androgen Insensitivity Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTQ5NTY1NjA5NzA3MDIx)",
+            "[<b>8. Disorders of Menstruation - Developmental Anomalies of Mullerian Duct atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTUwNTY3NjM0MDYxOTQ4)",
+            "[<b>8. Disorders of Menstruation - Differential Diagnosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTUxNTY5NjU4NDE2ODc1)",
+            "[<b>8. Disorders of Menstruation - Female Infertility Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTUyNTcxNjgyNzcxODAy)",
+            "[<b>8. Disorders of Menstruation - Female Infertility Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTUzNTczNzA3MTI2NzI5)",
+            "[<b>8. Disorders of Menstruation - Male Infertility atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTU0NTc1NzMxNDgxNjU2)",
+            "[<b>8. Disorders of Menstruation - Ovulation Induction and Hyperstimulation Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTU1NTc3NzU1ODM2NTgz)",
+            "[<b>8. Disorders of Menstruation - Pcos and Anovulation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTU2NTc5NzgwMTkxNTEw)",
+            "[<b>8. Disorders of Menstruation - Primary Amenorrhea 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTU3NTgxODA0NTQ2NDM3)",
+            "[<b>8. Disorders of Menstruation - Primary Amenorrhea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTU4NTgzODI4OTAxMzY0)",
+            "[<b>8. Disorders of Menstruation - Secondary Amenorrhea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTU5NTg1ODUzMjU2Mjkx)",
+            "[<b>8. Disorders of Menstruation - Swyers Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTYwNTg3ODc3NjExMjE4)",
+            "[<b>8. Disorders of Menstruation - Turner Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTYxNTg5OTAxOTY2MTQ1)",
+            "[<b>9. Gynaecological Oncology - Cancer Cervix atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTYyNTkxOTI2MzIxMDcy)",
+            "[<b>9. Gynaecological Oncology - Classification Risk Factors Familial Cancer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTYzNTkzOTUwNjc1OTk5)",
+            "[<b>9. Gynaecological Oncology - Endometrial Cancer Diagnosis Staging Treatment atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTY0NTk1OTc1MDMwOTI2)",
+            "[<b>9. Gynaecological Oncology - Endometrial Cancer Histology Types Grading atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTY1NTk3OTk5Mzg1ODUz)",
+            "[<b>9. Gynaecological Oncology - Epithelial Ovarian Cancer Clasification atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTY2NjAwMDIzNzQwNzgw)",
+            "[<b>9. Gynaecological Oncology - Epithelial Ovarian Cancer Staging Treatment atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTY3NjAyMDQ4MDk1NzA3)",
+            "[<b>9. Gynaecological Oncology - Germ Cell Sex Cord Stromal Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTY4NjA0MDcyNDUwNjM0)",
+            "[<b>9. Gynaecological Oncology - Premalignant Lesions of Cervix atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTY5NjA2MDk2ODA1NTYx)",
+            "[<b>9. Gynaecological Oncology - Uterine Sacroma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTcwNjA4MTIxMTYwNDg4)",
+            "[<b>9. Gynaecological Oncology - Vulval Cancer atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTcxNjEwMTQ1NTE1NDE1)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        obgyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"obgyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"obgyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(obgyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("pediatricsd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Free Videos - Multi Discplinary Approach Mda to a Child With Abdominal Mass atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTcyNjEyMTY5ODcwMzQy)",
+            "[<b>2. General - Abnormal Head Sizes Craniosynostosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTczNjE0MTk0MjI1MjY5)",
+            "[<b>2. General - AdolescDevelopmatf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTc0NjE2MjE4NTgwMTk2)",
+            "[<b>2. General - Behavioral Disorders in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTc1NjE4MjQyOTM1MTIz)",
+            "[<b>2. General - Growth and Anthropometry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTc2NjIwMjY3MjkwMDUw)",
+            "[<b>2. General - Normal DevelopmAssessmatf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTc3NjIyMjkxNjQ0OTc3)",
+            "[<b>3. Nutrition - Rickets MicronutriDeficiencies a Clinical Perspective atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTc4NjI0MzE1OTk5OTA0)",
+            "[<b>3. Nutrition - Severe Acute Malnutrition in Depth Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTc5NjI2MzQwMzU0ODMx)",
+            "[<b>3. Nutrition - Obesity in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTgwNjI4MzY0NzA5NzU4)",
+            "[<b>3. Nutrition - Nutritional Assessmand Pem Grades atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTgxNjMwMzg5MDY0Njg1)",
+            "[<b>3. Nutrition - Short Stature in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTgyNjMyNDEzNDE5NjEy)",
+            "[<b>4. Neonatology - Breast Feeding Nutrition in Neonates atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTgzNjM0NDM3Nzc0NTM5)",
+            "[<b>4. Neonatology - Neonatal Respiratory Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTg0NjM2NDYyMTI5NDY2)",
+            "[<b>4. Neonatology - Neonatal Resuscitation atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTg1NjM4NDg2NDg0Mzkz)",
+            "[<b>4. Neonatology - Neonatal Sepsis Nec atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTg2NjQwNTEwODM5MzIw)",
+            "[<b>4. Neonatology - Normal Neonate Prematurity High Risk Newborns atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTg3NjQyNTM1MTk0MjQ3)",
+            "[<b>4. Neonatology - Neonatal Jaundice Including Neonatal Cholestasis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTg4NjQ0NTU5NTQ5MTc0)",
+            "[<b>4. Neonatology - Neonatal Hypothermia Neonatal Hypoglycemia and Infant of Diabetic Mother atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTg5NjQ2NTgzOTA0MTAx)",
+            "[<b>5. Pediatric Infections - Bacterial Infections in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTkwNjQ4NjA4MjU5MDI4)",
+            "[<b>5. Pediatric Infections - Congenital Infections atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTkxNjUwNjMyNjEzOTU1)",
+            "[<b>5. Pediatric Infections - Covid in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTkyNjUyNjU2OTY4ODgy)",
+            "[<b>5. Pediatric Infections - Viral Infections in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTkzNjU0NjgxMzIzODA5)",
+            "[<b>6. Genetics and Syndromes - Trisomies and Syndromes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTk0NjU2NzA1Njc4NzM2)",
+            "[<b>7. Pulmonology - Asthma Acute Bronchiolitis Foreign Body Aspiration atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTk1NjU4NzMwMDMzNjYz)",
+            "[<b>7. Pulmonology - Cystic Fibrosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTk2NjYwNzU0Mzg4NTkw)",
+            "[<b>7. Pulmonology - Pneumonias in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTk3NjYyNzc4NzQzNTE3)",
+            "[<b>7. Pulmonology - Cong Disorders and Upper Respiratory Tract Infections atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTk4NjY0ODAzMDk4NDQ0)",
+            "[<b>8. Immunization and Immunodeficiency - Vaccines and Related Clinical Scenarios atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMTk5NjY2ODI3NDUzMzcx)",
+            "[<b>8. Immunization and Immunodeficiency - Primary Immunodeficiency 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjAwNjY4ODUxODA4Mjk4)",
+            "[<b>8. Immunization and Immunodeficiency - Primary Immunodeficiency 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjAxNjcwODc2MTYzMjI1)",
+            "[<b>9. Rheumatology and Vasculitis - Jia Jdm4 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjAyNjcyOTAwNTE4MTUy)",
+            "[<b>9. Rheumatology and Vasculitis - Vasculitis Kawasaki Disease Hsp atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjAzNjc0OTI0ODczMDc5)",
+            "[<b>10. Nephrology - Nephrotic Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjA0Njc2OTQ5MjI4MDA2)",
+            "[<b>10. Nephrology - Nocturnal Enuresis in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjA1Njc4OTczNTgyOTMz)",
+            "[<b>10. Nephrology - Acute Kidney Injury Aki Chronic Kidney Disease Ckd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjA2NjgwOTk3OTM3ODYw)",
+            "[<b>10. Nephrology - Cong Disorders Uti Husc atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjA3NjgzMDIyMjkyNzg3)",
+            "[<b>10. Nephrology - Childhood Glomerulonephritis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjA4Njg1MDQ2NjQ3NzE0)",
+            "[<b>10. Nephrology - Key Tubular Disorders in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjA5Njg3MDcxMDAyNjQx)",
+            "[<b>11. Pediatric Neurology - Cerebral Palsy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjEwNjg5MDk1MzU3NTY4)",
+            "[<b>11. Pediatric Neurology - Cns Infections Raised Icp in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjExNjkxMTE5NzEyNDk1)",
+            "[<b>11. Pediatric Neurology - Neurocutaneous Syndromes in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjEyNjkzMTQ0MDY3NDIy)",
+            "[<b>11. Pediatric Neurology - Ntd Hydrocephalus Other Congenital Cns Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjEzNjk1MTY4NDIyMzQ5)",
+            "[<b>11. Pediatric Neurology - Seizures Epilepsy in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjE0Njk3MTkyNzc3Mjc2)",
+            "[<b>12. Metabolic Disorders and Pediatric Endocrinology - Congenital Adrenal Hyperplasia a Conceptual Approach atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjE1Njk5MjE3MTMyMjAz)",
+            "[<b>12. Metabolic Disorders and Pediatric Endocrinology - Diabetes Mellitus in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjE2NzAxMjQxNDg3MTMw)",
+            "[<b>12. Metabolic Disorders and Pediatric Endocrinology - General Carb Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjE3NzAzMjY1ODQyMDU3)",
+            "[<b>12. Metabolic Disorders and Pediatric Endocrinology - Pituitary Thyroid Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjE4NzA1MjkwMTk2OTg0)",
+            "[<b>12. Metabolic Disorders and Pediatric Endocrinology - Key Amino Acid Metabolism Defects atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjE5NzA3MzE0NTUxOTEx)",
+            "[<b>13. Pediatric Git - Esophagus Stomach Intestines atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjIwNzA5MzM4OTA2ODM4)",
+            "[<b>13. Pediatric Git - Miscellaneous Git Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjIxNzExMzYzMjYxNzY1)",
+            "[<b>13. Pediatric Git - Childhood Diarrheas and Related Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjIyNzEzMzg3NjE2Njky)",
+            "[<b>14. Pediatric Hematology and Oncology - Anemias in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjIzNzE1NDExOTcxNjE5)",
+            "[<b>14. Pediatric Hematology and Oncology - Childhood Lymphomas and Brain Tumours atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjI0NzE3NDM2MzI2NTQ2)",
+            "[<b>14. Pediatric Hematology and Oncology - Wilms Tumor Neuroblastoma Retinoblastoma Langerhans Cell Histiocytosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjI1NzE5NDYwNjgxNDcz)",
+            "[<b>14. Pediatric Hematology and Oncology - General Oncology Leukemia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjI2NzIxNDg1MDM2NDAw)",
+            "[<b>14. Pediatric Hematology and Oncology - Bleeding Coagulation Disorders in Children atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjI3NzIzNTA5MzkxMzI3)",
+            "[<b>15. Pediatric Critical Care - Shock in Children ManagemProtocol atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjI4NzI1NTMzNzQ2MjU0)",
+            "[<b>15. Pediatric Critical Care - Pals 2020 Summary Cpr Pediatric Tachycardia Managematf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjI5NzI3NTU4MTAxMTgx)",
+            "[<b>18. Pediatric Cardiology - Acyanotic Congenital Heart Diseases atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjMwNzI5NTgyNDU2MTA4)",
+            "[<b>18. Pediatric Cardiology - Acute Rheumatic Fever and Infective Endocarditis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjMxNzMxNjA2ODExMDM1)",
+            "[<b>18. Pediatric Cardiology - Ccf Fetal Circulation Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjMyNzMzNjMxMTY1OTYy)",
+            "[<b>18. Pediatric Cardiology - Cyanotic Congenital Heart Diseases Ductus DependLesions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjMzNzM1NjU1NTIwODg5)",
+            "[<b>18. Pediatric Cardiology - Classification of Congenital Heart Disease Epidemiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjM0NzM3Njc5ODc1ODE2)",
+            "[<b>17. Extra Edge Topics for Inicet - Hlh Syndrome and Macrophage Activation Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjM1NzM5NzA0MjMwNzQz)",
+            "[<b>16. Pediatric Integrated Topics - Cdh Tef atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjM2NzQxNzI4NTg1Njcw)",
+            "[<b>19. Qrp - Ini Cet Qrp 2021 Mcq S Discussion 791F3b2d 509B 4046 Bede F9a4be359307 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjM3NzQzNzUyOTQwNTk3)",
+            "[<b>19. Qrp - Ini Cet Quick Revision Program by Dr Sandeep Sharma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjM4NzQ1Nzc3Mjk1NTI0)",
+            "[<b>19. Qrp - Ini Cet Quick Revision Program 2021 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjM5NzQ3ODAxNjUwNDUx)",
+            "[<b>19. Qrp - by Dr Sandeep Sharma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQwNzQ5ODI2MDA1Mzc4)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        pediatricsd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pediatricsd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pediatricsd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pediatricsd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("psychiatryd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Introduction to Psychiatry, History Taking and Mental Status Examination - Diagnosis in Psychiatry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQxNzUxODUwMzYwMzA1)",
+            "[<b>1. Introduction to Psychiatry, History Taking and Mental Status Examination - History Taking Psychiatry atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQyNzUzODc0NzE1MjMy)",
+            "[<b>1. Introduction to Psychiatry, History Taking and Mental Status Examination - Mental Status Examination Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQzNzU1ODk5MDcwMTU5)",
+            "[<b>1. Introduction to Psychiatry, History Taking and Mental Status Examination - Mental Status Examination Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQ0NzU3OTIzNDI1MDg2)",
+            "[<b>1. Introduction to Psychiatry, History Taking and Mental Status Examination - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQ1NzU5OTQ3NzgwMDEz)",
+            "[<b>1. Introduction to Psychiatry, History Taking and Mental Status Examination - Mental Status Examination Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQ2NzYxOTcyMTM0OTQw)",
+            "[<b>2. Neurodevelopmental Disorders Dsm - Attention Deficit Hyperactivity Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQ3NzYzOTk2NDg5ODY3)",
+            "[<b>2. Neurodevelopmental Disorders Dsm - Autism Spectrum Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQ4NzY2MDIwODQ0Nzk0)",
+            "[<b>2. Neurodevelopmental Disorders Dsm - Communication Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjQ5NzY4MDQ1MTk5NzIx)",
+            "[<b>2. Neurodevelopmental Disorders Dsm - Intellectual Disability atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjUwNzcwMDY5NTU0NjQ4)",
+            "[<b>2. Neurodevelopmental Disorders Dsm - Motor Disorders Tic Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjUxNzcyMDkzOTA5NTc1)",
+            "[<b>2. Neurodevelopmental Disorders Dsm - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjUyNzc0MTE4MjY0NTAy)",
+            "[<b>2. Neurodevelopmental Disorders Dsm - Movement Disorders Others atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjUzNzc2MTQyNjE5NDI5)",
+            "[<b>2. Neurodevelopmental Disorders Dsm - Specific Learning Disability atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjU0Nzc4MTY2OTc0MzU2)",
+            "[<b>3. Schizophrenia and Other Psychotic Spect Disorders - Atpd Brief Psychotic Disorders Schizoaffective Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjU1NzgwMTkxMzI5Mjgz)",
+            "[<b>3. Schizophrenia and Other Psychotic Spect Disorders - Catatonia Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjU2NzgyMjE1Njg0MjEw)",
+            "[<b>3. Schizophrenia and Other Psychotic Spect Disorders - Schizophrenia Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjU3Nzg0MjQwMDM5MTM3)",
+            "[<b>3. Schizophrenia and Other Psychotic Spect Disorders - Overview of Psychosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjU4Nzg2MjY0Mzk0MDY0)",
+            "[<b>3. Schizophrenia and Other Psychotic Spect Disorders - Delusional Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjU5Nzg4Mjg4NzQ4OTkx)",
+            "[<b>3. Schizophrenia and Other Psychotic Spect Disorders - Important Points About Schizophrenia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjYwNzkwMzEzMTAzOTE4)",
+            "[<b>3. Schizophrenia and Other Psychotic Spect Disorders - Schizophrenia Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjYxNzkyMzM3NDU4ODQ1)",
+            "[<b>3. Schizophrenia and Other Psychotic Spect Disorders - Schizophrenia Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjYyNzk0MzYxODEzNzcy)",
+            "[<b>4. Mood Disorders - Cyclothymia vs Dysthymia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjYzNzk2Mzg2MTY4Njk5)",
+            "[<b>4. Mood Disorders - Dmdd Pmdd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjY0Nzk4NDEwNTIzNjI2)",
+            "[<b>4. Mood Disorders - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjY1ODAwNDM0ODc4NTUz)",
+            "[<b>4. Mood Disorders - Major Depressive Episode atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjY2ODAyNDU5MjMzNDgw)",
+            "[<b>4. Mood Disorders - Manic and Hypomanic Episodes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjY3ODA0NDgzNTg4NDA3)",
+            "[<b>4. Mood Disorders - Specifiers in Mood Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjY4ODA2NTA3OTQzMzM0)",
+            "[<b>4. Mood Disorders - Miscellaneous Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjY5ODA4NTMyMjk4MjYx)",
+            "[<b>5. Anxiety Spectrum Disorders - Important Points Mcqs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjcwODEwNTU2NjUzMTg4)",
+            "[<b>5. Anxiety Spectrum Disorders - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjcxODEyNTgxMDA4MTE1)",
+            "[<b>5. Anxiety Spectrum Disorders - Panic Disorder Diagnosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjcyODE0NjA1MzYzMDQy)",
+            "[<b>5. Anxiety Spectrum Disorders - Panic Disorder Neurobiology Pani Cogens Differential Diagnosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjczODE2NjI5NzE3OTY5)",
+            "[<b>5. Anxiety Spectrum Disorders - Separation Anxiety Disorder Selective Mutismaca atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjc0ODE4NjU0MDcyODk2)",
+            "[<b>5. Anxiety Spectrum Disorders - Phobia Agoraphobia Social Phobia Specific Phobia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjc1ODIwNjc4NDI3ODIz)",
+            "[<b>6. Ocd and Related Disorders - Neurobiology Salient Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjc2ODIyNzAyNzgyNzUw)",
+            "[<b>6. Ocd and Related Disorders - Obsessions Compulsions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjc3ODI0NzI3MTM3Njc3)",
+            "[<b>6. Ocd and Related Disorders - Ocd Related Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjc4ODI2NzUxNDkyNjA0)",
+            "[<b>6. Ocd and Related Disorders - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjc5ODI4Nzc1ODQ3NTMx)",
+            "[<b>6. Ocd and Related Disorders - Management of Ocd atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjgwODMwODAwMjAyNDU4)",
+            "[<b>7. Trauma and Stress Related Disorders - Acute Stress Disorder Post Traumatic Stress Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjgxODMyODI0NTU3Mzg1)",
+            "[<b>8. Dissociative Disorders - Derealization Depersonalization Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjgyODM0ODQ4OTEyMzEy)",
+            "[<b>8. Dissociative Disorders - Dissociative Amnesia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjgzODM2ODczMjY3MjM5)",
+            "[<b>8. Dissociative Disorders - Dissociative Identity Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjg0ODM4ODk3NjIyMTY2)",
+            "[<b>8. Dissociative Disorders - Introduction Overview atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjg1ODQwOTIxOTc3MDkz)",
+            "[<b>8. Dissociative Disorders - Miscellaneous Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjg2ODQyOTQ2MzMyMDIw)",
+            "[<b>9. Somatic Symptom and Related Disorders - Dsm v Conditions in Psychosomatic Medicine atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjg3ODQ0OTcwNjg2OTQ3)",
+            "[<b>9. Somatic Symptom and Related Disorders - Factions Disorder Malingering atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjg4ODQ2OTk1MDQxODc0)",
+            "[<b>9. Somatic Symptom and Related Disorders - Dsm Iv Conditions in Psychosomatic Medicine atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjg5ODQ5MDE5Mzk2ODAx)",
+            "[<b>9. Somatic Symptom and Related Disorders - Functional Neurological Symptom Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjkwODUxMDQzNzUxNzI4)",
+            "[<b>9. Somatic Symptom and Related Disorders - Chronic Fatigue Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjkxODUzMDY4MTA2NjU1)",
+            "[<b>9. Somatic Symptom and Related Disorders - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjkyODU1MDkyNDYxNTgy)",
+            "[<b>10. Feeding and Eating Disorders - Anorexia Nervosa Neuroendocrine Features Examination Findings Rx Prognosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjkzODU3MTE2ODE2NTA5)",
+            "[<b>10. Feeding and Eating Disorders - Anorexia Nervosa Diagnosis Severity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjk0ODU5MTQxMTcxNDM2)",
+            "[<b>10. Feeding and Eating Disorders - Bulimia Nervosa atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjk1ODYxMTY1NTI2MzYz)",
+            "[<b>10. Feeding and Eating Disorders - Binge Eating Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjk2ODYzMTg5ODgxMjkw)",
+            "[<b>10. Feeding and Eating Disorders - Mcq Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjk3ODY1MjE0MjM2MjE3)",
+            "[<b>10. Feeding and Eating Disorders - Overview atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjk4ODY3MjM4NTkxMTQ0)",
+            "[<b>10. Feeding and Eating Disorders - Pica Rumination Disorder Arfid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMjk5ODY5MjYyOTQ2MDcx)",
+            "[<b>11. Elimination Disorders - Encopresis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzAwODcxMjg3MzAwOTk4)",
+            "[<b>11. Elimination Disorders - Enuresis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzAxODczMzExNjU1OTI1)",
+            "[<b>11. Elimination Disorders - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzAyODc1MzM2MDEwODUy)",
+            "[<b>11. Elimination Disorders - Mcq Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzAzODc3MzYwMzY1Nzc5)",
+            "[<b>12. Disorders of Sleep Wake Cycle - Breathing Related to Circadianrrhythm Sleep Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzA0ODc5Mzg0NzIwNzA2)",
+            "[<b>12. Disorders of Sleep Wake Cycle - Insomnia Disorder Hypersomnolence Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzA1ODgxNDA5MDc1NjMz)",
+            "[<b>12. Disorders of Sleep Wake Cycle - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzA2ODgzNDMzNDMwNTYw)",
+            "[<b>12. Disorders of Sleep Wake Cycle - Parasomnias atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzA3ODg1NDU3Nzg1NDg3)",
+            "[<b>12. Disorders of Sleep Wake Cycle - Narcolepsy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzA4ODg3NDgyMTQwNDE0)",
+            "[<b>12. Disorders of Sleep Wake Cycle - Stages of Sleep and Brain Wavesacde atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzA5ODg5NTA2NDk1MzQx)",
+            "[<b>13. Gender Dysphoria, Sexual Dysfunction and Paraphilic Disorders - Paraphilic Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzEwODkxNTMwODUwMjY4)",
+            "[<b>13. Gender Dysphoria, Sexual Dysfunction and Paraphilic Disorders - Sexual Dysfunction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzExODkzNTU1MjA1MTk1)",
+            "[<b>13. Gender Dysphoria, Sexual Dysfunction and Paraphilic Disorders - Gender Dysphoria atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzEyODk1NTc5NTYwMTIy)",
+            "[<b>14. Disruptive, Impulse Control and Conduct Disorder - Conduct Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzEzODk3NjAzOTE1MDQ5)",
+            "[<b>14. Disruptive, Impulse Control and Conduct Disorder - Intermittent Explosive Disorder Pyromania Kleptomania atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzE0ODk5NjI4MjY5OTc2)",
+            "[<b>14. Disruptive, Impulse Control and Conduct Disorder - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzE1OTAxNjUyNjI0OTAz)",
+            "[<b>14. Disruptive, Impulse Control and Conduct Disorder - Oppositional Defiant Disorder atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzE2OTAzNjc2OTc5ODMw)",
+            "[<b>15. Substance Related and Addictive Disorders - Alcohol Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzE3OTA1NzAxMzM0NzU3)",
+            "[<b>15. Substance Related and Addictive Disorders - Alcohol Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzE4OTA3NzI1Njg5Njg0)",
+            "[<b>15. Substance Related and Addictive Disorders - Cannabis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzE5OTA5NzUwMDQ0NjEx)",
+            "[<b>15. Substance Related and Addictive Disorders - Caffeine Sedative Hypnotic Inhalants atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzIwOTExNzc0Mzk5NTM4)",
+            "[<b>15. Substance Related and Addictive Disorders - Hallucinogens atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzIxOTEzNzk4NzU0NDY1)",
+            "[<b>15. Substance Related and Addictive Disorders - Introduction Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzIyOTE1ODIzMTA5Mzky)",
+            "[<b>15. Substance Related and Addictive Disorders - Nicotine Physiology Withdrawal atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzIzOTE3ODQ3NDY0MzE5)",
+            "[<b>15. Substance Related and Addictive Disorders - Opioids atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzI0OTE5ODcxODE5MjQ2)",
+            "[<b>15. Substance Related and Addictive Disorders - Introduction Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzI1OTIxODk2MTc0MTcz)",
+            "[<b>15. Substance Related and Addictive Disorders - Neurobiology of Addiction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzI2OTIzOTIwNTI5MTAw)",
+            "[<b>15. Substance Related and Addictive Disorders - Summary Revision Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzI3OTI1OTQ0ODg0MDI3)",
+            "[<b>15. Substance Related and Addictive Disorders - Stimulants Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzI4OTI3OTY5MjM4OTU0)",
+            "[<b>15. Substance Related and Addictive Disorders - Stimulants Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzI5OTI5OTkzNTkzODgx)",
+            "[<b>15. Substance Related and Addictive Disorders - Transtheoretical Model of Change atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzMwOTMyMDE3OTQ4ODA4)",
+            "[<b>15. Substance Related and Addictive Disorders - Stimulants Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzMxOTM0MDQyMzAzNzM1)",
+            "[<b>16. Neurocognitive Disorders - Cortical vs Subcortical Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzMyOTM2MDY2NjU4NjYy)",
+            "[<b>16. Neurocognitive Disorders - Delirium atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzMzOTM4MDkxMDEzNTg5)",
+            "[<b>16. Neurocognitive Disorders - Dementia Introductory Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzM0OTQwMTE1MzY4NTE2)",
+            "[<b>16. Neurocognitive Disorders - Frontotemporal Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzM1OTQyMTM5NzIzNDQz)",
+            "[<b>16. Neurocognitive Disorders - Due to Other Medical Condition Amnesic Syndrome atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzM2OTQ0MTY0MDc4Mzcw)",
+            "[<b>16. Neurocognitive Disorders - Delirium vs Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzM3OTQ2MTg4NDMzMjk3)",
+            "[<b>16. Neurocognitive Disorders - Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzM4OTQ4MjEyNzg4MjI0)",
+            "[<b>16. Neurocognitive Disorders - Alzheimer S Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzM5OTUwMjM3MTQzMTUx)",
+            "[<b>16. Neurocognitive Disorders - Lewy Body Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQwOTUyMjYxNDk4MDc4)",
+            "[<b>16. Neurocognitive Disorders - Miscellaneous Points Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQxOTU0Mjg1ODUzMDA1)",
+            "[<b>16. Neurocognitive Disorders - Vascular Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQyOTU2MzEwMjA3OTMy)",
+            "[<b>17. Personality Disorders - Cluster B Borderline Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQzOTU4MzM0NTYyODU5)",
+            "[<b>17. Personality Disorders - Cluster B Narcissistic Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQ0OTYwMzU4OTE3Nzg2)",
+            "[<b>17. Personality Disorders - Cluster B Histrionic Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQ1OTYyMzgzMjcyNzEz)",
+            "[<b>17. Personality Disorders - Cluster B Antisocial Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQ2OTY0NDA3NjI3NjQw)",
+            "[<b>17. Personality Disorders - Cluster C Avoidant Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQ3OTY2NDMxOTgyNTY3)",
+            "[<b>17. Personality Disorders - Cluster a Schizoid Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQ4OTY4NDU2MzM3NDk0)",
+            "[<b>17. Personality Disorders - General Features of Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzQ5OTcwNDgwNjkyNDIx)",
+            "[<b>17. Personality Disorders - Cluster C Obsessive Compulsive Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzUwOTcyNTA1MDQ3MzQ4)",
+            "[<b>17. Personality Disorders - Cluster C Dependent Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzUxOTc0NTI5NDAyMjc1)",
+            "[<b>17. Personality Disorders - Cluster a Schizotypal Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzUyOTc2NTUzNzU3MjAy)",
+            "[<b>17. Personality Disorders - Cluster a Paranoid Personality Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzUzOTc4NTc4MTEyMTI5)",
+            "[<b>17. Personality Disorders - Miscellaneous Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzU0OTgwNjAyNDY3MDU2)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Antipsychotic Introduction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzU1OTgyNjI2ODIxOTgz)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Antidepressants Important Points atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzU2OTg0NjUxMTc2OTEw)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Extra Pyramidal Side Effects of Antipsychotics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzU3OTg2Njc1NTMxODM3)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Mood Disorder Lithium Lamotrigine atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzU4OTg4Njk5ODg2NzY0)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Antidepressant Classification Examples atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzU5OTkwNzI0MjQxNjkx)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Opioid Withdrawal Intoxication Management atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzYwOTkyNzQ4NTk2NjE4)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Mood Disorder Valproate Carbamazepine Cbz  Oxcarbazepine Oxc atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzYxOTk0NzcyOTUxNTQ1)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Other Treatment Modalities atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzYyOTk2Nzk3MzA2NDcy)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Pharmacotherapy of Alcohol Addiction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzYzOTk4ODIxNjYxMzk5)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Pharmacotherapy of Dementia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzY1MDAwODQ2MDE2MzI2)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Pharmacotherapy of Nicotine Dependence atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzY2MDAyODcwMzcxMjUz)",
+            "[<b>18. Psychopharmacology and Other Treatment Modalities - Second Generation Third Generation Antipsychotics Sda atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzY3MDA0ODk0NzI2MTgw)",
+            "[<b>19. Psychology - Defense Mechanisms atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzY4MDA2OTE5MDgxMTA3)",
+            "[<b>19. Psychology - Dreams atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzY5MDA4OTQzNDM2MDM0)",
+            "[<b>19. Psychology - Psychoanalysis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzcwMDEwOTY3NzkwOTYx)",
+            "[<b>19. Psychology - Operant Conditioning atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzcxMDEyOTkyMTQ1ODg4)",
+            "[<b>19. Psychology - Sigmund Freud atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzcyMDE1MDE2NTAwODE1)",
+            "[<b>19. Psychology - Maslow S Hierarchy of Needs atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzczMDE3MDQwODU1NzQy)",
+            "[<b>19. Psychology - Topographical and Structural Theory of Mind atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzc0MDE5MDY1MjEwNjY5)",
+            "[<b>19. Psychology - Stages of Psychosexual Development atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzc1MDIxMDg5NTY1NTk2)",
+            "[<b>19. Psychology - Erik Erikson Stages of Development atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzc2MDIzMTEzOTIwNTIz)",
+            "[<b>19. Psychology - Tests of Personality atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzc3MDI1MTM4Mjc1NDUw)",
+            "[<b>19. Psychology - Jean Piaget S Stages of Cognitive Development atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzc4MDI3MTYyNjMwMzc3)",
+            "[<b>20. Qrp - Jipmer 2019 Recall Session atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzc5MDI5MTg2OTg1MzA0)",
+            "[<b>20. Qrp - Psychiatry by Dr Anoop 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzgwMDMxMjExMzQwMjMx)",
+            "[<b>20. Qrp - Psychiatry by Dr Anoop 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzgxMDMzMjM1Njk1MTU4)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        psychiatryd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psychiatryd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psychiatryd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(psychiatryd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("orthopedicsd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Introduction to - Introduction to Orthopaedics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzgyMDM1MjYwMDUwMDg1)",
+            "[<b>1. Introduction to - Complications of Fractures atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzgzMDM3Mjg0NDA1MDEy)",
+            "[<b>2. Peripheral Nerve Injury - Complications of Fractures atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzg0MDM5MzA4NzU5OTM5)",
+            "[<b>2. Peripheral Nerve Injury - Peripheral Nerve Injury atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzg1MDQxMzMzMTE0ODY2)",
+            "[<b>3. Bone Infections - Infections Acute Om Chronic Om Sclerosing Om atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzg2MDQzMzU3NDY5Nzkz)",
+            "[<b>3. Bone Infections - Tuberculosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzg3MDQ1MzgxODI0NzIw)",
+            "[<b>4. Upper Limb Trauma - Injuries Around Elbow Forearm atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzg4MDQ3NDA2MTc5NjQ3)",
+            "[<b>4. Upper Limb Trauma - Injuries Around Shoulder Arm atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzg5MDQ5NDMwNTM0NTc0)",
+            "[<b>5. Tumors - Classification Location Moss atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzkwMDUxNDU0ODg5NTAx)",
+            "[<b>5. Tumors - Xrayfandinas atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzkxMDUzNDc5MjQ0NDI4)",
+            "[<b>5. Parotid Tumors, Surgery and Facial Nerve Landmarks - Parotid Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzkyMDU1NTAzNTk5MzU1)",
+            "[<b>6. Pediatric - Hip Abnormality Foor Abnormality atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzkzMDU3NTI3OTU0Mjgy)",
+            "[<b>6. Pediatric - Regional Genaral atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzk0MDU5NTUyMzA5MjA5)",
+            "[<b>7. Metabolic Bone Diseases - Achondroplasia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzk1MDYxNTc2NjY0MTM2)",
+            "[<b>7. Metabolic Bone Diseases - Ankylosing Spondylitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzk2MDYzNjAxMDE5MDYz)",
+            "[<b>7. Metabolic Bone Diseases - Gout Pseudogout atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzk3MDY1NjI1MzczOTkw)",
+            "[<b>7. Metabolic Bone Diseases - Neuropathic Joint Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzk4MDY3NjQ5NzI4OTE3)",
+            "[<b>7. Metabolic Bone Diseases - Osteomalaciae atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzMzk5MDY5Njc0MDgzODQ0)",
+            "[<b>7. Metabolic Bone Diseases - Osteoporosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDAwMDcxNjk4NDM4Nzcx)",
+            "[<b>7. Metabolic Bone Diseases - Osteopetrosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDAxMDczNzIyNzkzNjk4)",
+            "[<b>7. Metabolic Bone Diseases - Scurvy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDAyMDc1NzQ3MTQ4NjI1)",
+            "[<b>7. Metabolic Bone Diseases - Pagets Disease atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDAzMDc3NzcxNTAzNTUy)",
+            "[<b>7. Metabolic Bone Diseases - Vitamin D Metabolism atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDA0MDc5Nzk1ODU4NDc5)",
+            "[<b>7. Metabolic Bone Diseases - Rickets atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDA1MDgxODIwMjEzNDA2)",
+            "[<b>7. Metabolic Bone Diseases - Picture Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDA2MDgzODQ0NTY4MzMz)",
+            "[<b>8. Lower Limb Trauma - Dislocation of Hip atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDA3MDg1ODY4OTIzMjYw)",
+            "[<b>8. Lower Limb Trauma - Eponymous Fractures atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDA4MDg3ODkzMjc4MTg3)",
+            "[<b>8. Lower Limb Trauma - Fracture Acetabulum atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDA5MDg5OTE3NjMzMTE0)",
+            "[<b>8. Lower Limb Trauma - Fracture Intertrochanteric Region atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDEwMDkxOTQxOTg4MDQx)",
+            "[<b>8. Lower Limb Trauma - Fracture Neck of Femur atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDExMDkzOTY2MzQyOTY4)",
+            "[<b>8. Lower Limb Trauma - Fracture Head of Femur atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDEyMDk1OTkwNjk3ODk1)",
+            "[<b>8. Lower Limb Trauma - Fractures Pelvis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDEzMDk4MDE1MDUyODIy)",
+            "[<b>8. Lower Limb Trauma - Picture Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDE0MTAwMDM5NDA3NzQ5)",
+            "[<b>8. Lower Limb Trauma - Soft Tissue Injury in the Knee atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDE1MTAyMDYzNzYyNjc2)",
+            "[<b>8. Lower Limb Trauma - Subtrochanteric Fracture atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDE2MTA0MDg4MTE3NjAz)",
+            "[<b>9. Examination of Hip - Examination of Hip atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDE3MTA2MTEyNDcyNTMw)",
+            "[<b>10. Avascular Necrosis of the Bone - Avascular Necrosis of Bone atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDE4MTA4MTM2ODI3NDU3)",
+            "[<b>11. Amputations - Amputations atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDE5MTEwMTYxMTgyMzg0)",
+            "[<b>12. Abnormal Gait - Abnormal Gait atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDIwMTEyMTg1NTM3MzEx)",
+            "[<b>13. Spine - Reflexes in Orthopaedic atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDIxMTE0MjA5ODkyMjM4)",
+            "[<b>13. Spine - Spine atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDIyMTE2MjM0MjQ3MTY1)",
+            "[<b>14. Qrp - Ini Cet Qrp Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDIzMTE4MjU4NjAyMDky)",
+            "[<b>14. Qrp - Orthopaedics by Dr Yusuf Ali Tyagi atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDI0MTIwMjgyOTU3MDE5)",
+            "[<b>3. Ultrasound - Gynae Ultrasound atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDI1MTIyMzA3MzExOTQ2)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        orthopedicsd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"orthopedicsd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"orthopedicsd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(orthopedicsd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("radiologyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Introduction to - Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDI2MTI0MzMxNjY2ODcz)",
+            "[<b>1. Introduction to - Radiation Units atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDI3MTI2MzU2MDIxODAw)",
+            "[<b>2. Xray - Mammography and X Ray Views atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDI4MTI4MzgwMzc2NzI3)",
+            "[<b>2. Xray - X Ray Physics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDI5MTMwNDA0NzMxNjU0)",
+            "[<b>3. Ultrasound - Color Spectral Doppler atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDMwMTMyNDI5MDg2NTgx)",
+            "[<b>3. Ultrasound - Fast E Fast atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDMxMTM0NDUzNDQxNTA4)",
+            "[<b>3. Ultrasound - Ultrasound Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDMyMTM2NDc3Nzk2NDM1)",
+            "[<b>3. Ultrasound - Obstetric Ultrasound atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDMzMTM4NTAyMTUxMzYy)",
+            "[<b>4. Ct Scan - Ct Scan Basics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDM0MTQwNTI2NTA2Mjg5)",
+            "[<b>4. Ct Scan - Ct Scan Anatomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDM1MTQyNTUwODYxMjE2)",
+            "[<b>5. Dental - Dental atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDM2MTQ0NTc1MjE2MTQz)",
+            "[<b>6. Contrast Agents - Contrast Agents atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDM3MTQ2NTk5NTcxMDcw)",
+            "[<b>7. Git - Git Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDM4MTQ4NjIzOTI1OTk3)",
+            "[<b>7. Git - Git Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDM5MTUwNjQ4MjgwOTI0)",
+            "[<b>7. Git - Git Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQwMTUyNjcyNjM1ODUx)",
+            "[<b>8. Respiratory - Respiratory Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQxMTU0Njk2OTkwNzc4)",
+            "[<b>8. Respiratory - Respiratory Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQyMTU2NzIxMzQ1NzA1)",
+            "[<b>9. Angiography - Imaging of Vessels atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQzMTU4NzQ1NzAwNjMy)",
+            "[<b>10. Uro- UroPart 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQ0MTYwNzcwMDU1NTU5)",
+            "[<b>10. Uro- UroPart 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQ1MTYyNzk0NDEwNDg2)",
+            "[<b>11. Pancreatic - Pancreatic atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQ2MTY0ODE4NzY1NDEz)",
+            "[<b>12. Cardiovascular - Cardiovascular atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQ3MTY2ODQzMTIwMzQw)",
+            "[<b>13. Women Imaging - Women Imaging atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQ4MTY4ODY3NDc1MjY3)",
+            "[<b>14. Nuclear Medicine - Nuclear Medicine Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDQ5MTcwODkxODMwMTk0)",
+            "[<b>14. Nuclear Medicine - Nuclear Medicine Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDUwMTcyOTE2MTg1MTIx)",
+            "[<b>14. Nuclear Medicine - Pet Scan atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDUxMTc0OTQwNTQwMDQ4)",
+            "[<b>15. Magnetic Resonance Imaging - Magnetic Resonance Imaging Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDUyMTc2OTY0ODk0OTc1)",
+            "[<b>15. Magnetic Resonance Imaging - Magnetic Resonance Imaging Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDUzMTc4OTg5MjQ5OTAy)",
+            "[<b>16. Radiotherapy - Radiotherapy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDU0MTgxMDEzNjA0ODI5)",
+            "[<b>17. Qrp - Ini Cet Qrp 2021 Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDU1MTgzMDM3OTU5NzU2)",
+            "[<b>17. Qrp - Ini Cet Quick Revision Program 2021 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDU2MTg1MDYyMzE0Njgz)",
+            "[<b>17. Qrp - by Dr Khaleel Ahmed atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDU3MTg3MDg2NjY5NjEw)",
+            "[<b>17. Qrp - Ini Cet Quick Revision Program by Dr Khaleel Ahmed atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDU4MTg5MTExMDI0NTM3)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        radiologyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"radiologyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"radiologyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(radiologyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("dermatologyd"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. Basics of - Basics of Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDU5MTkxMTM1Mzc5NDY0)",	
+            "[<b>1. Basics of - Basics of Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDYwMTkzMTU5NzM0Mzkx)",	
+            "[<b>2. Appendages and Disorders - Appendegeal Disorders Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDYxMTk1MTg0MDg5MzE4)",	
+            "[<b>2. Appendages and Disorders - Appendegeal Disorders Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDYyMTk3MjA4NDQ0MjQ1)",	
+            "[<b>2. Appendages and Disorders - Appendegeal Disorders Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDYzMTk5MjMyNzk5MTcy)",	
+            "[<b>2. Appendages and Disorders - Appendegeal Disorders Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDY0MjAxMjU3MTU0MDk5)",	
+            "[<b>3. Bacterial Infections - Bacterial Infections atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDY1MjAzMjgxNTA5MDI2)",	
+            "[<b>4. Mycobacterial Infections - Mycobacterial Skin Infections atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDY2MjA1MzA1ODYzOTUz)",	
+            "[<b>5. Leprosy - Leprosy Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDY3MjA3MzMwMjE4ODgw)",	
+            "[<b>5. Leprosy - Leprosy Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDY4MjA5MzU0NTczODA3)",	
+            "[<b>6. Fungal Infections - Fungal Infections Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDY5MjExMzc4OTI4NzM0)",	
+            "[<b>6. Fungal Infections - Fungal Infections Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDcwMjEzNDAzMjgzNjYx)",	
+            "[<b>7. Viral Infections - Viral Infections atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDcxMjE1NDI3NjM4NTg4)",	
+            "[<b>8. Parasitic Infections - Parasitic Infections atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDcyMjE3NDUxOTkzNTE1)",	
+            "[<b>9. Examination of Hip - Examination of Hip atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDczMjE5NDc2MzQ4NDQy)",	
+            "[<b>9. Sexually Transmitted Diseases - Sexually Transmitted Diseases Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDc0MjIxNTAwNzAzMzY5)",	
+            "[<b>9. Sexually Transmitted Diseases - Sexually Transmitted Diseases Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDc1MjIzNTI1MDU4Mjk2)",	
+            "[<b>9. Sexually Transmitted Diseases - Sexually Transmitted Diseases Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDc2MjI1NTQ5NDEzMjIz)",	
+            "[<b>10. Papulosquamous Disorders - Papulosquamous Disorders Part 3 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDc3MjI3NTczNzY4MTUw)",	
+            "[<b>10. Papulosquamous Disorders - Papulosquamous Disorders Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDc4MjI5NTk4MTIzMDc3)",	
+            "[<b>10. Papulosquamous Disorders - Papulosquamous Disorders Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDc5MjMxNjIyNDc4MDA0)",	
+            "[<b>11. Vesiculobullous Disorders - Vesiculobullous Disorders Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDgwMjMzNjQ2ODMyOTMx)",	
+            "[<b>11. Vesiculobullous Disorders - Vesiculobullous Disorders Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDgxMjM1NjcxMTg3ODU4)",	
+            "[<b>12. Pigementation Disorders - Pigmentation Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDgyMjM3Njk1NTQyNzg1)",	
+            "[<b>13. Eczema - Eczema Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDgzMjM5NzE5ODk3NzEy)",	
+            "[<b>13. Eczema - Eczema Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDg0MjQxNzQ0MjUyNjM5)",	
+            "[<b>14. Urticaria and Angiodema - Urticaria Angiodema atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDg1MjQzNzY4NjA3NTY2)",	
+            "[<b>15. Cutaneous Drug Eruptions - Cutaneous Drug Reactions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDg2MjQ1NzkyOTYyNDkz)",	
+            "[<b>15. Cutaneous Drug Eruptions - Drug Reactions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDg3MjQ3ODE3MzE3NDIw)",	
+            "[<b>16. Genodermatoses - Genodermatose atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDg4MjQ5ODQxNjcyMzQ3)",	
+            "[<b>17. Skin Tumors - Skin Tumors atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDg5MjUxODY2MDI3Mjc0)",	
+            "[<b>18. Skin and Ctds - Skin in Ctds atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDkwMjUzODkwMzgyMjAx)",	
+            "[<b>19. Skin and Systemic Diseases - Skin Systems atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDkxMjU1OTE0NzM3MTI4)",	
+            "[<b>20. Short Topics - Short Topics atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDkyMjU3OTM5MDkyMDU1)",	
+            "[<b>21. Qrp - by Dr Pallavi atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDkzMjU5OTYzNDQ2OTgy)",	
+            "[<b>21. Qrp - by Dr Pallavi 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDk0MjYxOTg3ODAxOTA5)",	
+            "[<b>21. Qrp - Ini Cet Qrp 2021 Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDk1MjY0MDEyMTU2ODM2)",	
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        dermatologyd_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"dermatologyd_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"dermatologyd_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(dermatologyd_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("anesthesiad"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>1. History of Anaesthesia - History Anaesthesia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDk2MjY2MDM2NTExNzYz)",
+            "[<b>2. Monitoring - Advanced Monitoring atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDk3MjY4MDYwODY2Njkw)",
+            "[<b>2. Monitoring - Basic Monitoring atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDk4MjcwMDg1MjIxNjE3)",
+            "[<b>3. Anaesthesia Machines and Cylinders - Anaesthesia Machines atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNDk5MjcyMTA5NTc2NTQ0)",
+            "[<b>3. Anaesthesia Machines and Cylinders - Cylinders and Pipelines atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTAwMjc0MTMzOTMxNDcx)",
+            "[<b>4. General Anaesthesia - General Anaesthesia Part B atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTAxMjc2MTU4Mjg2Mzk4)",
+            "[<b>4. General Anaesthesia - General Anaesthesia Part A atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTAyMjc4MTgyNjQxMzI1)",
+            "[<b>5. Cpcr - Complications in or Cpr atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTAzMjgwMjA2OTk2MjUy)",
+            "[<b>6. Miscellaneous - Anatomy Physiology atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTA0MjgyMjMxMzUxMTc5)",
+            "[<b>6. Miscellaneous - Breathing Circuits atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTA1Mjg0MjU1NzA2MTA2)",
+            "[<b>7. Regional Anaesthesia - Regional Anaesthesia Part 1 Ivra Blocks Others atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTA2Mjg2MjgwMDYxMDMz)",
+            "[<b>7. Regional Anaesthesia - Regional Anaesthesia Part 2 Central Neuraxial Blocks atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTA3Mjg4MzA0NDE1OTYw)",
+            "[<b>8. Intensive Care Unit - Critical Care Blood Fluids Abg and Ventilators atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTA4MjkwMzI4NzcwODg3)",
+            "[<b>9. Complications - Complications Part A atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTA5MjkyMzUzMTI1ODE0)",
+            "[<b>10. Pain and Palliative Care - Pain atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTEwMjk0Mzc3NDgwNzQx)",
+            "[<b>11. Drugs - Intravenous Induction Agents atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTExMjk2NDAxODM1NjY4)",
+            "[<b>11. Drugs - Volatile Induction Agents atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTEyMjk4NDI2MTkwNTk1)",
+            "[<b>11. Drugs - Local Anaesthetic Agents atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTEzMzAwNDUwNTQ1NTIy)",
+            "[<b>11. Drugs - Muscle Relaxants Part B atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTE0MzAyNDc0OTAwNDQ5)",
+            "[<b>11. Drugs - Muscle Relaxants Part A atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTE1MzA0NDk5MjU1Mzc2)",
+            "[<b>12. Airway and Airway Gadgets - O2 Delivery System Hyperbaric and Toxicity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTE2MzA2NTIzNjEwMzAz)",
+            "[<b>12. Airway and Airway Gadgets - General Anaesthesia Airway Gadgets atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTE3MzA4NTQ3OTY1MjMw)",
+            "[<b>13. Subspeciality - Special Populations Obstetrics Pediatrics and Obesity atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTE4MzEwNTcyMzIwMTU3)",
+            "[<b>14. Image Based Questions - Image Based Questions atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTE5MzEyNTk2Njc1MDg0)",
+            "[<b>15. Qrp - Anaesthesia by Dr Ashish Karthik 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTIwMzE0NjIxMDMwMDEx)",
+            "[<b>15. Qrp - Anaesthesia by Dr Ashish Karthik atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTIxMzE2NjQ1Mzg0OTM4)",
+            "[<b>15. Qrp - Difficult Airway Gadgets Maintennace of Anaesthesia atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTIyMzE4NjY5NzM5ODY1)",
+            "[<b>15. Qrp - Icu Abg Ecg Miscellaneous atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTIzMzIwNjk0MDk0Nzky)",
+            "[<b>15. Qrp - Intubation Endotracheal Tubes atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTI0MzIyNzE4NDQ5NzE5)",
+            "[<b>15. Qrp - Ini Cet Qrp Mcq S Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTI1MzI0NzQyODA0NjQ2)",
+            "[<b>15. Qrp - Ini Cet 2020 Recall Questions Discussion atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTEzNTI2MzI2NzY3MTU5NTcz)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        anesthesiad_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"anesthesiad_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"anesthesiad_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(anesthesiad_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
