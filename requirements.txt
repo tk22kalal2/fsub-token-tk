@@ -9,6 +9,7 @@ pyrogram
 pymongo
 python-dotenv
 Pyromod==1.5
+telegraph
 pytz
 requests
 speedtest-cli
