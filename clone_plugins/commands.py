@@ -3513,3 +3513,532 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
         msg = await query.message.reply_text(opthalmology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data == "doctut":
+        marrow_buttons = [
+            [InlineKeyboardButton("ANATOMY", callback_data="anatomyd"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistryd")],
+            [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiologyd"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacologyd")],
+            [InlineKeyboardButton("PATHOLOGY", callback_data="pathologyd"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiologyd")],
+            [InlineKeyboardButton("PSM", callback_data="psmd"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="ophthalmologyd")],
+            [InlineKeyboardButton("ENT", callback_data="entd"), InlineKeyboardButton("FMT", callback_data="fmtd")],
+            [InlineKeyboardButton("SURGERY", callback_data="surgeryd"), InlineKeyboardButton("MEDICINE", callback_data="medicined")],
+            [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatologyd"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatryd")],
+            [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesiad"), InlineKeyboardButton("RADIOLOGY", callback_data="radiologyd")],
+            [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedicsd"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatricsd")],
+            [InlineKeyboardButton("OBGY", callback_data="obgyd"), InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+        ]
+        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
