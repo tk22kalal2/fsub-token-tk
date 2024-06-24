@@ -5,6 +5,7 @@
 import os
 import logging
 import random
+import telegraph
 import asyncio
 from Script import script
 from validators import domain
