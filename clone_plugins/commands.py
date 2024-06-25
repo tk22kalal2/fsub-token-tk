@@ -222,6 +222,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("DAMS SPECIAL TND", callback_data="damsspecialtnd")],
             [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
+        reply_markup = InlineKeyboardMarkup(dams_buttons)
+        await query.message.edit_reply_markup(reply_markup)
 
     elif query.data == "marrow":
         marrow_buttons = [
