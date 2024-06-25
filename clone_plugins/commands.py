@@ -5898,3 +5898,39 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
         msg = await query.message.reply_text(anesthesiad_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data == "damse":
+        marrow_buttons = [
+            [InlineKeyboardButton("ANATOMY", callback_data="anatomyde"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistryde")],
+            [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiologyde"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacologyde")],
+            [InlineKeyboardButton("PATHOLOGY", callback_data="pathologyde"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiologyde")],
+            [InlineKeyboardButton("PSM", callback_data="psmde"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="ophthalmologyde")],
+            [InlineKeyboardButton("ENT", callback_data="entde"), InlineKeyboardButton("FMT", callback_data="fmtde")],
+            [InlineKeyboardButton("SURGERY", callback_data="surgeryde"), InlineKeyboardButton("MEDICINE", callback_data="medicinede")],
+            [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatologyde"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatryde")],
+            [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesiade"), InlineKeyboardButton("RADIOLOGY", callback_data="radiologyde")],
+            [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedicsde"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatricsde")],
+            [InlineKeyboardButton("OBGY", callback_data="obgyde"), InlineKeyboardButton("RECENT UPDATES", callback_data="recentupdatesde")],
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+        ]
+        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+
+    elif query.data == "damsh":
+        marrow_buttons = [
+            [InlineKeyboardButton("ANATOMY", callback_data="anatomydh"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistrydh")],
+            [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiologydh"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacologydh")],
+            [InlineKeyboardButton("PATHOLOGY", callback_data="pathologydh"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiologydh")],
+            [InlineKeyboardButton("PSM", callback_data="psmdh"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="ophthalmologydh")],
+            [InlineKeyboardButton("ENT", callback_data="entdh"), InlineKeyboardButton("FMT", callback_data="fmtdh")],
+            [InlineKeyboardButton("SURGERY", callback_data="surgerydh"), InlineKeyboardButton("MEDICINE", callback_data="medicinedh")],
+            [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatologydh"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatrydh")],
+            [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesiadh"), InlineKeyboardButton("RADIOLOGY", callback_data="radiologydh")],
+            [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedicsdh"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatricsdh")],
+            [InlineKeyboardButton("OBGY", callback_data="obgydh"), InlineKeyboardButton("RECENT UPDATES", callback_data="recentupdatesdh")],
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+        ]
+        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+
+
