@@ -274,11 +274,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
         page_links, has_more = paginate_links(links, page)
         orthopedics_message = "\n".join(page_links)
 
+        # Prepare content for Telegraph
+        content = [{"tag": "p", "children": [orthopedics_message]}]
+
         # Create Telegraph page
         response = telegraph_client.create_page(
             title="Orthopedics Videos",
             author_name="Bot",
-            content=orthopedics_message
+            content=content
         )
 
         # Telegraph page link
