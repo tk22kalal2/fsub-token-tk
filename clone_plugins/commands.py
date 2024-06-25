@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-SECONDS = int(os.getenv("SECONDS", "30"))
+SECONDS = int(os.getenv("SECONDS", "120"))
 
 # Initialize Telegraph
 telegraph_client = telegraph.Telegraph()
@@ -73,7 +73,8 @@ async def start(client, message):
         buttons = [
             [InlineKeyboardButton('MARROW', callback_data='marrow')],
             [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
-            [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')]
+            [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
+            [InlineKeyboardButton('DAMS', callback_data='dams')]
         ]
         me2 = (await client.get_me()).mention
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -196,7 +197,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [
             [InlineKeyboardButton('MARROW', callback_data='marrow')],
             [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
-            [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')]
+            [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
+            [InlineKeyboardButton('DAMS', callback_data='dams')]
         ]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -211,6 +213,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
+    elif query.data == "dams":
+        dams_buttons = [
+            [InlineKeyboardButton("DAMS ENGLISH", callback_data="damse"), InlineKeyboardButton("DAMS HINGLISH", callback_data="damsh")],
+            [InlineKeyboardButton("DAMS DVT", callback_data="damsdvt"), InlineKeyboardButton("DAMS PYQ", callback_data="damspyq")],
+            [InlineKeyboardButton("DAMS CLINICALS", callback_data="damsclinicals"), InlineKeyboardButton("DAMS TND", callback_data="damstnd")],
+            [InlineKeyboardButton("DAMS SPECIAL TND", callback_data="damsspecialtnd")],
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+        ]
 
     elif query.data == "marrow":
         marrow_buttons = [
@@ -229,14 +240,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
-
-
     elif query.data.startswith("orthopedics"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
-
+    
         links_x = [
             "[<b>1. How to Approach Orthopaedics Ed6 yw .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjE1MDg2NzcwOTc1NjE)",
             "[<b>2. Basics Histology and Physiology of Bones yw .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjI1MTA3MDE0NTI0ODg)",
@@ -268,36 +277,25 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>28. Joint Disorders Part 1yw</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODg1NjMzMzQ2ODA1OTA)",
             "[<b>29. Joint Disorders Part yw</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODk1NjUzNTkwMzU1MTc)",
         ]
-
+    
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        orthopedics_message = "\n\n".join(page_links)
+        orthopedics_message = "\n".join(page_links)
     
-        # Prepare content for Telegraph
-        content = [{"tag": "p", "children": [orthopedics_message]}]
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"orthopedics_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"orthopedics_{page+1}"))
     
-        # Create Telegraph page
-        response = telegraph_client.create_page(
-            title="Orthopedics Videos",
-            author_name="Bot",
-            content=content
-        )
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        # Telegraph page link
-        telegraph_url = response['url']
-        
-        # Create inline button with the Telegraph page link
-        orthopedics = [
-            [InlineKeyboardButton("More Videos", url=telegraph_url)]
-        ]
-        
-        reply_markup = InlineKeyboardMarkup(orthopedics)
-        
-        # Edit the original message to include the inline button
-        await query.message.edit_reply_markup(reply_markup, parse_mode=enums.ParseMode.HTML)
+        msg = await query.message.reply_text(orthopedics_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
 
+    
         
     elif query.data.startswith("biochemistry"):
         try:
