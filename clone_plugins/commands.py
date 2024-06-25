@@ -288,10 +288,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         # Telegraph page link
         telegraph_url = response['url']
         
+        # Create inline button with the Telegraph page link
+        orthopedics = [
+            [InlineKeyboardButton("More Videos", url=telegraph_url)]
+        ]
+        
         reply_markup = InlineKeyboardMarkup(orthopedics)
         
         # Edit the original message to include the inline button
-        await query.message.edit_reply_markup(url=telegraph_url, reply_markup=reply_markup, parse_mode=enums.ParseMode.HTML)
+        await query.message.edit_reply_markup(reply_markup, parse_mode=enums.ParseMode.HTML)
 
         
     elif query.data.startswith("biochemistry"):
