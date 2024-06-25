@@ -5,6 +5,7 @@
 import os
 import logging
 import random
+import markdown
 import telegraph
 import asyncio
 from Script import script
@@ -286,13 +287,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
         # Telegraph page link
         telegraph_url = response['url']
-    
-        # Create the inline button with the URL
-        orthopedics_button = InlineKeyboardButton("Orthopedics Videos", url=telegraph_url)
-        reply_markup = InlineKeyboardMarkup([[orthopedics_button]])
-    
+        
         # Edit the original message to include the inline button
-        await query.message.edit_reply_markup(reply_markup)
+        await query.message.edit_reply_markup(url=telegraph_url, parse_mode=enums.ParseMode.HTML)
+
         
     elif query.data.startswith("biochemistry"):
         try:
