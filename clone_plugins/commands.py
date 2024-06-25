@@ -237,42 +237,42 @@ async def cb_handler(client: Client, query: CallbackQuery):
             page = 0
 
         links_x = [
-            "1. How to Approach Orthopaedics Ed6 yw .mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjE1MDg2NzcwOTc1NjE",
-            "2. Basics Histology and Physiology of Bones yw .mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjI1MTA3MDE0NTI0ODg",
-            "3. Basics Fracture and Healing yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjM1MTI3MjU4MDc0MTU",
-            "4. Open Fracture Amputations and Polytrauma yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjQ1MTQ3NTAxNjIzNDI",
-            "5. Metabolic Bone Disease Part 1 yw .mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjU1MTY3NzQ1MTcyNjk",
-            "6. Metabolic Bone Disease Part 2 yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjY1MTg3OTg4NzIxOTY",
-            "7. Upper Limb Trauma Clavicle and Shoulder yw .mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjc1MjA4MjMyMjcxMjM",
-            "8. Upper Limb Trauma Arm and Elbow yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjg1MjI4NDc1ODIwNTA",
-            "9. Upper Limb Trauma Forearm Wrist Hand yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNjk1MjQ4NzE5MzY5Nzc",
-            "10. Lower Limb Trauma Part 1 yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzA1MjY4OTYyOTE5MDQ",
-            "11. Lower Limb Trauma Part 2 yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzE1Mjg5MjA2NDY4MzE",
-            "12. Sports Injuries yw .mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzI1MzA5NDUwMDE3NTg",
-            "13. Regional conditions (Cumulative Trauma disorders) yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzM1MzI5NjkzNTY2ODU",
-            "14. Nerve Injuries Fundamentals yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzQ1MzQ5OTM3MTE2MTI",
-            "15. Nerve Injuries Part 1 yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzU1MzcwMTgwNjY1Mzk",
-            "16. Nerve Injuries Part 2 yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzY1MzkwNDI0MjE0NjY",
-            "17. Bone tumors Part 1 yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzc1NDEwNjY3NzYzOTM",
-            "18. Bone Tumors Part 2 yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzg1NDMwOTExMzEzMjA",
-            "19. Orthopaedics Infection Pyogenic yw. mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxNzk1NDUxMTU0ODYyNDc",
-            "20. Orthopaedics Infection Tuberculosis yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxODA1NDcxMzk4NDExNzQ",
-            "21. Paediatrics Orthopaedics Part 1yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxODE1NDkxNjQxOTYxMDE",
-            "22. Paediatrics Orthopaedics Part 2 yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxODI1NTExODg1NTEwMjg",
-            "23. Paediatrics Orthopaedics Part 3 yw .mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxODM1NTMyMTI5MDU5NTU",
-            "24. Paediatrics Orthopaedics MCQs yw.mp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxODQ1NTUyMzcyNjA4ODI",
-            "25. AVN and Osteochondritis. Ywmp4: https://t.me/{{\"X\"}}?start=Z2V0LTkxODU1NTcyNjE2MTU4MDk",
-            "26. Spine Part 1 yw: https://t.me/{{\"X\"}}?start=Z2V0LTkxODY1NTkyODU5NzA3MzY",
-            "27. Spine Part 2 yw: https://t.me/{{\"X\"}}?start=Z2V0LTkxODc1NjEzMTAzMjU2NjM",
-            "28. Joint Disorders Part 1yw: https://t.me/{{\"X\"}}?start=Z2V0LTkxODg1NjMzMzQ2ODA1OTA",
-            "29. Joint Disorders Part yw: https://t.me/{{\"X\"}}?start=Z2V0LTkxODk1NjUzNTkwMzU1MTc",
+            "[<b>1. How to Approach Orthopaedics Ed6 yw .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjE1MDg2NzcwOTc1NjE)",
+            "[<b>2. Basics Histology and Physiology of Bones yw .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjI1MTA3MDE0NTI0ODg)",
+            "[<b>3. Basics Fracture and Healing yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjM1MTI3MjU4MDc0MTU)",
+            "[<b>4. Open Fracture Amputations and Polytrauma yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjQ1MTQ3NTAxNjIzNDI)",
+            "[<b>5. Metabolic Bone Disease Part 1 yw .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjU1MTY3NzQ1MTcyNjk)",
+            "[<b>6. Metabolic Bone Disease Part 2 yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjY1MTg3OTg4NzIxOTY)",
+            "[<b>7. Upper Limb Trauma Clavicle and Shoulder yw .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjc1MjA4MjMyMjcxMjM)",
+            "[<b>8. Upper Limb Trauma Arm and Elbow yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjg1MjI4NDc1ODIwNTA)",
+            "[<b>9. Upper Limb Trauma Forearm Wrist Hand yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNjk1MjQ4NzE5MzY5Nzc)",
+            "[<b>10. Lower Limb Trauma Part 1 yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzA1MjY4OTYyOTE5MDQ)",
+            "[<b>11. Lower Limb Trauma Part 2 yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzE1Mjg5MjA2NDY4MzE)",
+            "[<b>12. Sports Injuries yw .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzI1MzA5NDUwMDE3NTg)",
+            "[<b>13. Regional conditions (Cumulative Trauma disorders) yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzM1MzI5NjkzNTY2ODU)",
+            "[<b>14. Nerve Injuries Fundamentals yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzQ1MzQ5OTM3MTE2MTI)",
+            "[<b>15. Nerve Injuries Part 1 yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzU1MzcwMTgwNjY1Mzk)",
+            "[<b>16. Nerve Injuries Part 2 yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzY1MzkwNDI0MjE0NjY)",
+            "[<b>17. Bone tumors Part 1 yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzc1NDEwNjY3NzYzOTM)",
+            "[<b>18. Bone Tumors Part 2 yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzg1NDMwOTExMzEzMjA)",
+            "[<b>19. Orthopaedics Infection Pyogenic yw. mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxNzk1NDUxMTU0ODYyNDc)",
+            "[<b>20. Orthopaedics Infection Tuberculosis yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODA1NDcxMzk4NDExNzQ)",
+            "[<b>21. Paediatrics Orthopaedics Part 1yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODE1NDkxNjQxOTYxMDE)",
+            "[<b>22. Paediatrics Orthopaedics Part 2 yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODI1NTExODg1NTEwMjg)",
+            "[<b>23. Paediatrics Orthopaedics Part 3 yw .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODM1NTMyMTI5MDU5NTU)",
+            "[<b>24. Paediatrics Orthopaedics MCQs yw.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODQ1NTUyMzcyNjA4ODI)",
+            "[<b>25. AVN and Osteochondritis. Ywmp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODU1NTcyNjE2MTU4MDk)",
+            "[<b>26. Spine Part 1 yw</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODY1NTkyODU5NzA3MzY)",
+            "[<b>27. Spine Part 2 yw</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODc1NjEzMTAzMjU2NjM)",
+            "[<b>28. Joint Disorders Part 1yw</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODg1NjMzMzQ2ODA1OTA)",
+            "[<b>29. Joint Disorders Part yw</b>](https://t.me/{{\"X\"}}?start=Z2V0LTkxODk1NjUzNTkwMzU1MTc)",
         ]
 
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
 
         page_links, has_more = paginate_links(links, page)
-        orthopedics_message = "\n".join(page_links)
+        orthopedics_message = "\n\n".join(page_links)
 
         # Prepare content for Telegraph
         content = [{"tag": "p", "children": [orthopedics_message]}]
