@@ -270,41 +270,30 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
-
+    
         page_links, has_more = paginate_links(links, page)
         orthopedics_message = "\n\n".join(page_links)
-
+    
         # Prepare content for Telegraph
         content = [{"tag": "p", "children": [orthopedics_message]}]
-
+    
         # Create Telegraph page
         response = telegraph_client.create_page(
             title="Orthopedics Videos",
             author_name="Bot",
             content=content
         )
-
+    
         # Telegraph page link
         telegraph_url = response['url']
-
-        # Prepare navigation buttons
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"orthopedics_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"orthopedics_{page+1}"))
-
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
-
-        # Send the Telegraph link
-        msg = await query.message.reply_text(
-            f"Please visit the following link to view the orthopedics videos:\n\n{telegraph_url}",
-            protect_content=PROTECT_CONTENT,
-            reply_markup=reply_markup
-        )
-
-        asyncio.create_task(schedule_deletion([msg], SECONDS))
-
+    
+        # Create the inline button with the URL
+        orthopedics_button = InlineKeyboardButton("Orthopedics Videos", url=telegraph_url)
+        reply_markup = InlineKeyboardMarkup([[orthopedics_button]])
+    
+        # Edit the original message to include the inline button
+        await query.message.edit_reply_markup(reply_markup)
+        
     elif query.data.startswith("biochemistry"):
         try:
             page = int(query.data.split('_')[1])
