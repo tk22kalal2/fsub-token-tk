@@ -74,8 +74,7 @@ async def start(client, message):
             [InlineKeyboardButton('MARROW', callback_data='marrow')],
             [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
             [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
-            [InlineKeyboardButton('DAMS', callback_data='dams')],
-            [InlineKeyboardButton('MIST', callback_data='mist')],
+            [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],            
             [InlineKeyboardButton('OTHERS', callback_data='others')]
         ]
         me2 = (await client.get_me()).mention
@@ -200,8 +199,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton('MARROW', callback_data='marrow')],
             [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
             [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
-            [InlineKeyboardButton('DAMS', callback_data='dams')],
-            [InlineKeyboardButton('MIST', callback_data='mist')],
+            [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
             [InlineKeyboardButton('OTHERS', callback_data='others')]
         ]
         
@@ -9405,7 +9403,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data == "mist":
-        marrow_buttons = [
+        mist_buttons = [
             [InlineKeyboardButton("ANATOMY", callback_data="anatomym"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistrym")],
             [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiologym"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacologym")],
             [InlineKeyboardButton("PATHOLOGY", callback_data="pathologym"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiologym")],
@@ -9417,7 +9415,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedicsm"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatricsm")],
             [InlineKeyboardButton("OBGY", callback_data="obgym"), InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
-        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        reply_markup = InlineKeyboardMarkup(mist_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
     elif query.data.startswith("ophthalmologym"):
