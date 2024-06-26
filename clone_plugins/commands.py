@@ -229,6 +229,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(dams_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
+    elif query.data == "others":
+        others_buttons = [
+            [InlineKeyboardButton("ZAINAB VOHRA RADIOLOGY", callback_data="zvradiology")],
+            [InlineKeyboardButton("ASHISH SIR PHYSIOLOGY", callback_data="asphysiology")],
+            [InlineKeyboardButton("RAJIV DHAWAN ENT", callback_data="rdent")],
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+        ]
+        reply_markup = InlineKeyboardMarkup(others_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+
     elif query.data == "marrow":
         marrow_buttons = [
             [InlineKeyboardButton("ANATOMY", callback_data="anatomy"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistry")],
@@ -9066,274 +9076,332 @@ async def cb_handler(client: Client, query: CallbackQuery):
         msg = await query.message.reply_text(damsclinical_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("anatomym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>ANATOMY PART 1 MIST Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTA3MTM2NjM0NDY2MTI1)",
+            "[<b>ANATOMY MIST PART 2 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTA4MTM4NjU4ODIxMDUy)",
+            "[<b>ANATOMY MIST PART 3  Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTA5MTQwNjgzMTc1OTc5)",
+            "[<b>ANATOMY MIST PART 4 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTEwMTQyNzA3NTMwOTA2)",
+            "[<b>ANATOMY MIST PART 5 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTExMTQ0NzMxODg1ODMz)",
+            "[<b>ANATOMY MIST PART 6 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTEyMTQ2NzU2MjQwNzYw)",
+            "[<b>ANATOMY MIST PART 7 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTEzMTQ4NzgwNTk1Njg3)",
+            "[<b>ANATOMY MIST PART 7 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTE0MTUwODA0OTUwNjE0)",
+            "[<b>ANATOMY MIST PART 8 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTE1MTUyODI5MzA1NTQx)",
+            "[<b>ANATOMY MIST PART 9 Dr. Shilpa Agarwal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTE2MTU0ODUzNjYwNDY4)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        anatomym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"anatomym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"anatomym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(anatomym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("physiologm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST PATHOLOGY DR. KUNAL PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTE4MTU4OTAyMzcwMzIy)",
+            "[<b>MIST PATHOLOGY DR. KUNAL PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTE5MTYwOTI2NzI1MjQ5)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        physiologm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"physiologm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"physiologm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(physiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("biochemistrym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST BIOCHEMISTRY PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTIxMTY0OTc1NDM1MTAz)",
+            "[<b>MIST BIOCHEMISTRY PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTIyMTY2OTk5NzkwMDMw)",
+            "[<b>MIST BIOCHEMISTRY PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTIzMTY5MDI0MTQ0OTU3)",
+            "[<b>MIST BIOCHEMISTRY PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTI0MTcxMDQ4NDk5ODg0)",
+            "[<b>MIST BIOCHEMISTRY PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTI1MTczMDcyODU0ODEx)",
+            "[<b>MIST BIOCHEMISTRY PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTI2MTc1MDk3MjA5NzM4)",
+            "[<b>MIST BIOCHEMISTRY PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTI3MTc3MTIxNTY0NjY1)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        biochemistrym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"biochemistrym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"biochemistrym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(biochemistrym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("pathologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST PATHOLOGY DR. KUNAL PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTI5MTgxMTcwMjc0NTE5)",
+            "[<b>MIST PATHOLOGY DR. KUNAL PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTMwMTgzMTk0NjI5NDQ2)",
+            "[<b>MIST PATHOLOGY DR. KUNAL PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTMxMTg1MjE4OTg0Mzcz)",
+            "[<b>MIST PATHOLOGY DR. KUNAL PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTMyMTg3MjQzMzM5MzAw)",
+            "[<b>MIST PATHOLOGY DR. KUNAL PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTMzMTg5MjY3Njk0MjI3)",
+            "[<b>MIST PATHOLOGY DR. KUNAL PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTM0MTkxMjkyMDQ5MTU0)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        pathologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pathologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pathologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pathologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("pharmacologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTM2MTk1MzQwNzU5MDA4)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTM3MTk3MzY1MTEzOTM1)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTM4MTk5Mzg5NDY4ODYy)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTM5MjAxNDEzODIzNzg5)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQwMjAzNDM4MTc4NzE2)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQxMjA1NDYyNTMzNjQz)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQyMjA3NDg2ODg4NTcw)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQzMjA5NTExMjQzNDk3)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQ0MjExNTM1NTk4NDI0)",
+            "[<b>MIST PHARMACOLOGY Dr. Saurabh Bhatiya PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQ1MjEzNTU5OTUzMzUx)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        pharmacologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pharmacologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pharmacologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pharmacologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("pediatricsm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST PEDIATRICS PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQ3MjE3NjA4NjYzMjA1)",
+            "[<b>MIST PEDIATRICS PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQ4MjE5NjMzMDE4MTMy)",
+            "[<b>MIST PEDIATRICS PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTQ5MjIxNjU3MzczMDU5)",
+            "[<b>MIST PEDIATRICS PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTUwMjIzNjgxNzI3OTg2)",
+            "[<b>MIST PEDIATRICS PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTUxMjI1NzA2MDgyOTEz)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        pediatricsm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pediatricsm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pediatricsm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pediatricsm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("radiologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST RADIOLOGY PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTUzMjI5NzU0NzkyNzY3)",
+            "[<b>MIST RADIOLOGY PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTU0MjMxNzc5MTQ3Njk0)",
+            "[<b>MIST RADIOLOGY PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTU1MjMzODAzNTAyNjIx)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        radiologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"radiologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"radiologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(radiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("psychiatrym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST PSYCHIATRY PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTU3MjM3ODUyMjEyNDc1)",
+            "[<b>MIST PSYCHIATRY PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTU4MjM5ODc2NTY3NDAy)",
+            "[<b>MIST PSYCHIATRY PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTU5MjQxOTAwOTIyMzI5)",
+            "[<b>MIST PSYCHIATRY PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTYwMjQzOTI1Mjc3MjU2)",
+            "[<b>MIST PSYCHIATRY PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTYxMjQ1OTQ5NjMyMTgz)",
+            "[<b>MIST PSYCHIATRY PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTYyMjQ3OTczOTg3MTEw)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        psychiatrym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psychiatrym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psychiatrym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(psychiatrym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("psmm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST PSM PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTYzMjQ5OTk4MzQyMDM3)",
+            "[<b>MIST PSM PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTY0MjUyMDIyNjk2OTY0)",
+            "[<b>MIST PSM PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTY1MjU0MDQ3MDUxODkx)",
+            "[<b>MIST PSM PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTY2MjU2MDcxNDA2ODE4)",
+            "[<b>MIST PSM PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTY3MjU4MDk1NzYxNzQ1)",
+            "[<b>MIST PSM PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTY4MjYwMTIwMTE2Njcy)",
+            "[<b>MIST PSM PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTY5MjYyMTQ0NDcxNTk5)",
+            "[<b>MIST PSM PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTcwMjY0MTY4ODI2NTI2)",
+            "[<b>MIST PSM PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTcxMjY2MTkzMTgxNDUz)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        psmm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psmm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psmm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(psmm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("microbiologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST MICROBIOLOGY PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTcyMjY4MjE3NTM2Mzgw)",
+            "[<b>MIST MICROBIOLOGY PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTczMjcwMjQxODkxMzA3)",
+            "[<b>MIST MICROBIOLOGY PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTc0MjcyMjY2MjQ2MjM0)",
+            "[<b>MIST MICROBIOLOGY PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTc1Mjc0MjkwNjAxMTYx)",
+            "[<b>MIST MICROBIOLOGY PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTc2Mjc2MzE0OTU2MDg4)",
+            "[<b>MIST MICROBIOLOGY PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTc3Mjc4MzM5MzExMDE1)",
+            "[<b>MIST MICROBIOLOGY PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTc4MjgwMzYzNjY1OTQy)",
+            "[<b>MIST MICROBIOLOGY PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTc5MjgyMzg4MDIwODY5)",
+            "[<b>MIST MICROBIOLOGY PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTgwMjg0NDEyMzc1Nzk2)",
+            "[<b>MIST MICROBIOLOGY PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTgxMjg2NDM2NzMwNzIz)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        microbiologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"microbiologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"microbiologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(microbiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data == "mist":
@@ -9352,14 +9420,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(marrow_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("ophthalmologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST OPHTHALMOLOGY PART 1 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTgyMjg4NDYxMDg1NjUw)",
+            "[<b>MIST OPHTHALMOLOGY PART 2 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTgzMjkwNDg1NDQwNTc3)",
+            "[<b>MIST OPHTHALMOLOGY PART 3 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTg0MjkyNTA5Nzk1NTA0)",
+            "[<b>MIST OPHTHALMOLOGY PART 4 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTg1Mjk0NTM0MTUwNDMx)",
+            "[<b>MIST OPHTHALMOLOGY PART 5 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTg2Mjk2NTU4NTA1MzU4)",
+            "[<b>MIST OPHTHALMOLOGY PART 6 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTg3Mjk4NTgyODYwMjg1)",
+            "[<b>MIST OPHTHALMOLOGY PART 7 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTg4MzAwNjA3MjE1MjEy)",
+            "[<b>MIST OPHTHALMOLOGY PART 8 Dr. Anuradha Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTg5MzAyNjMxNTcwMTM5)",
         ]
     
         X = "testingclonepavo_bot"
@@ -9370,256 +9445,430 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ophthalmologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ophthalmologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(ophthalmologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("surgerym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST SURGERY PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTkwMzA0NjU1OTI1MDY2)",
+            "[<b>MIST SURGERY PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTkxMzA2NjgwMjc5OTkz)",
+            "[<b>MIST SURGERY PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTkyMzA4NzA0NjM0OTIw)",
+            "[<b>MIST SURGERY PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTkzMzEwNzI4OTg5ODQ3)",
+            "[<b>MIST SURGERY PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTk0MzEyNzUzMzQ0Nzc0)",
+            "[<b>MIST SURGERY PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTk1MzE0Nzc3Njk5NzAx)",
+            "[<b>MIST SURGERY PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTk2MzE2ODAyMDU0NjI4)",
+            "[<b>MIST SURGERY PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTk3MzE4ODI2NDA5NTU1)",
+            "[<b>MIST SURGERY PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTk4MzIwODUwNzY0NDgy)",
+            "[<b>MIST SURGERY PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE1OTk5MzIyODc1MTE5NDA5)",
+            "[<b>MIST SURGERY PART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDAwMzI0ODk5NDc0MzM2)",
+            "[<b>MIST SURGERY PART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDAxMzI2OTIzODI5MjYz)",
+            "[<b>MIST SURGERY PART 13</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDAyMzI4OTQ4MTg0MTkw)",
+            "[<b>MIST SURGERY PART 14</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDAzMzMwOTcyNTM5MTE3)",
+            "[<b>MIST SURGERY PART 15</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDA0MzMyOTk2ODk0MDQ0)",
+            "[<b>MIST SURGERY PART 16</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDA1MzM1MDIxMjQ4OTcx)",
+            "[<b>MIST SURGERY PART 17</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDA2MzM3MDQ1NjAzODk4)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        surgerym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"surgerym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"surgerym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(surgerym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("entm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST ENT PART 1 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDA3MzM5MDY5OTU4ODI1)",
+            "[<b>MIST ENT PART 2 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDA4MzQxMDk0MzEzNzUy)",
+            "[<b>MIST ENT PART 3 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDA5MzQzMTE4NjY4Njc5)",
+            "[<b>MIST ENT PART 4 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDEwMzQ1MTQzMDIzNjA2)",
+            "[<b>MIST ENT PART 5 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDExMzQ3MTY3Mzc4NTMz)",
+            "[<b>MIST ENT PART 6 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDEyMzQ5MTkxNzMzNDYw)",
+            "[<b>MIST ENT PART 7 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDEzMzUxMjE2MDg4Mzg3)",
+            "[<b>MIST ENT PART 8 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDE0MzUzMjQwNDQzMzE0)",
+            "[<b>MIST ENT PART 9 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDE1MzU1MjY0Nzk4MjQx)",
+            "[<b>MIST ENT PART 10 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDE2MzU3Mjg5MTUzMTY4)",
+            "[<b>MIST ENT PART 11 Dr. Rajiv Dhawan</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDE3MzU5MzEzNTA4MDk1)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        entm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"entm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"entm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(entm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("dermatologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST DERMATOLOGY PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDE4MzYxMzM3ODYzMDIy)",
+            "[<b>MIST DERMATOLOGY PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDE5MzYzMzYyMjE3OTQ5)",
+            "[<b>MIST DERMATOLOGY PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDIwMzY1Mzg2NTcyODc2)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        dermatologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"dermatologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"dermatologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(dermatologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("obgym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST OBS & GYNE PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDIxMzY3NDEwOTI3ODAz)",
+            "[<b>MIST OBS & GYNE PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDIyMzY5NDM1MjgyNzMw)",
+            "[<b>MIST OBS & GYNE PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDIzMzcxNDU5NjM3NjU3)",
+            "[<b>MIST OBS & GYNE PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDI0MzczNDgzOTkyNTg0)",
+            "[<b>MIST OBS & GYNE PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDI1Mzc1NTA4MzQ3NTEx)",
+            "[<b>MIST OBS & GYNE PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDI2Mzc3NTMyNzAyNDM4)",
+            "[<b>MIST OBS & GYNE PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDI3Mzc5NTU3MDU3MzY1)",
+            "[<b>MIST OBS & GYNE PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDI4MzgxNTgxNDEyMjky)",
+            "[<b>MIST OBS & GYNE PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDI5MzgzNjA1NzY3MjE5)",
+            "[<b>MIST OBS & GYNE PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDMwMzg1NjMwMTIyMTQ2)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        obgym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"obgym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"obgym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(obgym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("orthedicsm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>MIST ORTHOPAEDICS PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDMxMzg3NjU0NDc3MDcz)",
+            "[<b>MIST ORTHOPAEDICS PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDMyMzg5Njc4ODMyMDAw)",
+            "[<b>MIST ORTHOPAEDICS PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDMzMzkxNzAzMTg2OTI3)",
+            "[<b>MIST ORTHOPAEDICS PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDM0MzkzNzI3NTQxODU0)",
+            "[<b>MIST ORTHOPAEDICS PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDM1Mzk1NzUxODk2Nzgx)",
+            "[<b>MIST ORTHOPAEDICS PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDM2Mzk3Nzc2MjUxNzA4)",
+            "[<b>MIST ORTHOPAEDICS PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDM3Mzk5ODAwNjA2NjM1)",
+            "[<b>MIST ORTHOPAEDICS PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDM4NDAxODI0OTYxNTYy)",
+            "[<b>MIST ORTHOPAEDICS PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDM5NDAzODQ5MzE2NDg5)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        orthedicsm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"orthedicsm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"orthedicsm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(orthedicsm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("physiologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>Mist physiology part 1 Dr Arun Swami</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQwNDA1ODczNjcxNDE2)",
+            "[<b>Mist physiology part 2 Dr Arun Swami</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQxNDA3ODk4MDI2MzQz)",
+            "[<b>Mist physiology part 3 Dr Arun Swami</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQyNDA5OTIyMzgxMjcw)",
+            "[<b>Mist physiology part 4 Dr Arun Swami</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQzNDExOTQ2NzM2MTk3)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        physiologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"physiologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"physiologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(physiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("zvradiology"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>01. Introduction.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQ0NDEzOTcxMDkxMTI0)",
+            "[<b>02. Introduction to Radiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQ1NDE1OTk1NDQ2MDUx)",
+            "[<b>03. Basic Concepts- X-Ray.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQ2NDE4MDE5ODAwOTc4)",
+            "[<b>04. Basic Concepts- CT.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQ3NDIwMDQ0MTU1OTA1)",
+            "[<b>05. Basic Concepts- MRI.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQ4NDIyMDY4NTEwODMy)",
+            "[<b>06. Basic Concepts- USG and DOPPLER.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDQ5NDI0MDkyODY1NzU5)",
+            "[<b>07. Basic Concepts- Contrast Media.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDUwNDI2MTE3MjIwNjg2)",
+            "[<b>08. Gastrointestinal Radiology - 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDUxNDI4MTQxNTc1NjEz)",
+            "[<b>09. Gastrointestinal Radiology - 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDUyNDMwMTY1OTMwNTQw)",
+            "[<b>10. Hepatobiliary- Pancreatic Radiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDUzNDMyMTkwMjg1NDY3)",
+            "[<b>11. Cardiovascular Radiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDU0NDM0MjE0NjQwMzk0)",
+            "[<b>12. Respiratory Radiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDU1NDM2MjM4OTk1MzIx)",
+            "[<b>13. Musculoskeletal Radiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDU2NDM4MjYzMzUwMjQ4)",
+            "[<b>14. Neuroradiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDU3NDQwMjg3NzA1MTc1)",
+            "[<b>15. Uro- Radiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDU4NDQyMzEyMDYwMTAy)",
+            "[<b>16. Gynecology-Obstetrics Radiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDU5NDQ0MzM2NDE1MDI5)",
+            "[<b>17. Breast Radiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDYwNDQ2MzYwNzY5OTU2)",
+            "[<b>18. Nuclear Medicine.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDYxNDQ4Mzg1MTI0ODgz)",
+            "[<b>19. Radiotherapy.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDYyNDUwNDA5NDc5ODEw)",
+            "[<b>100 Radiology Images in order of importance - Part 1 ｜ Dr Zainab Vora 720p30fps 430.webm</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDYzNDUyNDMzODM0NzM3)",
+            "[<b>100 Radiology Images in order of importance - Part 2 ｜ Dr Zainab Vora 720p30fps 430.webm</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDY0NDU0NDU4MTg5NjY0)",
+            "[<b>100 Radiology Images in order of importance - Part 3 ｜ Dr Zainab Vora 720p30fps 485.webm</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDY1NDU2NDgyNTQ0NTkx)",
+            "[<b>Radiology Crash Course ｜ FMGE & NEET PG  ｜ Dr Zainab Vora 720p30fps 370.webm</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDY2NDU4NTA2ODk5NTE4)",
+            "[<b>Radiology Crash Course - 3 ｜ FMGE & NEET PG  ｜ Dr Zainab Vora 720p30fps 467.webm</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDY3NDYwNTMxMjU0NDQ1)",
+            "[<b>Radiology Crash Course - 4 ｜ FMGE & NEET PG  ｜ Dr Zainab Vora 720p30fps 525.webm</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDY4NDYyNTU1NjA5Mzcy)",
+            "[<b>Radio Rapid revision  by Dr Zainab Vohra part 1 720p25.0fps 1177.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDY5NDY0NTc5OTY0Mjk5)",
+            "[<b>Radio Rapid revision  by Dr Zainab Vohra part 2 720p25.0fps 1311.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcwNDY2NjA0MzE5MjI2)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        zvradiology_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"zvradiology_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"zvradiology_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(zvradiology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("asphysiology"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>General Physiology Part - 1 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcxNDY4NjI4Njc0MTUz)",
+            "[<b>General Physiology Part - 2 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcyNDcwNjUzMDI5MDgw)",
+            "[<b>Endocrine Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDczNDcyNjc3Mzg0MDA3)",
+            "[<b>Endocrine Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc0NDc0NzAxNzM4OTM0)",
+            "[<b>Endocrine Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc1NDc2NzI2MDkzODYx)",
+            "[<b>Endocrine Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc2NDc4NzUwNDQ4Nzg4)",
+            "[<b>Endocrine Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc3NDgwNzc0ODAzNzE1)",
+            "[<b>GIT Physiology By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc4NDgyNzk5MTU4NjQy)",
+            "[<b>Respiratory Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc5NDg0ODIzNTEzNTY5)",
+            "[<b>Respiratory Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgwNDg2ODQ3ODY4NDk2)",
+            "[<b>Respiratory Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgxNDg4ODcyMjIzNDIz)",
+            "[<b>Respiratory Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgyNDkwODk2NTc4MzUw)",
+            "[<b>Cardiovascular Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgzNDkyOTIwOTMzMjc3)",
+            "[<b>Cardiovascular Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg0NDk0OTQ1Mjg4MjA0)",
+            "[<b>Cardiovascular Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg1NDk2OTY5NjQzMTMx)",
+            "[<b>Cardiovascular Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg2NDk4OTkzOTk4MDU4)",
+            "[<b>Cardiovascular Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg3NTAxMDE4MzUyOTg1)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        asphysiology_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"asphysiology_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"asphysiology_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(asphysiology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith(""):
+    elif query.data.startswith("rdent"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
             page = 0
     
         links_x = [
-            
+            "[<b>01. Cartilages of Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg4NTAzMDQyNzA3OTEy)",
+            "[<b>02. Membranes of Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg5NTA1MDY3MDYyODM5)",
+            "[<b>03. Mucosa of Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDkwNTA3MDkxNDE3NzY2)",
+            "[<b>04. Pitch Disorders of Voice atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDkxNTA5MTE1NzcyNjkz)",
+            "[<b>05. Supraglottis and Subglottis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDkyNTExMTQwMTI3NjIw)",
+            "[<b>06. Glottis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDkzNTEzMTY0NDgyNTQ3)",
+            "[<b>07. Lymphatic Drainage and Spaces of Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDk0NTE1MTg4ODM3NDc0)",
+            "[<b>08. Difference between Paediatric and Adult Larynx Stridor atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDk1NTE3MjEzMTkyNDAx)",
+            "[<b>09. Paediatric Laryngeal Infection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDk2NTE5MjM3NTQ3MzI4)",
+            "[<b>10. Congenital Disorders of Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDk3NTIxMjYxOTAyMjU1)",
+            "[<b>11. Methods of Larynx Examination atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDk4NTIzMjg2MjU3MTgy)",
+            "[<b>12. Voice Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDk5NTI1MzEwNjEyMTA5)",
+            "[<b>13. Functions, Muscles & Nerve supply atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTAwNTI3MzM0OTY3MDM2)",
+            "[<b>14. Vocal Cord Paralysis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTAxNTI5MzU5MzIxOTYz)",
+            "[<b>15. Cancer Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTAyNTMxMzgzNjc2ODkw)",
+            "[<b>16. Neck Nodes & Radical Neck Dissection atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTAzNTMzNDA4MDMxODE3)",
+            "[<b>17. Tracheostomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTA0NTM1NDMyMzg2NzQ0)",
+            "[<b>18. Airway Foreign Body atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTA1NTM3NDU2NzQxNjcx)",
+            "[<b>19. Miscellaneous diseases of Larynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTA2NTM5NDgxMDk2NTk4)",
+            "[<b>01. Applied Anatomy atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTA3NTQxNTA1NDUxNTI1)",
+            "[<b>02. Laryngopharynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTA4NTQzNTI5ODA2NDUy)",
+            "[<b>03. Adenoid atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTA5NTQ1NTU0MTYxMzc5)",
+            "[<b>04. Angiofibroma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTEwNTQ3NTc4NTE2MzA2)",
+            "[<b>05. Nasopharyngeal Carcinoma atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTExNTQ5NjAyODcxMjMz)",
+            "[<b>06. Oropharynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTEyNTUxNjI3MjI2MTYw)",
+            "[<b>07. Tonsil atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTEzNTUzNjUxNTgxMDg3)",
+            "[<b>08. Abscesses of Pharynx atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTE0NTU1Njc1OTM2MDE0)",
+            "[<b>01. External Nose atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTE1NTU3NzAwMjkwOTQx)",
+            "[<b>02. Lateral Wall of Nose atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTE2NTU5NzI0NjQ1ODY4)",
+            "[<b>03. Paranasal Sinuses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTE3NTYxNzQ5MDAwNzk1)",
+            "[<b>04. Ethmoid Air Cells atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTE4NTYzNzczMzU1NzIy)",
+            "[<b>05. Sinuses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTE5NTY1Nzk3NzEwNjQ5)",
+            "[<b>06. Sinusitis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTIwNTY3ODIyMDY1NTc2)",
+            "[<b>07. Nasal Polyp atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTIxNTY5ODQ2NDIwNTAz)",
+            "[<b>08. Allergic fungal Rhinosinusitis and Mucormycosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTIyNTcxODcwNzc1NDMw)",
+            "[<b>09. Neoplasm of Nose and Sinuses atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTIzNTczODk1MTMwMzU3)",
+            "[<b>10. Atrophic Rhinitis, Rhinoscleroma, Rhinosporidiosis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTI0NTc1OTE5NDg1Mjg0)",
+            "[<b>11. Facial Trauma, CSF Rhinorrhoea atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTI1NTc3OTQzODQwMjEx)",
+            "[<b>12. Nasal Septum & Disorders atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTI2NTc5OTY4MTk1MTM4)",
+            "[<b>13. Olfaction atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTI3NTgxOTkyNTUwMDY1)",
+            "[<b>14. Blood Supply of Nose & Epistaxis atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTI4NTg0MDE2OTA0OTky)",
+            "[<b>15. Miscellaneous disorders of Nose atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTI5NTg2MDQxMjU5OTE5)",
+            "[<b>01. Embryological Development of Ear.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTMwNTg4MDY1NjE0ODQ2)",
+            "[<b>02. Middle Ear Ossicles & Mechanics.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTMxNTkwMDg5OTY5Nzcz)",
+            "[<b>03. Pinna.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTMyNTkyMTE0MzI0NzAw)",
+            "[<b>04. Exteral Auditory Canal.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTMzNTk0MTM4Njc5NjI3)",
+            "[<b>05. Tympanic Membrane.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTM0NTk2MTYzMDM0NTU0)",
+            "[<b>06. Eustachian Tube.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTM1NTk4MTg3Mzg5NDgx)",
+            "[<b>07. Middle Ear.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTM2NjAwMjExNzQ0NDA4)",
+            "[<b>08. Middle Ear Cleft - ASOM - Safe CSOM.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTM3NjAyMjM2MDk5MzM1)",
+            "[<b>09. Acute Mastoiditis -Petrositis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTM4NjA0MjYwNDU0MjYy)",
+            "[<b>10. Unsafe CSOM.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTM5NjA2Mjg0ODA5MTg5)",
+            "[<b>11. Inner Ear -Basics, Cochlea, Utricle, Saccule.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQwNjA4MzA5MTY0MTE2)",
+            "[<b>12. Inner Ear-Semicircular Canals, Vestibular Tests, Vertigo.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQxNjEwMzMzNTE5MDQz)",
+            "[<b>13. Inner Ear-VEMP, Superior SCC dehiscence.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQyNjEyMzU3ODczOTcw)",
+            "[<b>14. Inner Ear-VC Nerve, IAC & Auditory Pathway.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQzNjE0MzgyMjI4ODk3)",
+            "[<b>15. Basics, Tuning Fork Tests.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQ0NjE2NDA2NTgzODI0)",
+            "[<b>16. Pure Tone Audiometry ,ABLB, SISI, SDS & Tone Decay.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQ1NjE4NDMwOTM4NzUx)",
+            "[<b>17. BERA, OAE, ECochG, Impedance Audiometry.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQ2NjIwNDU1MjkzNjc4)",
+            "[<b>18. Miscellaneous Disorders of Ear.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQ3NjIyNDc5NjQ4NjA1)",
+            "[<b>19. Glomus Jugulare.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQ4NjI0NTA0MDAzNTMy)",
+            "[<b>20. Otosclerosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTQ5NjI2NTI4MzU4NDU5)",
+            "[<b>21. Acoustic Neuroma.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTUwNjI4NTUyNzEzMzg2)",
+            "[<b>22. Meniere& Disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTUxNjMwNTc3MDY4MzEz)",
+            "[<b>23. Anatomy of Facial Nerve.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTUyNjMyNjAxNDIzMjQw)",
+            "[<b>24. Bell& Palsy.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTUzNjM0NjI1Nzc4MTY3)",
+            "[<b>25. Syndromes of Facial Nerve disorders.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTU0NjM2NjUwMTMzMDk0)",
+            "[<b>26. Surgical Landmarks and Injury.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTU1NjM4Njc0NDg4MDIx)",
+            "[<b>27. Hearing Devices & Implants.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTU2NjQwNjk4ODQyOTQ4)",
+            "[<b>01. ENT Instruments Part 1 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTU3NjQyNzIzMTk3ODc1)",
+            "[<b>02. ENT Instruments Part 2 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTU4NjQ0NzQ3NTUyODAy)",
+            "[<b>03. Examination Under Microscope(EUM) atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTU5NjQ2NzcxOTA3NzI5)",
+            "[<b>04. Functional Endoscopic Sinus Surgery Instruments atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTYwNjQ4Nzk2MjYyNjU2)",
+            "[<b>05. Cochlear Implant Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTYxNjUwODIwNjE3NTgz)",
+            "[<b>06. MLS - Micro Laryngeal Surgery atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTYyNjUyODQ0OTcyNTEw)",
+            "[<b>07. Various steps of Septoplasty atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTYzNjU0ODY5MzI3NDM3)",
+            "[<b>01. NEET PG 2023 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTY0NjU2ODkzNjgyMzY0)",
+            "[<b>02. NEET PG 2022 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTY1NjU4OTE4MDM3Mjkx)",
+            "[<b>03. NEET PG 2021 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTY2NjYwOTQyMzkyMjE4)",
+            "[<b>04. NEET PG 2020 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTY3NjYyOTY2NzQ3MTQ1)",
+            "[<b>01. INI CET May 2022 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTY4NjY0OTkxMTAyMDcy)",
+            "[<b>02. INI CET Nov 2021 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTY5NjY3MDE1NDU2OTk5)",
+            "[<b>03. INI CET July 2021 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTcwNjY5MDM5ODExOTI2)",
+            "[<b>04. INI CET May & Nov 2020 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTcxNjcxMDY0MTY2ODUz)",
+            "[<b>05. INI CET May & Nov 2019 atf.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MTcyNjczMDg4NTIxNzgw)",
         ]
     
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        rdent_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"rdent_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"rdent_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(rdent_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data.startswith(""):
