@@ -1273,12 +1273,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data == "prepladder":
-        marrow_buttons = [
+        prepladder_buttons = [
             [InlineKeyboardButton("ANATOMY", callback_data="anatomyp"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistryp")],
             [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiologyp"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacologyp")],
             [InlineKeyboardButton("PATHOLOGY", callback_data="pathologyp"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiologyp")],
             [InlineKeyboardButton("PSM", callback_data="psmp"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="ophthalmologyp")],
-            [InlineKeyboardButton("ENT", callback_data="entp"), InlineKeyboardButton("FMT", callback_data="fmtp")],
+            [InlineKeyboardButton("ENT P", callback_data="entp"), InlineKeyboardButton("FMT", callback_data="fmtp")],
             [InlineKeyboardButton("SURGERY", callback_data="surgeryp"), InlineKeyboardButton("MEDICINE", callback_data="medicinep")],
             [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatologyp"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatryp")],
             [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesiap"), InlineKeyboardButton("RADIOLOGY", callback_data="radiologyp")],
@@ -1286,7 +1286,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("OBGY", callback_data="obgyp"), InlineKeyboardButton("RAPID REVISION", callback_data="rapidrevisionp")],
             [InlineKeyboardButton("CLINICALS", callback_data="clinicalp"), InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
-        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        reply_markup = InlineKeyboardMarkup(prepladder_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
         
