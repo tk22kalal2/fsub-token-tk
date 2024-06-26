@@ -90,6 +90,11 @@ async def start(client, message):
             caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
             reply_markup=reply_keyboard
         )
+        await message.reply_photo(
+            photo=random.choice(PICS),
+            caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
+            reply_markup=reply_markup
+        )
         return
 
 # Don't Remove Credit Tg - @VJ_Botz
