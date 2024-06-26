@@ -1278,7 +1278,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiologyp"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacologyp")],
             [InlineKeyboardButton("PATHOLOGY", callback_data="pathologyp"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiologyp")],
             [InlineKeyboardButton("PSM", callback_data="psmp"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="ophthalmologyp")],
-            [InlineKeyboardButton("ENT P", callback_data="entp"), InlineKeyboardButton("FMT", callback_data="fmtp")],
+            [InlineKeyboardButton("ENT", callback_data="pent"), InlineKeyboardButton("FMT", callback_data="fmtp")],
             [InlineKeyboardButton("SURGERY", callback_data="surgeryp"), InlineKeyboardButton("MEDICINE", callback_data="medicinep")],
             [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatologyp"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatryp")],
             [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesiap"), InlineKeyboardButton("RADIOLOGY", callback_data="radiologyp")],
@@ -1995,7 +1995,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
-    elif query.data.startswith("entp"):
+    elif query.data.startswith("pent"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -2055,17 +2055,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        entp_message = "\n".join(page_links)
+        pent_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"entp_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pent_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"entp_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pent_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(entp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(pent_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
