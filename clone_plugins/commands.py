@@ -37,7 +37,12 @@ SECONDS = int(os.getenv("SECONDS", "120"))
 telegraph_client = telegraph.Telegraph()
 telegraph_client.create_account(short_name='short_name')
 
+
+
 def paginate_links(links, page, per_page=20):
+    if len(links) <= per_page:
+        return links, False  # No pagination needed, show all links
+
     start = page * per_page
     end = start + per_page
     return links[start:end], len(links) > end
