@@ -10119,7 +10119,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if has_more:
             navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pjmedicine_{page+1}"))
       
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+        
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [[]])
+
 
         print("Reply Markup:", reply_markup)  # Debugging statement
         print("Message:", pjmedicine_message)
