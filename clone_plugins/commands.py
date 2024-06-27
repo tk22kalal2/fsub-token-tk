@@ -10116,18 +10116,26 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
 
         page_links, has_more = paginate_links(links, page)
+
+        if len(page_links) < 20:
+            # Less than 20 links, include "Back to Main Menu" button
+            reply_markup = InlineKeyboardMarkup([
+                [InlineKeyboardButton("Back to Main Menu", callback_data="start")]
+            ])
+        else:
+            # More than 20 links, include navigation buttons
+            navigation_buttons = []
+            if page > 0:
+                navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pjmedicine_{page-1}"))
+            if has_more:
+                navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pjmedicine_{page+1}"))
+
+            reply_markup = InlineKeyboardMarkup([navigation_buttons])
+
         pjmedicine_message = "\n".join(page_links)
-
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pjmedicine_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pjmedicine_{page+1}"))
-
-        reply_markup = InlineKeyboardMarkup([navigation_buttons])
-
-        msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        
+        # Send the message
+        msg = await query.message.reply_text(pjmedicine_message, parse_mode='HTML', reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
-
 
 
