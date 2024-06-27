@@ -10119,9 +10119,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         if len(page_links) < 20:
             # Less than 20 links, include "Back to Main Menu" button
-            reply_markup = InlineKeyboardMarkup([
-                [InlineKeyboardButton("Back to Main Menu", callback_data="start")]
-            ])
+            reply_markup = None
         else:
             # More than 20 links, include navigation buttons
             navigation_buttons = []
