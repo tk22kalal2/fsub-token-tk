@@ -10036,162 +10036,162 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Chapter 6 hyperthyroidism & hypothyroidism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDAyMzQ5MjU0NDAxMzM2)",
             "[<b>Chapter 7 raiu and thyroid part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDAzMzUxMjc4NzU2MjYz)",
             "[<b>Chapter 7 thyroid pathology part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA0MzUzMzAzMTExMTkw)",
-              "[<b>Chapter 8 basic of adrenal gland.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA1MzU1MzI3NDY2MTE3)",
-              "[<b>Chapter 9 hyperaldosteronism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA2MzU3MzUxODIxMDQ0)",
-              "[<b>Chapter 10 Cushing syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA3MzU5Mzc2MTc1OTcx)",
-              "[<b>Chapter 11 pheochromocytoma.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA4MzYxNDAwNTMwODk4)",
-              "[<b>Chapter 12 adrenal insufficiency.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA5MzYzNDI0ODg1ODI1)",
-              "[<b>Chapter 13 &14 hypoparathyroidism part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEwMzY1NDQ5MjQwNzUy)",
-              "[<b>Chapter 13 physiology of parathyroid gland .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDExMzY3NDczNTk1Njc5)",
-              "[<b>Chapter 15_16_17 basic of pituitary gland .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEyMzY5NDk3OTUwNjA2)",
-              "[<b>Chapter 16&17 acromegaly part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEzMzcxNTIyMzA1NTMz)",
-              "[<b>Chapter 16&17 acromegay part3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE0MzczNTQ2NjYwNDYw)",
-              "[<b>Neurology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE1Mzc1NTcxMDE1Mzg3)",
-              "[<b>Chapter 1 stroke-cerebrovascular accident part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE2Mzc3NTk1MzcwMzE0)",
-              "[<b>Chapter 1 stroke-cerebrovascular accident part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE3Mzc5NjE5NzI1MjQx)",
-              "[<b>Chapter 1 stroke-cerebrovascular accident part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE4MzgxNjQ0MDgwMTY4)",
-              "[<b>Chapter 2 meningitis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE5MzgzNjY4NDM1MDk1)",
-              "[<b>Chapter 3 dementia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIwMzg1NjkyNzkwMDIy)",
-              "[<b>Chapter 3B parkinsonism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIxMzg3NzE3MTQ0OTQ5)",
-              "[<b>Chapter 4 headache.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIyMzg5NzQxNDk5ODc2)",
-              "[<b>Chapter 5 aphasia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIzMzkxNzY1ODU0ODAz)",
-              "[<b>Chapter 6 epilepsy.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI0MzkzNzkwMjA5NzMw)",
-              "[<b>Chapter 7 neuromuscular junction discord.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI1Mzk1ODE0NTY0NjU3)",
-              "[<b>Chapter 8 dystropinopathies.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI2Mzk3ODM4OTE5NTg0)",
-              "[<b>Chapter 8B multiple sclerosis and GBS part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI3Mzk5ODYzMjc0NTEx)",
-              "[<b>Chapter 8B multiple sclerosis and GBS part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI4NDAxODg3NjI5NDM4)",
-              "[<b>Chapter 9 motor neuron disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI5NDAzOTExOTg0MzY1)",
-              "[<b>Chapter 10 spinal cord.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMwNDA1OTM2MzM5Mjky)",
-              "[<b>Chapter 11 brain stem disorder.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMxNDA3OTYwNjk0MjE5)",
-              "[<b>Chapter 12 facial party.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMyNDA5OTg1MDQ5MTQ2)",
-              "[<b>Pulmonary</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMzNDEyMDA5NDA0MDcz)",
-              "[<b>Chapter 1 lung function test .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM0NDE0MDMzNzU5MDAw)",
-              "[<b>Chapter 2 diffusion capacity of carbon monoxide .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM1NDE2MDU4MTEzOTI3)",
-              "[<b>Chapter 3 chronic bronchitis & emphysema.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM2NDE4MDgyNDY4ODU0)",
-              "[<b>Chapter 4 Asthma.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM3NDIwMTA2ODIzNzgx)",
-              "[<b>Chapter 5 sarcoidosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM4NDIyMTMxMTc4NzA4)",
-              "[<b>Chapter 6 pneumonia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM5NDI0MTU1NTMzNjM1)",
-              "[<b>Chapter 7 ARDS.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQwNDI2MTc5ODg4NTYy)",
-              "[<b>Chapter 8 pulmonary TB.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQxNDI4MjA0MjQzNDg5)",
-              "[<b>Chapter 9 pulmonary embolism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQyNDMwMjI4NTk4NDE2)",
-              "[<b>Chapter 10 pulmonary hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQzNDMyMjUyOTUzMzQz)",
-              "[<b>Chapter 11 obstructive sleep apnea.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ0NDM0Mjc3MzA4Mjcw)",
-              "[<b>Chapter 12 pleural effusion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ1NDM2MzAxNjYzMTk3)",
-              "[<b>Chapter 13 pneumothorax.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ2NDM4MzI2MDE4MTI0)",
-              "[<b>Chapter 14 respiratory failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ3NDQwMzUwMzczMDUx)",
-              "[<b>Chapter 15 ciliaer dyskinesia & cystic fibrosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ4NDQyMzc0NzI3OTc4)",
-              "[<b>Chapter 16 bronchiectasis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ5NDQ0Mzk5MDgyOTA1)",
-              "[<b>Chapter 17 interstitial lung disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUwNDQ2NDIzNDM3ODMy)",
-              "[<b>Chapter 18 ABG.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUxNDQ4NDQ3NzkyNzU5)",
-              "[<b>Nephrology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUyNDUwNDcyMTQ3Njg2)",
-              "[<b>Chapter 1 renal tubular acidosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUzNDUyNDk2NTAyNjEz)",
-              "[<b>Chapter 2 batter synd_gittleman synd_lidddle synd.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU0NDU0NTIwODU3NTQw)",
-              "[<b>Chapter 3 investigation in nephrology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU1NDU2NTQ1MjEyNDY3)",
-              "[<b>Chapter 4 nephrotic syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU2NDU4NTY5NTY3Mzk0)",
-              "[<b>Chapter 5 nephritic syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU3NDYwNTkzOTIyMzIx)",
-              "[<b>Chapter 6 acute kidney injury.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU4NDYyNjE4Mjc3MjQ4)",
-              "[<b>Chapter 7 chronic kidney injury.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU5NDY0NjQyNjMyMTc1)",
-              "[<b>Chapter 8 Renal transplant & renal cystic disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDYwNDY2NjY2OTg3MTAy)",
-          ]
+            "[<b>Chapter 8 basic of adrenal gland.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA1MzU1MzI3NDY2MTE3)",
+            "[<b>Chapter 9 hyperaldosteronism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA2MzU3MzUxODIxMDQ0)",
+            "[<b>Chapter 10 Cushing syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA3MzU5Mzc2MTc1OTcx)",
+            "[<b>Chapter 11 pheochromocytoma.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA4MzYxNDAwNTMwODk4)",
+            "[<b>Chapter 12 adrenal insufficiency.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA5MzYzNDI0ODg1ODI1)",
+            "[<b>Chapter 13 &14 hypoparathyroidism part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEwMzY1NDQ5MjQwNzUy)",
+            "[<b>Chapter 13 physiology of parathyroid gland .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDExMzY3NDczNTk1Njc5)",
+            "[<b>Chapter 15_16_17 basic of pituitary gland .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEyMzY5NDk3OTUwNjA2)",
+            "[<b>Chapter 16&17 acromegaly part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEzMzcxNTIyMzA1NTMz)",
+            "[<b>Chapter 16&17 acromegay part3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE0MzczNTQ2NjYwNDYw)",
+            "[<b>Neurology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE1Mzc1NTcxMDE1Mzg3)",
+            "[<b>Chapter 1 stroke-cerebrovascular accident part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE2Mzc3NTk1MzcwMzE0)",
+            "[<b>Chapter 1 stroke-cerebrovascular accident part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE3Mzc5NjE5NzI1MjQx)",
+            "[<b>Chapter 1 stroke-cerebrovascular accident part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE4MzgxNjQ0MDgwMTY4)",
+            "[<b>Chapter 2 meningitis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE5MzgzNjY4NDM1MDk1)",
+            "[<b>Chapter 3 dementia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIwMzg1NjkyNzkwMDIy)",
+            "[<b>Chapter 3B parkinsonism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIxMzg3NzE3MTQ0OTQ5)",
+            "[<b>Chapter 4 headache.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIyMzg5NzQxNDk5ODc2)",
+            "[<b>Chapter 5 aphasia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIzMzkxNzY1ODU0ODAz)",
+            "[<b>Chapter 6 epilepsy.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI0MzkzNzkwMjA5NzMw)",
+            "[<b>Chapter 7 neuromuscular junction discord.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI1Mzk1ODE0NTY0NjU3)",
+            "[<b>Chapter 8 dystropinopathies.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI2Mzk3ODM4OTE5NTg0)",
+            "[<b>Chapter 8B multiple sclerosis and GBS part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI3Mzk5ODYzMjc0NTEx)",
+            "[<b>Chapter 8B multiple sclerosis and GBS part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI4NDAxODg3NjI5NDM4)",
+            "[<b>Chapter 9 motor neuron disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI5NDAzOTExOTg0MzY1)",
+            "[<b>Chapter 10 spinal cord.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMwNDA1OTM2MzM5Mjky)",
+            "[<b>Chapter 11 brain stem disorder.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMxNDA3OTYwNjk0MjE5)",
+            "[<b>Chapter 12 facial party.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMyNDA5OTg1MDQ5MTQ2)",
+            "[<b>Pulmonary</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMzNDEyMDA5NDA0MDcz)",
+            "[<b>Chapter 1 lung function test .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM0NDE0MDMzNzU5MDAw)",
+            "[<b>Chapter 2 diffusion capacity of carbon monoxide .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM1NDE2MDU4MTEzOTI3)",
+            "[<b>Chapter 3 chronic bronchitis & emphysema.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM2NDE4MDgyNDY4ODU0)",
+            "[<b>Chapter 4 Asthma.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM3NDIwMTA2ODIzNzgx)",
+            "[<b>Chapter 5 sarcoidosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM4NDIyMTMxMTc4NzA4)",
+            "[<b>Chapter 6 pneumonia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM5NDI0MTU1NTMzNjM1)",
+            "[<b>Chapter 7 ARDS.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQwNDI2MTc5ODg4NTYy)",
+            "[<b>Chapter 8 pulmonary TB.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQxNDI4MjA0MjQzNDg5)",
+            "[<b>Chapter 9 pulmonary embolism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQyNDMwMjI4NTk4NDE2)",
+            "[<b>Chapter 10 pulmonary hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQzNDMyMjUyOTUzMzQz)",
+            "[<b>Chapter 11 obstructive sleep apnea.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ0NDM0Mjc3MzA4Mjcw)",
+            "[<b>Chapter 12 pleural effusion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ1NDM2MzAxNjYzMTk3)",
+            "[<b>Chapter 13 pneumothorax.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ2NDM4MzI2MDE4MTI0)",
+            "[<b>Chapter 14 respiratory failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ3NDQwMzUwMzczMDUx)",
+            "[<b>Chapter 15 ciliaer dyskinesia & cystic fibrosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ4NDQyMzc0NzI3OTc4)",
+            "[<b>Chapter 16 bronchiectasis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ5NDQ0Mzk5MDgyOTA1)",
+            "[<b>Chapter 17 interstitial lung disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUwNDQ2NDIzNDM3ODMy)",
+            "[<b>Chapter 18 ABG.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUxNDQ4NDQ3NzkyNzU5)",
+            "[<b>Nephrology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUyNDUwNDcyMTQ3Njg2)",
+            "[<b>Chapter 1 renal tubular acidosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUzNDUyNDk2NTAyNjEz)",
+            "[<b>Chapter 2 batter synd_gittleman synd_lidddle synd.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU0NDU0NTIwODU3NTQw)",
+            "[<b>Chapter 3 investigation in nephrology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU1NDU2NTQ1MjEyNDY3)",
+            "[<b>Chapter 4 nephrotic syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU2NDU4NTY5NTY3Mzk0)",
+            "[<b>Chapter 5 nephritic syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU3NDYwNTkzOTIyMzIx)",
+            "[<b>Chapter 6 acute kidney injury.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU4NDYyNjE4Mjc3MjQ4)",
+            "[<b>Chapter 7 chronic kidney injury.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU5NDY0NjQyNjMyMTc1)",
+            "[<b>Chapter 8 Renal transplant & renal cystic disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDYwNDY2NjY2OTg3MTAy)",
+        ]
       
-          X = "testingclonepavo_bot"
-          links = [link.replace('{{"X"}}', X) for link in links_x]
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
       
-          page_links, has_more = paginate_links(links, page)
-          pjmedicine_message = "\n".join(page_links)
+        page_links, has_more = paginate_links(links, page)
+        pjmedicine_message = "\n".join(page_links)
       
-          navigation_buttons = []
-          if page > 0:
-              navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pjmedicine_{page-1}"))
-          if has_more:
-              navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pjmedicine_{page+1}"))
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pjmedicine_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pjmedicine_{page+1}"))
       
-          reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
       
-          msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-          asyncio.create_task(schedule_deletion([msg], SECONDS))
+        msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
     
     elif query.data.startswith("srikantanatomys"):
-          try:
-              page = int(query.data.split('_')[1])
-          except (IndexError, ValueError):
-              page = 0
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
       
-          links_x = [
-              "[<b>PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYzMjcwMzA0NTU5MTgz)",
-              "[<b>PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY0MjcyMzI4OTE0MTEw)",
-              "[<b>PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY1Mjc0MzUzMjY5MDM3)",
-              "[<b>PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY2Mjc2Mzc3NjIzOTY0)",
-              "[<b>PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY3Mjc4NDAxOTc4ODkx)",
-              "[<b>PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY4MjgwNDI2MzMzODE4)",
-              "[<b>PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY5MjgyNDUwNjg4NzQ1)",
-              "[<b>PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcwMjg0NDc1MDQzNjcy)",
-              "[<b>PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcxMjg2NDk5Mzk4NTk5)",
-              "[<b>PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
-              "[<b>PART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
-              "[<b>PART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
+        links_x = [
+            "[<b>PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYzMjcwMzA0NTU5MTgz)",
+            "[<b>PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY0MjcyMzI4OTE0MTEw)",
+            "[<b>PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY1Mjc0MzUzMjY5MDM3)",
+            "[<b>PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY2Mjc2Mzc3NjIzOTY0)",
+            "[<b>PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY3Mjc4NDAxOTc4ODkx)",
+            "[<b>PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY4MjgwNDI2MzMzODE4)",
+            "[<b>PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY5MjgyNDUwNjg4NzQ1)",
+            "[<b>PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcwMjg0NDc1MDQzNjcy)",
+            "[<b>PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcxMjg2NDk5Mzk4NTk5)",
+            "[<b>PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
+            "[<b>PART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
+            "[<b>PART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
 
-          ]
+        ]
       
-          X = "testingclonepavo_bot"
-          links = [link.replace('{{"X"}}', X) for link in links_x]
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
       
-          page_links, has_more = paginate_links(links, page)
-          srikantanatomys_message = "\n".join(page_links)
+        page_links, has_more = paginate_links(links, page)
+        srikantanatomys_message = "\n".join(page_links)
       
-          navigation_buttons = []
-          if page > 0:
-              navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"srikantanatomys_{page-1}"))
-          if has_more:
-              navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"srikantanatomys_{page+1}"))
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"srikantanatomys_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"srikantanatomys_{page+1}"))
       
-          reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
       
-          msg = await query.message.reply_text(srikantanatomys_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-          asyncio.create_task(schedule_deletion([msg], SECONDS))
+        msg = await query.message.reply_text(srikantanatomys_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data.startswith("ashishphysiok"):
-          try:
-              page = int(query.data.split('_')[1])
-          except (IndexError, ValueError):
-              page = 0
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
       
-          links_x = [
-              "[<b>General Physiology Part - 1 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcxNDY4NjI4Njc0MTUz)",
-              "[<b>General Physiology Part - 2 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcyNDcwNjUzMDI5MDgw)",
-              "[<b>Endocrine Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDczNDcyNjc3Mzg0MDA3)",
-              "[<b>Endocrine Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc0NDc0NzAxNzM4OTM0)",
-              "[<b>Endocrine Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc1NDc2NzI2MDkzODYx)",
-              "[<b>Endocrine Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc2NDc4NzUwNDQ4Nzg4)",
-              "[<b>Endocrine Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc3NDgwNzc0ODAzNzE1)",
-              "[<b>GIT Physiology By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc4NDgyNzk5MTU4NjQy)",
-              "[<b>Respiratory Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc5NDg0ODIzNTEzNTY5)",
-              "[<b>Respiratory Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgwNDg2ODQ3ODY4NDk2)",
-              "[<b>Respiratory Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgxNDg4ODcyMjIzNDIz)",
-              "[<b>Respiratory Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgyNDkwODk2NTc4MzUw)",
-              "[<b>Cardiovascular Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgzNDkyOTIwOTMzMjc3)",
-              "[<b>Cardiovascular Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg0NDk0OTQ1Mjg4MjA0)",
-              "[<b>Cardiovascular Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg1NDk2OTY5NjQzMTMx)",
-              "[<b>Cardiovascular Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg2NDk4OTkzOTk4MDU4)",
-              "[<b>Cardiovascular Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg3NTAxMDE4MzUyOTg1)",
-          ]
+        links_x = [
+            "[<b>General Physiology Part - 1 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcxNDY4NjI4Njc0MTUz)",
+            "[<b>General Physiology Part - 2 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcyNDcwNjUzMDI5MDgw)",
+            "[<b>Endocrine Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDczNDcyNjc3Mzg0MDA3)",
+            "[<b>Endocrine Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc0NDc0NzAxNzM4OTM0)",
+            "[<b>Endocrine Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc1NDc2NzI2MDkzODYx)",
+            "[<b>Endocrine Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc2NDc4NzUwNDQ4Nzg4)",
+            "[<b>Endocrine Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc3NDgwNzc0ODAzNzE1)",
+            "[<b>GIT Physiology By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc4NDgyNzk5MTU4NjQy)",
+            "[<b>Respiratory Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc5NDg0ODIzNTEzNTY5)",
+            "[<b>Respiratory Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgwNDg2ODQ3ODY4NDk2)",
+            "[<b>Respiratory Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgxNDg4ODcyMjIzNDIz)",
+            "[<b>Respiratory Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgyNDkwODk2NTc4MzUw)",
+            "[<b>Cardiovascular Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgzNDkyOTIwOTMzMjc3)",
+            "[<b>Cardiovascular Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg0NDk0OTQ1Mjg4MjA0)",
+            "[<b>Cardiovascular Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg1NDk2OTY5NjQzMTMx)",
+            "[<b>Cardiovascular Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg2NDk4OTkzOTk4MDU4)",
+            "[<b>Cardiovascular Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg3NTAxMDE4MzUyOTg1)",
+        ]
       
-          X = "testingclonepavo_bot"
-          links = [link.replace('{{"X"}}', X) for link in links_x]
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
       
-          page_links, has_more = paginate_links(links, page)
-          ashishphysiok_message = "\n".join(page_links)
+        page_links, has_more = paginate_links(links, page)
+        ashishphysiok_message = "\n".join(page_links)
       
-          navigation_buttons = []
-          if page > 0:
-              navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ashishphysiok_{page-1}"))
-          if has_more:
-              navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ashishphysiok_{page+1}"))
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ashishphysiok_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ashishphysiok_{page+1}"))
       
-          reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
       
-          msg = await query.message.reply_text(ashishphysiok_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-          asyncio.create_task(schedule_deletion([msg], SECONDS))
+        msg = await query.message.reply_text(ashishphysiok_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
 
