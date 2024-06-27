@@ -37,8 +37,6 @@ SECONDS = int(os.getenv("SECONDS", "120"))
 telegraph_client = telegraph.Telegraph()
 telegraph_client.create_account(short_name='short_name')
 
-
-
 def paginate_links(links, page, per_page=20):
     if len(links) <= per_page:
         return links, False  # No pagination needed, show all links
@@ -46,6 +44,8 @@ def paginate_links(links, page, per_page=20):
     start = page * per_page
     end = start + per_page
     return links[start:end], len(links) > end
+
+
     
 async def schedule_deletion(msgs, delay):
     await asyncio.sleep(delay)
@@ -10110,24 +10110,24 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>lPART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
             "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",            
             "[<b>Chapter 8 Renal transplant & renal cystic disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDYwNDY2NjY2OTg3MTAy)",
-        ]
-      
+        ]      
+        
         X = "testingclonepavo_bot"
         links = [link.replace('{{"X"}}', X) for link in links_x]
-      
+
         page_links, has_more = paginate_links(links, page)
         pjmedicine_message = "\n".join(page_links)
-      
+
         navigation_buttons = []
         if page > 0:
             navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pjmedicine_{page-1}"))
         if has_more:
             navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pjmedicine_{page+1}"))
-      
-        
+
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [[]])
-              
+
         msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-   
+
+
