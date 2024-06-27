@@ -10260,13 +10260,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Chapter 7 chronic kidney injury.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU5NDY0NjQyNjMyMTc1)",
             "[<b>Chapter 8 Renal transplant & renal cystic disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDYwNDY2NjY2OTg3MTAy)",
         ]
-      
         X = "testingclonepavo_bot"
-        links = [link.replace('{{"X"}}', X) for link in links_x]
-      
+        links = [(label.replace('{{"X"}}', X), url.replace('{{"X"}}', X)) for label, url in links_x]
+
         page_links, has_more = paginate_links(links, page)
-        pjmedicine_message = "\n".join(page_links)
-      
+
+        # Create inline buttons for each link
+        buttons = [
+            [InlineKeyboardButton(label, url=url)] for label, url in page_links
+        ]        
+        
+        pjmedicine_message = "\n".join(f"[<b>{label}</b>]({url})" for label, url in page_links)
+
         navigation_buttons = []
         if page > 0:
             navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pjmedicine_{page-1}"))
