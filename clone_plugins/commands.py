@@ -10018,6 +10018,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>jPART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
             "[<b>kPART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
             "[<b>lPART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
+            "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",
         ]
       
         X = "testingclonepavo_bot"
@@ -10062,6 +10063,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             "[<b>Cardiovascular Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg1NDk2OTY5NjQzMTMx)",
             "[<b>Cardiovascular Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg2NDk4OTkzOTk4MDU4)",
             "[<b>Cardiovascular Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg3NTAxMDE4MzUyOTg1)",
+            "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",
         ]
       
         X = "testingclonepavo_bot"
@@ -10090,6 +10092,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
       
         links_x = [
             "[<b>aPART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYzMjcwMzA0NTU5MTgz)",
+            "[<b>bPART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY0MjcyMzI4OTE0MTEw)",
+            "[<b>cPART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY1Mjc0MzUzMjY5MDM3)",
+            "[<b>dPART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY2Mjc2Mzc3NjIzOTY0)",
+            "[<b>ePART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY3Mjc4NDAxOTc4ODkx)",
+            "[<b>fPART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY4MjgwNDI2MzMzODE4)",
+            "[<b>gPART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY5MjgyNDUwNjg4NzQ1)",
+            "[<b>hPART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcwMjg0NDc1MDQzNjcy)",
+            "[<b>iPART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcxMjg2NDk5Mzk4NTk5)",
+            "[<b>jPART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
+            "[<b>kPART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
+            "[<b>lPART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
             "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",
             "[<b>Chapter_2_Right_ventricular_failure_VS_left_ventricular_failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc2Mjk2NjIxMTczMjM0)",
             "[<b>Chapter 3 Heart failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc3Mjk4NjQ1NTI4MTYx)",
