@@ -107,6 +107,7 @@ async def menu(client, message):
         [InlineKeyboardButton('MARROW', callback_data='marrow')],
         [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
         [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
+        [InlineKeyboardButton('CEREBELLUM', callback_data='cerebellum')],
         [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
         [InlineKeyboardButton('OTHERS', callback_data='others')]
     ]
@@ -232,6 +233,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [
             [InlineKeyboardButton('MARROW', callback_data='marrow')],
             [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
+            [InlineKeyboardButton('CEREBELLUM', callback_data='cerebellum')],
             [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
             [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
             [InlineKeyboardButton('OTHERS', callback_data='others')]
@@ -266,6 +268,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("ZAINAB VOHRA RADIOLOGY", callback_data="zvradiology")],
             [InlineKeyboardButton("ASHISH SIR PHYSIOLOGY", callback_data="asphysiology")],
             [InlineKeyboardButton("RAJIV DHAWAN ENT", callback_data="rdent")],
+            [InlineKeyboardButton("SRIKANT ANATOMY", callback_data="sranatomy")],
+            [InlineKeyboardButton("PRIYANSH JAIN MEDICINE", callback_data="pjmedicine")],
             [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
         reply_markup = InlineKeyboardMarkup(others_buttons)
@@ -9580,6 +9584,826 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
         msg = await query.message.reply_text(rdent_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+
+    elif query.data == "cerebellum":
+        marrow_buttons = [
+            [InlineKeyboardButton("ANATOMY", callback_data="canatomyr"), InlineKeyboardButton("PHARMACOLOGY", callback_data="cpharmacologyr")],     
+            [InlineKeyboardButton("ANESTHESIA", callback_data="canesthesiar"), InlineKeyboardButton("RADIOLOGY", callback_data="cradiologyr")],
+            [InlineKeyboardButton("PEDIATRICS", callback_data="cpediatricsr")],            
+            [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+        ]
+        reply_markup = InlineKeyboardMarkup(marrow_buttons)
+        await query.message.edit_reply_markup(reply_markup)
+
+    elif query.data.startswith("canesthesiar"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>1.How to Study Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjQ5NjM2NjgxNDY3MDMy)",
+            "[<b>1.How to Study Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjUwNjM4NzA1ODIxOTU5)",
+            "[<b>10.Neuromuscular Blocking Drugs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjUxNjQwNzMwMTc2ODg2)",
+            "[<b>11.Regional Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjUyNjQyNzU0NTMxODEz)",
+            "[<b>12.Cardiopulmonary Resuscitation.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjUzNjQ0Nzc4ODg2NzQw)",
+            "[<b>13.Pediatric Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjU0NjQ2ODAzMjQxNjY3)",
+            "[<b>14.Obstetric Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjU1NjQ4ODI3NTk2NTk0)",
+            "[<b>15.Anesthetic Implication of Concurrent Diseases.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjU2NjUwODUxOTUxNTIx)",
+            "[<b>2.Introduction of Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjU3NjUyODc2MzA2NDQ4)",
+            "[<b>3.Day Care Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjU4NjU0OTAwNjYxMzc1)",
+            "[<b>4.Monitoring in Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjU5NjU2OTI1MDE2MzAy)",
+            "[<b>5.Pre-Anesthesia Evaluation.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjYwNjU4OTQ5MzcxMjI5)",
+            "[<b>6.Instruments in Anesthesia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjYxNjYwOTczNzI2MTU2)",
+            "[<b>7.Inhalational Anesthetic Agents.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjYyNjYyOTk4MDgxMDgz)",
+            "[<b>8.Intravenous Anesthetic Agents.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjYzNjY1MDIyNDM2MDEw)",
+            "[<b>9.Local Anesthetics.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjY0NjY3MDQ2NzkwOTM3)",
+            "[<b>How & Where to Start.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjY1NjY5MDcxMTQ1ODY0)",
+            "[<b>Amsterdam Dwarfism, Patau Syndrome, Types of Dactyly.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjY2NjcxMDk1NTAwNzkx)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        canesthesiar_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"canesthesiar_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"canesthesiar_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(canesthesiar_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("cpediatricsr"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>How & Where to Start.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjY3NjczMTE5ODU1NzE4)",
+            "[<b>Amsterdam Dwarfism, Patau Syndrome, Types of Dactyly.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjY4Njc1MTQ0MjEwNjQ1)",
+            "[<b>Case Presentation 1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjY5Njc3MTY4NTY1NTcy)",
+            "[<b>Case Presentation 2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjcwNjc5MTkyOTIwNDk5)",
+            "[<b>Case Presentation 3.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjcxNjgxMjE3Mjc1NDI2)",
+            "[<b>Case Presentation 4.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjcyNjgzMjQxNjMwMzUz)",
+            "[<b>Case Presentation 5.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjczNjg1MjY1OTg1Mjgw)",
+            "[<b>Dentition.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njc0Njg3MjkwMzQwMjA3)",
+            "[<b>Down Syndrome PYQs with Recent Updates.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njc1Njg5MzE0Njk1MTM0)",
+            "[<b>Growth Chart & X-ray Wrist.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njc2NjkxMzM5MDUwMDYx)",
+            "[<b>Head Circumference.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njc3NjkzMzYzNDA0OTg4)",
+            "[<b>Fetal Alcohol, Crouzon, Waardenburg Syndrome, Cleidocranial Dystosis, Turner Syndrome, Treacher Collins & Weaver Syndrome.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njc4Njk1Mzg3NzU5OTE1)",
+            "[<b>Important Dates, Definition, Anthropometry, Legal Age Definition.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njc5Njk3NDEyMTE0ODQy)",
+            "[<b>Marfan Syndrome, Potter Sequence & Down Syndrome.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjgwNjk5NDM2NDY5NzY5)",
+            "[<b>Microcephaly vs Macrocephaly.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjgxNzAxNDYwODI0Njk2)",
+            "[<b>Mile Stones – Fine Motor, Personal & Social, Language, Vision & Hearing.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjgyNzAzNDg1MTc5NjIz)",
+            "[<b>Mile Stones – Gross Motor.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjgzNzA1NTA5NTM0NTUw)",
+            "[<b>Rubinstein Taybi, Cri Du Chat & Edward Syndrome.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njg0NzA3NTMzODg5NDc3)",
+            "[<b>Short Stature.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njg1NzA5NTU4MjQ0NDA0)",
+            "[<b>SMR Staging.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njg2NzExNTgyNTk5MzMx)",
+            "[<b>APGAR Score .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njg3NzEzNjA2OTU0MjU4)",
+            "[<b>Approach to a Newborn with Hepatitis B+ Mother, Pulse Oximeter.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njg4NzE1NjMxMzA5MTg1)",
+            "[<b>Babinski Response, Types of Hypothermia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njg5NzE3NjU1NjY0MTEy)",
+            "[<b>Birth Asphyxia-HIE .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjkwNzE5NjgwMDE5MDM5)",
+            "[<b>Caput Succedaneum vs Cephal Hematoma .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjkxNzIxNzA0MzczOTY2)",
+            "[<b>Definition, Classification.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjkyNzIzNzI4NzI4ODkz)",
+            "[<b>Delayed Cord Clamping.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NjkzNzI1NzUzMDgzODIw)",
+            "[<b>Hyaline Membrane Disease .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njk0NzI3Nzc3NDM4NzQ3)",
+            "[<b>Infant of Diabetic Mother .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njk1NzI5ODAxNzkzNjc0)",
+            "[<b>IUGR (Intrauterine Growth Restriction) .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njk2NzMxODI2MTQ4NjAx)",
+            "[<b>IVH .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njk3NzMzODUwNTAzNTI4)",
+            "[<b>Kangaroo Mother Care .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njk4NzM1ODc0ODU4NDU1)",
+            "[<b>LGA, Causes, Beckwith Widemann Syndrome, Wilm's Tumour.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Njk5NzM3ODk5MjEzMzgy)",
+            "[<b>Meconium Aspiration Syndrome .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzAwNzM5OTIzNTY4MzA5)",
+            "[<b>Microdeletion Syndromes, Vitals, Stool Colour, Expanded New Ballard Score.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzAxNzQxOTQ3OTIzMjM2)",
+            "[<b>Necrotising Enterocolitis .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzAyNzQzOTcyMjc4MTYz)",
+            "[<b>Neonatal Hyperbilirubinemia .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzAzNzQ1OTk2NjMzMDkw)",
+            "[<b>Neonatal Hypoglycemia .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzA0NzQ4MDIwOTg4MDE3)",
+            "[<b>Neonatal Seizure - PYQs .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzA1NzUwMDQ1MzQyOTQ0)",
+            "[<b>Neonatal Resuscitation Protocol.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzA2NzUyMDY5Njk3ODcx)",
+            "[<b>Neonatal Seizure .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzA3NzU0MDk0MDUyNzk4)",
+            "[<b>pediatric dermatology .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzA4NzU2MTE4NDA3NzI1)",
+            "[<b>Pediatric Orthopedics, Ortolani & Barlow Tests.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzA5NzU4MTQyNzYyNjUy)",
+            "[<b>pyqs Neonatal Reflexes.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzEwNzYwMTY3MTE3NTc5)",
+            "[<b>PYQs Birth Asphyxia .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzExNzYyMTkxNDcyNTA2)",
+            "[<b>Pediatric Ophthalmology - ROP .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzEyNzY0MjE1ODI3NDMz)",
+            "[<b>PYQs - Neonatal Jaundice .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzEzNzY2MjQwMTgyMzYw)",
+            "[<b>ROP - PYQs .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzE0NzY4MjY0NTM3Mjg3)",
+            "[<b>Neonatal Sepsis .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzE1NzcwMjg4ODkyMjE0)",
+            "[<b>Silverman Anderson Score, Downe Score, Neonatal Reflexes (intro).mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzE2NzcyMzEzMjQ3MTQx)",
+            "[<b>Transient Tachypnea of Newborn & Apnea of Prematurity .mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzE3Nzc0MzM3NjAyMDY4)",
+            "[<b>Types of Fat, Non-shivering Thermogenesis, Hypothermia, Warm Chain.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzE4Nzc2MzYxOTU2OTk1)",
+            "[<b>Acute Pharyngitis, Croup, Acute Epiglottitis, Diphtheria.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzE5Nzc4Mzg2MzExOTIy)",
+            "[<b>Asthma - PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzIwNzgwNDEwNjY2ODQ5)",
+            "[<b>Asthma.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzIxNzgyNDM1MDIxNzc2)",
+            "[<b>Bronchiolitis, Whooping Cough, Bronchiolitis Obliterans.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzIyNzg0NDU5Mzc2NzAz)",
+            "[<b>Congenital Malformations.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzIzNzg2NDgzNzMxNjMw)",
+            "[<b>Cystic Fibrosis.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzI0Nzg4NTA4MDg2NTU3)",
+            "[<b>IMNCI Protocol - Pneumonia Atypical vs Typical.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzI1NzkwNTMyNDQxNDg0)",
+            "[<b>Kartagener Syndrome, Stridor, Laryngomalacia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzI2NzkyNTU2Nzk2NDEx)",
+            "[<b>Acute Rheumatic Fever Part 1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzI3Nzk0NTgxMTUxMzM4)",
+            "[<b>Acute Rheumatic Fever Part 2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzI4Nzk2NjA1NTA2MjY1)",
+            "[<b>ASD.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzI5Nzk4NjI5ODYxMTky)",
+            "[<b>Case Presentation 1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzMwODAwNjU0MjE2MTE5)",
+            "[<b>Case Presentation 2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzMxODAyNjc4NTcxMDQ2)",
+            "[<b>Case Presentation 3.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzMyODA0NzAyOTI1OTcz)",
+            "[<b>Case Presentation 4.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzMzODA2NzI3MjgwOTAw)",
+            "[<b>Case Presentation 5.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzM0ODA4NzUxNjM1ODI3)",
+            "[<b>Congenital Heart Disease Classification.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzM1ODEwNzc1OTkwNzU0)",
+            "[<b>Congestive Cardiac Failure.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzM2ODEyODAwMzQ1Njgx)",
+            "[<b>Fetal Circulation.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzM3ODE0ODI0NzAwNjA4)",
+            "[<b>How to Calculate Heart Rate in ECG, NADAS Criteria.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzM4ODE2ODQ5MDU1NTM1)",
+            "[<b>Innocent Murmur, Normal Heart Rate, Small Case, PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzM5ODE4ODczNDEwNDYy)",
+            "[<b>PDA.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQwODIwODk3NzY1Mzg5)",
+            "[<b>Rheumatic Heart Disease with Cardio Revision.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQxODIyOTIyMTIwMzE2)",
+            "[<b>Syndromes with Radial Deficiency, William Syndrome, Di George Syndrome.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQyODI0OTQ2NDc1MjQz)",
+            "[<b>TAPVC, Ebstein, Truncus Arteriosus & TOF - Part 1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQzODI2OTcwODMwMTcw)",
+            "[<b>TGA, Lutembacher's Syndrome, Differential vs Reverse Differential Cyanosis.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQ0ODI4OTk1MTg1MDk3)",
+            "[<b>TOF - Part 2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQ1ODMxMDE5NTQwMDI0)",
+            "[<b>VSD.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQ2ODMzMDQzODk0OTUx)",
+            "[<b>Breath Holding Spells, Nocturnal Enuresis, Autism, Asperger Syndrome, ADHD.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQ3ODM1MDY4MjQ5ODc4)",
+            "[<b>Pica, Thumb Sucking, Tics, Bruxism, Anorexia Nervosa.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQ4ODM3MDkyNjA0ODA1)",
+            "[<b>Case Presentation.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzQ5ODM5MTE2OTU5NzMy)",
+            "[<b>Examination of CNS.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzUwODQxMTQxMzE0NjU5)",
+            "[<b>Febrile Seizures with PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzUxODQzMTY1NjY5NTg2)",
+            "[<b>Hydrocephalus.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzUyODQ1MTkwMDI0NTEz)",
+            "[<b>Neural Tube Defects Part-1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzUzODQ3MjE0Mzc5NDQw)",
+            "[<b>Neural Tube Defects Part-2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzU0ODQ5MjM4NzM0MzY3)",
+            "[<b>Neurocutaneous Syndromes.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzU1ODUxMjYzMDg5Mjk0)",
+            "[<b>Neurocysticerosis.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzU2ODUzMjg3NDQ0MjIx)",
+            "[<b>WEST Sydrome, Status Epilepticus, Bacterial Meningitis, Tubercular Meningitis with PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzU3ODU1MzExNzk5MTQ4)",
+            "[<b>TORCH Profile.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzU4ODU3MzM2MTU0MDc1)",
+            "[<b>Churg Strauss syndrome, Wegener’s granulomatosis, Bechet syndrome, Juvenile dermatomyositis.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzU5ODU5MzYwNTA5MDAy)",
+            "[<b>Henoch Schonlein Purpura.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzYwODYxMzg0ODYzOTI5)",
+            "[<b>Composition  Colostrum  Foremilk  Hind milk  Anti Infective Factors.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzYxODYzNDA5MjE4ODU2)",
+            "[<b>Takayasu Arteritis.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzYyODY1NDMzNTczNzgz)",
+            "[<b>Kawasaki Disease.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzYzODY3NDU3OTI4NzEw)",
+            "[<b>Introduction.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzY0ODY5NDgyMjgzNjM3)",
+            "[<b>MCQs  PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzY1ODcxNTA2NjM4NTY0)",
+            "[<b>WHO classification  Features  Complication.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzY2ODczNTMwOTkzNDkx)",
+            "[<b>Vitamin C - Scurvy, PYQs & Discussion of all Other Micronutrients.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzY3ODc1NTU1MzQ4NDE4)",
+            "[<b>BCG Vaccine.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzY4ODc3NTc5NzAzMzQ1)",
+            "[<b>DPT, Hib, PCV Vaccine.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzY5ODc5NjA0MDU4Mjcy)",
+            "[<b>Introduction.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzcwODgxNjI4NDEzMTk5)",
+            "[<b>MMR, Chicken Pox, Rotavirus, Rabies Vaccine.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzcxODgzNjUyNzY4MTI2)",
+            "[<b>Polio Vaccine + Hepatitis B Vaccine.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzcyODg1Njc3MTIzMDUz)",
+            "[<b>Approach to a Case of Anaemia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzczODg3NzAxNDc3OTgw)",
+            "[<b>Approach to Fever with Rash, Measles, Roseola Infantum, Erythema Infectiosum, Varicella, Mumps.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzc0ODg5NzI1ODMyOTA3)",
+            "[<b>Dengue Fever.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzc1ODkxNzUwMTg3ODM0)",
+            "[<b>Enteric Fever.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzc2ODkzNzc0NTQyNzYx)",
+            "[<b>Iron Deficiency Anaemia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzc3ODk1Nzk4ODk3Njg4)",
+            "[<b>Malaria.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzc4ODk3ODIzMjUyNjE1)",
+            "[<b>PYQs of Malaria & ITP.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzc5ODk5ODQ3NjA3NTQy)",
+            "[<b>Sickle Cell Anemia, Acute Chest Syndrome.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzgwOTAxODcxOTYyNDY5)",
+            "[<b>Tuberculosis, Rubella.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzgxOTAzODk2MzE3Mzk2)",
+            "[<b>Management of Nephrotic Syndrome with PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzgyOTA1OTIwNjcyMzIz)",
+            "[<b>Nephrotic Syndrome.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzgzOTA3OTQ1MDI3MjUw)",
+            "[<b>Urinary Tract Infection.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzg0OTA5OTY5MzgyMTc3)",
+            "[<b>CHPS - Congenital Hypertropic Pyloric Stenosis.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzg1OTExOTkzNzM3MTA0)",
+            "[<b>Hirschsprung's Disease & Full System Revision PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzg2OTE0MDE4MDkyMDMx)",
+            "[<b>Muscular Dystrophy.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzg3OTE2MDQyNDQ2OTU4)",
+            "[<b>Osteogenesis Imperfecta.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzg4OTE4MDY2ODAxODg1)",
+            "[<b>TEF.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzg5OTIwMDkxMTU2ODEy)",
+            "[<b>Acute Liver Failure.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzkwOTIyMTE1NTExNzM5)",
+            "[<b>Celiac Disease.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzkxOTI0MTM5ODY2NjY2)",
+            "[<b>Diarrhea + Acrodermatitis Enteropathica with PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzkyOTI2MTY0MjIxNTkz)",
+            "[<b>Diarrhea.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2NzkzOTI4MTg4NTc2NTIw)",
+            "[<b>GERD.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzk0OTMwMjEyOTMxNDQ3)",
+            "[<b>Hypocalcemia & Hypercalcemia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzk1OTMyMjM3Mjg2Mzc0)",
+            "[<b>Hyponatremia.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzk2OTM0MjYxNjQxMzAx)",
+            "[<b>Galactosemia, Hereditary Fructose Intolerance.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzk3OTM2Mjg1OTk2MjI4)",
+            "[<b>How to Approach a Case of IEM with Glycogen Storage Disease.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzk4OTM4MzEwMzUxMTU1)",
+            "[<b>Mapple Syrup Urine Disease.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2Nzk5OTQwMzM0NzA2MDgy)",
+            "[<b>Menke Disease.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODAwOTQyMzU5MDYxMDA5)",
+            "[<b>Organic Acidemias, Multiple Carboxylase Deficiency.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODAxOTQ0MzgzNDE1OTM2)",
+            "[<b>Phenylalanine Metabolism Pathway, Alkaptonuria, PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODAyOTQ2NDA3NzcwODYz)",
+            "[<b>Tay Sachs Disease, Phenylketonuria.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODAzOTQ4NDMyMTI1Nzkw)",
+            "[<b>Tyrosinemia, Hartnup Disorder, Homocysteinuria, PYQs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODA0OTUwNDU2NDgwNzE3)",
+            "[<b>White Matter Disease, Krabbe Disease, Canavan Disease, Metachromatic Leukodystrophy.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODA1OTUyNDgwODM1NjQ0)",
+            "[<b>Wilson Disease.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODA2OTU0NTA1MTkwNTcx)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        cpediatricsr_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"cpediatricsr_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"cpediatricsr_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(cpediatricsr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("cradiologyr"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>1.Introduction.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODA3OTU2NTI5NTQ1NDk4)",
+            "[<b>Radiology quick revision.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODA4OTU4NTUzOTAwNDI1)",
+            "[<b>1.Introduction.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODA5OTYwNTc4MjU1MzUy)",
+            "[<b>10.Women's Imaging.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODEwOTYyNjAyNjEwMjc5)",
+            "[<b>11.Neuroradiology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODExOTY0NjI2OTY1MjA2)",
+            "[<b>12.Respiratory Radiology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODEyOTY2NjUxMzIwMTMz)",
+            "[<b>13.CVS Radiology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODEzOTY4Njc1Njc1MDYw)",
+            "[<b>15.Nuclear Medicine.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODE0OTcwNzAwMDI5OTg3)",
+            "[<b>16.Radiotherapy.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODE1OTcyNzI0Mzg0OTE0)",
+            "[<b>18.Named X-Ray Views.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODE2OTc0NzQ4NzM5ODQx)",
+            "[<b>14.MSK Imaging.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODE3OTc2NzczMDk0NzY4)",
+            "[<b>17.Radiological Anatomy.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODE4OTc4Nzk3NDQ5Njk1)",
+            "[<b>4.MRI.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODE5OTgwODIxODA0NjIy)",
+            "[<b>2.X-rays.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODIwOTgyODQ2MTU5NTQ5)",
+            "[<b>3.CT.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODIxOTg0ODcwNTE0NDc2)",
+            "[<b>5.USG.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODIyOTg2ODk0ODY5NDAz)",
+            "[<b>6.Contrast Media.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODIzOTg4OTE5MjI0MzMw)",
+            "[<b>7.Gastrointestinal Radiology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODI0OTkwOTQzNTc5MjU3)",
+            "[<b>8.Genito-Urinary Radiology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODI1OTkyOTY3OTM0MTg0)",
+            "[<b>9.Hepatobiliary-Pancreatic Radiology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODI2OTk0OTkyMjg5MTEx)",
+            "[<b>Radiology quick revision.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODI3OTk3MDE2NjQ0MDM4)",
+            "[<b>revision-2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODI4OTk5MDQwOTk4OTY1)",
+            "[<b>revision-1.part001.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODMwMDAxMDY1MzUzODky)",
+            "[<b>revision-1.part002.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODMxMDAzMDg5NzA4ODE5)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        cradiologyr_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"cradiologyr_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"cradiologyr_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(cradiologyr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("canatomyr"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>abdominal viscera.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODMyMDA1MTE0MDYzNzQ2)",
+            "[<b>anterior abdominal wall.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODMzMDA3MTM4NDE4Njcz)",
+            "[<b>arteries and veins of git.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODM0MDA5MTYyNzczNjAw)",
+            "[<b>esophagus and stomach.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODM1MDExMTg3MTI4NTI3)",
+            "[<b>perineum and pelvic viscera part 1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODM2MDEzMjExNDgzNDU0)",
+            "[<b>perineum and pelvic viscera part 2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODM3MDE1MjM1ODM4Mzgx)",
+            "[<b>peritoneum and abdominal ligaments.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODM4MDE3MjYwMTkzMzA4)",
+            "[<b>small intestine and large intestine.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODM5MDE5Mjg0NTQ4MjM1)",
+            "[<b>Basic Concept, Tricks and Magic of Anatomy.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQwMDIxMzA4OTAzMTYy)",
+            "[<b>blood supply of brain.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQxMDIzMzMzMjU4MDg5)",
+            "[<b>brain stem.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQyMDI1MzU3NjEzMDE2)",
+            "[<b>cerebellum.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQzMDI3MzgxOTY3OTQz)",
+            "[<b>cerebral hemisphere.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQ0MDI5NDA2MzIyODcw)",
+            "[<b>cranial nerves.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQ1MDMxNDMwNjc3Nzk3)",
+            "[<b>spinal cord.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQ2MDMzNDU1MDMyNzI0)",
+            "[<b>white matter and basal nuclei.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQ3MDM1NDc5Mzg3NjUx)",
+            "[<b>CNS development.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQ4MDM3NTAzNzQyNTc4)",
+            "[<b>CVS development.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODQ5MDM5NTI4MDk3NTA1)",
+            "[<b>general embryology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODUwMDQxNTUyNDUyNDMy)",
+            "[<b>GIT development.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODUxMDQzNTc2ODA3MzU5)",
+            "[<b>kidney,male and female genital tract development.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODUyMDQ1NjAxMTYyMjg2)",
+            "[<b>pharyngeal apparatus part 1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODUzMDQ3NjI1NTE3MjEz)",
+            "[<b>pharyngeal apparatus part 2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODU0MDQ5NjQ5ODcyMTQw)",
+            "[<b>joints summary.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODU1MDUxNjc0MjI3MDY3)",
+            "[<b>joints.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODU2MDUzNjk4NTgxOTk0)",
+            "[<b>muscles and movements.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODU3MDU1NzIyOTM2OTIx)",
+            "[<b>position, planes, terminology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODU4MDU3NzQ3MjkxODQ4)",
+            "[<b>arteries, veins and nerves of face.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODU5MDU5NzcxNjQ2Nzc1)",
+            "[<b>cranial cavity , cranial nerves and vessels.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODYwMDYxNzk2MDAxNzAy)",
+            "[<b>folds of duramater and sinuses of brain.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODYxMDYzODIwMzU2NjI5)",
+            "[<b>neck.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODYyMDY1ODQ0NzExNTU2)",
+            "[<b>parasympathetic ganglion.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODYzMDY3ODY5MDY2NDgz)",
+            "[<b>pharynx,larynx,nose and palate.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODY0MDY5ODkzNDIxNDEw)",
+            "[<b>scalp and face.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODY1MDcxOTE3Nzc2MzM3)",
+            "[<b>basics of histopathology.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODY2MDczOTQyMTMxMjY0)",
+            "[<b>cartilage and bone.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODY3MDc1OTY2NDg2MTkx)",
+            "[<b>epithelium and glands.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODY4MDc3OTkwODQxMTE4)",
+            "[<b>lymphoid tissue.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODY5MDgwMDE1MTk2MDQ1)",
+            "[<b>anterior comparment of thigh.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODcwMDgyMDM5NTUwOTcy)",
+            "[<b>back of thigh and popliteal fossa.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODcxMDg0MDYzOTA1ODk5)",
+            "[<b>foot.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODcyMDg2MDg4MjYwODI2)",
+            "[<b>leg compartments.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODczMDg4MTEyNjE1NzUz)",
+            "[<b>medial and posterior comparments of thigh.mp4.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODc0MDkwMTM2OTcwNjgw)",
+            "[<b>arteries and veins of lower limbs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODc1MDkyMTYxMzI1NjA3)",
+            "[<b>nerves of lower limb.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODc2MDk0MTg1NjgwNTM0)",
+            "[<b>mediastinum, pericardium and pericardial sinuses.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODc3MDk2MjEwMDM1NDYx)",
+            "[<b>pleura and lung.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODc4MDk4MjM0MzkwMzg4)",
+            "[<b>heart and coronary circulation.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODc5MTAwMjU4NzQ1MzE1)",
+            "[<b>axilla-1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODgwMTAyMjgzMTAwMjQy)",
+            "[<b>arteries and veins of  upper limbs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODgxMTA0MzA3NDU1MTY5)",
+            "[<b>thoracic wall and intercostal space.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODgyMTA2MzMxODEwMDk2)",
+            "[<b>back.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODgzMTA4MzU2MTY1MDIz)",
+            "[<b>axilla-2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODg0MTEwMzgwNTE5OTUw)",
+            "[<b>arm.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODg1MTEyNDA0ODc0ODc3)",
+            "[<b>forearm.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODg2MTE0NDI5MjI5ODA0)",
+            "[<b>arm.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODg3MTE2NDUzNTg0NzMx)",
+            "[<b>arteries and veins of  upper limbs.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODg4MTE4NDc3OTM5NjU4)",
+            "[<b>axilla-1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODg5MTIwNTAyMjk0NTg1)",
+            "[<b>axilla-2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODkwMTIyNTI2NjQ5NTEy)",
+            "[<b>back.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODkxMTI0NTUxMDA0NDM5)",
+            "[<b>forearm.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODkyMTI2NTc1MzU5MzY2)",
+            "[<b>hand.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODkzMTI4NTk5NzE0Mjkz)",
+            "[<b>important nerves of upper limb part 1.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODk0MTMwNjI0MDY5MjIw)",
+            "[<b>important nerves of upper limb part 2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODk1MTMyNjQ4NDI0MTQ3)",
+            "[<b>shoulder region.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODk2MTM0NjcyNzc5MDc0)",
+            "[<b>pectoral region.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODk3MTM2Njk3MTM0MDAx)",
+            "[<b>revision-2.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODk4MTM4NzIxNDg4OTI4)",
+            "[<b>revision-1.part001.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2ODk5MTQwNzQ1ODQzODU1)",
+            "[<b>revision-1.part002.mp4  </b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTAwMTQyNzcwMTk4Nzgy)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        canatomyr_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"canatomyr_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"canatomyr_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(canatomyr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("cpharmacologyr"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>Introduction and Routes of Drug Administration</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTAxMTQ0Nzk0NTUzNzA5)",
+            "[<b>Pharmacokinetics Absorption</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTAyMTQ2ODE4OTA4NjM2)",
+            "[<b>Pharmacokinetics Distribution</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTAzMTQ4ODQzMjYzNTYz)",
+            "[<b>Pharmacokinetics Metabolism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTA0MTUwODY3NjE4NDkw)",
+            "[<b>Pharmacokinetics Excretion</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTA1MTUyODkxOTczNDE3)",
+            "[<b>Kinetics of Elimination</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTA2MTU0OTE2MzI4MzQ0)",
+            "[<b>Pharmacodynamics Introduction and Enzyme inhibitors</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTA3MTU2OTQwNjgzMjcx)",
+            "[<b>Pharmacodynamics Receptors</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTA4MTU4OTY1MDM4MTk4)",
+            "[<b>Dose Response Curve</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTA5MTYwOTg5MzkzMTI1)",
+            "[<b>Clinical trial and pharmacovigilance</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTEwMTYzMDEzNzQ4MDUy)",
+            "[<b>Factors affecting Drug Action</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTExMTY1MDM4MTAyOTc5)",
+            "[<b>Combined Effect of Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTEyMTY3MDYyNDU3OTA2)",
+            "[<b>Practicals in General Pharmacology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTEzMTY5MDg2ODEyODMz)",
+            "[<b>Basics and Cholinergic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTE0MTcxMTExMTY3NzYw)",
+            "[<b>Anti-cholinergic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTE1MTczMTM1NTIyNjg3)",
+            "[<b>Anti-Adrenergic Drugs.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTE2MTc1MTU5ODc3NjE0)",
+            "[<b>Adrenergic Drugs.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTE3MTc3MTg0MjMyNTQx)",
+            "[<b>Glaucoma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTE4MTc5MjA4NTg3NDY4)",
+            "[<b>Practicals in ANS</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTE5MTgxMjMyOTQyMzk1)",
+            "[<b>Histamine and Serotonin</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTIwMTgzMjU3Mjk3MzIy)",
+            "[<b>Migraine</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTIxMTg1MjgxNjUyMjQ5)",
+            "[<b>Gout and Rheumatoid Arthritis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTIyMTg3MzA2MDA3MTc2)",
+            "[<b>PG and NSAIDs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTIzMTg5MzMwMzYyMTAz)",
+            "[<b>Drug Used in Hypertension</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTI0MTkxMzU0NzE3MDMw)",
+            "[<b>Ischemic Heart Disease</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTI1MTkzMzc5MDcxOTU3)",
+            "[<b>Anti-Arrhythmic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTI2MTk1NDAzNDI2ODg0)",
+            "[<b>Congestive Heart Failure</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTI3MTk3NDI3NzgxODEx)",
+            "[<b>Anti-Dyslipidemic</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTI4MTk5NDUyMTM2NzM4)",
+            "[<b>Diuretics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTI5MjAxNDc2NDkxNjY1)",
+            "[<b>Adrenal</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTMwMjAzNTAwODQ2NTky)",
+            "[<b>oral contraceptives</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTMxMjA1NTI1MjAxNTE5)",
+            "[<b>Pancreas</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTMyMjA3NTQ5NTU2NDQ2)",
+            "[<b>Osteoporosis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTMzMjA5NTczOTExMzcz)",
+            "[<b>Thyroid</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTM0MjExNTk4MjY2MzAw)",
+            "[<b>Pituitary Hypothalamic System</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTM1MjEzNjIyNjIxMjI3)",
+            "[<b>sex hormones</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTM2MjE1NjQ2OTc2MTU0)",
+            "[<b>Anti-epileptic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTM3MjE3NjcxMzMxMDgx)",
+            "[<b>drug of abuse</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTM4MjE5Njk1Njg2MDA4)",
+            "[<b>Neurodegenerative Diseases</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTM5MjIxNzIwMDQwOTM1)",
+            "[<b>Anti-psychotics Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQwMjIzNzQ0Mzk1ODYy)",
+            "[<b>Drugs for Mania and Depression</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQxMjI1NzY4NzUwNzg5)",
+            "[<b>Sedative hypnotics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQyMjI3NzkzMTA1NzE2)",
+            "[<b>Local Anaesthetics and Skeletal Muscle Relaxants</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQzMjI5ODE3NDYwNjQz)",
+            "[<b>General Anaesthetics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQ0MjMxODQxODE1NTcw)",
+            "[<b>Drugs Affecting Blood Flow</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQ1MjMzODY2MTcwNDk3)",
+            "[<b>Drugs Affecting Cells of Blood</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQ2MjM1ODkwNTI1NDI0)",
+            "[<b>Cough and Bronchial Asthma</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQ3MjM3OTE0ODgwMzUx)",
+            "[<b>Gastro-Intestinal Tract (GIT)</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQ4MjM5OTM5MjM1Mjc4)",
+            "[<b>Anti-Fungal Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTQ5MjQxOTYzNTkwMjA1)",
+            "[<b>Anti-Viral Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTUwMjQzOTg3OTQ1MTMy)",
+            "[<b>Malaria and Other Parasites</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTUxMjQ2MDEyMzAwMDU5)",
+            "[<b>Tuberculosis and Leprosy</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTUyMjQ4MDM2NjU0OTg2)",
+            "[<b>Ama acting by other mechanism</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTUzMjUwMDYxMDA5OTEz)",
+            "[<b>Drugs Inhibiting Cell Wall Synthesis</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTU0MjUyMDg1MzY0ODQw)",
+            "[<b>General Considerations about Anti-Microbial Agents</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTU1MjU0MTA5NzE5NzY3)",
+            "[<b>Immunospuressants</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTU2MjU2MTM0MDc0Njk0)",
+            "[<b>Cytotoxic Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTU3MjU4MTU4NDI5NjIx)",
+            "[<b>Monoclonal Antibodies</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTU4MjYwMTgyNzg0NTQ4)",
+            "[<b>Targeted Anti-Cancer Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTU5MjYyMjA3MTM5NDc1)",
+            "[<b>Drug Interactions and Antidotes</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYwMjY0MjMxNDk0NDAy)",
+            "[<b>Miscellaneous Topics</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYxMjY2MjU1ODQ5MzI5)",
+            "[<b>New Drugs</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYyMjY4MjgwMjA0MjU2)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        cpharmacologyr_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"cpharmacologyr_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"cpharmacologyr_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(cpharmacologyr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("skanatomy"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYzMjcwMzA0NTU5MTgz)",
+            "[<b>2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY0MjcyMzI4OTE0MTEw)",
+            "[<b>3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY1Mjc0MzUzMjY5MDM3)",
+            "[<b>4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY2Mjc2Mzc3NjIzOTY0)",
+            "[<b>5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY3Mjc4NDAxOTc4ODkx)",
+            "[<b>6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY4MjgwNDI2MzMzODE4)",
+            "[<b>7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY5MjgyNDUwNjg4NzQ1)",
+            "[<b>8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcwMjg0NDc1MDQzNjcy)",
+            "[<b>9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcxMjg2NDk5Mzk4NTk5)",
+            "[<b>10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
+            "[<b>11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
+            "[<b>12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        skanatomy_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"skanatomy_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"skanatomy_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(skanatomy_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("pjmedicine"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",
+            "[<b>Chapter_2_Right_ventricular_failure_VS_left_ventricular_failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc2Mjk2NjIxMTczMjM0)",
+            "[<b>Chapter 3 Heart failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc3Mjk4NjQ1NTI4MTYx)",
+            "[<b>Chapter 4 CAD part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc4MzAwNjY5ODgzMDg4)",
+            "[<b>Chapter 4 CAD part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc5MzAyNjk0MjM4MDE1)",
+            "[<b>Chapter 4 CAD part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgwMzA0NzE4NTkyOTQy)",
+            "[<b>Chapter 5 jugular venous pressure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgxMzA2NzQyOTQ3ODY5)",
+            "[<b>Chapter 6 pericardial disorder.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgyMzA4NzY3MzAyNzk2)",
+            "[<b>Chapter 7 cardiomyopathy part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgzMzEwNzkxNjU3NzIz)",
+            "[<b>Chapter 7 cardiomyopathy part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg0MzEyODE2MDEyNjUw)",
+            "[<b>Chapter 7 cardiomyopathy part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg1MzE0ODQwMzY3NTc3)",
+            "[<b>Chapter 8 rheumatic fever.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg2MzE2ODY0NzIyNTA0)",
+            "[<b>Chapter 9 infections endocarditis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg3MzE4ODg5MDc3NDMx)",
+            "[<b>Chapter 10 ECG part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg4MzIwOTEzNDMyMzU4)",
+            "[<b>Chapter 10 ECG part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg5MzIyOTM3Nzg3Mjg1)",
+            "[<b>Chapter 10 ECG part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTkwMzI0OTYyMTQyMjEy)",
+            "[<b>Chapter 10 ECG part 4.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTkxMzI2OTg2NDk3MTM5)",
+            "[<b>Chapter 10 mitral stenosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTkyMzI5MDEwODUyMDY2)",
+            "[<b>Chapter 11 aortic regurgitation.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTkzMzMxMDM1MjA2OTkz)",
+            "[<b>Chapter 12 Murmur.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTk0MzMzMDU5NTYxOTIw)",
+            "[<b>Endocrinology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTk1MzM1MDgzOTE2ODQ3)",
+            "[<b>Chapter 1 pathogenesis of DM.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTk2MzM3MTA4MjcxNzc0)",
+            "[<b>Chapter_2_diabetic_presentation_diagnosis_&_complications_part_1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTk3MzM5MTMyNjI2NzAx)",
+            "[<b>Chapter_2_diabetic_presentation_diagnosis_&_complications_part_2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTk4MzQxMTU2OTgxNjI4)",
+            "[<b>Chapter_3_diabetic_ketoacidosis_&_hyperglycemic_hyperosmolar.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTk5MzQzMTgxMzM2NTU1)",
+            "[<b>Chapter 4 thyroid physiology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDAwMzQ1MjA1NjkxNDgy)",
+            "[<b>Chapter 5 interpretation of thyroid profile test.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDAxMzQ3MjMwMDQ2NDA5)",
+            "[<b>Chapter 6 hyperthyroidism & hypothyroidism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDAyMzQ5MjU0NDAxMzM2)",
+            "[<b>Chapter 7 raiu and thyroid part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDAzMzUxMjc4NzU2MjYz)",
+            "[<b>Chapter 7 thyroid pathology part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA0MzUzMzAzMTExMTkw)",
+            "[<b>Chapter 8 basic of adrenal gland.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA1MzU1MzI3NDY2MTE3)",
+            "[<b>Chapter 9 hyperaldosteronism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA2MzU3MzUxODIxMDQ0)",
+            "[<b>Chapter 10 Cushing syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA3MzU5Mzc2MTc1OTcx)",
+            "[<b>Chapter 11 pheochromocytoma.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA4MzYxNDAwNTMwODk4)",
+            "[<b>Chapter 12 adrenal insufficiency.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDA5MzYzNDI0ODg1ODI1)",
+            "[<b>Chapter 13 &14 hypoparathyroidism part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEwMzY1NDQ5MjQwNzUy)",
+            "[<b>Chapter 13 physiology of parathyroid gland .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDExMzY3NDczNTk1Njc5)",
+            "[<b>Chapter 15_16_17 basic of pituitary gland .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEyMzY5NDk3OTUwNjA2)",
+            "[<b>Chapter 16&17 acromegaly part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDEzMzcxNTIyMzA1NTMz)",
+            "[<b>Chapter 16&17 acromegay part3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE0MzczNTQ2NjYwNDYw)",
+            "[<b>Neurology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE1Mzc1NTcxMDE1Mzg3)",
+            "[<b>Chapter 1 stroke-cerebrovascular accident part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE2Mzc3NTk1MzcwMzE0)",
+            "[<b>Chapter 1 stroke-cerebrovascular accident part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE3Mzc5NjE5NzI1MjQx)",
+            "[<b>Chapter 1 stroke-cerebrovascular accident part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE4MzgxNjQ0MDgwMTY4)",
+            "[<b>Chapter 2 meningitis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDE5MzgzNjY4NDM1MDk1)",
+            "[<b>Chapter 3 dementia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIwMzg1NjkyNzkwMDIy)",
+            "[<b>Chapter 3B parkinsonism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIxMzg3NzE3MTQ0OTQ5)",
+            "[<b>Chapter 4 headache.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIyMzg5NzQxNDk5ODc2)",
+            "[<b>Chapter 5 aphasia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDIzMzkxNzY1ODU0ODAz)",
+            "[<b>Chapter 6 epilepsy.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI0MzkzNzkwMjA5NzMw)",
+            "[<b>Chapter 7 neuromuscular junction discord.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI1Mzk1ODE0NTY0NjU3)",
+            "[<b>Chapter 8 dystropinopathies.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI2Mzk3ODM4OTE5NTg0)",
+            "[<b>Chapter 8B multiple sclerosis and GBS part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI3Mzk5ODYzMjc0NTEx)",
+            "[<b>Chapter 8B multiple sclerosis and GBS part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI4NDAxODg3NjI5NDM4)",
+            "[<b>Chapter 9 motor neuron disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDI5NDAzOTExOTg0MzY1)",
+            "[<b>Chapter 10 spinal cord.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMwNDA1OTM2MzM5Mjky)",
+            "[<b>Chapter 11 brain stem disorder.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMxNDA3OTYwNjk0MjE5)",
+            "[<b>Chapter 12 facial party.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMyNDA5OTg1MDQ5MTQ2)",
+            "[<b>Pulmonary</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDMzNDEyMDA5NDA0MDcz)",
+            "[<b>Chapter 1 lung function test .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM0NDE0MDMzNzU5MDAw)",
+            "[<b>Chapter 2 diffusion capacity of carbon monoxide .mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM1NDE2MDU4MTEzOTI3)",
+            "[<b>Chapter 3 chronic bronchitis & emphysema.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM2NDE4MDgyNDY4ODU0)",
+            "[<b>Chapter 4 Asthma.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM3NDIwMTA2ODIzNzgx)",
+            "[<b>Chapter 5 sarcoidosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM4NDIyMTMxMTc4NzA4)",
+            "[<b>Chapter 6 pneumonia.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDM5NDI0MTU1NTMzNjM1)",
+            "[<b>Chapter 7 ARDS.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQwNDI2MTc5ODg4NTYy)",
+            "[<b>Chapter 8 pulmonary TB.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQxNDI4MjA0MjQzNDg5)",
+            "[<b>Chapter 9 pulmonary embolism.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQyNDMwMjI4NTk4NDE2)",
+            "[<b>Chapter 10 pulmonary hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQzNDMyMjUyOTUzMzQz)",
+            "[<b>Chapter 11 obstructive sleep apnea.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ0NDM0Mjc3MzA4Mjcw)",
+            "[<b>Chapter 12 pleural effusion.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ1NDM2MzAxNjYzMTk3)",
+            "[<b>Chapter 13 pneumothorax.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ2NDM4MzI2MDE4MTI0)",
+            "[<b>Chapter 14 respiratory failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ3NDQwMzUwMzczMDUx)",
+            "[<b>Chapter 15 ciliaer dyskinesia & cystic fibrosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ4NDQyMzc0NzI3OTc4)",
+            "[<b>Chapter 16 bronchiectasis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDQ5NDQ0Mzk5MDgyOTA1)",
+            "[<b>Chapter 17 interstitial lung disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUwNDQ2NDIzNDM3ODMy)",
+            "[<b>Chapter 18 ABG.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUxNDQ4NDQ3NzkyNzU5)",
+            "[<b>Nephrology</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUyNDUwNDcyMTQ3Njg2)",
+            "[<b>Chapter 1 renal tubular acidosis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDUzNDUyNDk2NTAyNjEz)",
+            "[<b>Chapter 2 batter synd_gittleman synd_lidddle synd.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU0NDU0NTIwODU3NTQw)",
+            "[<b>Chapter 3 investigation in nephrology.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU1NDU2NTQ1MjEyNDY3)",
+            "[<b>Chapter 4 nephrotic syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU2NDU4NTY5NTY3Mzk0)",
+            "[<b>Chapter 5 nephritic syndrome.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU3NDYwNTkzOTIyMzIx)",
+            "[<b>Chapter 6 acute kidney injury.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU4NDYyNjE4Mjc3MjQ4)",
+            "[<b>Chapter 7 chronic kidney injury.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDU5NDY0NjQyNjMyMTc1)",
+            "[<b>Chapter 8 Renal transplant & renal cystic disease.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE3MDYwNDY2NjY2OTg3MTAy)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        pjmedicine_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pjmedicine_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pjmedicine_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith(""):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        _message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     
