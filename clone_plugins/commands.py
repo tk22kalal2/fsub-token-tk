@@ -9999,23 +9999,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
         msg = await query.message.reply_text(cpharmacologyr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))    
     
-        elif query.data.startswith("pjmedicine"):
-          try:
-              page = int(query.data.split('_')[1])
-          except (IndexError, ValueError):
-              page = 0
+    elif query.data.startswith("pjmedicine"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
       
-          links_x = [
-              "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",
-              "[<b>Chapter_2_Right_ventricular_failure_VS_left_ventricular_failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc2Mjk2NjIxMTczMjM0)",
-              "[<b>Chapter 3 Heart failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc3Mjk4NjQ1NTI4MTYx)",
-              "[<b>Chapter 4 CAD part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc4MzAwNjY5ODgzMDg4)",
-              "[<b>Chapter 4 CAD part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc5MzAyNjk0MjM4MDE1)",
-              "[<b>Chapter 4 CAD part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgwMzA0NzE4NTkyOTQy)",
-              "[<b>Chapter 5 jugular venous pressure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgxMzA2NzQyOTQ3ODY5)",
-              "[<b>Chapter 6 pericardial disorder.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgyMzA4NzY3MzAyNzk2)",
-              "[<b>Chapter 7 cardiomyopathy part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgzMzEwNzkxNjU3NzIz)",
-              "[<b>Chapter 7 cardiomyopathy part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg0MzEyODE2MDEyNjUw)",
+        links_x = [
+            "[<b>Chapter 1 hypertension.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc1Mjk0NTk2ODE4MzA3)",
+            "[<b>Chapter_2_Right_ventricular_failure_VS_left_ventricular_failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc2Mjk2NjIxMTczMjM0)",
+            "[<b>Chapter 3 Heart failure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc3Mjk4NjQ1NTI4MTYx)",
+            "[<b>Chapter 4 CAD part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc4MzAwNjY5ODgzMDg4)",
+            "[<b>Chapter 4 CAD part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc5MzAyNjk0MjM4MDE1)",
+            "[<b>Chapter 4 CAD part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgwMzA0NzE4NTkyOTQy)",
+            "[<b>Chapter 5 jugular venous pressure.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgxMzA2NzQyOTQ3ODY5)",
+            "[<b>Chapter 6 pericardial disorder.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgyMzA4NzY3MzAyNzk2)",
+            "[<b>Chapter 7 cardiomyopathy part 1.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTgzMzEwNzkxNjU3NzIz)",
+            "[<b>Chapter 7 cardiomyopathy part 2.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg0MzEyODE2MDEyNjUw)",
               "[<b>Chapter 7 cardiomyopathy part 3.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg1MzE0ODQwMzY3NTc3)",
               "[<b>Chapter 8 rheumatic fever.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg2MzE2ODY0NzIyNTA0)",
               "[<b>Chapter 9 infections endocarditis.mp4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTg3MzE4ODg5MDc3NDMx)",
@@ -10110,7 +10110,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
       
           msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
           asyncio.create_task(schedule_deletion([msg], SECONDS))
-
+    
     elif query.data.startswith("srikantanatomys"):
           try:
               page = int(query.data.split('_')[1])
