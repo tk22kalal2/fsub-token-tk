@@ -10135,7 +10135,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         pjmedicine_message = "\n".join(page_links)
         
         # Send the message
-        msg = await query.message.reply_text(pjmedicine_message, parse_mode='HTML', reply_markup=reply_markup)
+        msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
