@@ -10076,14 +10076,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
       
         page_links, has_more = paginate_links(links, page)
         ashishphysiok_message = "\n".join(page_links)
+        if len(page_links) < 20:
+            # Less than 20 links, include "Back to Main Menu" button
+            reply_markup = None
+        else:
+            navigation_buttons = []
+            if page > 0:
+                navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ashishphysiok_{page-1}"))
+            if has_more:
+                navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ashishphysiok_{page+1}"))
       
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ashishphysiok_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ashishphysiok_{page+1}"))
-      
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+            reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
       
         msg = await query.message.reply_text(ashishphysiok_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
