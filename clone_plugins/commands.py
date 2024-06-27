@@ -9997,92 +9997,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
         msg = await query.message.reply_text(cpharmacologyr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-        asyncio.create_task(schedule_deletion([msg], SECONDS))
-
+        asyncio.create_task(schedule_deletion([msg], SECONDS))    
     
-    
-    elif query.data.startswith("srikantanatomys"):
-        try:
-            page = int(query.data.split('_')[1])
-        except (IndexError, ValueError):
-            page = 0
-    
-        links_x = [
-            "[<b>PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYzMjcwMzA0NTU5MTgz)",
-            "[<b>PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY0MjcyMzI4OTE0MTEw)",
-            "[<b>PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY1Mjc0MzUzMjY5MDM3)",
-            "[<b>PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY2Mjc2Mzc3NjIzOTY0)",
-            "[<b>PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY3Mjc4NDAxOTc4ODkx)",
-            "[<b>PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY4MjgwNDI2MzMzODE4)",
-            "[<b>PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY5MjgyNDUwNjg4NzQ1)",
-            "[<b>PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcwMjg0NDc1MDQzNjcy)",
-            "[<b>PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcxMjg2NDk5Mzk4NTk5)",
-            "[<b>PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
-            "[<b>PART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
-            "[<b>PART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
-        ]
-    
-        X = "testingclonepavo_bot"
-        links = [link.replace('{{"X"}}', X) for link in links_x]
-    
-        page_links, has_more = paginate_links(links, page)
-        srikantanatomys_message = "\n".join(page_links)
-    
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"srikantanatomys_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"srikantanatomys_{page+1}"))
-    
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
-    
-        msg = await query.message.reply_text(srikantanatomys_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-        asyncio.create_task(schedule_deletion([msg], SECONDS))
-
-    elif query.data.startswith("ashishphysiok"):
-        try:
-            page = int(query.data.split('_')[1])
-        except (IndexError, ValueError):
-            page = 0
-    
-        links_x = [
-            "[<b>General Physiology Part - 1 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcxNDY4NjI4Njc0MTUz)",
-            "[<b>General Physiology Part - 2 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcyNDcwNjUzMDI5MDgw)",
-            "[<b>Endocrine Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDczNDcyNjc3Mzg0MDA3)",
-            "[<b>Endocrine Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc0NDc0NzAxNzM4OTM0)",
-            "[<b>Endocrine Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc1NDc2NzI2MDkzODYx)",
-            "[<b>Endocrine Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc2NDc4NzUwNDQ4Nzg4)",
-            "[<b>Endocrine Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc3NDgwNzc0ODAzNzE1)",
-            "[<b>GIT Physiology By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc4NDgyNzk5MTU4NjQy)",
-            "[<b>Respiratory Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc5NDg0ODIzNTEzNTY5)",
-            "[<b>Respiratory Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgwNDg2ODQ3ODY4NDk2)",
-            "[<b>Respiratory Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgxNDg4ODcyMjIzNDIz)",
-            "[<b>Respiratory Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgyNDkwODk2NTc4MzUw)",
-            "[<b>Cardiovascular Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgzNDkyOTIwOTMzMjc3)",
-            "[<b>Cardiovascular Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg0NDk0OTQ1Mjg4MjA0)",
-            "[<b>Cardiovascular Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg1NDk2OTY5NjQzMTMx)",
-            "[<b>Cardiovascular Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg2NDk4OTkzOTk4MDU4)",
-            "[<b>Cardiovascular Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg3NTAxMDE4MzUyOTg1)",
-        ]
-    
-        X = "testingclonepavo_bot"
-        links = [link.replace('{{"X"}}', X) for link in links_x]
-    
-        page_links, has_more = paginate_links(links, page)
-        ashishphysiok_message = "\n".join(page_links)
-    
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ashishphysiok_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ashishphysiok_{page+1}"))
-    
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
-    
-        msg = await query.message.reply_text(ashishphysiok_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-        asyncio.create_task(schedule_deletion([msg], SECONDS))
-
-    elif query.data.startswith("pjmedicine"):
+        elif query.data.startswith("pjmedicine"):
           try:
               page = int(query.data.split('_')[1])
           except (IndexError, ValueError):
@@ -10192,6 +10109,88 @@ async def cb_handler(client: Client, query: CallbackQuery):
           reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
       
           msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+          asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("srikantanatomys"):
+          try:
+              page = int(query.data.split('_')[1])
+          except (IndexError, ValueError):
+              page = 0
+      
+          links_x = [
+              "[<b>PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYzMjcwMzA0NTU5MTgz)",
+              "[<b>PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY0MjcyMzI4OTE0MTEw)",
+              "[<b>PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY1Mjc0MzUzMjY5MDM3)",
+              "[<b>PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY2Mjc2Mzc3NjIzOTY0)",
+              "[<b>PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY3Mjc4NDAxOTc4ODkx)",
+              "[<b>PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY4MjgwNDI2MzMzODE4)",
+              "[<b>PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY5MjgyNDUwNjg4NzQ1)",
+              "[<b>PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcwMjg0NDc1MDQzNjcy)",
+              "[<b>PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcxMjg2NDk5Mzk4NTk5)",
+              "[<b>PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
+              "[<b>PART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
+              "[<b>PART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
+
+          ]
+      
+          X = "testingclonepavo_bot"
+          links = [link.replace('{{"X"}}', X) for link in links_x]
+      
+          page_links, has_more = paginate_links(links, page)
+          srikantanatomys_message = "\n".join(page_links)
+      
+          navigation_buttons = []
+          if page > 0:
+              navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"srikantanatomys_{page-1}"))
+          if has_more:
+              navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"srikantanatomys_{page+1}"))
+      
+          reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+      
+          msg = await query.message.reply_text(srikantanatomys_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+          asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("ashishphysiok"):
+          try:
+              page = int(query.data.split('_')[1])
+          except (IndexError, ValueError):
+              page = 0
+      
+          links_x = [
+              "[<b>General Physiology Part - 1 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcxNDY4NjI4Njc0MTUz)",
+              "[<b>General Physiology Part - 2 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcyNDcwNjUzMDI5MDgw)",
+              "[<b>Endocrine Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDczNDcyNjc3Mzg0MDA3)",
+              "[<b>Endocrine Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc0NDc0NzAxNzM4OTM0)",
+              "[<b>Endocrine Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc1NDc2NzI2MDkzODYx)",
+              "[<b>Endocrine Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc2NDc4NzUwNDQ4Nzg4)",
+              "[<b>Endocrine Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc3NDgwNzc0ODAzNzE1)",
+              "[<b>GIT Physiology By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc4NDgyNzk5MTU4NjQy)",
+              "[<b>Respiratory Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc5NDg0ODIzNTEzNTY5)",
+              "[<b>Respiratory Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgwNDg2ODQ3ODY4NDk2)",
+              "[<b>Respiratory Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgxNDg4ODcyMjIzNDIz)",
+              "[<b>Respiratory Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgyNDkwODk2NTc4MzUw)",
+              "[<b>Cardiovascular Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgzNDkyOTIwOTMzMjc3)",
+              "[<b>Cardiovascular Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg0NDk0OTQ1Mjg4MjA0)",
+              "[<b>Cardiovascular Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg1NDk2OTY5NjQzMTMx)",
+              "[<b>Cardiovascular Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg2NDk4OTkzOTk4MDU4)",
+              "[<b>Cardiovascular Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg3NTAxMDE4MzUyOTg1)",
+          ]
+      
+          X = "testingclonepavo_bot"
+          links = [link.replace('{{"X"}}', X) for link in links_x]
+      
+          page_links, has_more = paginate_links(links, page)
+          ashishphysiok_message = "\n".join(page_links)
+      
+          navigation_buttons = []
+          if page > 0:
+              navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ashishphysiok_{page-1}"))
+          if has_more:
+              navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ashishphysiok_{page+1}"))
+      
+          reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+      
+          msg = await query.message.reply_text(ashishphysiok_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
           asyncio.create_task(schedule_deletion([msg], SECONDS))
 
 
