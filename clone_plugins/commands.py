@@ -10120,6 +10120,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pjmedicine_{page+1}"))
       
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+
+        print("Reply Markup:", reply_markup)  # Debugging statement
+        print("Message:", pjmedicine_message)
       
         msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
