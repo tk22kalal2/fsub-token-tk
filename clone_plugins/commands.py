@@ -267,9 +267,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "others":
         others_buttons = [
             [InlineKeyboardButton("ZAINAB VOHRA RADIOLOGY", callback_data="zvradiology")],
-            [InlineKeyboardButton("ASHISH SIR PHYSIOLOGY", callback_data="ashishphysio")],
+            [InlineKeyboardButton("ASHISH SIR PHYSIOLOGY", callback_data="ashishphysiok")],
             [InlineKeyboardButton("RAJIV DHAWAN ENT", callback_data="rdent")],
-            [InlineKeyboardButton("SRIKANT ANATOMY", callback_data="srikantanatomy")],
+            [InlineKeyboardButton("SRIKANT ANATOMY", callback_data="srikantanatomys")],
             [InlineKeyboardButton("PRIYANSH JAIN MEDICINE", callback_data="pjmedicine")],
             [InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
@@ -8792,22 +8792,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "mist":
         mist_buttons = [
-            [InlineKeyboardButton("ANATOMY", callback_data="anatomym"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="biochemistrym")],
-            [InlineKeyboardButton("PHYSIOLOGY", callback_data="physiologym"), InlineKeyboardButton("PHARMACOLOGY", callback_data="pharmacologym")],
-            [InlineKeyboardButton("PATHOLOGY", callback_data="pathologym"), InlineKeyboardButton("MICROBIOLOGY", callback_data="microbiologym")],
-            [InlineKeyboardButton("PSM", callback_data="psmm"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="ophthalmologym")],
-            [InlineKeyboardButton("ENT", callback_data="entm"), InlineKeyboardButton("FMT", callback_data="fmtm")],
-            [InlineKeyboardButton("SURGERY", callback_data="surgerym"), InlineKeyboardButton("MEDICINE", callback_data="medicinem")],
-            [InlineKeyboardButton("DERMATOLOGY", callback_data="dermatologym"), InlineKeyboardButton("PSYCHIATRY", callback_data="psychiatrym")],
-            [InlineKeyboardButton("ANESTHESIA", callback_data="anesthesiam"), InlineKeyboardButton("RADIOLOGY", callback_data="radiologym")],
-            [InlineKeyboardButton("ORTHOPEDICS", callback_data="orthopedicsm"), InlineKeyboardButton("PEDIATRICS", callback_data="pediatricsm")],
-            [InlineKeyboardButton("OBGY", callback_data="obgym"), InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
+            [InlineKeyboardButton("ANATOMY", callback_data="manatomym"), InlineKeyboardButton("BIOCHEMISTRY", callback_data="mbiochemistrym")],
+            [InlineKeyboardButton("PHYSIOLOGY", callback_data="mphysiologym"), InlineKeyboardButton("PHARMACOLOGY", callback_data="mpharmacologym")],
+            [InlineKeyboardButton("PATHOLOGY", callback_data="mpathologym"), InlineKeyboardButton("MICROBIOLOGY", callback_data="mmicrobiologym")],
+            [InlineKeyboardButton("PSM", callback_data="mpsmm"), InlineKeyboardButton("OPHTHALMOLOGY", callback_data="mophthalmologym")],
+            [InlineKeyboardButton("ENT", callback_data="mentm"), InlineKeyboardButton("FMT", callback_data="mfmtm")],
+            [InlineKeyboardButton("SURGERY", callback_data="msurgerym"), InlineKeyboardButton("MEDICINE", callback_data="mmedicinem")],
+            [InlineKeyboardButton("DERMATOLOGY", callback_data="mdermatologym"), InlineKeyboardButton("PSYCHIATRY", callback_data="mpsychiatrym")],
+            [InlineKeyboardButton("ANESTHESIA", callback_data="manesthesiam"), InlineKeyboardButton("RADIOLOGY", callback_data="mradiologym")],
+            [InlineKeyboardButton("ORTHOPEDICS", callback_data="morthopedicsm"), InlineKeyboardButton("PEDIATRICS", callback_data="mpediatricsm")],
+            [InlineKeyboardButton("OBGY", callback_data="mobgym"), InlineKeyboardButton("BACK TO MAIN MENU", callback_data="start")]
         ]
         reply_markup = InlineKeyboardMarkup(mist_buttons)
         await query.message.edit_reply_markup(reply_markup)
 
     
-    elif query.data.startswith("anatomym"):
+    elif query.data.startswith("manatomym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -8830,20 +8830,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        anatomym_message = "\n".join(page_links)
+        manatomym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"anatomym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"manatomym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"anatomym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"manatomym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(anatomym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(manatomym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("physiologm"):
+    elif query.data.startswith("mphysiologm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -8858,20 +8858,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        physiologm_message = "\n".join(page_links)
+        mphysiologm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"physiologm_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mphysiologm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"physiologm_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mphysiologm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(physiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mphysiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("biochemistrym"):
+    elif query.data.startswith("mbiochemistrym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -8891,20 +8891,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        biochemistrym_message = "\n".join(page_links)
+        mbiochemistrym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"biochemistrym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mbiochemistrym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"biochemistrym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mbiochemistrym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(biochemistrym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mbiochemistrym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("pathologym"):
+    elif query.data.startswith("mpathologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -8923,20 +8923,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        pathologym_message = "\n".join(page_links)
+        mpathologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pathologym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mpathologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pathologym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mpathologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(pathologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mpathologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("pharmacologym"):
+    elif query.data.startswith("mpharmacologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -8959,20 +8959,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        pharmacologym_message = "\n".join(page_links)
+        mpharmacologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pharmacologym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mpharmacologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pharmacologym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mpharmacologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(pharmacologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mpharmacologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("pediatricsm"):
+    elif query.data.startswith("mpediatricsm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -8990,20 +8990,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        pediatricsm_message = "\n".join(page_links)
+        mpediatricsm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"pediatricsm_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mpediatricsm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"pediatricsm_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mpediatricsm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(pediatricsm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mpediatricsm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("radiologym"):
+    elif query.data.startswith("mradiologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9019,20 +9019,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        radiologym_message = "\n".join(page_links)
+        mradiologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"radiologym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mradiologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"radiologym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mradiologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(radiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mradiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psychiatrym"):
+    elif query.data.startswith("mpsychiatrym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9051,20 +9051,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        psychiatrym_message = "\n".join(page_links)
+        mpsychiatrym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psychiatrym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mpsychiatrym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psychiatrym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mpsychiatrym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(psychiatrym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mpsychiatrym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("psmm"):
+    elif query.data.startswith("mpsmm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9086,20 +9086,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        psmm_message = "\n".join(page_links)
+        mpsmm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psmm_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mpsmm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psmm_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mpsmm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(psmm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mpsmm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("microbiologym"):
+    elif query.data.startswith("mmicrobiologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9122,21 +9122,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        microbiologym_message = "\n".join(page_links)
+        mmicrobiologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"microbiologym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mmicrobiologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"microbiologym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mmicrobiologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(microbiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mmicrobiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     
-    elif query.data.startswith("ophthalmologym"):
+    elif query.data.startswith("mophthalmologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9157,20 +9157,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        _message = "\n".join(page_links)
+        m_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ophthalmologym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mophthalmologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ophthalmologym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mophthalmologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(ophthalmologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mophthalmologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("surgerym"):
+    elif query.data.startswith("msurgerym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9200,20 +9200,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        surgerym_message = "\n".join(page_links)
+        msurgerym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"surgerym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"msurgerym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"surgerym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"msurgerym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(surgerym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(msurgerym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("entm"):
+    elif query.data.startswith("mentm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9237,20 +9237,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        entm_message = "\n".join(page_links)
+        mentm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"entm_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mentm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"entm_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mentm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(entm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mentm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("dermatologym"):
+    elif query.data.startswith("mdermatologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9266,20 +9266,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        dermatologym_message = "\n".join(page_links)
+        mdermatologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"dermatologym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mdermatologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"dermatologym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mdermatologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(dermatologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mdermatologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("obgym"):
+    elif query.data.startswith("mobgym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9302,20 +9302,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        obgym_message = "\n".join(page_links)
+        mobgym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"obgym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mobgym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"obgym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mobgym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(obgym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mobgym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("orthedicsm"):
+    elif query.data.startswith("morthedicsm"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9337,20 +9337,20 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        orthedicsm_message = "\n".join(page_links)
+        morthedicsm_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"orthedicsm_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"morthedicsm_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"orthedicsm_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"morthedicsm_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(orthedicsm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(morthedicsm_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("physiologym"):
+    elif query.data.startswith("mphysiologym"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -9367,17 +9367,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        physiologym_message = "\n".join(page_links)
+        mphysiologym_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"physiologym_{page-1}"))
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mphysiologym_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"physiologym_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mphysiologym_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(physiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(mphysiologym_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data.startswith("zvradiology"):
@@ -9433,49 +9433,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         msg = await query.message.reply_text(zvradiology_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("ashishphysio"):
-        try:
-            page = int(query.data.split('_')[1])
-        except (IndexError, ValueError):
-            page = 0
     
-        links_x = [
-            "[<b>General Physiology Part - 1 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcxNDY4NjI4Njc0MTUz)",
-            "[<b>General Physiology Part - 2 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcyNDcwNjUzMDI5MDgw)",
-            "[<b>Endocrine Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDczNDcyNjc3Mzg0MDA3)",
-            "[<b>Endocrine Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc0NDc0NzAxNzM4OTM0)",
-            "[<b>Endocrine Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc1NDc2NzI2MDkzODYx)",
-            "[<b>Endocrine Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc2NDc4NzUwNDQ4Nzg4)",
-            "[<b>Endocrine Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc3NDgwNzc0ODAzNzE1)",
-            "[<b>GIT Physiology By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc4NDgyNzk5MTU4NjQy)",
-            "[<b>Respiratory Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc5NDg0ODIzNTEzNTY5)",
-            "[<b>Respiratory Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgwNDg2ODQ3ODY4NDk2)",
-            "[<b>Respiratory Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgxNDg4ODcyMjIzNDIz)",
-            "[<b>Respiratory Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgyNDkwODk2NTc4MzUw)",
-            "[<b>Cardiovascular Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgzNDkyOTIwOTMzMjc3)",
-            "[<b>Cardiovascular Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg0NDk0OTQ1Mjg4MjA0)",
-            "[<b>Cardiovascular Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg1NDk2OTY5NjQzMTMx)",
-            "[<b>Cardiovascular Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg2NDk4OTkzOTk4MDU4)",
-            "[<b>Cardiovascular Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg3NTAxMDE4MzUyOTg1)",
-        ]
-    
-        X = "testingclonepavo_bot"
-        links = [link.replace('{{"X"}}', X) for link in links_x]
-    
-        page_links, has_more = paginate_links(links, page)
-        ashishphysio_message = "\n".join(page_links)
-    
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ashishphysio_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ashishphysio_{page+1}"))
-    
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
-    
-        msg = await query.message.reply_text(ashishphysio_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-        asyncio.create_task(schedule_deletion([msg], SECONDS))
-
     elif query.data.startswith("rdent"):
         try:
             page = int(query.data.split('_')[1])
@@ -10041,44 +9999,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         msg = await query.message.reply_text(cpharmacologyr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
-    elif query.data.startswith("srikantanatomy"):
-        try:
-            page = int(query.data.split('_')[1])
-        except (IndexError, ValueError):
-            page = 0
     
-        links_x = [
-            "[<b>PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYzMjcwMzA0NTU5MTgz)",
-            "[<b>PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY0MjcyMzI4OTE0MTEw)",
-            "[<b>PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY1Mjc0MzUzMjY5MDM3)",
-            "[<b>PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY2Mjc2Mzc3NjIzOTY0)",
-            "[<b>PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY3Mjc4NDAxOTc4ODkx)",
-            "[<b>PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY4MjgwNDI2MzMzODE4)",
-            "[<b>PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY5MjgyNDUwNjg4NzQ1)",
-            "[<b>PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcwMjg0NDc1MDQzNjcy)",
-            "[<b>PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcxMjg2NDk5Mzk4NTk5)",
-            "[<b>PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
-            "[<b>PART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
-            "[<b>PART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
-        ]
-    
-        X = "testingclonepavo_bot"
-        links = [link.replace('{{"X"}}', X) for link in links_x]
-    
-        page_links, has_more = paginate_links(links, page)
-        srikantanatomy_message = "\n".join(page_links)
-    
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"srikantanatomy_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"srikantanatomy_{page+1}"))
-    
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
-    
-        msg = await query.message.reply_text(srikantanatomy_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
-        asyncio.create_task(schedule_deletion([msg], SECONDS))
-
     elif query.data.startswith("pjmedicine"):
         try:
             page = int(query.data.split('_')[1])
@@ -10190,5 +10111,88 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
         msg = await query.message.reply_text(pjmedicine_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("srikantanatomys"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>PART 1</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTYzMjcwMzA0NTU5MTgz)",
+            "[<b>PART 2</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY0MjcyMzI4OTE0MTEw)",
+            "[<b>PART 3</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY1Mjc0MzUzMjY5MDM3)",
+            "[<b>PART 4</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY2Mjc2Mzc3NjIzOTY0)",
+            "[<b>PART 5</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY3Mjc4NDAxOTc4ODkx)",
+            "[<b>PART 6</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY4MjgwNDI2MzMzODE4)",
+            "[<b>PART 7</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTY5MjgyNDUwNjg4NzQ1)",
+            "[<b>PART 8</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcwMjg0NDc1MDQzNjcy)",
+            "[<b>PART 9</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcxMjg2NDk5Mzk4NTk5)",
+            "[<b>PART 10</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTcyMjg4NTIzNzUzNTI2)",
+            "[<b>PART 11</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTczMjkwNTQ4MTA4NDUz)",
+            "[<b>PART 12</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2OTc0MjkyNTcyNDYzMzgw)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        srikantanatomys_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"srikantanatomys_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"srikantanatomys_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(srikantanatomys_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+    elif query.data.startswith("ashishphysiok"):
+        try:
+            page = int(query.data.split('_')[1])
+        except (IndexError, ValueError):
+            page = 0
+    
+        links_x = [
+            "[<b>General Physiology Part - 1 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcxNDY4NjI4Njc0MTUz)",
+            "[<b>General Physiology Part - 2 By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDcyNDcwNjUzMDI5MDgw)",
+            "[<b>Endocrine Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDczNDcyNjc3Mzg0MDA3)",
+            "[<b>Endocrine Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc0NDc0NzAxNzM4OTM0)",
+            "[<b>Endocrine Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc1NDc2NzI2MDkzODYx)",
+            "[<b>Endocrine Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc2NDc4NzUwNDQ4Nzg4)",
+            "[<b>Endocrine Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc3NDgwNzc0ODAzNzE1)",
+            "[<b>GIT Physiology By Dr. Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc4NDgyNzk5MTU4NjQy)",
+            "[<b>Respiratory Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDc5NDg0ODIzNTEzNTY5)",
+            "[<b>Respiratory Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgwNDg2ODQ3ODY4NDk2)",
+            "[<b>Respiratory Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgxNDg4ODcyMjIzNDIz)",
+            "[<b>Respiratory Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgyNDkwODk2NTc4MzUw)",
+            "[<b>Cardiovascular Physiology Part - 1 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDgzNDkyOTIwOTMzMjc3)",
+            "[<b>Cardiovascular Physiology Part - 2 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg0NDk0OTQ1Mjg4MjA0)",
+            "[<b>Cardiovascular Physiology Part - 3 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg1NDk2OTY5NjQzMTMx)",
+            "[<b>Cardiovascular Physiology Part - 4 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg2NDk4OTkzOTk4MDU4)",
+            "[<b>Cardiovascular Physiology Part - 5 By Ashish Sir</b>](https://t.me/{{\"X\"}}?start=Z2V0LTE2MDg3NTAxMDE4MzUyOTg1)",
+        ]
+    
+        X = "testingclonepavo_bot"
+        links = [link.replace('{{"X"}}', X) for link in links_x]
+    
+        page_links, has_more = paginate_links(links, page)
+        ashishphysiok_message = "\n".join(page_links)
+    
+        navigation_buttons = []
+        if page > 0:
+            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"ashishphysiok_{page-1}"))
+        if has_more:
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"ashishphysiok_{page+1}"))
+    
+        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+    
+        msg = await query.message.reply_text(ashishphysiok_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        asyncio.create_task(schedule_deletion([msg], SECONDS))
+
+
 
    
