@@ -29,6 +29,9 @@ PICS = (os.environ.get('PICS', 'https://graph.org/file/82ef767ffebe3a948e476.jpg
 AUTO_DELETE = int(os.environ.get("AUTO_DELETE", "30")) # Time in Minutes
 AUTO_DELETE_TIME = int(os.environ.get("AUTO_DELETE_TIME", "1800")) # Time in Seconds
 
+SHORTNER_API = os.environ.get("SHORTNER_API", "")
+SHORTNER_SITE = os.environ.get("SHORTNER_SITE", "")
+
 CUSTOM_FILE_CAPTION = os.environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
 BATCH_FILE_CAPTION = os.environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 
