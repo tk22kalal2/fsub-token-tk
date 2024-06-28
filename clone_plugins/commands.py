@@ -1236,7 +1236,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     
-    elif query.data.startswith("mpediatricsr"):
+    elif query.data.startswith("opediatricsr"):
         try:
             page = int(query.data.split('_')[1])
         except (IndexError, ValueError):
@@ -1306,17 +1306,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         links = [link.replace('{{"X"}}', X) for link in links_x]
     
         page_links, has_more = paginate_links(links, page)
-        mpediatricsr_message = "\n".join(page_links)
+        opediatricsr_message = "\n".join(page_links)
     
         navigation_buttons = []
         if page > 0:
             navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"mpediatricsr_{page-1}"))
         if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"mpediatricsr_{page+1}"))
+            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"opediatricsr_{page+1}"))
     
         reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
-        msg = await query.message.reply_text(mpediatricsr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
+        msg = await query.message.reply_text(opediatricsr_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
 
     elif query.data == "prepladder":
@@ -2469,14 +2469,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
         page_links, has_more = paginate_links(links, page)
         psychiatryp_message = "\n".join(page_links)
-    
-        navigation_buttons = []
-        if page > 0:
-            navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psychiatryp_{page-1}"))
-        if has_more:
-            navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psychiatryp_{page+1}"))
-    
-        reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
+        if len(page_links) < 20:
+            # Less than 20 links, include "Back to Main Menu" button
+            reply_markup = None
+        else:
+            navigation_buttons = []
+            if page > 0:
+                navigation_buttons.append(InlineKeyboardButton("Back", callback_data=f"psychiatryp_{page-1}"))
+            if has_more:
+                navigation_buttons.append(InlineKeyboardButton("Next 20 Links", callback_data=f"psychiatryp_{page+1}"))
+        
+            reply_markup = InlineKeyboardMarkup([navigation_buttons] if navigation_buttons else [])
     
         msg = await query.message.reply_text(psychiatryp_message, protect_content=PROTECT_CONTENT, reply_markup=reply_markup)
         asyncio.create_task(schedule_deletion([msg], SECONDS))
