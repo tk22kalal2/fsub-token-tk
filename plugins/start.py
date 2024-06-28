@@ -135,7 +135,7 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2197212644/5'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2197212644/8'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2197212644/7'>Telegraph</a> or <a href='https://t.me/c/2197212644/6'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -157,7 +157,7 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2197212644/5'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2197212644/8'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2197212644/7'>Telegraph</a> or <a href='https://t.me/c/2197212644/6'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
