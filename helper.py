@@ -1,6 +1,6 @@
 from base64 import standard_b64decode, standard_b64encode
 from datetime import datetime
-
+from config import SHORTNER_API, SHORTNER_SITE
 import pytz
 import requests
 
