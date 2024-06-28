@@ -114,7 +114,7 @@ async def start_command(client: Bot, message: Message):
             )
             await client.send_message(
                 message.chat.id,
-                "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 24 Hour",
+                "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 6 Hour \n Clone your bot /clone ",
                 reply_to_message_id=message.id,
             )
             return
@@ -135,7 +135,7 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 💕 <b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token and try again. \n\n<b>Token Timeout:</b> 24 hour \n\n<b>What is token?</b> \nThis is an ads token. If you pass 1 ad, you can use the bot for 24 hour after passing the ad. \n\nwatch video tutorial if you're facing issue <a href='https://telegram.me/howtodownloadin/19'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 6 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2121021005/4'>Click Here</a> \n2. Diasable Your AD Blocker. \n3. How to Verify - <a href='https://t.me/c/2121021005/8'>Telegraph</a> or <a href='https://t.me/c/2121021005/9'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-11'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -157,7 +157,7 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey <b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token and try again. \n\n<b>Token Timeout:</b> 24 hour \n\n<b>What is token?</b> \nThis is an ads token. If you pass 1 ad, you can use the bot for 24 hour after passing the ad.",
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 6 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2121021005/4'>Click Here</a> \n2. Diasable Your AD Blocker. \n3. How to Verify - <a href='https://t.me/c/2121021005/8'>Telegraph</a> or <a href='https://t.me/c/2121021005/9'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-11'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
