@@ -97,12 +97,9 @@ async def delete_cloned_bot(client, message):
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-@retry(wait=wait_fixed(2), stop=stop_after_attempt(5), retry_error_callback=lambda _: logging.error("Failed to restart bot due to database lock."))
-async def start_bot(ai):
-    await ai.start()
+# Ask Doubt on telegra
 
-
+@retry(stop=stop_after_attempt(5), wait=wait_fixed(2))
 async def restart_bots():
     logging.info("Restarting all bots........")
     bots = list(mongo_db.bots.find())
