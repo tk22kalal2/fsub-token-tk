@@ -31,7 +31,7 @@ async def batch(client: Client, message: Message):
             break
         else:
             # Inform the user of an error if the message/link is not from the DB Channel
-            await first_message.reply("❌ Error\n\nthis Forwarded Post is not from my DB Channel or this Link is taken from DB Channel", quote=True)
+            await first_message.reply("❌ Error\n\nThis forwarded post is not from my DB Channel or this link is taken from DB Channel", quote=True)
             continue
 
     while True:
@@ -53,32 +53,26 @@ async def batch(client: Client, message: Message):
             break
         else:
             # Inform the user of an error if the message/link is not from the DB Channel
-            await second_message.reply("❌ Error\n\nthis Forwarded Post is not from my DB Channel or this Link is taken from DB Channel", quote=True)
+            await second_message.reply("❌ Error\n\nThis forwarded post is not from my DB Channel or this link is taken from DB Channel", quote=True)
             continue
 
     # Generate a list of links for each message between the first and second message
     message_links = []
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
-        # Retrieve the message to access its file ID
-        msg = await client.get_messages(client.db_channel.id, msg_id)
-        
-        if not msg or not msg.document:
-            continue  # Skip if the message does not exist or does not contain a document
+        # Assuming you have a function `unpack_new_file_id` and `encode` defined elsewhere
+        file_id, ref = unpack_new_file_id(getattr(msg_id * abs(client.db_channel.id), file_type.value).file_id)
+        string = 'file_'
+        string += file_id
+        outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
 
-        # Use the unpack_new_file_id function to get the file_id
-        file_id, ref = unpack_new_file_id(msg.document.file_id)
-        
-        # Encode the file_id using base64
-        string = 'file_' + file_id
-        base64_string = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-        link = f"https://t.me/{client.username}?start={base64_string}"
+        link = f"https://t.me/{client.username}?start={outstr}"
         message_links.append(link)
 
     # Send the generated links to the user
     for link in message_links:
         await message.reply(f"Here is a link for one of the messages:\n{link}")
 
-    
+
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('genlink'))
 async def link_generator(client: Client, message: Message):
     while True:
