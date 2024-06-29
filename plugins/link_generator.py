@@ -6,7 +6,9 @@ from bot import Bot
 from config import ADMINS, CUSTOM_CAPTION, CD_CHANNEL
 from helper_func import encode, get_message_id
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
+from plugins.database import unpack_new_file_id
 import asyncio
+import base64
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('batch'))
 async def batch(client: Client, message: Message):
@@ -58,10 +60,12 @@ async def batch(client: Client, message: Message):
     message_links = []
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         try:
-            string = f"get-{msg_id * abs(client.db_channel.id)}"
-            base64_string = await encode(string)
-            link = f"https://t.me/{client.username}?start={base64_string}"
-            linka = f"https://t.me/{xyz}?start={base64_string}"
+            file_id, ref = unpack_new_file_id((getattr(replied, file_type.value)).file_id)
+            string = 'file_'
+            string += file_id
+            outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+            link = f"https://t.me/{client.username}?start={outstr}"
+            linka = f"https://t.me/{xyz}?start={outstr}"
             message_links.append((linka, msg_id))  # Append a tuple with link and msg_id
         except Exception as e:
             await message.reply(f"Error generating link for message {msg_id}: {e}")
