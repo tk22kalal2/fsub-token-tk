@@ -60,22 +60,26 @@ async def batch(client: Client, message: Message):
     message_links = []
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         try:
-            file_id, ref = unpack_new_file_id((getattr(replied, file_type.value)).file_id)
-            string = 'file_'
-            string += file_id
-            outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-            link = f"https://t.me/{client.username}?start={outstr}"
-            linka = f"https://t.me/{xyz}?start={outstr}"
-            message_links.append((linka, msg_id))  # Append a tuple with link and msg_id
+            # Fetch the message object for the current msg_id
+            current_message = await client.get_messages(client.db_channel.id, msg_id)
+            
+            if current_message.document:
+                file_id, ref = unpack_new_file_id(current_message.document.file_id)
+                string = 'file_'
+                string += file_id
+                outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+                link = f"https://t.me/{client.username}?start={outstr}"
+                linka = f"https://t.me/{xyz}?start={outstr}"
+                message_links.append((linka, msg_id))  # Append a tuple with link and msg_id
         except Exception as e:
             await message.reply(f"Error generating link for message {msg_id}: {e}")
-    
+
     # Send the generated links to the user
     for linka, msg_id in message_links:
         try:
             # Fetch the message object for the current msg_id
             current_message = await client.get_messages(client.db_channel.id, msg_id)
-    
+
             # Determine the caption for this message
             if bool(CUSTOM_CAPTION) and current_message.document:
                 caption = CUSTOM_CAPTION.format(
@@ -84,8 +88,7 @@ async def batch(client: Client, message: Message):
                 )
             else:
                 caption = "" if not current_message.caption else current_message.caption.html
-    
-            
+
             # Send the caption followed by the link
             try:
                 clean_caption = re.sub(r'https?://[^\s]+', '', caption).strip()
@@ -100,7 +103,7 @@ async def batch(client: Client, message: Message):
 
     # Inform the user that batch processing is completed
     await message.reply("Batch processing completed.")
-    
+
     
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('genlink'))
 async def link_generator(client: Client, message: Message):
