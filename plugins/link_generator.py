@@ -56,53 +56,27 @@ async def batch(client: Client, message: Message):
             await second_message.reply("❌ Error\n\nthis Forwarded Post is not from my DB Channel or this Link is taken from DB Channel", quote=True)
             continue
 
-    xyz = "{\"X\"}"
+    # Generate a list of links for each message between the first and second message
     message_links = []
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
-        try:
-            # Fetch the message object for the current msg_id
-            current_message = await client.get_messages(client.db_channel.id, msg_id)
-            
-            if current_message.document:
-                file_id, ref = unpack_new_file_id(current_message.document.file_id)
-                string = 'file_'
-                string += file_id
-                outstr = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
-                link = f"https://t.me/{client.username}?start={outstr}"
-                linka = f"https://t.me/{xyz}?start={outstr}"
-                message_links.append((linka, msg_id))  # Append a tuple with link and msg_id
-        except Exception as e:
-            await message.reply(f"Error generating link for message {msg_id}: {e}")
+        # Retrieve the message to access its file ID
+        msg = await client.get_messages(client.db_channel.id, msg_id)
+        
+        if not msg or not msg.document:
+            continue  # Skip if the message does not exist or does not contain a document
+
+        # Use the unpack_new_file_id function to get the file_id
+        file_id, ref = unpack_new_file_id(msg.document.file_id)
+        
+        # Encode the file_id using base64
+        string = 'file_' + file_id
+        base64_string = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+        link = f"https://t.me/{client.username}?start={base64_string}"
+        message_links.append(link)
 
     # Send the generated links to the user
-    for linka, msg_id in message_links:
-        try:
-            # Fetch the message object for the current msg_id
-            current_message = await client.get_messages(client.db_channel.id, msg_id)
-
-            # Determine the caption for this message
-            if bool(CUSTOM_CAPTION) and current_message.document:
-                caption = CUSTOM_CAPTION.format(
-                    previouscaption="" if not current_message.caption else current_message.caption.html,
-                    filename=current_message.document.file_name
-                )
-            else:
-                caption = "" if not current_message.caption else current_message.caption.html
-
-            # Send the caption followed by the link
-            try:
-                clean_caption = re.sub(r'https?://[^\s]+', '', caption).strip()
-                await client.send_message(chat_id=message.from_user.id, text=f"{clean_caption}\n{linka}")
-
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-                await client.send_message(chat_id=message.from_user.id, text=f"{clean_caption}\n{linka}")
-
-        except Exception as e:
-            await message.reply(f"Error processing message {msg_id}: {e}")
-
-    # Inform the user that batch processing is completed
-    await message.reply("Batch processing completed.")
+    for link in message_links:
+        await message.reply(f"Here is a link for one of the messages:\n{link}")
 
     
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('genlink'))
