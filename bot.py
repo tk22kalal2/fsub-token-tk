@@ -113,7 +113,7 @@ class Bot(Client):
                 "Bot Stopped. Join https://t.me/CodeXBotzSupport for support"
             )
             sys.exit()
-        await restart_bots()
+        
         self.set_parse_mode(enums.ParseMode.HTML)
         self.LOGGER(__name__).info(
             f"[🔥 SUCCESSFULLY ACTIVATED! 🔥]"
