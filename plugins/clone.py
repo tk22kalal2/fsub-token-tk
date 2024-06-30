@@ -134,7 +134,7 @@ async def restart_bots():
             logger.warning(f"SQLite OperationalError encountered: {e}")
             continue  # Skip to the next bot on OperationalError
         except Exception as e:
-            # Optionally suppress logging for specific exceptions
+            # Suppress warnings about already connected bots from being treated as errors
             if "already connected" in str(e):
                 logger.warning(f"Bot with token {bot_token} is already connected.")
             else:
