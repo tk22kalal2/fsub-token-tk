@@ -1,6 +1,6 @@
 from base64 import standard_b64decode, standard_b64encode
 from datetime import datetime
-from config import SHORTNER_API, SHORTNER_SITE
+from config import SHORTNER_API, SHORTNER_SITE, X_SHORTNER_API, X_SHORTNER_SITE
 import pytz
 import requests
 
@@ -24,5 +24,18 @@ def get_current_time():
 
 
 def shorten_url(url):
-    site_url = f"https://{SHORTNER_SITE}/api?api={SHORTNER_API}&url={url}&format=text"
-    return str(requests.get(site_url).text)
+    def request_short_url(site, api):
+        site_url = f"https://{site}/api?api={api}&url={url}&format=text"
+        response = requests.get(site_url)
+        response.raise_for_status()
+        return response.text.strip()
+
+    try:
+        return request_short_url(SHORTNER_SITE, SHORTNER_API)
+    except requests.RequestException as e:
+        print(f"Error with primary shortener: {e}")
+        try:
+            return request_short_url(X_SHORTNER_SITE, X_SHORTNER_API)
+        except requests.RequestException as ex:
+            print(f"Error with fallback shortener: {ex}")
+            return None
