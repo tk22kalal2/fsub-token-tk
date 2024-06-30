@@ -102,15 +102,19 @@ async def delete_cloned_bot(client, message):
 @retry(stop=stop_after_attempt(5), wait=wait_fixed(2))
 async def restart_bots():
     logging.info("Restarting all bots........")
-    bots = list(mongo_db.bots.find())
-    for bot in bots:
-        bot_token = bot['token']
-        try:
-            ai = Client(
-                f"{bot_token}", API_ID, API_HASH,
-                bot_token=bot_token,
-                plugins={"root": "clone_plugins"},
-            )
-            await ai.start()
-        except Exception as e:
-            logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
+    try:
+        bots = list(mongo_db.bots.find())
+        for bot in bots:
+            bot_token = bot['token']
+            try:
+                ai = Client(
+                    f"{bot_token}", API_ID, API_HASH,
+                    bot_token=bot_token,
+                    plugins={"root": "clone_plugins"},
+                )
+                await ai.start()
+            except Exception as e:
+                logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
+    except Exception as e:
+        logging.exception(f"Error while fetching bots from MongoDB: {e}")
+
