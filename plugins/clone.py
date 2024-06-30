@@ -12,6 +12,11 @@ from pyrogram.types import Message, ReplyKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
 from config import API_ID, API_HASH, ADMINS, DB_NAME
 from config import DB_URI as MONGO_URL
+import logging
+import sqlite3
+
+# Define a logger
+logger = logging.getLogger(__name__)
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
@@ -115,5 +120,13 @@ async def restart_bots():
                 plugins={"root": "clone_plugins"},
             )
             await ai.start()
+        except sqlite3.OperationalError as e:
+            logger.warning(f"SQLite OperationalError encountered: {e}")
+            continue  # Skip to the next bot on OperationalError
         except Exception as e:
-            logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
+            # Suppress warnings about already connected bots from being treated as errors
+            if "already connected" in str(e):
+                continue  # Skip to the next bot if already connected
+            else:
+                logger.error(f"Error while restarting bot with token {bot_token}: {e}")
+            continue
