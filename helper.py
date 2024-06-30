@@ -32,10 +32,17 @@ def shorten_url(url):
 
     try:
         return request_short_url(SHORTNER_SITE, SHORTNER_API)
+    except requests.HTTPError as e:
+        if e.response.status_code == 403:
+            # Skip the 403 Forbidden error for the primary shortener and move to the fallback
+            pass
+        else:
+            print(f"Error with primary shortener: {e}")
     except requests.RequestException as e:
         print(f"Error with primary shortener: {e}")
-        try:
-            return request_short_url(X_SHORTNER_SITE, X_SHORTNER_API)
-        except requests.RequestException as ex:
-            print(f"Error with fallback shortener: {ex}")
-            return None
+    
+    try:
+        return request_short_url(X_SHORTNER_SITE, X_SHORTNER_API)
+    except requests.RequestException as ex:
+        print(f"Error with fallback shortener: {ex}")
+        return None
