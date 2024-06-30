@@ -125,6 +125,10 @@ async def restart_bots():
                     bot_token=bot_token,
                     plugins={"root": "clone_plugins"},
                 ) as ai:
+                    if ai.is_connected:
+                        logger.warning(f"Bot with token {bot_token} is already connected.")
+                        continue  # Skip to the next bot if already connected
+
                     await ai.start()
         except sqlite3.OperationalError as e:
             logger.warning(f"SQLite OperationalError encountered: {e}")
