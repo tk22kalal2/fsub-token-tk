@@ -99,7 +99,7 @@ async def delete_cloned_bot(client, message):
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegra
-
+database_lock = asyncio.Lock()
 
 # Use a lock for serializing database access
 @retry(stop=stop_after_attempt(5), wait=wait_fixed(2))
