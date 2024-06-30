@@ -99,43 +99,22 @@ async def delete_cloned_bot(client, message):
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegra
-database_lock = asyncio.Lock()
+@retry(wait=wait_fixed(2), stop=stop_after_attempt(5), retry_error_callback=lambda _: logging.error("Failed to restart bot due to database lock."))
+async def start_bot(ai):
+    await ai.start()
 
-# Use a lock for serializing database access
-import logging
-from tenacity import retry, wait_fixed, stop_after_attempt
-import sqlite3
 
-# Define a logger
-logger = logging.getLogger(__name__)
-
-# Retry decorator setup
-retry_decorator = retry(stop=stop_after_attempt(5), wait=wait_fixed(2))
-
-@retry_decorator
 async def restart_bots():
-    logger.info("Restarting all bots........")
+    logging.info("Restarting all bots........")
     bots = list(mongo_db.bots.find())
     for bot in bots:
         bot_token = bot['token']
         try:
-            async with database_lock:
-                async with Client(
-                    f"{bot_token}", API_ID, API_HASH,
-                    bot_token=bot_token,
-                    plugins={"root": "clone_plugins"},
-                ) as ai:
-                    if ai.is_connected:                       
-                        continue  # Skip to the next bot if already connected
-
-                    await ai.start()
-        except sqlite3.OperationalError as e:
-            logger.warning(f"SQLite OperationalError encountered: {e}")
-            continue  # Skip to the next bot on OperationalError
+            ai = Client(
+                f"{bot_token}", API_ID, API_HASH,
+                bot_token=bot_token,
+                plugins={"root": "clone_plugins"},
+            )
+            await ai.start()
         except Exception as e:
-            # Suppress warnings about already connected bots from being treated as errors
-            if "already connected" in str(e):
-                continue  # Skip to the next bot if already connected
-            else:
-                logger.error(f"Error while restarting bot with token {bot_token}: {e}")
-            continue
+            logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
