@@ -3,6 +3,7 @@
 # Ask Doubt on telegram @KingVJ01
 import asyncio
 import re
+import sqlite3
 import logging
 from tenacity import retry, wait_fixed, stop_after_attempt
 from pymongo import MongoClient
