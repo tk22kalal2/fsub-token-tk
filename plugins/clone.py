@@ -102,8 +102,6 @@ async def delete_cloned_bot(client, message):
 
 
 # Use a lock for serializing database access
-database_lock = asyncio.Lock()
-
 @retry(stop=stop_after_attempt(5), wait=wait_fixed(2))
 async def restart_bots():
     logging.info("Restarting all bots........")
@@ -112,15 +110,12 @@ async def restart_bots():
         bot_token = bot['token']
         try:
             async with database_lock:
-                ai = Client(
+                async with Client(
                     f"{bot_token}", API_ID, API_HASH,
                     bot_token=bot_token,
                     plugins={"root": "clone_plugins"},
-                )
-                await ai.start()
+                ) as ai:
+                    await ai.start()
         except Exception as e:
             logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
-
-if __name__ == "__main__":
-    asyncio.run(restart_bots())
 
