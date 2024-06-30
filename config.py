@@ -15,7 +15,7 @@ CLONE_DB_URI = os.environ.get("CLONE_DB_URI", "")
 CDB_NAME = os.environ.get("CDB_NAME", "clonevjbotz")
 DB_URI = os.environ.get("DB_URI", "")
 DB_NAME = os.environ.get("DB_NAME", "vjbotz")
-
+SQ_URI = os.environ.get("SQ_URI", "")
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
