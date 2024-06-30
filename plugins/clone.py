@@ -125,8 +125,7 @@ async def restart_bots():
                     bot_token=bot_token,
                     plugins={"root": "clone_plugins"},
                 ) as ai:
-                    if ai.is_connected:
-                        logger.warning(f"Bot with token {bot_token} is already connected.")
+                    if ai.is_connected:                       
                         continue  # Skip to the next bot if already connected
 
                     await ai.start()
@@ -136,7 +135,7 @@ async def restart_bots():
         except Exception as e:
             # Suppress warnings about already connected bots from being treated as errors
             if "already connected" in str(e):
-                logger.warning(f"Bot with token {bot_token} is already connected.")
+                continue  # Skip to the next bot if already connected
             else:
                 logger.error(f"Error while restarting bot with token {bot_token}: {e}")
-            continue  # Skip to the next bot on any other error
+            continue
