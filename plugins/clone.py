@@ -1,6 +1,3 @@
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
 import asyncio
 import re
 import sqlite3
@@ -29,9 +26,7 @@ buttonz = ReplyKeyboardMarkup(
 async def clone(client, message):
     await message.reply_text(script.CLONE_TXT)
 
-
-
-@Client.on_message((filters.regex(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}')) & filters.private)
+@Client.on_message(filters.regex(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}') & filters.private)
 async def on_clone(client, message):  
     try:
         user_id = message.from_user.id
@@ -47,11 +42,11 @@ async def on_clone(client, message):
 
         forward_from_id = message.forward_from.id if message.forward_from else None
         if bot_tokens == bot_token and forward_from_id == 93372553:
-            await message.reply_text("**©️ ᴛʜɪs ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ ᴄʟᴏɴᴇᴅ ʙᴀʙʏ 🐥**")
+            await message.reply_text("**©️ This bot is already cloned baby 🐥**")
             return
 
-        if not forward_from_id != 93372553:
-            msg = await message.reply_text("**👨‍💻 ᴡᴀɪᴛ ᴀ ᴍɪɴᴜᴛᴇ ɪ ᴀᴍ ᴄʀᴇᴀᴛɪɴɢ ʏᴏᴜʀ ʙᴏᴛ ❣️**")
+        if forward_from_id != 93372553:
+            msg = await message.reply_text("**👨‍💻 Wait a minute, I am creating your bot ❣️**")
             try:
                 ai = Client(
                     f"{bot_token}", API_ID, API_HASH,
@@ -70,7 +65,7 @@ async def on_clone(client, message):
                     'username': bot.username
                 }
                 mongo_db.bots.insert_one(details)
-                await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.</b>")
+                await msg.edit_text(f"<b>Successfully cloned your bot: @{bot.username}.</b>")
             except BaseException as e:
                 logging.exception("Error while cloning bot.")
                 await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @talktomembbs_bot to get assistance.**")
@@ -89,20 +84,16 @@ async def delete_cloned_bot(client, message):
         cloned_bot = mongo_collection.find_one({"token": bot_token})
         if cloned_bot:
             mongo_collection.delete_one({"token": bot_token})
-            await message.reply_text("**🤖 ᴛʜᴇ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴛʜᴇ ʟɪsᴛ ᴀɴᴅ ɪᴛs ᴅᴇᴛᴀɪʟs ʜᴀᴠᴇ ʙᴇᴇɴ ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴛʜᴇ ᴅᴀᴛᴀʙᴀsᴇ. ☠️**")
+            await message.reply_text("**🤖 The cloned bot has been removed from the list and its details have been removed from the database. ☠️**")
         else:
-            await message.reply_text("**⚠️ ᴛʜᴇ ʙᴏᴛ ᴛᴏᴋᴇɴ ᴘʀᴏᴠɪᴅᴇᴅ ɪs ɴᴏᴛ ɪɴ ᴛʜᴇ ᴄʟᴏɴᴇᴅ ʟɪsᴛ.**")
+            await message.reply_text("**⚠️ The bot token provided is not in the cloned list.**")
     except Exception as e:
         logging.exception("Error while deleting cloned bot.")
         await message.reply_text("An error occurred while deleting the cloned bot.")
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegra
 @retry(wait=wait_fixed(2), stop=stop_after_attempt(5), retry_error_callback=lambda _: logging.error("Failed to restart bot due to database lock."))
 async def start_bot(ai):
     await ai.start()
-
 
 async def restart_bots():
     logging.info("Restarting all bots........")
@@ -118,3 +109,7 @@ async def restart_bots():
             await ai.start()
         except Exception as e:
             logging.exception(f"Error while restarting bot with token {bot_token}: {e}")
+
+# Don't Remove Credit Tg - @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
+# Ask Doubt on telegram @KingVJ01
