@@ -183,8 +183,8 @@ async def start_command(client: Bot, message: Message):
         argument = string.split("-")
         if len(argument) == 3:
             try:
-                start = int(int(argument[1]) / abs(client.db_channel.id))
-                end = int(int(argument[2]) / abs(client.db_channel.id))
+                start = int(int(argument[1]) / abs(-1002249946503))
+                end = int(int(argument[2]) / abs(-1002249946503))
             except BaseException:
                 return
             if start <= end:
@@ -199,7 +199,7 @@ async def start_command(client: Bot, message: Message):
                         break
         elif len(argument) == 2:
             try:
-                ids = [int(int(argument[1]) / abs(client.db_channel.id))]
+                ids = [int(int(argument[1]) / abs(-1002249946503))]
             except BaseException:
                 return
         temp_msg = await message.reply("Please wait...")
