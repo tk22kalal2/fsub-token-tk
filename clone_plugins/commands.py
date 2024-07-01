@@ -17,13 +17,13 @@ from plugins.database import get_file_details
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from config import BOT_USERNAME, ADMINS
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup, Message, CallbackQuery, InputMediaPhoto
-from config import PICS, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, PROTECT_CONTENT
+from config import PICS, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, PROTECT_CONTENT, DISABLE_CHANNEL_BUTTON
 import re
 import json
 import base64
 from config import DB_URI as MONGO_URL
 from pymongo import MongoClient
-
+from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, ChannelInvalid
 
 from helper_func import decode, get_messages, subsall, subsch, subsgc
 
