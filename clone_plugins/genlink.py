@@ -16,7 +16,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 from config import ADMINS, CUSTOM_CAPTION, CD_CHANNEL
-from helper_func import encode
+from clone_plugins.helper_func import encode
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 import asyncio
 
