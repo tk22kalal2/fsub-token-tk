@@ -132,7 +132,6 @@ async def start(client, message):
             except BaseException:
                 pass
     else:
-        out = start_button(client)
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
@@ -143,7 +142,6 @@ async def start(client, message):
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
-            reply_markup=InlineKeyboardMarkup(out),
             disable_web_page_preview=True,
             quote=True,
         )
