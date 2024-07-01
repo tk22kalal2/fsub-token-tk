@@ -74,143 +74,43 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
-async def start_command(client: Bot, message: Message):
+@Bot.on_message(filters.command("start") & filters.private)
+async def start_command(client: Client, message: Message):
+    text = message.text
     id = message.from_user.id
-    if not await present_user(id):
+    
+    if len(text) > 7:
         try:
-            await add_user(id)
-        except:
-            pass
-
-    if message.text.startswith("/start token_"):
-        user_id = message.from_user.id
-        try:
-            ad_msg = b64_to_str(message.text.split("/start token_")[1])
-            if int(user_id) != int(ad_msg.split(":")[0]):
-                await client.send_message(
-                    message.chat.id,
-                    "This Token Is Not For You \nor maybe you using 2 telegram apps if yes then uninstall this one...",
-                    reply_to_message_id=message.id,
-                )
-                return
-            if int(ad_msg.split(":")[1]) < get_current_time():
-                await client.send_message(
-                    message.chat.id,
-                    "Token Expired Regenerate A New Token",
-                    reply_to_message_id=message.id,
-                )
-                return
-            if int(ad_msg.split(":")[1]) > int(get_current_time() + 72000):
-                await client.send_message(
-                    message.chat.id,
-                    "Dont Try To Be Over Smart",
-                    reply_to_message_id=message.id,
-                )
-                return
-            query = {"user_id": user_id}
-            collection.update_one(
-                query, {"$set": {"time_out": int(ad_msg.split(":")[1])}}, upsert=True
-            )
-            await client.send_message(
-                message.chat.id,
-                "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 10 Hour \n Clone your bot /clone ",
-                reply_to_message_id=message.id,
-            )
-            return
-        except BaseException:
-            await client.send_message(
-                message.chat.id,
-                "Invalid Token",
-                reply_to_message_id=message.id,
-            )
-            return
-
-    uid = message.from_user.id
-    if uid not in ADMINS:
-        result = collection.find_one({"user_id": uid})
-        if result is None:
-            temp_msg = await message.reply("Please wait...")
-            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 72000)}")
-            ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
-            await client.send_message(
-                message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
-                disable_web_page_preview = True,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                "Click Here To Refresh Token",
-                                url=ad_url,
-                            )
-                        ]
-                    ]
-                ),
-                reply_to_message_id=message.id,
-            )
-            await temp_msg.delete()
-            return
-        elif int(result["time_out"]) < get_current_time():
-            temp_msg = await message.reply("Please wait...")
-            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 72000)}")
-            ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
-            await client.send_message(
-                message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                "Click Here To Refresh Token",
-                                url=ad_url,
-                            )
-                        ]
-                    ]
-                ),
-                reply_to_message_id=message.id,
-            )
-            await temp_msg.delete()
-            return
-
-    if len(message.text.split()) > 1:
-        base64_string = message.text.split()[1]
-        try:
-            string = await decode(base64_string)
-        except:
+            base64_string = text.split(" ", 1)[1]
+        except IndexError:
             return
         
+        string = await decode(base64_string)
         argument = string.split("-")
+        
         if len(argument) == 3:
             try:
-                start = int(int(argument[1]) / abs(client.db_channel.id))
-                end = int(int(argument[2]) / abs(client.db_channel.id))
-            except:
-                return
-            if start <= end:
+                start = int(argument[1])
+                end = int(argument[2])
                 ids = range(start, end + 1)
-            else:
-                ids = []
-                i = start
-                while True:
-                    ids.append(i)
-                    i -= 1
-                    if i < end:
-                        break
+            except ValueError:
+                return
         elif len(argument) == 2:
             try:
-                ids = [int(int(argument[1]) / abs(client.db_channel.id))]
-            except:
+                ids = [int(argument[1])]
+            except ValueError:
                 return
-
+        
         temp_msg = await message.reply("Please wait...")
+        
         try:
             messages = await get_messages(client, ids)
-        except Exception:
-            await message.reply_text("Something went wrong..!")
-            return
-        finally:
+        except Exception as e:
+            await message.reply_text("Something went wrong: " + str(e))
             await temp_msg.delete()
+            return
+        
+        await temp_msg.delete()    
 
         for msg in messages:
 
