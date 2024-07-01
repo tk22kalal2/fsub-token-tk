@@ -173,19 +173,19 @@ async def start_command(client: Bot, message: Message):
             await temp_msg.delete()
             return
 
-    text = message.text
-    if len(text) > 7:
+    if len(message.text.split()) > 1:
+        base64_string = message.text.split()[1]
         try:
-            base64_string = text.split(" ", 1)[1]
-        except BaseException:
+            string = await decode(base64_string)
+        except:
             return
-        string = await decode(base64_string)
+        
         argument = string.split("-")
         if len(argument) == 3:
             try:
                 start = int(int(argument[1]) / abs(client.db_channel.id))
                 end = int(int(argument[2]) / abs(client.db_channel.id))
-            except BaseException:
+            except:
                 return
             if start <= end:
                 ids = range(start, end + 1)
@@ -200,16 +200,8 @@ async def start_command(client: Bot, message: Message):
         elif len(argument) == 2:
             try:
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
-            except BaseException:
+            except:
                 return
-        temp_msg = await message.reply("Please wait...")
-        try:
-            messages = await get_messages(client, ids)
-        except Exception:
-            await message.reply_text("Something went wrong..!")
-            return
-        finally:
-            await temp_msg.delete()
 
         temp_msg = await message.reply("Please wait...")
         try:
@@ -219,27 +211,21 @@ async def start_command(client: Bot, message: Message):
             return
         finally:
             await temp_msg.delete()
-
-        snt_msgs = []
 
         for msg in messages:
-            # Check and replace the specific URL pattern in the message text
-            if msg.text and "https://t.me/{\"X\"}?" in msg.text:
-                msg.text = msg.text.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
-            if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
-                msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
 
+            if bool(CUSTOM_CAPTION) & bool(msg.document):
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption=msg.caption.html if msg.caption else "",
+                    filename=msg.document.file_name,
+                )
 
-            caption = (CUSTOM_CAPTION.format(
-                previouscaption=msg.caption.html if msg.caption else "",
-                filename=msg.document.file_name
-            ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
-            msg.caption.html if msg.caption else "")
+            else:
+                caption = msg.caption.html if msg.caption else ""
 
-            reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
-
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                snt_msg = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
@@ -247,21 +233,17 @@ async def start_command(client: Bot, message: Message):
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
-                snt_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                snt_msg = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
-                snt_msgs.append(snt_msg)
             except BaseException:
                 pass
-
-        asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
         out = start_button(client)
         await message.reply_text(
