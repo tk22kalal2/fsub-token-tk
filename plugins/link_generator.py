@@ -54,7 +54,7 @@ async def batch(client: Client, message: Message):
     message_links = []
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         try:
-            base64_string = await encode(f"get-{msg_id}")
+            base64_string = await encode(f"get-{msg_id * abs(-1002249946503)}")
             link = f"https://t.me/{client.username}?start={base64_string}"
             message_links.append(link)
         except Exception as e:
