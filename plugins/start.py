@@ -220,26 +220,20 @@ async def start_command(client: Bot, message: Message):
         finally:
             await temp_msg.delete()
 
-        snt_msgs = []
-
         for msg in messages:
-            # Check and replace the specific URL pattern in the message text
-            if msg.text and "https://t.me/{\"X\"}?" in msg.text:
-                msg.text = msg.text.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
-            if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
-                msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
 
+            if bool(CUSTOM_CAPTION) & bool(msg.document):
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption=msg.caption.html if msg.caption else "",
+                    filename=msg.document.file_name,
+                )
 
-            caption = (CUSTOM_CAPTION.format(
-                previouscaption=msg.caption.html if msg.caption else "",
-                filename=msg.document.file_name
-            ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
-            msg.caption.html if msg.caption else "")
+            else:
+                caption = msg.caption.html if msg.caption else ""
 
-            reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
-
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                snt_msg = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
@@ -247,21 +241,17 @@ async def start_command(client: Bot, message: Message):
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
-                snt_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                snt_msg = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
-                snt_msgs.append(snt_msg)
             except BaseException:
                 pass
-
-        asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
         out = start_button(client)
         await message.reply_text(
