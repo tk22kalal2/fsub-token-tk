@@ -130,7 +130,88 @@ async def menu(client, message):
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
+    text = message.text
+    if len(text) > 7:
+        try:
+            base64_string = text.split(" ", 1)[1]
+        except BaseException:
+            return
+        string = await decode(base64_string)
+        argument = string.split("-")
+        if len(argument) == 3:
+            try:
+                start = int(int(argument[1]) / abs(-1002249946503))
+                end = int(int(argument[2]) / abs(-1002249946503))
+            except BaseException:
+                return
+            if start <= end:
+                ids = range(start, end + 1)
+            else:
+                ids = []
+                i = start
+                while True:
+                    ids.append(i)
+                    i -= 1
+                    if i < end:
+                        break
+        elif len(argument) == 2:
+            try:
+                ids = [int(int(argument[1]) / abs(-1002249946503))]
+            except BaseException:
+                return
+        temp_msg = await message.reply("Please wait...")
+        try:
+            messages = await get_messages(client, ids)
+        except Exception:
+            await message.reply_text("Something went wrong..!")
+            return
+        finally:
+            await temp_msg.delete()
+
+        temp_msg = await message.reply("Please wait...")
+        try:
+            messages = await get_messages(client, ids)
+        except Exception:
+            await message.reply_text("Something went wrong..!")
+            return
+        finally:
+            await temp_msg.delete()
+
+        for msg in messages:
+
+            if bool(CUSTOM_CAPTION) & bool(msg.document):
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption=msg.caption.html if msg.caption else "",
+                    filename=msg.document.file_name,
+                )
+
+            else:
+                caption = msg.caption.html if msg.caption else ""
+
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+            try:
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
+                await asyncio.sleep(0.5)
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
+            except BaseException:
+                pass
     
+    return
+        
     data = message.command[1]
     try:
         pre, file_id = data.split('_', 1)
