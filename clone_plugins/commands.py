@@ -33,8 +33,6 @@ logging.basicConfig(level=logging.INFO)
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-X_CHANNEL = "-1002249946503"
-
 
 def get_size(size):
     """Get size in readable format"""
@@ -65,10 +63,11 @@ async def start(client, message):
         string = await decode(base64_string)
         logger.info(f"Decoded string: {string}")
         argument = string.split("-")
+        logger.info(f"Argument: {argument}")
         if len(argument) == 3:
             try:
-                start = int(int(argument[1]) / abs(X_CHANNEL))
-                end = int(int(argument[2]) / abs(X_CHANNEL))
+                start = int(argument[1])
+                end = int(argument[2])
             except BaseException:
                 logger.error("Failed to parse start or end message ID.")
                 return
@@ -84,7 +83,7 @@ async def start(client, message):
                         break
         elif len(argument) == 2:
             try:
-                ids = [int(int(argument[1]) / abs(X_CHANNEL))]
+                ids = [int(argument[1])]
             except BaseException:
                 logger.error("Failed to parse single message ID.")
                 return
