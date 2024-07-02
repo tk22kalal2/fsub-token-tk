@@ -33,6 +33,8 @@ logging.basicConfig(level=logging.INFO)
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
+X_CHANNEL = "-1002249946503"
+
 
 def get_size(size):
     """Get size in readable format"""
