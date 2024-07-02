@@ -16,9 +16,6 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db[DB_NAME]
 
-class Client:
-    def __init__(self, username):
-        self.username = username
 
 
 
