@@ -1,4 +1,6 @@
 from base64 import standard_b64decode, standard_b64encode
+import datetime
+import requests
 from datetime import datetime
 from config import SHORTNER_API, SHORTNER_SITE, A_SHORTNER_API, A_SHORTNER_SITE, B_SHORTNER_API, B_SHORTNER_SITE, C_SHORTNER_API, C_SHORTNER_SITE
 import pytz
