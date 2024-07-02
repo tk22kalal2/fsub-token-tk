@@ -49,27 +49,22 @@ def get_size(size):
 # Ask Doubt on telegram @KingVJ01
 
 @Client.on_message(filters.command("start") & filters.incoming)
-async def start(client, message):
+async def start(client, message: Message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
     text = message.text
     if len(text) > 7:
         try:
             base64_string = text.split(" ", 1)[1]
-            logger.info(f"Received base64 string: {base64_string}")
         except BaseException:
-            logger.error("Failed to split base64 string from message text.")
             return
         string = await decode(base64_string)
-        logger.info(f"Decoded string: {string}")
         argument = string.split("-")
-        logger.info(f"Argument: {argument}")
         if len(argument) == 3:
             try:
-                start = int(argument[1])
-                end = int(argument[2])
+                start = int(int(argument[1]) / abs(-1002249946503))
+                end = int(int(argument[2]) / abs(-1002249946503))
             except BaseException:
-                logger.error("Failed to parse start or end message ID.")
                 return
             if start <= end:
                 ids = range(start, end + 1)
@@ -83,16 +78,22 @@ async def start(client, message):
                         break
         elif len(argument) == 2:
             try:
-                ids = [int(argument[1])]
+                ids = [int(int(argument[1]) / abs(-1002249946503))]
             except BaseException:
-                logger.error("Failed to parse single message ID.")
                 return
-        logger.info(f"Decoded message IDs: {ids}")
         temp_msg = await message.reply("Please wait...")
         try:
             messages = await get_messages(client, ids)
-        except Exception as e:
-            logger.error(f"Failed to get messages: {e}")
+        except Exception:
+            await message.reply_text("Something went wrong..!")
+            return
+        finally:
+            await temp_msg.delete()
+
+        temp_msg = await message.reply("Please wait...")
+        try:
+            messages = await get_messages(client, ids)
+        except Exception:
             await message.reply_text("Something went wrong..!")
             return
         finally:
