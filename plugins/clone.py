@@ -29,6 +29,15 @@ buttonz = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
+class Client:
+    def __init__(self, username):
+        self.username = username
+
+# Correct initialization
+
+# Accessing the attribute
+print(client.username)  # This should work
+
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
     await message.reply_text(script.CLONE_TXT)
