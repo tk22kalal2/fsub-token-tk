@@ -81,7 +81,97 @@ async def start_command(client: Bot, message: Message):
         try:
             await add_user(id)
         except:
-            pass    
+            pass
+
+    if message.text.startswith("/start token_"):
+        user_id = message.from_user.id
+        try:
+            ad_msg = b64_to_str(message.text.split("/start token_")[1])
+            if int(user_id) != int(ad_msg.split(":")[0]):
+                await client.send_message(
+                    message.chat.id,
+                    "This Token Is Not For You \nor maybe you using 2 telegram apps if yes then uninstall this one...",
+                    reply_to_message_id=message.id,
+                )
+                return
+            if int(ad_msg.split(":")[1]) < get_current_time():
+                await client.send_message(
+                    message.chat.id,
+                    "Token Expired Regenerate A New Token",
+                    reply_to_message_id=message.id,
+                )
+                return
+            if int(ad_msg.split(":")[1]) > int(get_current_time() + 72000):
+                await client.send_message(
+                    message.chat.id,
+                    "Dont Try To Be Over Smart",
+                    reply_to_message_id=message.id,
+                )
+                return
+            query = {"user_id": user_id}
+            collection.update_one(
+                query, {"$set": {"time_out": int(ad_msg.split(":")[1])}}, upsert=True
+            )
+            await client.send_message(
+                message.chat.id,
+                "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 10 Hour \n Clone your bot /clone ",
+                reply_to_message_id=message.id,
+            )
+            return
+        except BaseException:
+            await client.send_message(
+                message.chat.id,
+                "Invalid Token",
+                reply_to_message_id=message.id,
+            )
+            return
+
+    uid = message.from_user.id
+    if uid not in ADMINS:
+        result = collection.find_one({"user_id": uid})
+        if result is None:
+            temp_msg = await message.reply("Please wait...")
+            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 72000)}")
+            ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
+            await client.send_message(
+                message.chat.id,
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                disable_web_page_preview = True,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "Click Here To Refresh Token",
+                                url=ad_url,
+                            )
+                        ]
+                    ]
+                ),
+                reply_to_message_id=message.id,
+            )
+            await temp_msg.delete()
+            return
+        elif int(result["time_out"]) < get_current_time():
+            temp_msg = await message.reply("Please wait...")
+            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 72000)}")
+            ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
+            await client.send_message(
+                message.chat.id,
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "Click Here To Refresh Token",
+                                url=ad_url,
+                            )
+                        ]
+                    ]
+                ),
+                reply_to_message_id=message.id,
+            )
+            await temp_msg.delete()
+            return
 
     text = message.text
     if len(text) > 7:
@@ -93,8 +183,8 @@ async def start_command(client: Bot, message: Message):
         argument = string.split("-")
         if len(argument) == 3:
             try:
-                start = int(int(argument[1]) / abs(-1002249946503))
-                end = int(int(argument[2]) / abs(-1002249946503))
+                start = int(int(argument[1]) / abs(client.db_channel.id))
+                end = int(int(argument[2]) / abs(client.db_channel.id))
             except BaseException:
                 return
             if start <= end:
@@ -109,7 +199,7 @@ async def start_command(client: Bot, message: Message):
                         break
         elif len(argument) == 2:
             try:
-                ids = [int(int(argument[1]) / abs(-1002249946503))]
+                ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except BaseException:
                 return
         temp_msg = await message.reply("Please wait...")
@@ -130,20 +220,26 @@ async def start_command(client: Bot, message: Message):
         finally:
             await temp_msg.delete()
 
+        snt_msgs = []
+
         for msg in messages:
+            # Check and replace the specific URL pattern in the message text
+            if msg.text and "https://t.me/{\"X\"}?" in msg.text:
+                msg.text = msg.text.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
+            if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
+                msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
 
-            if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(
-                    previouscaption=msg.caption.html if msg.caption else "",
-                    filename=msg.document.file_name,
-                )
 
-            else:
-                caption = msg.caption.html if msg.caption else ""
+            caption = (CUSTOM_CAPTION.format(
+                previouscaption=msg.caption.html if msg.caption else "",
+                filename=msg.document.file_name
+            ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
+            msg.caption.html if msg.caption else "")
 
-            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+            reply_markup = msg.reply_markup if not DISABLE_CHANNEL_BUTTON else None
+
             try:
-                await msg.copy(
+                snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
@@ -151,17 +247,21 @@ async def start_command(client: Bot, message: Message):
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
+                snt_msgs.append(snt_msg)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(
+                snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
+                snt_msgs.append(snt_msg)
             except BaseException:
                 pass
+
+        asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
         out = start_button(client)
         await message.reply_text(
