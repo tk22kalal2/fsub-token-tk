@@ -13,9 +13,8 @@ from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, LOGGER
 from helper_func import encode
 
 
-@Bot.on_message(
+@Client.on_message(
     filters.private
-    & filters.user(ADMINS)
     & ~filters.command(
         [
             "start",
