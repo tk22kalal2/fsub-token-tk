@@ -1,10 +1,8 @@
 from base64 import standard_b64decode, standard_b64encode
 import datetime
 import requests
-
-from config import SHORTNER_API, SHORTNER_SITE, A_SHORTNER_API, A_SHORTNER_SITE, B_SHORTNER_API, B_SHORTNER_SITE, C_SHORTNER_API, C_SHORTNER_SITE
 import pytz
-import requests
+from config import SHORTNER_API, SHORTNER_SITE, A_SHORTNER_API, A_SHORTNER_SITE, B_SHORTNER_API, B_SHORTNER_SITE, C_SHORTNER_API, C_SHORTNER_SITE
 
 def str_to_b64(__str: str) -> str:
     str_bytes = __str.encode("ascii")
@@ -12,23 +10,15 @@ def str_to_b64(__str: str) -> str:
     b64 = bytes_b64.decode("ascii")
     return b64
 
-
 def b64_to_str(b64: str) -> str:
     bytes_b64 = b64.encode("ascii")
     bytes_str = standard_b64decode(bytes_b64)
     __str = bytes_str.decode("ascii")
     return __str
 
-
 def get_current_time():
     tz = pytz.timezone("Asia/Kolkata")
-    return int(datetime.now(tz).timestamp())
-
-
-
-
-# Define your shortener sites and APIs
-
+    return int(datetime.datetime.now(tz).timestamp())
 
 # Determine current hour for rotation
 current_hour = datetime.datetime.now().hour
@@ -62,7 +52,7 @@ def shorten_url(url):
             print(f"Error with primary shortener: {e}")
     except requests.RequestException as e:
         print(f"Error with primary shortener: {e}")
-    
+
     try:
         rotating_site, rotating_api = get_rotating_shortener_info()
         return request_short_url(rotating_site, rotating_api)
