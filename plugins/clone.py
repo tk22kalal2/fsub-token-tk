@@ -23,7 +23,7 @@ class Client:
 # Correct initialization
 
 # Accessing the attribute
-print(client.username)  # This should work
+print(Client.username)  # This should work
 
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
