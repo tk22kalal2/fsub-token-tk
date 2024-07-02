@@ -31,8 +31,12 @@ AUTO_DELETE_TIME = int(os.environ.get("AUTO_DELETE_TIME", "1800")) # Time in Sec
 
 SHORTNER_API = os.environ.get("SHORTNER_API", "")
 SHORTNER_SITE = os.environ.get("SHORTNER_SITE", "")
-X_SHORTNER_API = os.environ.get("X_SHORTNER_API", "")
-X_SHORTNER_SITE = os.environ.get("X_SHORTNER_SITE", "")
+A_SHORTNER_API = os.environ.get("A_SHORTNER_API", "")
+A_SHORTNER_SITE = os.environ.get("A_SHORTNER_SITE", "")
+B_SHORTNER_API = os.environ.get("B_SHORTNER_API", "")
+B_SHORTNER_SITE = os.environ.get("B_SHORTNER_SITE", "")
+C_SHORTNER_API = os.environ.get("C_SHORTNER_API", "")
+C_SHORTNER_SITE = os.environ.get("C_SHORTNER_SITE", "")
 
 CUSTOM_FILE_CAPTION = os.environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
 BATCH_FILE_CAPTION = os.environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
