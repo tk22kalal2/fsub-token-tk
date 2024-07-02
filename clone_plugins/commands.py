@@ -49,7 +49,7 @@ def get_size(size):
 # Ask Doubt on telegram @KingVJ01
 
 @Client.on_message(filters.command("start") & filters.incoming)
-async def start(client, message: Message):
+async def start(client: Client, message: Message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
     text = message.text
