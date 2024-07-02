@@ -28,6 +28,7 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 
 logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
@@ -35,7 +36,6 @@ logger = logging.getLogger(__name__)
 
 def get_size(size):
     """Get size in readable format"""
-
     units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
     size = float(size)
     i = 0
@@ -57,14 +57,16 @@ async def start(client, message):
         try:
             base64_string = text.split(" ", 1)[1]
         except BaseException:
+            logger.error("Failed to split base64 string from message text.")
             return
         string = await decode(base64_string)
         argument = string.split("-")
         if len(argument) == 3:
             try:
-                start = int(int(argument[1]) / abs(-1002249946503))
-                end = int(int(argument[2]) / abs(-1002249946503))
+                start = int(int(argument[1]) / abs(X_CHANNEL))
+                end = int(int(argument[2]) / abs(X_CHANNEL))
             except BaseException:
+                logger.error("Failed to parse start or end message ID.")
                 return
             if start <= end:
                 ids = range(start, end + 1)
@@ -78,35 +80,27 @@ async def start(client, message):
                         break
         elif len(argument) == 2:
             try:
-                ids = [int(int(argument[1]) / abs(-1002249946503))]
+                ids = [int(int(argument[1]) / abs(X_CHANNEL))]
             except BaseException:
+                logger.error("Failed to parse single message ID.")
                 return
+        logger.info(f"Decoded message IDs: {ids}")
         temp_msg = await message.reply("Please wait...")
         try:
             messages = await get_messages(client, ids)
-        except Exception:
-            await message.reply_text("Something went wrong..!")
-            return
-        finally:
-            await temp_msg.delete()
-
-        temp_msg = await message.reply("Please wait...")
-        try:
-            messages = await get_messages(client, ids)
-        except Exception:
+        except Exception as e:
+            logger.error(f"Failed to get messages: {e}")
             await message.reply_text("Something went wrong..!")
             return
         finally:
             await temp_msg.delete()
 
         for msg in messages:
-
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
                     previouscaption=msg.caption.html if msg.caption else "",
                     filename=msg.document.file_name,
                 )
-
             else:
                 caption = msg.caption.html if msg.caption else ""
 
@@ -115,30 +109,30 @@ async def start(client, message):
                 await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
-                    parse_mode=ParseMode.HTML,
+                    parse_mode=enums.ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
             except FloodWait as e:
+                logger.warning(f"FloodWait: Sleeping for {e.x} seconds.")
                 await asyncio.sleep(e.x)
                 await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
-                    parse_mode=ParseMode.HTML,
+                    parse_mode=enums.ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
-            except BaseException:
+            except Exception as e:
+                logger.error(f"Failed to copy message: {e}")
                 pass
     else:
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
+                username=f"@{message.from_user.username}" if message.from_user.username else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
@@ -146,10 +140,8 @@ async def start(client, message):
             quote=True,
         )
 
-
     return
-        
+
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
+# Ask Doubt on telegram @KingVJ01      THIS IS COMMAND TO GET FILE FROM LINK
