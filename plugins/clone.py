@@ -20,10 +20,7 @@ class Client:
     def __init__(self, username):
         self.username = username
 
-# Correct initialization
 
-# Accessing the attribute
-print(Client.username)  # This should work
 
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
