@@ -23,7 +23,7 @@ def get_current_time():
     return int(datetime.now(tz).timestamp())
 
 
-import datetime
+
 
 # Define your shortener sites and APIs
 
