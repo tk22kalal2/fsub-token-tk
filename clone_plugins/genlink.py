@@ -69,7 +69,11 @@ async def batch(client: Client, message: Message):
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         try:
             base64_string = await encode(f"get-{msg_id * abs(-1002249946503)}")
-            link = f"https://t.me/{client.username}?start={base64_string}"
+            user_id = message.from_user.id
+            user = await get_user(user_id)
+            # Get the bot's username
+            bot_username = (await client.get_me()).username
+            link = f"https://t.me/{bot_username}?start={base64_string}"
             message_links.append(link)
         except Exception as e:
             await message.reply(f"Error generating link for message {msg_id}: {e}")
