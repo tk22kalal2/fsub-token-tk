@@ -57,4 +57,6 @@ async def get_message_id(client, message):
         if channel_id.isdigit():
             if f"-100{channel_id}" == X_CHANNEL:
                 return msg_id
+            elif channel_id == X_CHANNEL.username:
+                return msg_id
         
