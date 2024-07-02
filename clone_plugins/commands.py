@@ -22,7 +22,7 @@ import base64
 from config import DB_URI as MONGO_URL
 from pymongo import MongoClient
 
-from helper_func import decode, get_messages, subsall, subsch, subsgc
+from clone_plugins.helper_func import decode, get_messages, subsall, subsch, subsgc
 from plugins.button import fsub_button, start_button
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
