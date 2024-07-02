@@ -56,10 +56,12 @@ async def start(client, message):
     if len(text) > 7:
         try:
             base64_string = text.split(" ", 1)[1]
+            logger.info(f"Received base64 string: {base64_string}")
         except BaseException:
             logger.error("Failed to split base64 string from message text.")
             return
         string = await decode(base64_string)
+        logger.info(f"Decoded string: {string}")
         argument = string.split("-")
         if len(argument) == 3:
             try:
