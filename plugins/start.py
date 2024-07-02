@@ -101,7 +101,7 @@ async def start_command(client: Bot, message: Message):
                     reply_to_message_id=message.id,
                 )
                 return
-            if int(ad_msg.split(":")[1]) > int(get_current_time() + 72000):
+            if int(ad_msg.split(":")[1]) > int(get_current_time() + 7200):
                 await client.send_message(
                     message.chat.id,
                     "Dont Try To Be Over Smart",
@@ -131,7 +131,7 @@ async def start_command(client: Bot, message: Message):
         result = collection.find_one({"user_id": uid})
         if result is None:
             temp_msg = await message.reply("Please wait...")
-            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 72000)}")
+            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 7200)}")
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
@@ -153,7 +153,7 @@ async def start_command(client: Bot, message: Message):
             return
         elif int(result["time_out"]) < get_current_time():
             temp_msg = await message.reply("Please wait...")
-            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 72000)}")
+            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 7200)}")
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
