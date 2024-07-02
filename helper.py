@@ -1,6 +1,6 @@
 from base64 import standard_b64decode, standard_b64encode
 from datetime import datetime
-from config import SHORTNER_API, SHORTNER_SITE, X_SHORTNER_API, X_SHORTNER_SITE
+from config import SHORTNER_API, SHORTNER_SITE, A_SHORTNER_API, A_SHORTNER_SITE, B_SHORTNER_API, B_SHORTNER_SITE, C_SHORTNER_API, C_SHORTNER_SITE
 import pytz
 import requests
 
@@ -23,9 +23,29 @@ def get_current_time():
     return int(datetime.now(tz).timestamp())
 
 
+import datetime
+
+# Define your shortener sites and APIs
+
+
+# Determine current hour for rotation
+current_hour = datetime.datetime.now().hour
+
+# Define the rotating shortener site and API selection function
+def get_rotating_shortener_info():
+    if 0 <= current_hour < 6:
+        return A_SHORTNER_SITE, A_SHORTNER_API
+    elif 6 <= current_hour < 12:
+        return B_SHORTNER_SITE, B_SHORTNER_API
+    elif 12 <= current_hour < 18:
+        return C_SHORTNER_SITE, C_SHORTNER_API
+    else:
+        return A_SHORTNER_SITE, A_SHORTNER_API  # Default to A_SHORTNER_SITE if hour is 18-23
+
+# Update your existing function to use the rotating shortener site and API
 def shorten_url(url):
     def request_short_url(site, api):
-        site_url = f"https://{site}/api?api={api}&url={url}&format=text"
+        site_url = f"{site}/api?api={api}&url={url}&format=text"
         response = requests.get(site_url)
         response.raise_for_status()
         return response.text.strip()
@@ -42,7 +62,8 @@ def shorten_url(url):
         print(f"Error with primary shortener: {e}")
     
     try:
-        return request_short_url(X_SHORTNER_SITE, X_SHORTNER_API)
+        rotating_site, rotating_api = get_rotating_shortener_info()
+        return request_short_url(rotating_site, rotating_api)
     except requests.RequestException as ex:
         print(f"Error with fallback shortener: {ex}")
         return None
