@@ -8,7 +8,7 @@ from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 
-from config import ADMINS, FORCE_SUB_CHANNEL, FORCE_SUB_GROUP
+from config import ADMINS
 
 X_CHANNEL = "-1002249946503"
 
@@ -58,7 +58,3 @@ async def get_message_id(client, message):
             if f"-100{channel_id}" == X_CHANNEL:
                 return msg_id
         
-
-subsgc = filters.create(subsgroup)
-subsch = filters.create(subschannel)
-subsall = filters.create(is_subscribed)
