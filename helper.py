@@ -37,6 +37,8 @@ def get_rotating_shortener_info():
 # Update your existing function to use the rotating shortener site and API
 def shorten_url(url):
     def request_short_url(site, api):
+        if not site.startswith('http://') and not site.startswith('https://'):
+            site = 'https://' + site  # Ensure the site URL starts with a proper scheme
         site_url = f"{site}/api?api={api}&url={url}&format=text"
         response = requests.get(site_url)
         response.raise_for_status()
