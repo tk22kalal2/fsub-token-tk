@@ -50,7 +50,7 @@ def shorten_url(url):
         return response.text.strip()
 
     try:
-        return request_short_url(PRIMARY_SHORTNER_SITE, PRIMARY_SHORTNER_API)
+        return request_short_url(SHORTNER_SITE, SHORTNER_API)
     except requests.HTTPError as e:
         if e.response.status_code == 403:
             # Skip the 403 Forbidden error for the primary shortener and move to the fallback
