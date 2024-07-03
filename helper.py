@@ -16,23 +16,28 @@ def b64_to_str(b64: str) -> str:
     __str = bytes_str.decode("ascii")
     return __str
 
+
+
 def get_current_time():
     tz = pytz.timezone("Asia/Kolkata")
     return int(datetime.datetime.now(tz).timestamp())
 
-# Determine current hour for rotation
-current_hour = datetime.datetime.now().hour
+# Determine current hour for rotation based on the current time
+def get_current_hour():
+    tz = pytz.timezone("Asia/Kolkata")
+    return datetime.datetime.now(tz).hour
 
 # Define the rotating shortener site and API selection function
 def get_rotating_shortener_info():
-    if 0 <= current_hour < 6:
+    current_hour = get_current_hour()
+    rotation_period = (current_hour // 6) % 3
+    
+    if rotation_period == 0:
         return A_SHORTNER_SITE, A_SHORTNER_API
-    elif 6 <= current_hour < 12:
+    elif rotation_period == 1:
         return B_SHORTNER_SITE, B_SHORTNER_API
-    elif 12 <= current_hour < 18:
+    elif rotation_period == 2:
         return C_SHORTNER_SITE, C_SHORTNER_API
-    else:
-        return A_SHORTNER_SITE, A_SHORTNER_API  # Default to A_SHORTNER_SITE if hour is 18-23
 
 # Update your existing function to use the rotating shortener site and API
 def shorten_url(url):
@@ -45,7 +50,7 @@ def shorten_url(url):
         return response.text.strip()
 
     try:
-        return request_short_url(SHORTNER_SITE, SHORTNER_API)
+        return request_short_url(PRIMARY_SHORTNER_SITE, PRIMARY_SHORTNER_API)
     except requests.HTTPError as e:
         if e.response.status_code == 403:
             # Skip the 403 Forbidden error for the primary shortener and move to the fallback
