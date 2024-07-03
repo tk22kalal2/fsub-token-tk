@@ -19,6 +19,7 @@ from config import (
 )
 
 from plugins.clone import restart_bots
+from plugins.keepalive import ping_server
 
 class Bot(Client):
     def __init__(self):
@@ -118,6 +119,7 @@ class Bot(Client):
         self.LOGGER(__name__).info(
             f"[🔥 SUCCESSFULLY ACTIVATED! 🔥]"
         )
+        self.keepalive_task = asyncio.create_task(ping_server())
         await idle()
 
     async def stop(self, *args):
