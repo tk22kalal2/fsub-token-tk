@@ -36,15 +36,13 @@ def get_current_hour():
 # Define the rotating shortener site and API selection function
 def get_rotating_shortener_info():
     current_hour = get_current_hour()
-    rotation_period = (current_hour // 6) % 3
+    rotation_period = (current_hour // 6) % 2
     
     if rotation_period == 0:
         return A_SHORTNER_SITE, A_SHORTNER_API
     elif rotation_period == 1:
         return B_SHORTNER_SITE, B_SHORTNER_API
-    elif rotation_period == 2:
-        return C_SHORTNER_SITE, C_SHORTNER_API
-
+    
 # Update your existing function to use the rotating shortener site and API
 def shorten_url(url):
     def request_short_url(site, api):
