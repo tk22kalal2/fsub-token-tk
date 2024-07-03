@@ -18,6 +18,12 @@ def b64_to_str(b64: str) -> str:
 
 
 
+import datetime
+import pytz
+import requests
+
+# Define constants for shortener sites and APIs
+
 def get_current_time():
     tz = pytz.timezone("Asia/Kolkata")
     return int(datetime.datetime.now(tz).timestamp())
@@ -66,3 +72,20 @@ def shorten_url(url):
     except requests.RequestException as ex:
         print(f"Error with fallback shortener: {ex}")
         return None
+
+# Debugging statement to log values
+def debug_value(value):
+    for i in value:
+        if i is None:
+            print("Found None value in the list")
+        else:
+            print(f"Value: {i}")
+
+# Updated vector handling code to avoid NoneType errors
+def vector_handling(value):
+    debug_value(value)  # Log values for debugging
+    t = None  # Replace this with the actual type check or handling
+    return [cast(bytes, t(i)) if t else i.write() for i in value if i is not None]
+
+# Usage in your code
+# Replace the part where the error occurs with the function `vector_handling(value)`
