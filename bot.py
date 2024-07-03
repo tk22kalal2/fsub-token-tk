@@ -17,7 +17,7 @@ from config import (
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
 )
-
+from plugins.keepalive import ping_server
 from plugins.clone import restart_bots
 
 class Bot(Client):
