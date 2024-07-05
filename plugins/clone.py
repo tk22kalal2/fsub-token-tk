@@ -4,32 +4,25 @@
 
 import re
 import logging
-from tenacity import retry, wait_fixed, stop_after_attempt
 from pymongo import MongoClient
 from Script import script
 from pyrogram import Client, filters
-from pyrogram.types import Message, ReplyKeyboardMarkup
+from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import AccessTokenExpired, AccessTokenInvalid
 from config import API_ID, API_HASH, ADMINS, DB_NAME
 from config import DB_URI as MONGO_URL
-import logging
+from tenacity import retry, wait_fixed, stop_after_attempt, wait_exponential
 import sqlite3
+from pymongo import MongoClient
+import asyncio
+import socket
 
-# Define a logger
-logger = logging.getLogger(__name__)
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db[DB_NAME]
 
-buttonz = ReplyKeyboardMarkup(
-    [
-        ["CLONE"],
-    ],
-    resize_keyboard=True
-)
-
-
+logger = logging.getLogger(__name__)
 
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
@@ -76,10 +69,10 @@ async def on_clone(client, message):
                     'username': bot.username
                 }
                 mongo_db.bots.insert_one(details)
-                await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.</b>")
+                await msg.edit_text(f"<b>sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴏɴᴇᴅ ʏᴏᴜʀ ʙᴏᴛ: @{bot.username}.\n\nʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ sᴇᴛ ʏᴏᴜʀ sʜᴏʀᴛɴᴇʀ ɪɴ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏ sᴛᴀʀᴛ ʏᴏᴜʀ ᴄʟᴏɴᴇᴅ ʙᴏᴛ</b>")
             except BaseException as e:
                 logging.exception("Error while cloning bot.")
-                await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @talktomembbs_bot to get assistance.**")
+                await msg.edit_text(f"⚠️ <b>Bot Error:</b>\n\n<code>{e}</code>\n\n**Kindly forward this message to @KingVJ01 to get assistance.**")
     except Exception as e:
         logging.exception("Error while handling message.")
 
@@ -104,14 +97,21 @@ async def delete_cloned_bot(client, message):
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-@retry(wait=wait_fixed(2), stop=stop_after_attempt(5), retry_error_callback=lambda _: logging.error("Failed to restart bot due to database lock."))
+from pymongo import MongoClient
+from pyrogram import Client
+from tenacity import retry, wait_exponential, stop_after_attempt
+import asyncio
+import logging
+import socket
+
+
+
+
+@retry(wait=wait_exponential(multiplier=1, min=4, max=10), stop=stop_after_attempt(5))
 async def start_bot(ai):
     await ai.start()
 
-
 async def restart_bots():
-    logging.info("Restarting all bots........")
     bots = list(mongo_db.bots.find())
     for bot in bots:
         bot_token = bot['token']
@@ -121,14 +121,23 @@ async def restart_bots():
                 bot_token=bot_token,
                 plugins={"root": "clone_plugins"},
             )
-            await ai.start()
-        except sqlite3.OperationalError as e:
-            logger.warning(f"SQLite OperationalError encountered: {e}")
-            continue  # Skip to the next bot on OperationalError
-        except Exception as e:
-            # Suppress warnings about already connected bots from being treated as errors
-            if "already connected" in str(e):
-                continue  # Skip to the next bot if already connected
-            else:
-                logger.error(f"Error while restarting bot with token {bot_token}: {e}")
+            await start_bot(ai)
+        except (asyncio.TimeoutError, socket.error) as e:
+            # Handle socket-related exceptions and retry
             continue
+        except Exception as e:
+            # Handle specific known errors if needed, e.g., AccessTokenExpired, AccessTokenInvalid
+            if "access token expired" in str(e).lower():
+                # Handle token refresh or recovery mechanism
+                continue
+            elif "access token invalid" in str(e).lower():
+                # Handle token refresh or recovery mechanism
+                continue
+            else:
+                # Handle other unexpected errors
+                continue
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(restart_bots())
