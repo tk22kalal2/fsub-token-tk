@@ -6,6 +6,7 @@ import traceback
 from config import *
 
 
+
 async def ping_server():
     sleep_time = PING_INTERVAL
     while True:
@@ -20,3 +21,4 @@ async def ping_server():
             logging.warning("Couldn't connect to the site URL..!")
         except Exception:
             traceback.print_exc()
+
