@@ -107,28 +107,28 @@ DISABLE_CHANNEL_BUTTON = strtobool(os.environ.get("DISABLE_CHANNEL_BUTTON", "Fal
 
 ADMINS.append(OWNER_ID)
 
-class Var(object):
-    MULTI_CLIENT = False
-    name = str(getenv('name', 'filetolinkvjbot'))
-    SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
-    WORKERS = int(getenv('WORKERS', '4'))
-    PORT = int(getenv('PORT', 8080))
-    BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
-    PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
-    NO_PORT = bool(getenv('NO_PORT', False))
-    APP_NAME = None
-    if 'DYNO' in environ:
-        ON_HEROKU = True
-        APP_NAME = str(getenv('APP_NAME'))
+
+MULTI_CLIENT = False
+name = str(getenv('name', 'filetolinkvjbot'))
+SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
+WORKERS = int(getenv('WORKERS', '4'))
+PORT = int(getenv('PORT', 8080))
+BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
+PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
+NO_PORT = bool(getenv('NO_PORT', False))
+APP_NAME = None
+if 'DYNO' in environ:
+    ON_HEROKU = True
+    APP_NAME = str(getenv('APP_NAME'))
     
-    else:
-        ON_HEROKU = False
-    FQDN = str(getenv('FQDN', BIND_ADRESS)) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
-    HAS_SSL=bool(getenv('HAS_SSL',False))
-    if HAS_SSL:
-        URL = ""
-    else:
-        URL = ""
+else:
+    ON_HEROKU = False
+FQDN = str(getenv('FQDN', BIND_ADRESS)) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
+HAS_SSL=bool(getenv('HAS_SSL',False))
+if HAS_SSL:
+    URL = ""
+else:
+    URL = ""
 
 LOG_FILE_NAME = "logs.txt"
 logging.basicConfig(
