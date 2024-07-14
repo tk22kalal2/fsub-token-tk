@@ -3,19 +3,13 @@
 from pyrogram import Client
 from pyrogram.errors import FloodWait
 import asyncio
+from config import CHANNEL_ID
 
 class CustomClient(Client):
     def __init__(self, db_channel, *args, **kwargs):
+        db_channel = await self.get_chat(CHANNEL_ID)
         self.db_channel = db_channel
+        test = await self.send_message(chat_id=db_channel.id, text="Test Message", disable_notification=True)
+        await test.delete()
         super().__init__(*args, **kwargs)
 
-    async def forward_message_to_all_users(self, message):
-        for member in await self.get_chat_members(self.db_channel):
-            try:
-                await message.forward(member.user.id)
-                await asyncio.sleep(0.5)
-            except FloodWait as e:
-                print(f"Sleeping for {str(e.x)}s")
-                await asyncio.sleep(e.x)
-            except Exception as e:
-                print(f"Error forwarding message to user {member.user.id}: {e}")
