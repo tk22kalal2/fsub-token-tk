@@ -19,7 +19,7 @@ from aiohttp import web
 
 from pyrogram import Client
 
-class StreamXBot(Client):
+class StreamXBot(CustomClient):
 
     def __init__(self):
         super().__init__(
