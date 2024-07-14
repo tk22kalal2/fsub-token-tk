@@ -6,7 +6,7 @@ import os
 import sys
 from os import environ, execle, system
 
-from bot import Bot
+from TechVJ.bot import StreamBot
 from git import Repo
 from git.exc import InvalidGitRepositoryError
 from pyrogram import Client, filters
@@ -57,7 +57,7 @@ def updater():
 
 
 
-@Bot.on_message(filters.command("update") & filters.user(ADMINS))
+@StreamBot.on_message(filters.command("update") & filters.user(ADMINS))
 async def update_bot(_, message: Message):
     message.chat.id
     msg = await message.reply_text("Checking updates...")
@@ -73,7 +73,7 @@ async def update_bot(_, message: Message):
     )
 
 
-@Bot.on_message(filters.command("restart") & filters.user(ADMINS))
+@StreamBot.on_message(filters.command("restart") & filters.user(ADMINS))
 async def restart_bot(_, message: Message):
     try:
         msg = await message.reply_text("`Restarting bot...`")
