@@ -6,7 +6,7 @@ from config import CHANNEL_ID
 class CustomClient(Client):
     def __init__(self, db_channel, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.db_channel = db_channel
+        self.db_channel = None
 
     async def start(self):
         await super().start()
