@@ -1,6 +1,6 @@
 dnspython
 feedparser
-Flask==2.2.5
+Flask
 gitpython
 gunicorn
 heroku3
