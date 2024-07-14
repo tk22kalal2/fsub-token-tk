@@ -7,13 +7,13 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from TechVJ.bot import StreamBot
 
-from bot import Bot
 from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, LOGGER
 from helper_func import encode
 
 
-@Bot.on_message(
+@StreamBot.on_message(
     filters.private
     & filters.user(ADMINS)
     & ~filters.command(
@@ -80,7 +80,7 @@ async def channel_post(client: Client, message: Message):
             pass
 
 
-@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
+@StreamBot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
 async def new_post(client: Client, message: Message):
 
     if DISABLE_CHANNEL_BUTTON:
