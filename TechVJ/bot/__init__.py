@@ -16,7 +16,7 @@ from config import *
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from aiohttp import web
-
+from .custom_client import CustomClient
 from pyrogram import Client
 
 class StreamXBot(CustomClient):
