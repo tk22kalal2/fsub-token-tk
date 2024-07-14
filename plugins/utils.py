@@ -4,7 +4,7 @@
 
 import os
 
-from bot import Bot
+from TechVJ.bot import StreamBot
 from config import (
     ADMINS,
     API_HASH,
@@ -24,7 +24,7 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 
-@Bot.on_message(filters.command("logs") & filters.user(ADMINS))
+@StreamBot.on_message(filters.command("logs") & filters.user(ADMINS))
 async def get_bot_logs(client: Bot, m: Message):
     bot_log_path = "logs.txt"
     if os.path.exists(bot_log_path):
@@ -41,7 +41,7 @@ async def get_bot_logs(client: Bot, m: Message):
         await m.reply_text("❌ <b>Cannot find the logs</b>")
 
 
-@Bot.on_message(filters.command("vars") & filters.user(ADMINS))
+@StreamBot.on_message(filters.command("vars") & filters.user(ADMINS))
 async def varsFunc(client: Bot, message: Message):
     Man = await message.reply_text("Please Wait....")
     text = f"""<u><b>CONFIG VARS</b></u> @{client.username}
