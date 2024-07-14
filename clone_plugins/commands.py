@@ -16,7 +16,7 @@ from pyrogram import Client, filters, enums
 from plugins.database import get_file_details
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from config import BOT_USERNAME, ADMINS
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup, Message, CallbackQuery, InputMediaPhoto
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup, WebAppInfo, Message, CallbackQuery, InputMediaPhoto
 from config import PICS, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, PROTECT_CONTENT
 import re
 import json
@@ -81,7 +81,10 @@ async def start(client, message):
             [InlineKeyboardButton('CEREBELLUM', callback_data='cerebellum')],
             [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
             [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],            
-            [InlineKeyboardButton('OTHERS', callback_data='others')]
+            [InlineKeyboardButton('OTHERS', callback_data='others')],
+            [
+                WebAppInfo(url="(https://afrahtafreeh.site)", label="Open Website")
+            ]
         ]
         me2 = (await client.get_me()).mention
         reply_markup = InlineKeyboardMarkup(buttons)
