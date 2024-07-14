@@ -2,7 +2,7 @@
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
 from TechVJ.bot import StreamBot
-from bot import Bot
+
 from pyrogram import filters
 from pyrogram.errors import MessageNotModified
 from pyrogram.types import CallbackQuery, Message
