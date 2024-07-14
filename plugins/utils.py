@@ -25,7 +25,7 @@ from pyrogram.types import Message
 
 
 @StreamBot.on_message(filters.command("logs") & filters.user(ADMINS))
-async def get_bot_logs(client: Bot, m: Message):
+async def get_bot_logs(client: StreamBot, m: Message):
     bot_log_path = "logs.txt"
     if os.path.exists(bot_log_path):
         try:
@@ -42,7 +42,7 @@ async def get_bot_logs(client: Bot, m: Message):
 
 
 @StreamBot.on_message(filters.command("vars") & filters.user(ADMINS))
-async def varsFunc(client: Bot, message: Message):
+async def varsFunc(client: StreamBot, message: Message):
     Man = await message.reply_text("Please Wait....")
     text = f"""<u><b>CONFIG VARS</b></u> @{client.username}
 APP_ID = <code>{APP_ID}</code>
