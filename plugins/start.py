@@ -284,7 +284,7 @@ async def start_command(client: StreamBot, message: Message):
                 
 
 @StreamBot.on_message(filters.command("start") & filters.private)
-async def not_joined(client: Bot, message: Message):
+async def not_joined(client: StreamBot, message: Message):
     buttons = fsub_button(client, message)
     await message.reply(
         text=FORCE_MSG.format(
@@ -303,7 +303,7 @@ async def not_joined(client: Bot, message: Message):
 
 
 @StreamBot.on_message(filters.command(["users", "stats"]) & filters.user(ADMINS))
-async def get_users(client: Bot, message: Message):
+async def get_users(client: StreamBot, message: Message):
     msg = await client.send_message(
         chat_id=message.chat.id, text="<code>Processing ...</code>"
     )
@@ -312,7 +312,7 @@ async def get_users(client: Bot, message: Message):
 
 
 @StreamBot.on_message(filters.command("broadcast") & filters.user(ADMINS))
-async def send_text(client: Bot, message: Message):
+async def send_text(client: StreamBot, message: Message):
     if message.reply_to_message:
         query = await query_msg()
         broadcast_msg = message.reply_to_message
