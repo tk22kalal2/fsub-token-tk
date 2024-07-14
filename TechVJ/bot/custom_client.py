@@ -4,6 +4,21 @@ from pyrogram import Client
 from pyrogram.errors import FloodWait
 import asyncio
 from config import CHANNEL_ID
+import pyromod.listen
+import sys
+
+from pyrogram import Client, enums
+
+from config import (
+    API_HASH,
+    APP_ID,
+    CHANNEL_ID,
+    FORCE_SUB_CHANNEL,
+    FORCE_SUB_GROUP,
+    LOGGER,
+    TG_BOT_TOKEN,
+    TG_BOT_WORKERS,
+)
 
 class CustomClient(Client):
     def __init__(self, db_channel, *args, **kwargs):
