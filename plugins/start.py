@@ -75,7 +75,7 @@ async def _human_time_duration(seconds):
 
 
 @StreamBot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
-async def start_command(client: Bot, message: Message):
+async def start_command(client: StreamBot, message: Message):
     id = message.from_user.id
     if not await present_user(id):
         try:
