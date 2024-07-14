@@ -8,7 +8,7 @@ from datetime import datetime
 from time import time
 from pymongo import MongoClient
 from pyrogram import Client, filters
-from bot import Bot
+from TechVJ.bot import StreamBot
 from config import DB_URI as MONGO_URL
 from config import (
     ADMINS,
@@ -74,7 +74,7 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
+@StreamBot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
     id = message.from_user.id
     if not await present_user(id):
@@ -283,7 +283,7 @@ async def start_command(client: Bot, message: Message):
     return
                 
 
-@Bot.on_message(filters.command("start") & filters.private)
+@StreamBot.on_message(filters.command("start") & filters.private)
 async def not_joined(client: Bot, message: Message):
     buttons = fsub_button(client, message)
     await message.reply(
@@ -302,7 +302,7 @@ async def not_joined(client: Bot, message: Message):
     )
 
 
-@Bot.on_message(filters.command(["users", "stats"]) & filters.user(ADMINS))
+@StreamBot.on_message(filters.command(["users", "stats"]) & filters.user(ADMINS))
 async def get_users(client: Bot, message: Message):
     msg = await client.send_message(
         chat_id=message.chat.id, text="<code>Processing ...</code>"
@@ -311,7 +311,7 @@ async def get_users(client: Bot, message: Message):
     await msg.edit(f"{len(users)} users are using this bot")
 
 
-@Bot.on_message(filters.command("broadcast") & filters.user(ADMINS))
+@StreamBot.on_message(filters.command("broadcast") & filters.user(ADMINS))
 async def send_text(client: Bot, message: Message):
     if message.reply_to_message:
         query = await query_msg()
@@ -360,7 +360,7 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         await msg.delete()
 
 
-@Bot.on_message(filters.command("ping"))
+@StreamBot.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
     current_time = datetime.utcnow()
@@ -375,7 +375,7 @@ async def ping_pong(client, m: Message):
     )
 
 
-@Bot.on_message(filters.command("uptime"))
+@StreamBot.on_message(filters.command("uptime"))
 async def get_uptime(client, m: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
