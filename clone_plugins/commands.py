@@ -74,29 +74,32 @@ def get_size(size):
 async def start(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
+    
     if len(message.command) != 2:
         buttons = [
             [InlineKeyboardButton('MARROW', callback_data='marrow')],
             [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
             [InlineKeyboardButton('CEREBELLUM', callback_data='cerebellum')],
             [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
-            [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],            
+            [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
             [InlineKeyboardButton('OTHERS', callback_data='others')],
             [WebAppInfo(url="https://afrahtafreeh.site", label="Open Website")]
         ]
+        
         me2 = (await client.get_me()).mention
         reply_markup = InlineKeyboardMarkup(buttons)
-    
+        
         # Define the ReplyKeyboardMarkup
         reply_keyboard = ReplyKeyboardMarkup(
             [[KeyboardButton('/menu')]], resize_keyboard=True, one_time_keyboard=True
         )
-    
+        
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
             reply_markup=reply_keyboard
         )
+        
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
