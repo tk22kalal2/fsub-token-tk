@@ -83,7 +83,7 @@ async def start(client, message):
             [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
             [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
             [InlineKeyboardButton('OTHERS', callback_data='others')],
-            [WebAppInfo(url="https://afrahtafreeh.site", label="Open Website")]
+            [InlineKeyboardButton('Open Website', web_app=WebAppInfo(url="https://afrahtafreeh.site"))]
         ]
         
         me2 = (await client.get_me()).mention
