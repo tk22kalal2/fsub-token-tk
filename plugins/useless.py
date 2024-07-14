@@ -1,5 +1,5 @@
 import os
-from bot import Bot
+from TechVJ.bot import StreamBot
 from config import (
     ADMINS,
     API_HASH,
@@ -26,7 +26,7 @@ buttonz = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
-@Bot.on_message(filters.private & filters.incoming)
+@StreamBot.on_message(filters.private & filters.incoming)
 async def show_clone_button(client, message):
     await message.reply("Choose an option:", reply_markup=buttonz)
 
