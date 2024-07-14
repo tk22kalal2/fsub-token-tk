@@ -6,8 +6,7 @@ import asyncio
 from config import CHANNEL_ID
 import pyromod.listen
 import sys
-
-from pyrogram import Client, enums
+from pyrogram import enums
 
 from config import (
     API_HASH,
@@ -19,6 +18,7 @@ from config import (
     TG_BOT_TOKEN,
     TG_BOT_WORKERS,
 )
+
 
 class CustomClient(Client):
     def __init__(self, db_channel, *args, **kwargs):
@@ -58,7 +58,7 @@ class CustomClient(Client):
                     "Bot can't Export Invite link from Force Sub Channel!"
                 )
                 self.LOGGER(__name__).warning(
-                    f"make sure @{self.username} is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}"
+                    f"Make sure @{self.username} is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_CHANNEL}"
                 )
                 self.LOGGER(__name__).info(
                     "Bot Stopped. Join https://t.me/CodeXBotzSupport for support"
@@ -79,10 +79,10 @@ class CustomClient(Client):
             except Exception as a:
                 self.LOGGER(__name__).warning(a)
                 self.LOGGER(__name__).warning(
-                    "Bot can't Export Invite link from Force Sub Channel!"
+                    "Bot can't Export Invite link from Force Sub Group!"
                 )
                 self.LOGGER(__name__).warning(
-                    f"Make sure @{self.username} is Admin in channel with Invite Users via Link Permission, Current Force Sub Channel Value: {FORCE_SUB_GROUO}"
+                    f"Make sure @{self.username} is Admin in group with Invite Users via Link Permission, Current Force Sub Group Value: {FORCE_SUB_GROUP}"
                 )
                 self.LOGGER(__name__).info(
                     "Bot Stopped. Join https://t.me/CodeXBotzSupport for support"
@@ -100,7 +100,7 @@ class CustomClient(Client):
         except Exception as e:
             self.LOGGER(__name__).warning(e)
             self.LOGGER(__name__).warning(
-                f"Make Sure @{self.username} is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}"
+                f"Make sure @{self.username} is Admin in DB Channel, and double check the CHANNEL_ID value, Current Value: {CHANNEL_ID}"
             )
             self.LOGGER(__name__).info(
                 "Bot Stopped. Join https://t.me/CodeXBotzSupport for support"
@@ -115,4 +115,3 @@ class CustomClient(Client):
     async def stop(self, *args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped.")
-
