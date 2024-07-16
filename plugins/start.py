@@ -254,6 +254,19 @@ async def start_command(client: StreamBot, message: Message):
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markupc,
                 )
+                stream_link = f"{Var.URL}watch/{str(snt_msg.id)}/{quote_plus(get_name(snt_msg))}?hash={get_hash(snt_msg)}"               
+                await snt_msg.reply_text(
+                    text=f"**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
+                    quote=True,
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                         [
+                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', url=stream_link)
+                         ]
+                        ]
+                    )
+                )
                 await asyncio.sleep(0.5)
                 snt_msgs.append(snt_msg)
             except FloodWait as e:
@@ -267,6 +280,19 @@ async def start_command(client: StreamBot, message: Message):
                     reply_markup=reply_markupc,
                 )
                 snt_msgs.append(snt_msg)
+                stream_link = f"{Var.URL}watch/{str(snt_msg.id)}/{quote_plus(get_name(snt_msg))}?hash={get_hash(snt_msg)}"               
+                await snt_msg.reply_text(
+                    text=f"**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
+                    quote=True,
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                         [
+                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', url=stream_link)
+                         ]
+                        ]
+                    )
+                )
             except BaseException:
                 pass
 
