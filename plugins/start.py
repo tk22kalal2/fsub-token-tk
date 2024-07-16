@@ -240,7 +240,6 @@ async def start_command(client: StreamBot, message: Message):
 
             try:
                 log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
-                await asyncio.sleep(0.5)
                 stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
                 reply_markupc = InlineKeyboardMarkup([[InlineKeyboardButton("STREAM", url=stream_link)]])
                 await log_msg.edit_reply_markup(reply_markupc)
