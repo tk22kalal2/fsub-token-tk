@@ -242,15 +242,18 @@ async def start_command(client: StreamBot, message: Message):
                 log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
                 await asyncio.sleep(0.5)
                 stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("STREAM", url=stream_link)]])
-                await log_msg.edit_reply_markup(reply_markup)
-                
+                reply_markupc = InlineKeyboardMarkup([[InlineKeyboardButton("STREAM", url=stream_link)]])
+                await log_msg.edit_reply_markup(reply_markupc)
+            except FloodWait as e:
+                print(f"Sleeping for {str(e.x)}s")
+                await asyncio.sleep(e.x)
+            try:
                 snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
+                    reply_markup=reply_markupc,
                 )
                 await asyncio.sleep(0.5)
                 snt_msgs.append(snt_msg)
@@ -262,7 +265,7 @@ async def start_command(client: StreamBot, message: Message):
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
+                    reply_markup=reply_markupc,
                 )
                 snt_msgs.append(snt_msg)
             except BaseException:
