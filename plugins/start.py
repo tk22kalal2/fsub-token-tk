@@ -9,6 +9,7 @@ from time import time
 from pymongo import MongoClient
 from pyrogram import Client, filters
 from TechVJ.bot import StreamBot
+from TechVJ.utils.file_properties import get_name, get_hash, get_media_file_size
 from config import DB_URI as MONGO_URL
 from config import (
     ADMINS,
