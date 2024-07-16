@@ -23,6 +23,7 @@ class StreamXBot(CustomClient):
 
     def __init__(self):
         super().__init__(
+            db_channel=DB_CHANNEL,
             name="vjfiletolink",
             api_id=API_ID,
             api_hash=API_HASH,
