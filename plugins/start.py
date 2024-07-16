@@ -6,6 +6,7 @@ import os
 import asyncio
 from datetime import datetime
 from time import time
+from config import Var
 from pymongo import MongoClient
 from pyrogram import Client, filters
 from TechVJ.bot import StreamBot
@@ -15,7 +16,6 @@ from config import (
     ADMINS,
     CUSTOM_CAPTION,
     DISABLE_CHANNEL_BUTTON,
-    BIN_CHANNEL,
     FORCE_MSG,
     PROTECT_CONTENT,
     DB_NAME,
@@ -239,7 +239,7 @@ async def start_command(client: StreamBot, message: Message):
             msg.caption.html if msg.caption else "")
 
             try:
-                log_msg = await msg.copy(chat_id=BIN_CHANNEL)
+                log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
                 await asyncio.sleep(0.5)
                 stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
                 reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("STREAM", url=stream_link)]])
