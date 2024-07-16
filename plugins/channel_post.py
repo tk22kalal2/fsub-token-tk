@@ -73,11 +73,7 @@ async def channel_post(client: Client, message: Message):
         disable_web_page_preview=True,
     )
 
-    if not DISABLE_CHANNEL_BUTTON:
-        try:
-            await post_message.edit_reply_markup(reply_markup)
-        except Exception:
-            pass
+    
 
 
 @StreamBot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
@@ -90,16 +86,4 @@ async def new_post(client: Client, message: Message):
     string = f"get-{converted_id}"
     base64_string = await encode(string)
     link = f"https://t.me/{client.username}?start={base64_string}"
-    reply_markup = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton(
-                    "Video Link", url=f"{link}"                    
-                )
-            ]
-        ]
-    )
-    try:
-        await message.edit_reply_markup(reply_markup)
-    except Exception:
-        pass
+    
