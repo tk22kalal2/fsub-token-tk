@@ -88,12 +88,12 @@ async def get_messages(client, message_ids):
         temb_ids = message_ids[total_messages : total_messages + 200]
         try:
             msgs = await client.get_messages(
-                chat_id=client.db_channel.id, message_ids=temb_ids
+                chat_id=client.db_channel, message_ids=temb_ids
             )
         except FloodWait as e:
             await asyncio.sleep(e.x)
             msgs = await client.get_messages(
-                chat_id=client.db_channel.id, message_ids=temb_ids
+                chat_id=client.db_channel, message_ids=temb_ids
             )
         except BaseException:
             pass
@@ -105,7 +105,7 @@ async def get_messages(client, message_ids):
 async def get_message_id(client, message):
     if (
         message.forward_from_chat
-        and message.forward_from_chat.id == client.db_channel.id
+        and message.forward_from_chat.id == client.db_channel
     ):
         return message.forward_from_message_id
     elif message.forward_from_chat or message.forward_sender_name or not message.text:
@@ -118,7 +118,7 @@ async def get_message_id(client, message):
         channel_id = matches.group(1)
         msg_id = int(matches.group(2))
         if channel_id.isdigit():
-            if f"-100{channel_id}" == str(client.db_channel.id):
+            if f"-100{channel_id}" == str(client.db_channel):
                 return msg_id
         elif channel_id == client.db_channel.username:
             return msg_id
