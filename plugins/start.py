@@ -244,8 +244,7 @@ async def start_command(client: StreamBot, message: Message):
                 stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
                 reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("STREAM", url=stream_link)]])
                 await log_msg.edit_reply_markup(reply_markup)
-
-            try:
+                
                 snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
@@ -256,6 +255,7 @@ async def start_command(client: StreamBot, message: Message):
                 await asyncio.sleep(0.5)
                 snt_msgs.append(snt_msg)
             except FloodWait as e:
+                print(f"Sleeping for {str(e.x)}s")
                 await asyncio.sleep(e.x)
                 snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
