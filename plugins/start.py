@@ -239,14 +239,6 @@ async def start_command(client: StreamBot, message: Message):
             msg.caption.html if msg.caption else "")
 
             try:
-                log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
-                stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                reply_markupc = InlineKeyboardMarkup([[InlineKeyboardButton("STREAM", url=stream_link)]])
-                await log_msg.edit_reply_markup(reply_markupc)
-            except FloodWait as e:
-                print(f"Sleeping for {str(e.x)}s")
-                await asyncio.sleep(e.x)
-            try:
                 snt_msg = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
