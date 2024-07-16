@@ -7,3 +7,13 @@ class CustomClient(Client):
     def __init__(self, db_channel, *args, **kwargs):
         self.db_channel = db_channel
         super().__init__(*args, **kwargs)
+
+    async def start(self):
+        await super().start()
+        try:
+            db_channel = await self.get_chat(CHANNEL_ID)
+            self.db_channel = db_channel
+            test = await self.send_message(chat_id=db_channel.id, text="Test Message", disable_notification=True)
+            await test.delete()
+        except Exception as e:
+            print(f"An error occurred: {e}")
