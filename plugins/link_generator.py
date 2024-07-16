@@ -58,7 +58,7 @@ async def batch(client: Client, message: Message):
     message_links = []
     for msg_id in range(min(f_msg_id, s_msg_id), max(f_msg_id, s_msg_id) + 1):
         try:
-            string = f"get-{msg_id * abs(client.db_channel.id)}"
+            string = f"get-{msg_id * abs(client.db_channel)}"
             base64_string = await encode(string)
             link = f"https://t.me/{client.username}?start={base64_string}"
             linka = f"https://t.me/{xyz}?start={base64_string}"
@@ -70,7 +70,7 @@ async def batch(client: Client, message: Message):
     for linka, msg_id in message_links:
         try:
             # Fetch the message object for the current msg_id
-            current_message = await client.get_messages(client.db_channel.id, msg_id)
+            current_message = await client.get_messages(client.db_channel, msg_id)
     
             # Determine the caption for this message
             if bool(CUSTOM_CAPTION) and current_message.document:
@@ -119,7 +119,7 @@ async def link_generator(client: Client, message: Message):
             await channel_message.reply("❌ Error\n\nthis Forwarded Post is not from my DB Channel or this Link is not taken from DB Channel", quote=True)
             continue
 
-    base64_string = await encode(f"get-{msg_id * abs(client.db_channel.id)}")
+    base64_string = await encode(f"get-{msg_id * abs(client.db_channel)}")
     link = f"https://t.me/{client.username}?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
     X = await channel_message.reply_text(f"<b>Here is your link</b>\n\n{link}", quote=True, reply_markup=reply_markup)
