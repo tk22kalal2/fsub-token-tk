@@ -41,12 +41,12 @@ async def channel_post(client: Client, message: Message):
     reply_text = await message.reply_text("Please Wait...!", quote=True)
     try:
         post_message = await message.copy(
-            chat_id=client.db_channel, disable_notification=True
+            chat_id=client.db_channel.id, disable_notification=True
         )
     except FloodWait as e:
         await asyncio.sleep(e.x)
         post_message = await message.copy(
-            chat_id=client.db_channel, disable_notification=True
+            chat_id=client.db_channel.id, disable_notification=True
         )
     except Exception as e:
         LOGGER(__name__).warning(e)
@@ -68,7 +68,7 @@ async def channel_post(client: Client, message: Message):
 @StreamBot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
 async def new_post(client: Client, message: Message):
 
-    converted_id = message.id * abs(client.db_channel)
+    converted_id = message.id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
     link = f"https://t.me/{client.username}?start={base64_string}"
