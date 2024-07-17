@@ -27,7 +27,7 @@ from database.mongo import collection, adds_user, del_user, fulls_userbase, pres
 from pyrogram import filters
 from pyrogram.enums import ParseMode
 from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, ChannelInvalid
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, ReplyKeyboardMarkup, KeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery, ReplyKeyboardMarkup, KeyboardButton
 
 from helper_func import decode, get_messages, subsall, subsch, subsgc
 from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
