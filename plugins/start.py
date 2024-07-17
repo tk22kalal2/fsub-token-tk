@@ -270,7 +270,7 @@ async def start_command(client: StreamBot, message: Message):
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                 )                
-                log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
+                log_msg = await h.copy(chat_id=Var.BIN_CHANNEL)
                 logger.info(f"Message copied to BIN_CHANNEL: {log_msg.id}")
                 
 
@@ -280,7 +280,7 @@ async def start_command(client: StreamBot, message: Message):
                 logger.info(f"Stream link: {stream_link}, Download link: {online_link}")
 
                 # Send the links to the user
-                await msg.reply_text(
+                await h.reply_text(
                     f"Stream Link: [Watch]({stream_link})\nDownload Link: [Download]({online_link})",
                     disable_web_page_preview=True
                 )
