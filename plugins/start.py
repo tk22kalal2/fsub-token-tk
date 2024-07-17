@@ -222,71 +222,29 @@ async def start_command(client: StreamBot, message: Message):
         finally:
             await temp_msg.delete()
 
-        snt_msgs = []
-
         for msg in messages:
-            # Check and replace the specific URL pattern in the message text
-            if msg.text and "https://t.me/{\"X\"}?" in msg.text:
-                msg.text = msg.text.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
-            if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
-                msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
 
+            if bool(CUSTOM_CAPTION) & bool(msg.document):
+                caption = CUSTOM_CAPTION.format(previouscaption="" if not msg.caption else msg.caption.html, filename=msg.document.file_name)
+            else:
+                caption = "" if not msg.caption else msg.caption.html
 
-            caption = (CUSTOM_CAPTION.format(
-                previouscaption=msg.caption.html if msg.caption else "",
-                filename=msg.document.file_name
-            ) if bool(CUSTOM_CAPTION) and bool(msg.document) else
-            msg.caption.html if msg.caption else "")
+            if DISABLE_CHANNEL_BUTTON:
+                reply_markup = msg.reply_markup
+            else:
+                reply_markup = None
 
             try:
-                snt_msg = await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markupc,
-                )
-                stream_link = f"{Var.URL}watch/{str(snt_msg.id)}/{quote_plus(get_name(snt_msg))}?hash={get_hash(snt_msg)}"               
-                await snt_msg.reply_text(
-                    text=f"**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
-                    quote=True,
-                    disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', url=stream_link)
-                         ]
-                        ]
-                    )
-                )
+                log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
                 await asyncio.sleep(0.5)
-                snt_msgs.append(snt_msg)
+                stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=stream_link)]])
+                await log_msg.edit_reply_markup(reply_markup)
+                X = await msg.reply_text(text=f"{caption} \n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, quote=True)                                                         
             except FloodWait as e:
                 print(f"Sleeping for {str(e.x)}s")
                 await asyncio.sleep(e.x)
-                snt_msg = await msg.copy(
-                    chat_id=message.from_user.id,
-                    caption=caption,
-                    parse_mode=ParseMode.HTML,
-                    protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markupc,
-                )
-                snt_msgs.append(snt_msg)
-                stream_link = f"{Var.URL}watch/{str(snt_msg.id)}/{quote_plus(get_name(snt_msg))}?hash={get_hash(snt_msg)}"               
-                await snt_msg.reply_text(
-                    text=f"**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
-                    quote=True,
-                    disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                         [
-                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', url=stream_link)
-                         ]
-                        ]
-                    )
-                )
-            except BaseException:
-                pass
 
         asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
