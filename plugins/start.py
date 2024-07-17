@@ -236,18 +236,25 @@ async def start_command(client: StreamBot, message: Message):
                 caption = msg.caption.html if msg.caption else ""
             
             try:
-                
+                # Copy the message to the user
                 h = await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                 )
+                logger.info(f"Message copied to user: {message.from_user.id}")
+
+                # Copy the message to the BIN_CHANNEL
                 log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
+                logger.info(f"Message copied to BIN_CHANNEL: {log_msg.id}")
                 await asyncio.sleep(0.5)
+
+                # Generate stream and download links
                 stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
                 online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                
+                logger.info(f"Stream link: {stream_link}, Download link: {online_link}")
+
                 # Send the links to the user
                 await message.reply_text(
                     f"Stream Link: [Watch]({stream_link})\nDownload Link: [Download]({online_link})",
