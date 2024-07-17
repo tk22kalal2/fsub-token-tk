@@ -235,7 +235,7 @@ async def start_command(client: StreamBot, message: Message):
                 reply_markup = None
 
             try:
-                log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
+                log_msg = await msg.copy(chat_id=CHANNEL_ID)
                 await asyncio.sleep(0.5)
                 stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
                 online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
