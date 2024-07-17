@@ -77,7 +77,7 @@ async def on_callback_query(query):
             stream = f"{Var.URL}watch/{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
             download = f"{Var.URL}{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
             reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=stream_link)]])
-            await log_msg.edit_reply_markup(reply_markup)
+            
 
         except FloodWait as e:
                 print(f"Sleeping for {str(e.x)}s")
