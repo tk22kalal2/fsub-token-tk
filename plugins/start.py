@@ -253,7 +253,6 @@ async def start_command(client: StreamBot, message: Message):
                 )
             except BaseException:
                 pass
-            
     else:
         out = start_button(client)
         await message.reply_text(
