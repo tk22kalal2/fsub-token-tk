@@ -1,11 +1,12 @@
-# (c) NobiDeveloper
+# (c) adarsh-goel
 
 import asyncio
 import logging
-from ..vars import Var
+from config import API_HASH, API_ID, Var
 from pyrogram import Client
-from Adarsh.utils.config_parser import TokenParser
+from TechVJ.utils.config_parser import TokenParser
 from . import multi_clients, work_loads, StreamBot
+
 
 async def initialize_clients():
     multi_clients[0] = StreamBot
@@ -14,7 +15,7 @@ async def initialize_clients():
     if not all_tokens:
         print("No additional clients found, using default client")
         return
-        
+    
     async def start_client(client_id, token):
         try:
             print(f"Starting - Client {client_id}")
@@ -23,8 +24,8 @@ async def initialize_clients():
                 print("This will take some time, please wait...")
             client = await Client(
                 name=str(client_id),
-                api_id=Var.API_ID,
-                api_hash=Var.API_HASH,
+                api_id=API_ID,
+                api_hash=API_HASH,
                 bot_token=token,
                 sleep_threshold=Var.SLEEP_THRESHOLD,
                 no_updates=True,
