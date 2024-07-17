@@ -242,8 +242,17 @@ async def start_command(client: StreamBot, message: Message):
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
-                )                
+                )
+                log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
+                await asyncio.sleep(0.5)
+                stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
                 
+                # Send the links to the user
+                await message.reply_text(
+                    f"Stream Link: [Watch]({stream_link})\nDownload Link: [Download]({online_link})",
+                    disable_web_page_preview=True
+                )                
                 await asyncio.sleep(0.5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
