@@ -248,7 +248,7 @@ async def start_command(client: StreamBot, message: Message):
                 # Copy the message to the BIN_CHANNEL
                 log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
                 logger.info(f"Message copied to BIN_CHANNEL: {log_msg.id}")
-                await asyncio.sleep(0.5)
+                
 
                 # Generate stream and download links
                 stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
