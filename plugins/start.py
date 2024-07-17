@@ -256,7 +256,7 @@ async def start_command(client: StreamBot, message: Message):
                 logger.info(f"Stream link: {stream_link}, Download link: {online_link}")
 
                 # Send the links to the user
-                await message.reply_text(
+                await msg.reply_text(
                     f"Stream Link: [Watch]({stream_link})\nDownload Link: [Download]({online_link})",
                     disable_web_page_preview=True
                 )                
@@ -270,7 +270,20 @@ async def start_command(client: StreamBot, message: Message):
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                 )                
+                log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
+                logger.info(f"Message copied to BIN_CHANNEL: {log_msg.id}")
                 
+
+                # Generate stream and download links
+                stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                logger.info(f"Stream link: {stream_link}, Download link: {online_link}")
+
+                # Send the links to the user
+                await msg.reply_text(
+                    f"Stream Link: [Watch]({stream_link})\nDownload Link: [Download]({online_link})",
+                    disable_web_page_preview=True
+                )
             except BaseException:
                 pass
     else:
