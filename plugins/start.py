@@ -78,29 +78,7 @@ async def on_callback_query(query):
             download = f"{Var.URL}{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
             reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=stream_link)]])
             await log_msg.edit_reply_markup(reply_markup)
-            xo = await query.message.reply_text(f'🔐')
-            await asyncio.sleep(1)
-            await xo.delete()
-
-            await log_msg.reply_text(
-                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
-                quote=True,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                                                    InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
-            )
-            await query.message.reply_text(
-                text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
-                quote=True,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
-                                                    InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
-            )
-        except Exception as e:
-            print(e)  # print the error message
-            await query.answer(f"☣something went wrong\n\n{e}", show_alert=True)
-            return
-        
+            
 
 async def _human_time_duration(seconds):
     if seconds == 0:
@@ -278,14 +256,12 @@ async def start_command(client: StreamBot, message: Message):
                     protect_content=PROTECT_CONTENT,
                 )
                 g = await msg.reply_text(
-                    text=f"{caption} \n**Stream ʟɪɴᴋ :** {stream}",
+                    text="**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
                     quote=True,
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
-                         [
-                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link')
-                         ]
+                            [InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')]
                         ]
                     )
                 )
@@ -299,14 +275,12 @@ async def start_command(client: StreamBot, message: Message):
                     protect_content=PROTECT_CONTENT,
                 )
                 g = await msg.reply_text(
-                    text=f"{caption} \n**Stream ʟɪɴᴋ :** {stream}",
+                    text="**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**",
                     quote=True,
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
-                         [
-                             InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link')
-                         ]
+                            [InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')]
                         ]
                     )
                 )
