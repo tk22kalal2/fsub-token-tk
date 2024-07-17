@@ -61,8 +61,8 @@ TIME_DURATION_UNITS = (
 
 import re
 
-
-async def on_callback_query(query):
+@Client.on_callback_query()
+async def cb_handler(client: Client, query: CallbackQuery):
     if query.data.startswith("generate_stream_link"):
         _, file_id = query.data.split(":")
         try:
@@ -283,14 +283,7 @@ async def start_command(client: StreamBot, message: Message):
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
-                )
-                log_msg = await msg.copy(
-                chat_id=LOG_CHANNEL,
-                )
-    
-                file_name = quote_plus(get_name(log_msg))
-                stream = f"{Var.URL}watch/{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
-                download = f"{Var.URL}{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
+                )                
                 g = await msg.reply_text(
                     text="**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**\n {stream}",
                     quote=True,
@@ -309,14 +302,7 @@ async def start_command(client: StreamBot, message: Message):
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
-                )
-                log_msg = await msg.copy(
-                chat_id=LOG_CHANNEL,
-                )
-    
-                file_name = quote_plus(get_name(log_msg))
-                stream = f"{Var.URL}watch/{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
-                download = f"{Var.URL}{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
+                )                
                 g = await msg.reply_text(
                     text="**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇** \n {stream}",
                     quote=True,
