@@ -241,7 +241,10 @@ async def start_command(client: StreamBot, message: Message):
         finally:
             await temp_msg.delete()
 
+        
+
         for msg in messages:
+            
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
@@ -259,6 +262,13 @@ async def start_command(client: StreamBot, message: Message):
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                 )
+                log_msg = await msg.copy(
+                chat_id=LOG_CHANNEL,
+                )
+    
+                file_name = quote_plus(get_name(log_msg))
+                stream = f"{Var.URL}watch/{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
+                download = f"{Var.URL}{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
                 g = await msg.reply_text(
                     text="**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇**\n {stream}",
                     quote=True,
@@ -278,6 +288,13 @@ async def start_command(client: StreamBot, message: Message):
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
                 )
+                log_msg = await msg.copy(
+                chat_id=LOG_CHANNEL,
+                )
+    
+                file_name = quote_plus(get_name(log_msg))
+                stream = f"{Var.URL}watch/{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
+                download = f"{Var.URL}{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
                 g = await msg.reply_text(
                     text="**•• ʏᴏᴜ ᴄᴀɴ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ sᴛʀᴇᴀᴍ ʟɪɴᴋ ᴏғ ʏᴏᴜʀ ғɪʟᴇ ᴀɴᴅ ᴀʟsᴏ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ғᴏʀ ʏᴏᴜʀ ғɪʟᴇ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ 👇** \n {stream}",
                     quote=True,
