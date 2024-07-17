@@ -1,53 +1,31 @@
 # (©)Codexbotz
 # Recode by @mrismanaziz
 # t.me/SharingUserbot & t.me/Lunatic0de
-import re
-import os
+
 import asyncio
 from datetime import datetime
 from time import time
-from config import Var
-from pymongo import MongoClient
-from pyrogram import Client, filters
-from TechVJ.bot import StreamBot
-from TechVJ.utils.file_properties import get_name, get_hash, get_media_file_size
-from config import DB_URI as MONGO_URL
+
+from bot import Bot
 from config import (
     ADMINS,
     CUSTOM_CAPTION,
+    DISABLE_CHANNEL_BUTTON,
     FORCE_MSG,
     PROTECT_CONTENT,
-    DB_NAME,
     START_MSG,
-    API_ID,
-    API_HASH,
 )
 #from database.sql import add_user, delete_user, full_userbase, query_msg
 from database.mongo import collection, adds_user, del_user, fulls_userbase, present_user
 from pyrogram import filters
 from pyrogram.enums import ParseMode
-from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked, ChannelInvalid
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery, ReplyKeyboardMarkup, KeyboardButton
+from pyrogram.errors import FloodWait, InputUserDeactivated, UserIsBlocked
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
 from helper_func import decode, get_messages, subsall, subsch, subsgc
 from helper import b64_to_str, str_to_b64, get_current_time, shorten_url
 
 from .button import fsub_button, start_button
-
-mongo_client = MongoClient(MONGO_URL)
-mongo_db = mongo_client["cloned_vjbotz"]
-mongo_collection = mongo_db["bots"]
-
-
-SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
-
-async def schedule_deletion(msgs, delay):
-    await asyncio.sleep(delay)
-    for msg in msgs:
-        try:
-            await msg.delete()
-        except Exception as e:
-            print(f"Error deleting message: {e}")
 
 START_TIME = datetime.utcnow()
 START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
@@ -59,10 +37,6 @@ TIME_DURATION_UNITS = (
     ("sec", 1),
 )
 
-import re
-
-
-            
 
 async def _human_time_duration(seconds):
     if seconds == 0:
@@ -75,8 +49,8 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@StreamBot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
-async def start_command(client: StreamBot, message: Message):
+@Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
+async def start_command(client: Bot, message: Message):
     id = message.from_user.id
     if not await present_user(id):
         try:
@@ -115,7 +89,7 @@ async def start_command(client: StreamBot, message: Message):
             )
             await client.send_message(
                 message.chat.id,
-                "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 10 Hour \n Clone your bot /clone ",
+                "Congratulations! Ads token refreshed successfully! \n\nIt will expire after 24 Hour",
                 reply_to_message_id=message.id,
             )
             return
@@ -136,7 +110,7 @@ async def start_command(client: StreamBot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                f"Hey 💕 <b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token and try again. \n\n<b>Token Timeout:</b> 24 hour \n\n<b>What is token?</b> \nThis is an ads token. If you pass 1 ad, you can use the bot for 24 hour after passing the ad. \n\nwatch video tutorial if you're facing issue <a href='https://telegram.me/howtodownloadin/19'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -158,7 +132,7 @@ async def start_command(client: StreamBot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token to use bot for next 10 hours. \n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                f"Hey <b>{message.from_user.mention}</b> \n\nYour Ads token is expired, refresh your token and try again. \n\n<b>Token Timeout:</b> 24 hour \n\n<b>What is token?</b> \nThis is an ads token. If you pass 1 ad, you can use the bot for 24 hour after passing the ad.",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -206,20 +180,10 @@ async def start_command(client: StreamBot, message: Message):
         temp_msg = await message.reply("Please wait...")
         try:
             messages = await get_messages(client, ids)
-        except Exception:
+        except BaseException:
             await message.reply_text("Something went wrong..!")
             return
-        finally:
-            await temp_msg.delete()
-
-        temp_msg = await message.reply("Please wait...")
-        try:
-            messages = await get_messages(client, ids)
-        except Exception:
-            await message.reply_text("Something went wrong..!")
-            return
-        finally:
-            await temp_msg.delete()        
+        await temp_msg.delete()
 
         for msg in messages:
 
@@ -272,10 +236,10 @@ async def start_command(client: StreamBot, message: Message):
 
 
     return
-                
 
-@StreamBot.on_message(filters.command("start") & filters.private)
-async def not_joined(client: StreamBot, message: Message):
+
+@Bot.on_message(filters.command("start") & filters.private)
+async def not_joined(client: Bot, message: Message):
     buttons = fsub_button(client, message)
     await message.reply(
         text=FORCE_MSG.format(
@@ -293,8 +257,8 @@ async def not_joined(client: StreamBot, message: Message):
     )
 
 
-@StreamBot.on_message(filters.command(["users", "stats"]) & filters.user(ADMINS))
-async def get_users(client: StreamBot, message: Message):
+@Bot.on_message(filters.command(["users", "stats"]) & filters.user(ADMINS))
+async def get_users(client: Bot, message: Message):
     msg = await client.send_message(
         chat_id=message.chat.id, text="<code>Processing ...</code>"
     )
@@ -302,8 +266,8 @@ async def get_users(client: StreamBot, message: Message):
     await msg.edit(f"{len(users)} users are using this bot")
 
 
-@StreamBot.on_message(filters.command("broadcast") & filters.user(ADMINS))
-async def send_text(client: StreamBot, message: Message):
+@Bot.on_message(filters.command("broadcast") & filters.user(ADMINS))
+async def send_text(client: Bot, message: Message):
     if message.reply_to_message:
         query = await query_msg()
         broadcast_msg = message.reply_to_message
@@ -351,7 +315,7 @@ Unsuccessful: <code>{unsuccessful}</code></b>"""
         await msg.delete()
 
 
-@StreamBot.on_message(filters.command("ping"))
+@Bot.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
     current_time = datetime.utcnow()
@@ -366,7 +330,7 @@ async def ping_pong(client, m: Message):
     )
 
 
-@StreamBot.on_message(filters.command("uptime"))
+@Bot.on_message(filters.command("uptime"))
 async def get_uptime(client, m: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
