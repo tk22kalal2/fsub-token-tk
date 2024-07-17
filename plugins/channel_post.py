@@ -7,13 +7,13 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from TechVJ.bot import StreamBot
 
-from config import ADMINS, CHANNEL_ID, LOGGER
+from bot import Bot
+from config import ADMINS, CHANNEL_ID, DISABLE_CHANNEL_BUTTON, LOGGER
 from helper_func import encode
 
 
-@StreamBot.on_message(
+@Bot.on_message(
     filters.private
     & filters.user(ADMINS)
     & ~filters.command(
@@ -52,7 +52,7 @@ async def channel_post(client: Client, message: Message):
         LOGGER(__name__).warning(e)
         await reply_text.edit_text("Something went Wrong..!")
         return
-    converted_id = post_message.id * abs(client.db_channel)
+    converted_id = post_message.id * abs(client.db_channel.id)
     string = f"get-{converted_id}"
     base64_string = await encode(string)
     link = f"https://t.me/{client.username}?start={base64_string}"
@@ -79,10 +79,8 @@ async def channel_post(client: Client, message: Message):
         except Exception:
             pass
 
-    
 
-
-@StreamBot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
+@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
 async def new_post(client: Client, message: Message):
 
     if DISABLE_CHANNEL_BUTTON:
@@ -105,4 +103,3 @@ async def new_post(client: Client, message: Message):
         await message.edit_reply_markup(reply_markup)
     except Exception:
         pass
-    
