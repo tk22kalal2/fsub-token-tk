@@ -15,7 +15,6 @@ from config import DB_URI as MONGO_URL
 from config import (
     ADMINS,
     CUSTOM_CAPTION,
-    DISABLE_CHANNEL_BUTTON,
     FORCE_MSG,
     PROTECT_CONTENT,
     DB_NAME,
