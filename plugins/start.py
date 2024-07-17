@@ -297,7 +297,7 @@ async def start_command(client: StreamBot, message: Message):
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
-                            [InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link')]
+                            [InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')]
                         ]
                     )
                 )
@@ -323,7 +323,7 @@ async def start_command(client: StreamBot, message: Message):
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
-                            [InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link')]
+                            [InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')]
                         ]
                     )
                 )
