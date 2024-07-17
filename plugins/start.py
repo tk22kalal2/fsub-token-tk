@@ -63,7 +63,22 @@ TIME_DURATION_UNITS = (
 import re
 
 
+async def on_callback_query(query):
+    if query.data.startswith("generate_stream_link"):
+        try:
+            user_id = query.from_user.id
+            username = query.from_user.mention
 
+            # Log the message in the LOG_CHANNEL
+            log_msg = await msg.copy(
+                chat_id=LOG_CHANNEL,
+            )
+
+            file_name = quote_plus(get_name(log_msg))
+            stream = f"{Var.URL}watch/{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
+            download = f"{Var.URL}{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
+        except Exception as e:
+            await query.message.reply_text(f"Error: {str(e)}")
 
 async def _human_time_duration(seconds):
     if seconds == 0:
@@ -225,28 +240,35 @@ async def start_command(client: StreamBot, message: Message):
         for msg in messages:
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(previouscaption="" if not msg.caption else msg.caption.html, filename=msg.document.file_name)
-            else:
-                caption = "" if not msg.caption else msg.caption.html
+                caption = CUSTOM_CAPTION.format(
+                    previouscaption=msg.caption.html if msg.caption else "",
+                    filename=msg.document.file_name,
+                )
 
-            if DISABLE_CHANNEL_BUTTON:
-                reply_markup = msg.reply_markup
             else:
-                reply_markup = None
+                caption = msg.caption.html if msg.caption else ""
 
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                log_msg = await msg.copy(chat_id=Var.BIN_CHANNEL)
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
                 await asyncio.sleep(0.5)
-                stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=stream_link)]])
-                await log_msg.edit_reply_markup(reply_markup)
-                X = await msg.reply_text(text=f"{caption} \n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, quote=True)                                                         
             except FloodWait as e:
-                print(f"Sleeping for {str(e.x)}s")
                 await asyncio.sleep(e.x)
-
-        asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
+                await msg.copy(
+                    chat_id=message.from_user.id,
+                    caption=caption,
+                    parse_mode=ParseMode.HTML,
+                    protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
+                )
+            except BaseException:
+                pass
     else:
         out = start_button(client)
         await message.reply_text(
