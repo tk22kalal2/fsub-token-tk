@@ -78,7 +78,7 @@ async def start():
     try:
         db_channel = await StreamBot.get_chat(CHANNEL_ID)
         StreamBot.db_channel = db_channel
-        test = await Bot.send_message(chat_id=db_channel.id, text="TEST")
+        test = await StreamBot.send_message(chat_id=db_channel.id, text="TEST")
         await test.delete()
         print("Bot is admin in db channel")
 
