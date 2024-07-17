@@ -247,15 +247,13 @@ async def start_command(client: StreamBot, message: Message):
 
             else:
                 caption = msg.caption.html if msg.caption else ""
-
-            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
+            
             try:
                 await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
             except FloodWait as e:
@@ -265,7 +263,6 @@ async def start_command(client: StreamBot, message: Message):
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
-                    reply_markup=reply_markup,
                 )
             except BaseException:
                 pass
