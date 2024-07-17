@@ -64,24 +64,46 @@ import re
 
 async def on_callback_query(query):
     if query.data.startswith("generate_stream_link"):
+        _, file_id = query.data.split(":")
         try:
             user_id = query.from_user.id
-            username = query.from_user.mention
+            username =  query.from_user.mention 
 
-            # Log the message in the LOG_CHANNEL
-            log_msg = await msg.copy(
+            log_msg = await client.send_cached_media(
                 chat_id=LOG_CHANNEL,
+                file_id=file_id,
             )
+            fileName = {quote_plus(get_name(log_msg))}
+            stream = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            download = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
-            file_name = quote_plus(get_name(log_msg))
-            stream = f"{Var.URL}watch/{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
-            download = f"{Var.URL}{str(log_msg.id)}/{file_name}?hash={get_hash(log_msg)}"
-            reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=stream_link)]])
+            xo = await query.message.reply_text(f'🔐')
+            await asyncio.sleep(1)
+            await xo.delete()
+
+# Don't Remove Credit Tg - @VJ_Botz
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
+# Ask Doubt on telegram @KingVJ01
             
+            await log_msg.reply_text(
+                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
+                                                    InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
+            )
+            await query.message.reply_text(
+                text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
+                                                    InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
+            )
+        except Exception as e:
+            print(e)  # print the error message
+            await query.answer(f"☣something went wrong\n\n{e}", show_alert=True)
+            return
 
-        except FloodWait as e:
-                print(f"Sleeping for {str(e.x)}s")
-                await asyncio.sleep(e.x)
             
 
 async def _human_time_duration(seconds):
