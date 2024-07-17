@@ -219,12 +219,9 @@ async def start_command(client: StreamBot, message: Message):
             await message.reply_text("Something went wrong..!")
             return
         finally:
-            await temp_msg.delete()
-
-        
+            await temp_msg.delete()        
 
         for msg in messages:
-            
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(
@@ -234,58 +231,29 @@ async def start_command(client: StreamBot, message: Message):
 
             else:
                 caption = msg.caption.html if msg.caption else ""
-            
+
+            reply_markup = msg.reply_markup if DISABLE_CHANNEL_BUTTON else None
             try:
-                # Copy the message to the user
-                h = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
+                    reply_markup=reply_markup,
                 )
-                logger.info(f"Message copied to user: {message.from_user.id}")
-
-                # Copy the message to the BIN_CHANNEL
-                log_msg = await h.copy(chat_id=Var.BIN_CHANNEL)
-                logger.info(f"Message copied to BIN_CHANNEL: {log_msg.id}")
-                
-
-                # Generate stream and download links
-                stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                logger.info(f"Stream link: {stream_link}, Download link: {online_link}")
-
-                # Send the links to the user
-                await h.reply_text(
-                    f"Stream Link: [Watch]({stream_link})\nDownload Link: [Download]({online_link})",
-                    disable_web_page_preview=True
-                )                
                 await asyncio.sleep(0.5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                
-                h = await msg.copy(
+                await msg.copy(
                     chat_id=message.from_user.id,
                     caption=caption,
                     parse_mode=ParseMode.HTML,
                     protect_content=PROTECT_CONTENT,
-                )                
-                log_msg = await h.copy(chat_id=Var.BIN_CHANNEL)
-                logger.info(f"Message copied to BIN_CHANNEL: {log_msg.id}")
-                
-
-                # Generate stream and download links
-                stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                logger.info(f"Stream link: {stream_link}, Download link: {online_link}")
-
-                # Send the links to the user
-                await h.reply_text(
-                    f"Stream Link: [Watch]({stream_link})\nDownload Link: [Download]({online_link})",
-                    disable_web_page_preview=True
+                    reply_markup=reply_markup,
                 )
             except BaseException:
                 pass
+            
     else:
         out = start_button(client)
         await message.reply_text(
