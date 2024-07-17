@@ -70,7 +70,7 @@ async def batch(client: Client, message: Message):
     for linka, msg_id in message_links:
         try:
             # Fetch the message object for the current msg_id
-            current_message = await client.get_messages(client.db_channel, msg_id)
+            current_message = await client.get_messages(client.db_channel.id, msg_id)
     
             # Determine the caption for this message
             if bool(CUSTOM_CAPTION) and current_message.document:
