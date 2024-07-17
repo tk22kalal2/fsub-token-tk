@@ -6,7 +6,7 @@ from os import getcwd
 from .custom_client import CustomClient
 
 StreamBot = CustomClient(
-    db_channel=Var.DB_CHANNEL,
+    db_channel=Var.CHANNEL_ID,
     name='Web Streamer',
     api_id=Var.API_ID,
     api_hash=Var.API_HASH,
