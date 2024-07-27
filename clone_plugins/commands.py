@@ -77,12 +77,6 @@ async def start(client, message):
     
     if len(message.command) != 2:
         buttons = [
-            [InlineKeyboardButton('MARROW', callback_data='marrow')],
-            [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
-            [InlineKeyboardButton('CEREBELLUM', callback_data='cerebellum')],
-            [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
-            [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
-            [InlineKeyboardButton('OTHERS', callback_data='others')],
             [InlineKeyboardButton('Open Website', web_app=WebAppInfo(url="https://afrahtafreeh.site"))]
         ]
         
@@ -114,12 +108,7 @@ async def start(client, message):
 @Client.on_message(filters.command("menu") & filters.incoming)
 async def menu(client, message):
     buttons = [
-        [InlineKeyboardButton('MARROW', callback_data='marrow')],
-        [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
-        [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
-        [InlineKeyboardButton('CEREBELLUM', callback_data='cerebellum')],
-        [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
-        [InlineKeyboardButton('OTHERS', callback_data='others')]
+        [InlineKeyboardButton('Open Website', web_app=WebAppInfo(url="https://afrahtafreeh.site"))]
     ]
     me2 = (await client.get_me()).mention
     reply_markup = InlineKeyboardMarkup(buttons)
