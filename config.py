@@ -41,6 +41,8 @@ BATCH_FILE_CAPTION = os.environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", ""))
 FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '')).split()]
 
+PORT = os.environ.get("PORT", "8080")
+
 # Bot token dari @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
