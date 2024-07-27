@@ -7,4 +7,5 @@ services:
     startCommand: python bot.py
     branch: aclone
     envVars:
-      PORT: 5000
+      - key: PORT
+        value: 8000
