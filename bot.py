@@ -9,6 +9,7 @@ import socket
 from tenacity import retry, wait_fixed, stop_after_attempt
 from pyrogram import Client, enums
 from pyrogram import idle
+from pyrogram.errors import FloodWait, RPCError
 from config import (
     API_HASH,
     APP_ID,
@@ -41,6 +42,9 @@ class Bot(Client):
         except socket.error as e:
             self.LOGGER(__name__).warning(f"Socket error: {e}")
             raise e
+        except RPCError as e:
+            self.LOGGER(__name__).warning(f"RPC error: {e}")
+            raise e
 
     async def start(self):
         try:
@@ -51,8 +55,12 @@ class Bot(Client):
             self.LOGGER(__name__).info(
                 f"TG_BOT_TOKEN detected!\n┌ First Name: {self.namebot}\n└ Username: @{self.username}\n——"
             )
-        except Exception as a:
-            self.LOGGER(__name__).warning(a)
+        except FloodWait as e:
+            self.LOGGER(__name__).warning(f"Flood wait error: {e}")
+            await asyncio.sleep(e.x)
+            sys.exit()
+        except RPCError as e:
+            self.LOGGER(__name__).warning(f"RPC error: {e}")
             self.LOGGER(__name__).info(
                 "Bot Stopped. Join https://t.me/CodeXBotzSupport for support"
             )
@@ -69,8 +77,12 @@ class Bot(Client):
                 self.LOGGER(__name__).info(
                     f"FORCE_SUB_CHANNEL detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
                 )
-            except Exception as a:
-                self.LOGGER(__name__).warning(a)
+            except FloodWait as e:
+                self.LOGGER(__name__).warning(f"Flood wait error: {e}")
+                await asyncio.sleep(e.x)
+                sys.exit()
+            except RPCError as e:
+                self.LOGGER(__name__).warning(f"RPC error: {e}")
                 self.LOGGER(__name__).warning(
                     "Bot can't Export Invite link from Force Sub Channel!"
                 )
@@ -93,8 +105,12 @@ class Bot(Client):
                 self.LOGGER(__name__).info(
                     f"FORCE_SUB_GROUP detected!\n┌ Title: {info.title}\n└ Chat ID: {info.id}\n——"
                 )
-            except Exception as a:
-                self.LOGGER(__name__).warning(a)
+            except FloodWait as e:
+                self.LOGGER(__name__).warning(f"Flood wait error: {e}")
+                await asyncio.sleep(e.x)
+                sys.exit()
+            except RPCError as e:
+                self.LOGGER(__name__).warning(f"RPC error: {e}")
                 self.LOGGER(__name__).warning(
                     "Bot can't Export Invite link from Force Sub Channel!"
                 )
@@ -114,8 +130,12 @@ class Bot(Client):
             self.LOGGER(__name__).info(
                 f"CHANNEL_ID Database detected!\n┌ Title: {db_channel.title}\n└ Chat ID: {db_channel.id}\n——"
             )
-        except Exception as e:
-            self.LOGGER(__name__).warning(e)
+        except FloodWait as e:
+            self.LOGGER(__name__).warning(f"Flood wait error: {e}")
+            await asyncio.sleep(e.x)
+            sys.exit()
+        except RPCError as e:
+            self.LOGGER(__name__).warning(f"RPC error: {e}")
             self.LOGGER(__name__).warning(
                 f"Make Sure @{self.username} is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}"
             )
