@@ -94,9 +94,7 @@ async def start(client, message):
             [[KeyboardButton('/menu')]], resize_keyboard=True, one_time_keyboard=True
         )
         
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
+        await message.reply(
             reply_markup=reply_keyboard
         )
         
