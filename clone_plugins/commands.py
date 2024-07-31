@@ -94,19 +94,21 @@ async def start(client, message):
             [[KeyboardButton('/menu')]], resize_keyboard=True, one_time_keyboard=True
         )
         
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
-            reply_markup=reply_keyboard
+        await client.send_message(
+            chat_id=message.chat.id,
+            reply_markup=reply_keyboard,
+            protect_content=True
         )
         
-        await message.reply_photo(
+        await client.send_photo(
+            chat_id=message.chat.id,
             photo=random.choice(PICS),
             caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
-            protect_content=PROTECT_CONTENT,
-            reply_markup=reply_markup
+            reply_markup=reply_markup,
+            protect_content=True
         )
         return
+
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
