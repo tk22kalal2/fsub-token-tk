@@ -95,7 +95,7 @@ async def start(client, message):
         reply_keyboard = ReplyKeyboardMarkup(
             [[KeyboardButton('/menu')]], resize_keyboard=True, one_time_keyboard=True
         )
-        text = f" "
+        text = f"NEXTPULSE"
         await client.send_message(
             chat_id=message.chat.id,
             text=f"{text}",
