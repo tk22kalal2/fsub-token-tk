@@ -95,11 +95,11 @@ async def start(client, message):
         reply_keyboard = ReplyKeyboardMarkup(
             [[KeyboardButton('/menu')]], resize_keyboard=True, one_time_keyboard=True
         )
-        
+        text = f" "
         await client.send_message(
             chat_id=message.chat.id,
-            text=" ",
-            reply_markup=reply_keyboard,
+            text=f"{text}",
+            reply_markup=reply_keyboard
         )
         
         await client.send_photo(
