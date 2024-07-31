@@ -33,6 +33,8 @@ logger = logging.getLogger(__name__)
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 SECONDS = int(os.getenv("SECONDS", "120"))
 
+
+
 # Initialize Telegraph
 telegraph_client = telegraph.Telegraph()
 telegraph_client.create_account(short_name='short_name')
@@ -96,7 +98,7 @@ async def start(client, message):
         
         await client.send_message(
             chat_id=message.chat.id,
-            text=none
+            text=none,
             reply_markup=reply_keyboard,
             protect_content=True
         )
