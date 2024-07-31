@@ -96,6 +96,7 @@ async def start(client, message):
         
         await client.send_message(
             chat_id=message.chat.id,
+            text="",
             reply_markup=reply_keyboard,
             protect_content=True
         )
