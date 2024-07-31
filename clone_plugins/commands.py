@@ -101,6 +101,7 @@ async def start(client, message):
         await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
+            protect_content=PROTECT_CONTENT,
             reply_markup=reply_markup
         )
         return
