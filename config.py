@@ -86,7 +86,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
-    "CLICK HERE-> /clone\nINSTRUCTIONS https://telegra.ph/INSTRUCTIONS-06-29-4",
+    "CLICK HERE-> /clone\nINSTRUCTIONS- <a href='https://telegra.ph/INSTRUCTIONS-06-29-4'>Click Here</a>",
 )
 try:
     ADMINS = [int(x) for x in (os.environ.get("ADMINS", "").split())]
