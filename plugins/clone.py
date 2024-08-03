@@ -95,23 +95,8 @@ async def delete_cloned_bot(client, message):
         logging.exception("Error while deleting cloned bot.")
         await message.reply_text("An error occurred while deleting the cloned bot.")
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-from pymongo import MongoClient
-from pyrogram import Client
-from tenacity import retry, wait_exponential, stop_after_attempt
-import asyncio
-import logging
-import socket
-
-
-
-
-@retry(wait=wait_exponential(multiplier=1, min=4, max=10), stop=stop_after_attempt(5))
-async def start_bot(ai):
-    await ai.start()
-
 async def restart_bots():
+    logging.info("Restarting all bots........")
     bots = list(mongo_db.bots.find())
     for bot in bots:
         bot_token = bot['token']
@@ -121,23 +106,14 @@ async def restart_bots():
                 bot_token=bot_token,
                 plugins={"root": "clone_plugins"},
             )
-            await start_bot(ai)
-        except (asyncio.TimeoutError, socket.error) as e:
-            # Handle socket-related exceptions and retry
-            continue
+            await ai.start()
+        except sqlite3.OperationalError as e:
+            logger.warning(f"SQLite OperationalError encountered: {e}")
+            continue  # Skip to the next bot on OperationalError
         except Exception as e:
-            # Handle specific known errors if needed, e.g., AccessTokenExpired, AccessTokenInvalid
-            if "access token expired" in str(e).lower():
-                # Handle token refresh or recovery mechanism
-                continue
-            elif "access token invalid" in str(e).lower():
-                # Handle token refresh or recovery mechanism
-                continue
+            # Suppress warnings about already connected bots from being treated as errors
+            if "already connected" in str(e):
+                continue  # Skip to the next bot if already connected
             else:
-                # Handle other unexpected errors
-                continue
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(restart_bots())
+                logger.error(f"Error while restarting bot with token {bot_token}: {e}")
+            continue
