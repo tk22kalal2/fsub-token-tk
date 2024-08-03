@@ -79,29 +79,12 @@ async def start(client, message):
     
     if len(message.command) != 2:
         buttons = [
-            [InlineKeyboardButton('MARROW', callback_data='marrow')],
-            [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
-            [InlineKeyboardButton('CEREBELLUM', callback_data='cerebellum')],
-            [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
-            [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
-            [InlineKeyboardButton('OTHERS', callback_data='others')],
             [InlineKeyboardButton('Open Website', web_app=WebAppInfo(url="https://afrahtafreeh.site/indexx.html"))]
         ]
         
         me2 = (await client.get_me()).mention
         reply_markup = InlineKeyboardMarkup(buttons)
-        
-        # Define the ReplyKeyboardMarkup
-        reply_keyboard = ReplyKeyboardMarkup(
-            [[KeyboardButton('/menu')]], resize_keyboard=True, one_time_keyboard=True
-        )
-        text = f"NEXTPULSE"
-        await client.send_message(
-            chat_id=message.chat.id,
-            text=f"{text}",
-            reply_markup=reply_keyboard
-        )
-        
+                        
         await client.send_photo(
             chat_id=message.chat.id,
             photo=random.choice(PICS),
@@ -116,25 +99,7 @@ async def start(client, message):
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-@Client.on_message(filters.command("menu") & filters.incoming)
-async def menu(client, message):
-    buttons = [
-        [InlineKeyboardButton('MARROW', callback_data='marrow')],
-        [InlineKeyboardButton('PREPLADDER 5', callback_data='prepladder')],
-        [InlineKeyboardButton('DOCTUTORAL', callback_data='doctut')],
-        [InlineKeyboardButton('CEREBELLUM', callback_data='cerebellum')],
-        [InlineKeyboardButton('DAMS', callback_data='dams'), InlineKeyboardButton('MIST', callback_data='mist')],
-        [InlineKeyboardButton('OTHERS', callback_data='others')]
-    ]
-    me2 = (await client.get_me()).mention
-    reply_markup = InlineKeyboardMarkup(buttons)
 
-    await message.reply_photo(
-        photo=random.choice(PICS),
-        caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
-        reply_markup=reply_markup
-    )
-    return
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
