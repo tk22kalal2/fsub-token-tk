@@ -79,7 +79,7 @@ async def start(client, message):
     
     if len(message.command) != 2:
         buttons = [
-            [InlineKeyboardButton('Open Website', web_app=WebAppInfo(url="https://afrahtafreeh.site/indexx.html"))]
+            [InlineKeyboardButton('Open Website', web_app=WebAppInfo(url="https://afrahtafreeh.site"))]
         ]
         
         me2 = (await client.get_me()).mention
