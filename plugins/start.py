@@ -3,6 +3,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 import re
 import os
+import random
 import asyncio
 from datetime import datetime
 from time import time
@@ -220,14 +221,14 @@ async def start_command(client: Bot, message: Message):
         finally:
             await temp_msg.delete()
 
-        import random
+        
 
         # List of possible replacement URLs
         replacement_urls = [
             "https://t.me/testingdoubletera_bot?",
-            "https://t.me/testingdoubletera1_bot?",
-            "https://t.me/testingdoubletera2_bot?",
-            "https://t.me/testingdoubletera3_bot?"
+            "https://t.me/testingclonepavo2_bot?",
+            "https://t.me/Mynextpulsembbs_bot?",
+            "https://t.me/Mynextpulsembbs1_bot?"
         ]
         
         snt_msgs = []
