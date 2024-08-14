@@ -220,15 +220,30 @@ async def start_command(client: Bot, message: Message):
         finally:
             await temp_msg.delete()
 
-        snt_msgs = []
+        import random
 
+        # List of possible replacement URLs
+        replacement_urls = [
+            "https://t.me/testingdoubletera_bot?",
+            "https://t.me/testingdoubletera1_bot?",
+            "https://t.me/testingdoubletera2_bot?",
+            "https://t.me/testingdoubletera3_bot?"
+        ]
+        
+        snt_msgs = []
+        
         for msg in messages:
             # Check and replace the specific URL pattern in the message text
             if msg.text and "https://t.me/{\"X\"}?" in msg.text:
-                msg.text = msg.text.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
+                # Choose a random URL from the list
+                replacement_url = random.choice(replacement_urls)
+                msg.text = msg.text.replace("https://t.me/{\"X\"}?", replacement_url)
+                
             if msg.caption and "https://t.me/{\"X\"}?" in msg.caption:
-                msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", "https://t.me/testingdoubletera_bot?")
-
+                # Choose a random URL from the list
+                replacement_url = random.choice(replacement_urls)
+                msg.caption = msg.caption.replace("https://t.me/{\"X\"}?", replacement_url)
+        
 
             caption = (CUSTOM_CAPTION.format(
                 previouscaption=msg.caption.html if msg.caption else "",
