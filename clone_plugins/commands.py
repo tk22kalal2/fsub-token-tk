@@ -91,8 +91,7 @@ async def start(client, message):
             chat_id=message.chat.id,
             photo=random.choice(PICS),
             caption=script.CLONE_START_TXT.format(message.from_user.mention, me2),
-            reply_markup=reply_markup,
-            protect_content=True
+            reply_markup=reply_markup
         )
         return
 
