@@ -301,7 +301,7 @@ async def start_command(client: Bot, message: Message):
             except BaseException:
                 pass
 
-        asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
+        asyncio.create_task(schedule_deletion(snt_msg, SECONDS))
     else:
         out = start_button(client)
         await message.reply_text(
