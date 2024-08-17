@@ -115,11 +115,8 @@ async def start_command(client: Bot, message: Message):
             )
             await client.send_message(
                 message.chat.id,
-                "Congratulations! Ads token refreshed successfully! \nIt will expire after 10 Hour \nClone your bot /clone \n\n<b>NOTE:-</b>DONT CLONE THE BOT TWICE, CLONE YOUR BOT ONE TIME WHICH BE ACTIVE FOREVER.",
-                reply_to_message_id=message.id,          
-                reply_markup=[
-                    InlineKeyboardButton('STEP-2 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://opposite-vilhelmina-nextpulse2-4506220f.koyeb.app/watch/9899/InShot_20240817_055131741.mp4?hash=AgADtQ"))
-                ]
+                "Congratulations! Ads token refreshed successfully! It will expire after 10 Hour \n\n<b> THIS IS STEP-2 </b>\n<b>VIDEO TUTORIAL FOR STEP-2</b> - <a href='https://opposite-vilhelmina-nextpulse2-4506220f.koyeb.app/watch/9899/InShot_20240817_055131741.mp4?hash=AgADtQ'>Click Here</a>\n\nClone your bot /clone \n\n<b>NOTE:-</b>DONT CLONE THE BOT TWICE, CLONE YOUR BOT ONE TIME WHICH BE ACTIVE FOREVER.",
+                reply_to_message_id=message.id
             )
             return
         except BaseException:
