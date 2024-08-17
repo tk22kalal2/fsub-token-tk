@@ -255,7 +255,7 @@ async def start_command(client: Bot, message: Message):
             "https://t.me/Mynextpulsembbs1_bot?"
         ]
 
-        snt_msgs 
+        snt_msgs = []
         
         for msg in messages:
             # Check and replace the specific URL pattern in the message text
