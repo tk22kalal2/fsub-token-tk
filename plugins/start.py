@@ -254,7 +254,8 @@ async def start_command(client: Bot, message: Message):
             "https://t.me/Mynextpulsembbs_bot?",
             "https://t.me/Mynextpulsembbs1_bot?"
         ]
-        
+
+        snt_msgs 
         
         for msg in messages:
             # Check and replace the specific URL pattern in the message text
@@ -286,6 +287,7 @@ async def start_command(client: Bot, message: Message):
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
+                snt_msgs.append(snt_msg)
                 
                 await record_video_request(id)
                 
@@ -298,10 +300,11 @@ async def start_command(client: Bot, message: Message):
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
+                snt_msgs.append(snt_msg)
             except BaseException:
                 pass
 
-        asyncio.create_task(schedule_deletion(snt_msg, SECONDS))
+        asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
         out = start_button(client)
         await message.reply_text(
