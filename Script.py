@@ -1,6 +1,3 @@
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
 
 
 class script(object):
@@ -37,12 +34,7 @@ Cᴜʀʀᴇɴᴛ Sʜᴏʀᴛᴇɴᴇʀ API:</b> `{shortener_api}`"""
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-    CLONE_START_TXT = """<b>ALL MEDICAL VIDEOS AVAILABLE FREE\n
-        MARROW\n
-        PREPLADDER\n
-        DAMS\n
-        DOCTUT\n
-        MIST</b>\n\nTHIS IS STEP-3 - HOW TO WATCH LECTURES"""
+    CLONE_START_TXT = """DONT CLONE THE BOT AGAIN ,THIS BOT WILL BE ACTIVE FOREVER\n\nIF YOUR CLONE BOT NOT WORKING SEND THE BOTTOKEN MESSAGE OF THIS BOT TO THE NEXTPULSE BOT AGAIN.\n\n<b>BELOW GIVEN STEP-3 VIDEO TUTORIAL- HOW TO WATCH LECTURES</b>"""
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
