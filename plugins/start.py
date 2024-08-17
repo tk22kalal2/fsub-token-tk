@@ -18,6 +18,7 @@ from config import (
     FORCE_MSG,
     PROTECT_CONTENT,
     DB_NAME,
+    DB_URI,
     START_MSG,
     API_ID,
     API_HASH,
@@ -38,7 +39,26 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db["bots"]
 
+dbclient = pymongo.MongoClient(DB_URI)
+database = dbclient[DB_NAME]
+video_requests = database["video_requests"]
 
+MAX_VIDEOS_PER_DAY = 20
+TIME_LIMIT = timedelta(hours=24)
+
+async def record_video_request(user_id: int):
+    now = datetime.utcnow()
+    video_requests.insert_one({"user_id": user_id, "timestamp": now})
+
+def has_exceeded_limit(user_id: int):
+    now = datetime.utcnow()
+    start_time = now - TIME_LIMIT
+    request_count = video_requests.count_documents({
+        "user_id": user_id,
+        "timestamp": {"$gte": start_time}
+    })
+    return request_count >= MAX_VIDEOS_PER_DAY
+    
 SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
 
 async def schedule_deletion(msgs, delay):
@@ -78,6 +98,9 @@ async def _human_time_duration(seconds):
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
     id = message.from_user.id
+    if has_exceeded_limit(id):
+        await message.reply_text("You have exceeded the limit of 20 videos in 24 hours. Please try again later.")
+        return
     if not await present_user(id):
         try:
             await add_user(id)
@@ -231,7 +254,6 @@ async def start_command(client: Bot, message: Message):
             "https://t.me/Mynextpulsembbs1_bot?"
         ]
         
-        snt_msgs = []
         
         for msg in messages:
             # Check and replace the specific URL pattern in the message text
@@ -263,7 +285,9 @@ async def start_command(client: Bot, message: Message):
                     reply_markup=reply_markup,
                 )
                 await asyncio.sleep(0.5)
-                snt_msgs.append(snt_msg)
+                
+                await record_video_request(id)
+                
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 snt_msg = await msg.copy(
@@ -273,7 +297,6 @@ async def start_command(client: Bot, message: Message):
                     protect_content=PROTECT_CONTENT,
                     reply_markup=reply_markup,
                 )
-                snt_msgs.append(snt_msg)
             except BaseException:
                 pass
 
