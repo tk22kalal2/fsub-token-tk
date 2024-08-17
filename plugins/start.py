@@ -5,8 +5,8 @@ import re
 import os
 import random
 import asyncio
-from datetime import datetime
 from time import time
+from datetime import datetime, timedelta
 from pymongo import MongoClient
 from pyrogram import Client, filters
 from bot import Bot
@@ -18,6 +18,7 @@ from config import (
     FORCE_MSG,
     PROTECT_CONTENT,
     DB_NAME,
+    DB_URII,
     START_MSG,
     API_ID,
     API_HASH,
@@ -38,6 +39,25 @@ mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
 mongo_collection = mongo_db["bots"]
 
+dbclient = pymongo.MongoClient(DB_URII)
+database = dbclient[DB_NAME]
+video_requests = database["video_requests"]
+
+MAX_VIDEOS_PER_DAY = 10
+TIME_LIMIT = timedelta(hours=12)
+
+async def record_video_request(user_id: int):
+    now = datetime.utcnow()
+    video_requests.insert_one({"user_id": user_id, "timestamp": now})
+
+def has_exceeded_limit(user_id: int):
+    now = datetime.utcnow()
+    start_time = now - TIME_LIMIT
+    request_count = video_requests.count_documents({
+        "user_id": user_id,
+        "timestamp": {"$gte": start_time}
+    })
+    return request_count >= MAX_VIDEOS_PER_DAY
 
 SECONDS = int(os.getenv("SECONDS", "10")) #add time im seconds for waitingwaiting before delete
 
