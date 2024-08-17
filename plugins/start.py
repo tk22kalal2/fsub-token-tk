@@ -139,8 +139,17 @@ async def start_command(client: Bot, message: Message):
             )
             await client.send_message(
                 message.chat.id,
-                "Congratulations! Ads token refreshed successfully! It will expire after 10 Hour \n\n<b> THIS IS STEP-2 </b>\n<b>VIDEO TUTORIAL FOR STEP-2</b> - <a href='https://opposite-vilhelmina-nextpulse2-4506220f.koyeb.app/watch/9899/InShot_20240817_055131741.mp4?hash=AgADtQ'>Click Here</a>\n\nClone your bot /clone \n\n<b>NOTE:-</b>DONT CLONE THE BOT TWICE, CLONE YOUR BOT ONE TIME WHICH BE ACTIVE FOREVER.",
-                reply_to_message_id=message.id
+                f"Congratulations! Ads token refreshed successfully! It will expire after 10 Hour \n\nClone your bot /clone \n\n<b>NOTE:-</b>DONT CLONE THE BOT TWICE, CLONE YOUR BOT ONE TIME WHICH BE ACTIVE FOREVER.\n\nBELOW GIVEN VIDEO TUTORIAL FOR STEP-2 - HOW TO CLONE YOUR OWN LECTURE BOT</b>",
+                disable_web_page_preview = True,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton('STEP-2 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://youtu.be/LnpT4AGiaGg?si=D0fBTOXPNUDnBNR6")
+                            )
+                        ]
+                    ]
+                ),
+                reply_to_message_id=message.id,
             )
             return
         except BaseException:
@@ -160,11 +169,12 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n<b>GET ALL FREE MEDICAL LECTURES</b>\n\nTo Get Free Lectures You Have To Follow Three Steps:-\nSTEP-1 - REFRESH YOUR TOKEN\nSTEP-2 - CLONE YOUR OWN BOT\nSTEP-3 - WATCH LECTURE\n\n<b>VIDEO TUTORIAL FOR STEP-1</b> - <a href='https://opposite-vilhelmina-nextpulse2-4506220f.koyeb.app/watch/9900/InShot_20240817_054425271.mp4?hash=AgADtg'>Click Here</a>  \nSTEP-1 is permanent step and you have to do after every 24 hours.Some basic instructions given below before starting step-1\n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER</b>",
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n<b>GET ALL FREE MEDICAL LECTURES</b>\n\nTo Get Free Lectures You Have To Follow Three Steps:-\nSTEP-1 - REFRESH YOUR TOKEN\nSTEP-2 - CLONE YOUR OWN BOT\nSTEP-3 - WATCH LECTURE\n\nSTEP-1 is permanent step and you have to do after every 24 hours.Some basic instructions given below before starting step-1\n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER\n\nBELOW GIVEN VIDEO TUTORIAL FOR STEP-1</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
+                            InlineKeyboardButton('STEP-1 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://youtu.be/nSokAn8S8CE?si=hvnw0y-f-0uqrD4K")),
                             InlineKeyboardButton(
                                 "Click Here To Refresh Token",
                                 url=ad_url,
