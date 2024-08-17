@@ -3,7 +3,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import pyromod.listen
-import pymongo
+
 import sys
 from tenacity import retry, wait_fixed, stop_after_attempt
 from pyrogram import Client, enums
