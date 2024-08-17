@@ -9,7 +9,8 @@ class script(object):
         PREPLADDER\n
         DAMS\n
         DOCTUT\n
-        MIST</b>"""
+        MIST</b>
+    THESE IS STEP-3 TO WATCH LECTURE"""
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
@@ -42,7 +43,8 @@ Cᴜʀʀᴇɴᴛ Sʜᴏʀᴛᴇɴᴇʀ API:</b> `{shortener_api}`"""
         PREPLADDER\n
         DAMS\n
         DOCTUT\n
-        MIST</b>"""
+        MIST</b>
+    THIS IS STEP-3 - HOW TO WATCH LECTURES"""
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
