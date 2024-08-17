@@ -144,7 +144,7 @@ async def start_command(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("STEP-2 VIDEO TUTORIAL", url="https://youtu.be/LnpT4AGiaGg?si=D0fBTOXPNUDnBNR6")
+                            InlineKeyboardButton("STEP-2 VIDEO TUTORIAL", url="https://youtu.be/LnpT4AGiaGg?si=D0fBTOXPNUDnBNR6"
                             )
                         ]
                     ]
