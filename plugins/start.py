@@ -6,7 +6,7 @@ import os
 import random
 import asyncio
 import pymongo
-from datetime import datetime
+from datetime import datetime, timedelta
 from time import time
 from pymongo import MongoClient
 from pyrogram import Client, filters
