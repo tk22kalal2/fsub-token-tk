@@ -139,7 +139,7 @@ async def start_command(client: Bot, message: Message):
             )
             await client.send_message(
                 message.chat.id,
-                f"Congratulations! Ads token refreshed successfully! It will expire after 10 Hour \n\nClone your bot /clone \n\n<b>NOTE:-</b>DONT CLONE THE BOT TWICE, CLONE YOUR BOT ONE TIME WHICH BE ACTIVE FOREVER.\n\nBELOW GIVEN VIDEO TUTORIAL FOR STEP-2 - HOW TO CLONE YOUR OWN LECTURE BOT</b>",
+                f"Congratulations! Ads token refreshed successfully! It will expire after 10 Hour \n\nClone your bot /clone \n\n<b>NOTE:-</b>DONT CLONE THE BOT TWICE, CLONE YOUR BOT ONE TIME WHICH BE ACTIVE FOREVER.\n\n<b>BELOW GIVEN VIDEO TUTORIAL FOR STEP-2 - HOW TO CLONE YOUR OWN LECTURE BOT</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
