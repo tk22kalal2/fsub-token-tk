@@ -263,8 +263,7 @@ async def start_command(client: Bot, message: Message):
         replacement_urls = [
             "https://t.me/testingdoubletera_bot?",
             "https://t.me/testingclonepavo2_bot?",
-            "https://t.me/Mynextpulsembbs_bot?",
-            "https://t.me/Mynextpulsembbs1_bot?"
+            "https://t.me/Mynextpulsembbs_bot?"
         ]
 
         snt_msgs = []
