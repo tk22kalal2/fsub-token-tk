@@ -144,7 +144,7 @@ async def start_command(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("STEP-2 VIDEO TUTORIAL", web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-2")
+                            InlineKeyboardButton('STEP-2 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-2")
                             )
                         ]
                     ]
