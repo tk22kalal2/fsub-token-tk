@@ -144,7 +144,7 @@ async def start_command(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("STEP-2 VIDEO TUTORIAL", url="https://youtu.be/LnpT4AGiaGg?si=D0fBTOXPNUDnBNR6"
+                            InlineKeyboardButton("STEP-2 VIDEO TUTORIAL", web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-2")
                             )
                         ]
                     ]
@@ -174,7 +174,7 @@ async def start_command(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("STEP-1 VIDEO TUTORIAL", url="https://youtu.be/nSokAn8S8CE?si=hvnw0y-f-0uqrD4K")],
+                            InlineKeyboardButton('STEP-1 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
                             [InlineKeyboardButton(
                                 "Click Here To Refresh Token",
                                 url=ad_url,
@@ -197,7 +197,7 @@ async def start_command(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("STEP-1 VIDEO TUTORIAL", url="https://youtu.be/nSokAn8S8CE?si=hvnw0y-f-0uqrD4K")],
+                            InlineKeyboardButton("STEP-1 VIDEO TUTORIAL", web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
                             [InlineKeyboardButton(
                                 "Click Here To Refresh Token",
                                 url=ad_url,
