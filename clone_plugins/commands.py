@@ -80,7 +80,7 @@ async def start(client, message):
         user_id = message.from_user.id
         url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"
         buttons = [
-            [InlineKeyboardButton("STEP-3", url="https://youtu.be/L5ZMMfjc1A0?si=Rkp_Cz6OzCK0nzmP")],
+            [InlineKeyboardButton('STEP-3', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-3"))],
             [InlineKeyboardButton('Open Website', web_app=WebAppInfo(url=url_with_user_id))]
         ]
         
