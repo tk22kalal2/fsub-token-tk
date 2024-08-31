@@ -44,7 +44,7 @@ dbclient = pymongo.MongoClient(DB_URI)
 database = dbclient[DB_NAME]
 video_requests = database["video_requests"]
 
-MAX_VIDEOS_PER_DAY = 20
+MAX_VIDEOS_PER_DAY = 80
 TIME_LIMIT = timedelta(hours=24)
 
 async def record_video_request(user_id: int):
