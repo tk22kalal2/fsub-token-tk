@@ -180,8 +180,9 @@ async def start_command(client: Bot, message: Message):
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        [
-                            InlineKeyboardButton('STEP-1 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
+                        [   
+                            InlineKeyboardButton("HELP & SUPPORT", url=https://t.me/talktomembbs_bot)],
+                            [InlineKeyboardButton('STEP-1 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
                             [InlineKeyboardButton(
                                 "Click Here To Refresh Token",
                                 url=ad_url,
@@ -204,7 +205,8 @@ async def start_command(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("STEP-1 VIDEO TUTORIAL", web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
+                            InlineKeyboardButton("HELP & SUPPORT", url=https://t.me/talktomembbs_bot)],
+                            [InlineKeyboardButton("STEP-1 VIDEO TUTORIAL", web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
                             [InlineKeyboardButton(
                                 "Click Here To Refresh Token",
                                 url=ad_url,
