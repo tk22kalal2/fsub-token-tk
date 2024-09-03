@@ -16,7 +16,7 @@ import sqlite3
 from pymongo import MongoClient
 import asyncio
 import socket
-
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 
 mongo_client = MongoClient(MONGO_URL)
 mongo_db = mongo_client["cloned_vjbotz"]
@@ -24,10 +24,23 @@ mongo_collection = mongo_db[DB_NAME]
 
 logger = logging.getLogger(__name__)
 
+
+
 @Client.on_message(filters.command("clone") & filters.private)
 async def clone(client, message):
-    await message.reply_text(script.CLONE_TXT)
-
+    await message.reply_text(
+        script.CLONE_TXT,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        'STEP-2 VIDEO TUTORIAL',
+                        web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-2")
+                    )
+                ]
+            ]
+        )
+    )
 
 
 @Client.on_message((filters.regex(r'\d[0-9]{8,10}:[0-9A-Za-z_-]{35}')) & filters.private)
