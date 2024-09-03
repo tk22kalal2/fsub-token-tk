@@ -107,7 +107,7 @@ async def start_command(client: Bot, message: Message):
     if not await present_user(user_id):
         # Add new user to the database and grant them a valid token for 72,000 seconds (20 hours)
         try:
-            await add_user(user_id)
+            await adds_user(user_id)
             expiration_time = get_current_time() + 72000
             query = {"user_id": user_id}
             collection.update_one(query, {"$set": {"time_out": expiration_time}}, upsert=True)
