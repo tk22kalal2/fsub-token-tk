@@ -98,8 +98,10 @@ async def _human_time_duration(seconds):
 
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
-    id = message.from_user.id
-    if has_exceeded_limit(id):
+    user_id = message.from_user.id  # Define user_id here
+
+    # Check if the user has exceeded the limit of requests
+    if has_exceeded_limit(user_id):
         await message.reply_text("You have exceeded the limit of 20 videos in 24 hours. Please try again later.")
         return
     if not await present_user(user_id):
