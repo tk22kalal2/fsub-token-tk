@@ -83,9 +83,15 @@ async def start(client, message):
             [InlineKeyboardButton('STEP-3', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-3"))],
             [InlineKeyboardButton('Open Website', web_app=WebAppInfo(url=url_with_user_id))]
         ]
+
+        reply_buttons = [
+            [KeyboardButton('Open Website', web_app=WebAppInfo(url=url_with_user_id))]
+        ]
         
         me2 = (await client.get_me()).mention
-        reply_markup = InlineKeyboardMarkup(buttons)
+        inline_reply_markup = InlineKeyboardMarkup(buttons)
+        reply_markup = ReplyKeyboardMarkup(reply_buttons, resize_keyboard=True, one_time_keyboard=True)
+
         
                         
         await client.send_photo(
