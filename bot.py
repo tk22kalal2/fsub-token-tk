@@ -119,7 +119,6 @@ class Bot(Client):
         self.LOGGER(__name__).info(
             f"[🔥 SUCCESSFULLY ACTIVATED! 🔥]"
         )
-        self.keepalive_task = asyncio.create_task(ping_server())
         await idle()
 
     async def stop(self, *args):
