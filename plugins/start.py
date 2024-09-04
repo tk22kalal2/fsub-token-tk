@@ -326,6 +326,11 @@ async def start_command(client: Bot, message: Message):
 
         asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
+        user_id = message.from_user.id
+        url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"        
+        reply_buttons = [
+            [KeyboardButton('Open Website', web_app=WebAppInfo(url=url_with_user_id))]
+        ]
         out = start_button(client)
         await message.reply_text(
             text=START_MSG.format(
@@ -337,7 +342,7 @@ async def start_command(client: Bot, message: Message):
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
-            reply_markup=InlineKeyboardMarkup(out),
+            reply_markup=reply_buttons,
             disable_web_page_preview=True,
             quote=True,
         )
