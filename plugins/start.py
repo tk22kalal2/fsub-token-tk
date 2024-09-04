@@ -326,23 +326,23 @@ async def start_command(client: Bot, message: Message):
 
         asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
-        user_id = message.from_user.id
+        # Create the custom reply button with the user_id in the URL
         url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"        
         reply_buttons = [
             [KeyboardButton('Open Website', web_app=WebAppInfo(url=url_with_user_id))]
         ]
+        reply_markupx = ReplyKeyboardMarkup(reply_buttons, resize_keyboard=True)
+
         out = start_button(client)
         await message.reply_text(
             text=START_MSG.format(
                 first=message.from_user.first_name,
                 last=message.from_user.last_name,
-                username=f"@{message.from_user.username}"
-                if message.from_user.username
-                else None,
+                username=f"@{message.from_user.username}" if message.from_user.username else None,
                 mention=message.from_user.mention,
                 id=message.from_user.id,
             ),
-            reply_markup=reply_buttons,
+            reply_markup=reply_markupx,
             disable_web_page_preview=True,
             quote=True,
         )
