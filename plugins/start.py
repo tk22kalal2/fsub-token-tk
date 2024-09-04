@@ -181,7 +181,7 @@ async def start_command(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [   
-                            InlineKeyboardButton("HELP & SUPPORT", url=https://t.me/talktomembbs_bot)],
+                            InlineKeyboardButton("HELP & SUPPORT", url="https://t.me/talktomembbs_bot")],
                             [InlineKeyboardButton('STEP-1 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
                             [InlineKeyboardButton(
                                 "Click Here To Refresh Token",
@@ -205,7 +205,7 @@ async def start_command(client: Bot, message: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("HELP & SUPPORT", url=https://t.me/talktomembbs_bot)],
+                            InlineKeyboardButton("HELP & SUPPORT", url="https://t.me/talktomembbs_bot")],
                             [InlineKeyboardButton("STEP-1 VIDEO TUTORIAL", web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
                             [InlineKeyboardButton(
                                 "Click Here To Refresh Token",
