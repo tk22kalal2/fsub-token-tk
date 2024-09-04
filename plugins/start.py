@@ -144,14 +144,15 @@ async def start_command(client: Bot, message: Message):
             collection.update_one(
                 query, {"$set": {"time_out": int(ad_msg.split(":")[1])}}, upsert=True
             )
+            url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"
             await client.send_message(
                 message.chat.id,
-                f"Congratulations! Ads token refreshed successfully! It will expire after 10 Hour \n\nClone your bot /clone \n\n<b>NOTE:-</b>DONT CLONE THE BOT TWICE, CLONE YOUR BOT ONE TIME WHICH BE ACTIVE FOREVER.\n\n<b>BELOW GIVEN VIDEO TUTORIAL FOR STEP-2 - HOW TO CLONE YOUR OWN LECTURE BOT</b>",
+                f"Congratulations! Ads token refreshed successfully! It will expire after 24 Hour \n\n</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton('STEP-2 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-2")
+                            InlineKeyboardButton('OPEN WEBSITE', web_app=WebAppInfo(url=url_with_user_id)
                             )
                         ]
                     ]
@@ -176,7 +177,7 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n<b>GET ALL FREE MEDICAL LECTURES</b>\n\nTo Get Free Lectures You Have To Follow Three Steps:-\nSTEP-1 - REFRESH YOUR TOKEN\nSTEP-2 - CLONE YOUR OWN BOT\nSTEP-3 - WATCH LECTURE\n\nSTEP-1 is permanent step and you have to do after every 24 hours.Some basic instructions given below before starting step-1\n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER\n\nBELOW GIVEN VIDEO TUTORIAL FOR STEP-1</b>",
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n<b>GET ALL FREE MEDICAL LECTURES</b>\n\nVerify your token by clicking below "CLIKE HERE TO REFRESH TOKEN"Some basic instructions given below if you have any problem in verification.\n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER\n\nBELOW GIVEN VIDEO TUTORIAL FOR STEP-1</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -200,7 +201,7 @@ async def start_command(client: Bot, message: Message):
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n<b>GET ALL FREE MEDICAL LECTURES</b>\n\nTo Get Free Lectures You Have To Follow Three Steps:-\nSTEP-1 - REFRESH YOUR TOKEN\nSTEP-2 - CLONE YOUR OWN BOT\nSTEP-3 - WATCH LECTURE\n\nSTEP-1 is permanent step and you have to do after every 24 hours.Some basic instructions given below before starting step-1\n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER\n\nBELOW GIVEN VIDEO TUTORIAL FOR STEP-1</b>",
+                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n<b>GET ALL FREE MEDICAL LECTURES</b>\n\nVerify your token by clicking below "CLIKE HERE TO REFRESH TOKEN"Some basic instructions given below if you have any problem in verification.\n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Diasable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER\n\nBELOW GIVEN VIDEO TUTORIAL FOR STEP-1</b>",
                 disable_web_page_preview = True,
                 reply_markup=InlineKeyboardMarkup(
                     [
