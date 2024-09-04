@@ -105,10 +105,10 @@ async def start_command(client: Bot, message: Message):
         await message.reply_text("You have exceeded the limit of 20 videos in 24 hours. Please try again later.")
         return
     if not await present_user(user_id):
-        # Add new user to the database and grant them a valid token for 72,000 seconds (20 hours)
+        # Add new user to the database and grant them a valid token for 86,400 seconds (24 hours)
         try:
             await adds_user(user_id)
-            expiration_time = get_current_time() + 72000
+            expiration_time = get_current_time() + 86400
             query = {"user_id": user_id}
             collection.update_one(query, {"$set": {"time_out": expiration_time}}, upsert=True)
         except Exception as e:
@@ -133,7 +133,7 @@ async def start_command(client: Bot, message: Message):
                     reply_to_message_id=message.id,
                 )
                 return
-            if int(ad_msg.split(":")[1]) > int(get_current_time() + 72000):
+            if int(ad_msg.split(":")[1]) > int(get_current_time() + 86400):
                 await client.send_message(
                     message.chat.id,
                     "Dont Try To Be Over Smart",
@@ -173,7 +173,7 @@ async def start_command(client: Bot, message: Message):
         result = collection.find_one({"user_id": uid})
         if result is None:
             temp_msg = await message.reply("Please wait...")
-            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 72000)}")
+            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 86400)}")
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
@@ -196,7 +196,7 @@ async def start_command(client: Bot, message: Message):
             return
         elif int(result["time_out"]) < get_current_time():
             temp_msg = await message.reply("Please wait...")
-            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 72000)}")
+            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 86400)}")
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
             await client.send_message(
                 message.chat.id,
