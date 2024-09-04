@@ -346,6 +346,7 @@ async def start_command(client: Bot, message: Message):
                 id=message.from_user.id,
             ),
             reply_markup=reply_markupx,
+            protect_content=True
         )
         
 
