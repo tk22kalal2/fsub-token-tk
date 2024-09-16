@@ -99,7 +99,7 @@ IF_VERIFY = False  # Set to False to skip token verification
 
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
-    user_id = message.from_user.id  # Define user_id here
+    user_id = message.from_user.id
 
     # Check if the user has exceeded the limit of requests
     if has_exceeded_limit(user_id):
@@ -116,13 +116,12 @@ async def start_command(client: Bot, message: Message):
 
     if IF_VERIFY:  # Check if verification is required
         if message.text.startswith("/start token_"):
-            user_id = message.from_user.id
             try:
                 ad_msg = b64_to_str(message.text.split("/start token_")[1])
                 if int(user_id) != int(ad_msg.split(":")[0]):
                     await client.send_message(
                         message.chat.id,
-                        "This Token Is Not For You \nor maybe you are using 2 telegram apps; if yes, then uninstall this one...",
+                        "This Token Is Not For You or maybe you are using 2 telegram apps; if yes, then uninstall this one...",
                         reply_to_message_id=message.id,
                     )
                     return
@@ -189,7 +188,7 @@ async def start_command(client: Bot, message: Message):
             await temp_msg.delete()
             return
 
-
+    
     text = message.text
     if len(text) > 7:
         try:
