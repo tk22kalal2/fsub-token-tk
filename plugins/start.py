@@ -95,7 +95,7 @@ async def _human_time_duration(seconds):
             parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
-IF_VERIFY = False  # Set this to False to skip token verification
+IF_VERIFY = False  # Set to False to skip token verification
 
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
@@ -105,6 +105,7 @@ async def start_command(client: Bot, message: Message):
     if has_exceeded_limit(user_id):
         await message.reply_text("You have exceeded the limit of 20 videos in 24 hours. Please try again later.")
         return
+
     if not await present_user(user_id):
         # Add new user to the database and grant them a valid token for 86,400 seconds (24 hours)
         try:
@@ -121,21 +122,21 @@ async def start_command(client: Bot, message: Message):
                 if int(user_id) != int(ad_msg.split(":")[0]):
                     await client.send_message(
                         message.chat.id,
-                        "This Token Is Not For You \nor maybe you using 2 telegram apps if yes then uninstall this one...",
+                        "This Token Is Not For You \nor maybe you are using 2 telegram apps; if yes, then uninstall this one...",
                         reply_to_message_id=message.id,
                     )
                     return
                 if int(ad_msg.split(":")[1]) < get_current_time():
                     await client.send_message(
                         message.chat.id,
-                        "Token Expired Regenerate A New Token",
+                        "Token Expired. Regenerate A New Token.",
                         reply_to_message_id=message.id,
                     )
                     return
                 if int(ad_msg.split(":")[1]) > int(get_current_time() + 86400):
                     await client.send_message(
                         message.chat.id,
-                        "Dont Try To Be Over Smart",
+                        "Don't Try To Be Over Smart.",
                         reply_to_message_id=message.id,
                     )
                     return
@@ -146,14 +147,11 @@ async def start_command(client: Bot, message: Message):
                 url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"
                 await client.send_message(
                     message.chat.id,
-                    f"Congratulations! Ads token refreshed successfully! It will expire after 24 Hour \n\n</b>",
+                    "Congratulations! Ads token refreshed successfully! It will expire after 24 hours.\n\n</b>",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [
-                            [
-                                InlineKeyboardButton('OPEN WEBSITE', web_app=WebAppInfo(url=url_with_user_id)
-                                )
-                            ]
+                            [InlineKeyboardButton('OPEN WEBSITE', web_app=WebAppInfo(url=url_with_user_id))]
                         ]
                     ),
                     reply_to_message_id=message.id,
@@ -162,15 +160,16 @@ async def start_command(client: Bot, message: Message):
             except BaseException:
                 await client.send_message(
                     message.chat.id,
-                    "Invalid Token",
+                    "Invalid Token.",
                     reply_to_message_id=message.id,
                 )
                 return
-    # Token verification skipped if IF_VERIFY is False
+
+    # Token verification is skipped if IF_VERIFY is False
     uid = message.from_user.id
     if uid not in ADMINS:
         result = collection.find_one({"user_id": uid})
-        if result is None:
+        if result is None or int(result["time_out"]) < get_current_time():
             temp_msg = await message.reply("Please wait...")
             ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 86400)}")
             ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
@@ -182,40 +181,14 @@ async def start_command(client: Bot, message: Message):
                     [
                         [InlineKeyboardButton("HELP & SUPPORT", url="https://t.me/talktomembbs_bot")],
                         [InlineKeyboardButton('STEP-1 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
-                        [InlineKeyboardButton(
-                            "Click Here To Refresh Token",
-                            url=ad_url,
-                        )]
+                        [InlineKeyboardButton("Click Here To Refresh Token", url=ad_url)]
                     ]
                 ),
                 reply_to_message_id=message.id,
             )
-
             await temp_msg.delete()
             return
-        elif int(result["time_out"]) < get_current_time():
-            temp_msg = await message.reply("Please wait...")
-            ad_code = str_to_b64(f"{uid}:{str(get_current_time() + 86400)}")
-            ad_url = shorten_url(f"https://telegram.dog/{client.username}?start=token_{ad_code}")
-            await client.send_message(
-                message.chat.id,
-                f"Hey 👨‍⚕️ Dr.<b>{message.from_user.mention}</b> \n<b>GET ALL FREE MEDICAL LECTURES</b>\n\nVerify your token by clicking below \"CLICK HERE TO REFRESH TOKEN\". Some basic instructions are given below if you have any problem in verification.\n\n<b>STEPS :- </b> \n1. Make Google Chrome as your default browser - <a href='https://t.me/c/2045440584/7'>Click Here</a> \n2. Disable Your AD Blocker ✋- <a href='https://t.me/c/2045440584/10'>Click Here</a> \n3. How to Verify - <a href='https://t.me/c/2045440584/9'>Telegraph</a> or <a href='https://t.me/c/2045440584/8'>Watch Here</a> \nTELEGRAPH - <a href='https://graph.org/HOW-TO-VERIFY-11-08-2'>Click Here</a> \n\n<b>APPLE/IPHONE USERS COPY TOKEN LINK AND OPEN IN CHROME BROWSER\n\nBELOW GIVEN VIDEO TUTORIAL FOR STEP-1</b>",
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [InlineKeyboardButton("HELP & SUPPORT", url="https://t.me/talktomembbs_bot")],
-                        [InlineKeyboardButton('STEP-1 VIDEO TUTORIAL', web_app=WebAppInfo(url="https://sites.google.com/view/mynextpulse/step-1"))],
-                        [InlineKeyboardButton(
-                            "Click Here To Refresh Token",
-                            url=ad_url,
-                        )]
-                    ]
-                ),
-                reply_to_message_id=message.id,
-            )
 
-            await temp_msg.delete()
-            return
 
     text = message.text
     if len(text) > 7:
