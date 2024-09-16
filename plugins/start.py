@@ -95,7 +95,7 @@ async def _human_time_duration(seconds):
             parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
-IF_VERIFY = True  # Set this to False to skip token verification
+IF_VERIFY = False  # Set this to False to skip token verification
 
 async def handle_verification(client, message):
     """Handle token verification."""
