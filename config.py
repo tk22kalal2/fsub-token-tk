@@ -86,7 +86,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 # Pesan Awalan /start
 START_MSG = os.environ.get(
     "START_MESSAGE",
-    "NEW USER WILL BE SKIP FOR FIRST STEP,\n\nJOIN THE GROUP\n\nFIRST YEAR STUDENTS - <a href='https://t.me/firstyearmbbsNEXT'>Click Here</a>\nSECOND YEAR STUDENTS - <a href='https://t.me/secondyearmbbsNEXT'>Click Here</a>\nTHIRD YEAR STUDENTS - <a href='https://t.me/thirdyearmbbsNEXT'>Click Here</a>\nFINAL YEAR STUDENTS - <a href='https://t.me/finalyearmbbsNEXT'>Click Here</a></b>",
+    "JUST CLICK ON OPEN WEBSITE AND GET FREE LECTURES,\n\nJOIN THE WHATSAPP CHANNEL - <a href='https://whatsapp.com/channel/0029Va5goUJKmCPMfqMeso1D'>Click Here</a>\nJOIN MAIN CHANNEL - <a href='https://t.me/mynextpulse'>Click Here</a>\nJOIN BACKUP CHANNEL - <a href='https://t.me/+QiCvb-5pEJU1Mzc1'>Click Here</a>",
 )
 try:
     ADMINS = [int(x) for x in (os.environ.get("ADMINS", "").split())]
