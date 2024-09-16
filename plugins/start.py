@@ -95,6 +95,7 @@ async def _human_time_duration(seconds):
             parts.append(f'{amount} {unit}{"" if amount == 1 else "s"}')
     return ", ".join(parts)
 
+IF_VERIFY = True  # Set this to False to skip token verification
 
 @Bot.on_message(filters.command("start") & filters.private & subsall & subsch & subsgc)
 async def start_command(client: Bot, message: Message):
@@ -115,59 +116,60 @@ async def start_command(client: Bot, message: Message):
             await message.reply_text(f"An error occurred: {e}")
             return
 
-    if message.text.startswith("/start token_"):
-        user_id = message.from_user.id
-        try:
-            ad_msg = b64_to_str(message.text.split("/start token_")[1])
-            if int(user_id) != int(ad_msg.split(":")[0]):
+    if IF_VERIFY:  # Check if verification is required
+        if message.text.startswith("/start token_"):
+            user_id = message.from_user.id
+            try:
+                ad_msg = b64_to_str(message.text.split("/start token_")[1])
+                if int(user_id) != int(ad_msg.split(":")[0]):
+                    await client.send_message(
+                        message.chat.id,
+                        "This Token Is Not For You \nor maybe you using 2 telegram apps if yes then uninstall this one...",
+                        reply_to_message_id=message.id,
+                    )
+                    return
+                if int(ad_msg.split(":")[1]) < get_current_time():
+                    await client.send_message(
+                        message.chat.id,
+                        "Token Expired Regenerate A New Token",
+                        reply_to_message_id=message.id,
+                    )
+                    return
+                if int(ad_msg.split(":")[1]) > int(get_current_time() + 86400):
+                    await client.send_message(
+                        message.chat.id,
+                        "Dont Try To Be Over Smart",
+                        reply_to_message_id=message.id,
+                    )
+                    return
+                query = {"user_id": user_id}
+                collection.update_one(
+                    query, {"$set": {"time_out": int(ad_msg.split(":")[1])}}, upsert=True
+                )
+                url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"
                 await client.send_message(
                     message.chat.id,
-                    "This Token Is Not For You \nor maybe you using 2 telegram apps if yes then uninstall this one...",
-                    reply_to_message_id=message.id,
-                )
-                return
-            if int(ad_msg.split(":")[1]) < get_current_time():
-                await client.send_message(
-                    message.chat.id,
-                    "Token Expired Regenerate A New Token",
-                    reply_to_message_id=message.id,
-                )
-                return
-            if int(ad_msg.split(":")[1]) > int(get_current_time() + 86400):
-                await client.send_message(
-                    message.chat.id,
-                    "Dont Try To Be Over Smart",
-                    reply_to_message_id=message.id,
-                )
-                return
-            query = {"user_id": user_id}
-            collection.update_one(
-                query, {"$set": {"time_out": int(ad_msg.split(":")[1])}}, upsert=True
-            )
-            url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"
-            await client.send_message(
-                message.chat.id,
-                f"Congratulations! Ads token refreshed successfully! It will expire after 24 Hour \n\n</b>",
-                disable_web_page_preview = True,
-                reply_markup=InlineKeyboardMarkup(
-                    [
+                    f"Congratulations! Ads token refreshed successfully! It will expire after 24 Hour \n\n</b>",
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup(
                         [
-                            InlineKeyboardButton('OPEN WEBSITE', web_app=WebAppInfo(url=url_with_user_id)
-                            )
+                            [
+                                InlineKeyboardButton('OPEN WEBSITE', web_app=WebAppInfo(url=url_with_user_id)
+                                )
+                            ]
                         ]
-                    ]
-                ),
-                reply_to_message_id=message.id,
-            )
-            return
-        except BaseException:
-            await client.send_message(
-                message.chat.id,
-                "Invalid Token",
-                reply_to_message_id=message.id,
-            )
-            return
-
+                    ),
+                    reply_to_message_id=message.id,
+                )
+                return
+            except BaseException:
+                await client.send_message(
+                    message.chat.id,
+                    "Invalid Token",
+                    reply_to_message_id=message.id,
+                )
+                return
+    # Token verification skipped if IF_VERIFY is False
     uid = message.from_user.id
     if uid not in ADMINS:
         result = collection.find_one({"user_id": uid})
