@@ -277,7 +277,7 @@ async def start_command(client: Bot, message: Message):
         asyncio.create_task(schedule_deletion(snt_msgs, SECONDS))
     else:
         # Create the custom reply button with the user_id in the URL
-        url_with_user_id = f"https://afrahtafreeh.site?user.id={user_id}"        
+        url_with_user_id = f"https://www.google.com/search?q=afrahtafreeh+site&oq=afrahtafreeh+site?user.id={user_id}"        
         reply_buttons = [
             [KeyboardButton('Open Website', web_app=WebAppInfo(url=url_with_user_id))]
         ]
